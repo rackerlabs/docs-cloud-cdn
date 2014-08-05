@@ -1,0 +1,5 @@
+<books xmlns="http://docs.rackspace.com/olink">
+  <book path="src/docbkx/cdn-devguide.xml"/>
+  <book path="src/docbkx/cdn-gettingstarted.xml"/>
+  <book path="src/docbkx/cdn-releasenotes.xml"/>
+</books>
