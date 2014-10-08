@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- (C) 2012-2014 OpenStack Foundation, All Rights Reserved  -->
+
+<!-- <!DOCTYPE application [<!ENTITY % common  SYSTEM "../wadl/common.ent">
+    %common;]> -->
+    
+<application xmlns="http://wadl.dev.java.net/2009/02"
+	xmlns:wadl="http://wadl.dev.java.net/2009/02"
+	xmlns:xi="http://www.w3.org/2001/XInclude"
+	xmlns:xlink="http://www.w3.org/1999/xlink"
+	xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+	xmlns:raxapi="http://docs.rackspace.com/volume/api/v1"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:cdn="http://docs.openstack.org/database/api/v1.0"		
+	xmlns:imageapi="http://docs.openstack.org/image/api/v2.0" 
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:csapi="http://docs.openstack.org/compute/api/v2" 
+	xmlns:common="http://docs.openstack.org/common/api/v1.0">	
+	
+
+<!--*******************************************************-->
+<!--             All resources                             -->
+<!--*******************************************************-->
+	<resources base="https://global.cdn.api.rackspacecloud.com/">
+		<resource id="version" path="/">
+<!--
+				<resource id="projectID" path="{project_id}">
+				<param name="project_id" style="template" type="xsd:string"> 
+				<wadl:doc xmlns="http://docbook.org/ns/docbook"
+					xml:lang="EN">The unique identifier for the user. If you do not set the 
+					X-Project-Id header, use project_id as the first parameter before the request path. 
+					For example: GET https://global.cdn.api.rackspacecloud.com/{project_id}/v1.0/ </wadl:doc></param> 
+-->
+			<method href="#getHomeDocument"/>
+			
+			<resource id="health" path="health">
+			    <method href="#getHealthCheck"/>
+				<resource id="subsystem" path="{subsystem}">
+					<param name="subsystem" style="template" type="xsd:string"> 
+						<wadl:doc 
+							xmlns="http://docbook.org/ns/docbook"
+							xml:lang="EN"><para>The unique identifier for the user.</para> </wadl:doc>
+					</param>
+				    <method href="#getHealthDetails"/>				                
+				</resource>	
+			</resource>
+			
+			<resource id="ping" path="ping"> 	
+			    <method href="#getPing"/> 
+			</resource>
+			   	
+			<resource id="services" path="services">
+				<method href="#getAllServices"/>
+			</resource>
+							<!--	<resource id="queue_name" path="{queue_name}">
+					<param name="queue_name" style="template"
+						type="xsd:string">
+						<wadl:doc
+							xmlns="http://docbook.org/ns/docbook"
+							xml:lang="EN"><para>The name of the
+								queue. <code>queue_name</code> is the name that you
+								give to the queue. The name must not exceed 64
+								bytes in length, and it is limited to US-ASCII
+								letters, digits, underscores, and hyphens.</para> </wadl:doc>
+					</param>
+					<method href="#createQueue"/>
+					<method href="#deleteQueue"/>
+					<method href="#checkQueueExists"/>
+					<resource id="metadata" path="metadata">
+						<method href="#setQueueMetadata"/>
+						<method href="#getQueueMetadata"/>
+					</resource>
+					<resource id="stats" path="stats">
+						<method href="#getQueueStats"/>
+					</resource>
+					<resource id="messages" path="messages">
+						<method href="#postMessage"/>
+						<method href="#getMessages"/>
+						<method href="#getSetMessagesByID"/>
+						<method href="#deleteMessages"/>
+						<resource id="messageId" path="{messageId}">
+							<param name="messageId" style="template"
+								type="xsd:string">
+								<wadl:doc
+								xmlns="http://docbook.org/ns/docbook"
+								xml:lang="EN"><para>The message
+								ID.</para></wadl:doc>
+							</param>
+							<method href="#getSpecificMessage"/>
+							<method href="#deleteMessage"/>
+						</resource>
+					</resource>
+					<resource id="claims" path="claims">
+						<method href="#claimMessages"/>
+						<resource id="claimId" path="{claimId}">
+							<param name="claimId" style="template"
+								type="xsd:string">
+								<wadl:doc
+								xmlns="http://docbook.org/ns/docbook"
+								xml:lang="EN"><para>The claim
+								ID.</para></wadl:doc>
+							</param>
+							<method href="#queryClaim"/>
+							<method href="#updateClaim"/>
+							<method href="#deleteClaim"/> -->
+						</resource>
+
+ 
+ 
+ 
+	
+	</resources>
+<!--*******************************************************-->
+<!--               All methods                             -->
+<!--*******************************************************-->
+<!--*******************************************************-->
+<!--              Base methods                             -->
+<!--*******************************************************-->	
+<!--*******************************************************-->
+<!--               Get home document                       -->
+<!--*******************************************************-->
+	<method name="GET" id="getHomeDocument">
+		<wadl:doc xml:lang="EN" title="Get home document"
+			xmlns="http://docbook.org/ns/docbook">
+			<para role="shortdesc">Gets the home document.</para>
+			<para>This operation gets the home document, which allows you to navigate the remainder of the API.</para>
+			<para>The entire API is discoverable from a single
+				starting point, the home document. To explore the
+				entire API, you need to know only this one URI. </para>
+			
+			<para>The home document schema is currently not ratified in OpenStack and may change. For more information about home documents, see <link
+					xlink:href="http://tools.ietf.org/html/draft-nottingham-json-home-03"
+				>Home Documents for HTTP APIs</link>.</para>			
+		</wadl:doc>
+		<request>
+			<representation mediaType="application/json" >
+				<doc>
+					<xsdxt:code href="../wadl/samples/cdn-getHomeDocument_request-json-http.txt"/>
+				</doc>
+			</representation>
+		</request>
+		<response status="200" xmlns="http://wadl.dev.java.net/2009/02">
+			<doc title="OK" xml:lang="EN">Success.</doc>
+			<representation mediaType="application/json">
+				<wadl:doc xmlns="http://docbook.org/ns/docbook"
+					xml:lang="EN">
+					<xsdxt:code
+						href="../wadl/samples/cdn-getHomeDocument_response-json-http.txt"
+					/>
+					<xsdxt:code
+						href="../wadl/samples/cdn-getHomeDocument_response.json"
+					/>
+				</wadl:doc>
+			</representation>
+		</response>
+	</method>
+<!--*******************************************************-->
+<!--               Get health check                        -->
+<!--*******************************************************-->
+	<method name="GET" id="getHealthCheck">
+		<wadl:doc xml:lang="EN" title="Get health check"
+			xmlns="http://docbook.org/ns/docbook">
+			<para role="shortdesc">Gets the health check.</para>
+			<para>This operation gets the health check. </para>			
+		</wadl:doc>
+		<request>
+			<representation mediaType="application/json" >
+				<doc>
+					<xsdxt:code href="../wadl/samples/cdn-getHealthCheck_request-json-http.txt"/>
+				</doc>
+			</representation>
+		</request>
+		<response status="200" xmlns="http://wadl.dev.java.net/2009/02">
+			<doc title="OK" xml:lang="EN">Success.</doc>
+			<representation mediaType="application/json">
+				<wadl:doc xmlns="http://docbook.org/ns/docbook"
+					xml:lang="EN">
+					<xsdxt:code
+						href="../wadl/samples/cdn-getHealthCheck1_response-json-http.txt"
+					/>
+					<xsdxt:code
+						href="../wadl/samples/cdn-getHealthCheck1_response.json"
+					/>
+					<xsdxt:code
+						href="../wadl/samples/cdn-getHealthCheck2_response-json-http.txt"
+					/>
+					<xsdxt:code
+						href="../wadl/samples/cdn-getHealthCheck2_response.json"
+					/>
+				</wadl:doc>
+			</representation>
+		</response>
+		<response status="503" xmlns="http://wadl.dev.java.net/2009/02">
+			<doc title="Service Unavailable" xml:lang="EN">The service is temporarily unavailable (for example, for scheduled
+				platform maintenance). Try again later.</doc>			
+		</response>
+	</method>	
+<!--*******************************************************-->
+<!--               Get health details                      -->
+<!--*******************************************************-->
+	<method name="GET" id="getHealthDetails">
+		<wadl:doc xml:lang="EN" title="Get health details"
+			xmlns="http://docbook.org/ns/docbook">
+			<para role="shortdesc">Gets the health details.</para>
+			<para>This operation gets the health details. </para>
+					
+		</wadl:doc>
+		<request>
+			<representation mediaType="application/json" >
+				<doc>
+					<xsdxt:code href="../wadl/samples/cdn-getHomeDocument_request-json-http.txt"/>
+				</doc>
+			</representation>
+		</request>
+		<response status="200" xmlns="http://wadl.dev.java.net/2009/02">
+			<doc title="OK" xml:lang="EN">Success.</doc>
+			<representation mediaType="application/json">
+				<wadl:doc xmlns="http://docbook.org/ns/docbook"
+					xml:lang="EN">
+					<xsdxt:code
+						href="../wadl/samples/cdn-getHomeDocument_response-json-http.txt"
+					/>
+					<xsdxt:code
+						href="../wadl/samples/cdn-getHomeDocument_response.json"
+					/>
+				</wadl:doc>
+			</representation>
+		</response>
+	</method>
+<!--*******************************************************-->
+<!--               Get ping                                -->
+<!--*******************************************************-->
+	<method name="GET" id="getPing">
+		<wadl:doc xml:lang="EN" title="Get ping"
+			xmlns="http://docbook.org/ns/docbook">
+			<para role="shortdesc">Gets ping.</para>
+			<para>This operation pings the server. </para>
+			
+		</wadl:doc>
+		<request>
+			<representation mediaType="application/json" >
+				<doc>
+					<xsdxt:code href="../wadl/samples/cdn-getPing_request-json-http.txt"/>
+				</doc>
+			</representation>
+		</request>
+		<response status="204" xmlns="http://wadl.dev.java.net/2009/02">
+			<doc title="No Content" xml:lang="EN">Success.</doc>
+			<representation mediaType="application/json">
+				<wadl:doc xmlns="http://docbook.org/ns/docbook"
+					xml:lang="EN">
+					<xsdxt:code
+						href="../wadl/samples/cdn-getPing_response-json-http.txt"
+					/>
+					<xsdxt:code
+						href="../wadl/samples/cdn-getPing_response.json"
+					/>
+				</wadl:doc>
+			</representation>
+		</response>
+	</method>	
+<!--*******************************************************-->
+<!--              Services methods                         -->
+<!--*******************************************************-->	
+<!--*******************************************************-->
+<!--               List all services                       -->
+<!--*******************************************************-->
+	<method name="GET" id="getAllServices">
+		<wadl:doc xml:lang="EN" title="List all services"
+			xmlns="http://docbook.org/ns/docbook">
+			<para role="shortdesc">Gets the home document.</para>
+			<para>This operation lists all available services. </para>			
+		</wadl:doc>
+		<request>
+			<param name="marker" style="query" type="xsd:string"
+				required="false">
+				<wadl:doc xmlns="http://docbook.org/ns/docbook"
+					xml:lang="EN">Specifies the <code>marker</code> that represents
+				the last services listed.</wadl:doc>
+			</param>
+			<param name="limit" style="query" type="xsd:integer"
+				required="false">
+				<wadl:doc xmlns="http://docbook.org/ns/docbook"
+					xml:lang="EN">Specifies the number of resources to list. The default
+					maximum limit is 20, but is configurable by the operator.
+				</wadl:doc>
+			</param>
+			<representation mediaType="application/json" >
+				<doc>
+					<xsdxt:code href="../wadl/samples/cdn-getHomeDocument_request-json-http.txt"/>
+				</doc>
+			</representation>
+		</request>
+		<response status="200" xmlns="http://wadl.dev.java.net/2009/02">
+			<doc title="OK" xml:lang="EN">Success or no services to return when there is an empty list of services.</doc>
+			<representation mediaType="application/json">
+				<wadl:doc xmlns="http://docbook.org/ns/docbook"
+					xml:lang="EN">
+					<xsdxt:code
+						href="../wadl/samples/cdn-getHomeDocument_response-json-http.txt"
+					/>
+					<xsdxt:code
+						href="../wadl/samples/cdn-getHomeDocument_response.json"
+					/>
+				</wadl:doc>
+			</representation>
+		</response>
+		<response status="400" xmlns="http://wadl.dev.java.net/2009/02">
+			<doc title="Bad Request" xml:lang="EN">Invalid limit value (string, less than or equal to 0, 1000000000) or the limit value is greated than the maximum allowed, which defaults to 20.</doc>			
+		</response>
+	</method>	
+</application>

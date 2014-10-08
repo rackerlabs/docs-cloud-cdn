@@ -1,4 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE book [
+        <!-- Some useful entities borrowed from HTML -->
+        <!ENTITY ndash  "&#x2013;">
+        <!ENTITY mdash  "&#x2014;">
+        <!ENTITY hellip "&#x2026;">
+        
+        <!-- Useful for describing APIs -->
+        <!ENTITY GET    '<command xmlns="http://docbook.org/ns/docbook">GET</command>'>
+        <!ENTITY PUT    '<command xmlns="http://docbook.org/ns/docbook">PUT</command>'>
+        <!ENTITY POST   '<command xmlns="http://docbook.org/ns/docbook">POST</command>'>
+        <!ENTITY DELETE '<command xmlns="http://docbook.org/ns/docbook">DELETE</command>'>
+        
+        <!-- changing authentication endpoints; define entities for US & UK rather than maintaining in text -->
+        <!ENTITY ENDPOINT-US "https://identity.api.rackspacecloud.com/v1.1/">
+        <!ENTITY ENDPOINT-UK "https://lon.identity.api.rackspacecloud.com/v1.1/">
+        <!ENTITY ENDPOINT-US-20 "https://identity.api.rackspacecloud.com/v2.0/">
+        <!ENTITY ENDPOINT-UK-20 "https://lon.identity.api.rackspacecloud.com/v2.0/">
+        
+        <!ENTITY CHECK  '<inlinemediaobject xmlns="http://docbook.org/ns/docbook">
+                 <imageobject>
+                  <imagedata fileref="img/Check_mark_23x20_02.svg"
+                             format="SVG" scale="60"/>
+                </imageobject>
+              </inlinemediaobject>'>
+              
+        <!ENTITY ARROW  '<inlinemediaobject xmlns="http://docbook.org/ns/docbook">
+                 <imageobject>
+                  <imagedata fileref="img/Arrow_east.svg"
+                             format="SVG" scale="60"/>
+                </imageobject>
+              </inlinemediaobject>'>
+]>
   <book  
     xmlns="http://docbook.org/ns/docbook" 
     xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -6,54 +38,26 @@
     xmlns:svg="http://www.w3.org/2000/svg"
     version="5.0" 
     xml:id="cdn-devguide"
-    status="DRAFT">
-    <title>Rackspace Cloud CDN API Developer Guide</title>
-    <?rax canonical.url.base="http://docs.rackspace.com/cdn/api/v1.0/cdn-devguide/content"?>
+    status=" ">
+    <title>Rackspace CDN Developer Guide</title>
+    <?rax  
+     status.bar.text.font.size="40px"
+     status.bar.text="Early Access - Draft"
+      canonical.url.base="http://docs.rackspace.com/cdn/api/v1.0/cdn-devguide/content"?>
+    <titleabbrev>CDN Developer Guide</titleabbrev>
   <info>
     <copyright>
-      <year>2013</year>
+      <year>2014</year>
       <holder>Rackspace US, Inc.</holder>
     </copyright>
-    <releaseinfo>API v1.0</releaseinfo>
-    <productname>Rackspace Cloud CDN</productname><!--Note that the <productname> text matches the first few words of the title. The build system splits the title into productname + rest of title on the pdf cover.-->
+    <releaseinfo>API v1.0 Early Access</releaseinfo>
+    <productname>Rackspace CDN</productname><!--Note that the <productname> text matches the first few words of the title. The build system splits the title into productname + rest of title on the pdf cover.-->
     <pubdate><!--If you leave the <pubdate> element empty, the build system inserts today's date automatically. --></pubdate>
     <revhistory>
       <revision>
-        <date>2011-03-01</date>
+        <date>2014-11-01</date>
         <revdescription>
-          <para>This is the revision history section. The technical
-            writer updates this section when major changes are made to
-            the doc to indicate what changed. Typically this will
-            include links into the body of the document. From this
-            element we generate the list in <xref
-              linkend="change_history"/> as well as the atom feed for
-            the document an <link xlink:href="../atom.xml">atom feed</link> for the document.
-              <itemizedlist spacing="compact">
-              <listitem>
-                <para>Itemized lists are useful constructs for improving the readability of documents.</para>
-              </listitem>
-              <listitem>
-                <para>One way that itemized lists improve readablity
-                  is by adding whitespace between the list
-                  items.</para>
-              </listitem>
-              <listitem>
-                <para>Dates should be in the format YYYY-MM-DD.
-                </para>
-              </listitem>
-            </itemizedlist></para>
-        </revdescription>
-      </revision>
-      <revision>
-        <date>2011-02-02</date>
-        <revdescription>
-          <para>This release fixed several bugs and, no doubt,
-            introduced some new ones. Etiam eros ipsum, tempor ut
-            laoreet nec, adipiscing vel eros. Integer sit amet nibh
-            iaculis sapien sagittis blandit. Quisque vel lectus felis,
-            vel congue lorem. Pellentesque vitae elit id sem faucibus
-            ornare. Ut dictum dapibus quam, in scelerisque quam tempus
-            sit amet. </para>
+          <para>Initial Early Access (EA) release.</para>
         </revdescription>
       </revision>
     </revhistory>
@@ -62,27 +66,24 @@
         <remark>Copyright details are filled in by the build system.</remark>
       </annotation>
     </legalnotice>
+    <abstract >
+      <para>This document is intended for software developers interested in developing applications
+        using the Rackspace CDN Application Programming Interface (<abbrev>API</abbrev>). </para>
+    </abstract>
     <!-- 
        The values in raxm:metadata are used to control where the content appears on the landing page in docs.rackspace.com.
        Work with the Cloud Doc Tools team to find out what to put here. Once established, you should not change these
        values without first consulting with the CDT team.
     -->
-      <raxm:metadata xmlns:raxm="http://docs.rackspace.com/api/metadata">
+      <raxm:metadata role="hidden" xmlns:raxm="http://docs.rackspace.com/api/metadata">
         <raxm:displayname>API Developer Guide</raxm:displayname>
         <raxm:product version="v1.0">cdn</raxm:product>
         <raxm:priority>20</raxm:priority>
       </raxm:metadata>
   </info>
-  <preface xml:id="preface">
+<!--  <preface xml:id="preface">
     <title>Preface</title>
-    <para>Ipsum lorem lacus suscipit nunc, in consequat tortor turpis
-      vel nibh. Nulla eros nulla, iaculis vel laoreet at, consectetur
-      vitae massa. Praesent in imperdiet urna. Etiam commodo hendrerit
-      tincidunt. Aliquam non tortor lectus, sit amet laoreet tortor.
-      Vivamus sit amet tempor lorem. Fusce aliquam, lacus et eleifend
-      auctor, augue justo consectetur risus, a congue arcu mi a velit.
-      Donec lectus est, egestas eget laoreet a, accumsan ornare erat.
-      Suspendisse sed nulla ligula.</para>
+    <para></para>
     <section xml:id="section_eow_tmw_ad">
       <title>Intended Audience</title>
       <para>This document is intended for technical writers and
@@ -96,20 +97,8 @@
           <para>Basic XML </para>
         </listitem>
       </itemizedlist>
-      <para>Maecenas euismod, lectus vitae tincidunt sollicitudin, est
-        lacus suscipit nunc, in consequat tortor turpis vel nibh.
-        Nulla eros nulla, iaculis vel laoreet at, consectetur vitae
-        massa. Praesent in imperdiet urna. Etiam commodo hendrerit
-        tincidunt. Aliquam non tortor lectus, sit amet laoreet tortor.
-        Vivamus sit amet tempor lorem. Fusce aliquam, lacus et
-        eleifend auctor, augue justo consectetur risus, a congue arcu
-        mi a velit. Donec lectus est, egestas eget laoreet a, accumsan
-        ornare erat. Suspendisse sed nulla ligula.</para>
-      <para>Maecenas euismod, <link
-          xlink:href="http://www.rackspace.com">lectus</link> vitae
-        tincidunt sollicitudin, est lacus suscipit nunc, in consequat
-        tortor turpis vel nibh. Nulla eros nulla, iaculis vel laoreet
-        at, consectetur vitae massa. </para>
+      <para></para>
+      <para> </para>
     </section>
     <section xml:id="change_history">
       <title>Document Change History</title>
@@ -122,341 +111,1271 @@
         <?rax revhistory?>
       </para>
     </section>
-  </preface>
+  </preface>  -->
   <chapter xml:id="Overview">
-    <title>Introduction</title>
-    <!--You can use the <?dbhtml stop-chunking?> processing instruction to prevent a chapter or section for chunking furhter in the html output. -->
-    <para>This would normally be a good place to introduce the product
-      and API, but in this example document we'll look at some
-      commonly used constructs. The following an image with a title
-      using the <tag>figure</tag> element. The oXygen editor provides
-      a convenient way to insert figures with the necessary markup. <figure>
-        <title>An example of an .svg figure with a title</title>
-        <mediaobject>
-          <imageobject>
-            <imagedata fileref="figures/example.png"
-              contentwidth="6in"/>
-          </imageobject>
-        </mediaobject>
-      </figure>
-    </para>
-    <para>When creating an image or diagram, use the correct
-      application and format for the situation. For images with lines
-      and text, you should use this scalable vector graphic format ,
-      SVG. SVG and other vector formats store the information as
-      points, lines, and fonts. As a result, they are very crisp when
-      printed and when scaled down or up. For screen shots and photos,
-      vector formats add no real value since they can only store the
-      raster image inside the vector as a binary blob. As a result,
-      you should use the png format scaled to the appropriate
-      size/resolution for your target browsers/screens. <itemizedlist>
+    <title>Overview</title>
+    <!--You can use the <?dbhtml stop-chunking?> processing instruction to prevent a chapter or section for chunking further in the html output. -->
+    <remark>From  http://docs.cloudcdn.apiary.io/</remark>
+    <para>Rackspace CDN is an OpenStack-related project to provide a generic and modular
+      vendor-neutral API that wraps provisioning instructions for CDN vendors that support
+      it.</para>
+    <para>OpenStack operators have many choices when incorporating a content delivery network (CDN)
+      into their infrastructure. The CDN marketplace has both tried-and-true vendors and
+      up-and-coming upstarts with innovative new features. But these vendors often have
+      highly-customized and proprietary provisioning APIs. This can be problematic when an operator
+      wishes to support multiple providers -  or swap out one vendor for another. These challenges
+      spill over to developers who become forced into codifying the CDN instructions for multiple
+      vendors into their applications. </para>
+    <para>Rackspace CDN aims to solve these challenges. Written as a modular, vendor-neutral API,
+      Rackspace CDN incorporates a driver-based model that wraps provisioning instructions for all
+      CDN vendors that support it. Application developers can write their code once, and Rackspace
+      CDN handles all the requisite translations behind-the-scenes.</para>
+    <remark>From https://one.rackspace.com/display/atlanta/Rackspace+CDN+Engineering</remark>
+    <para>CDN is a content delivery network built for Openstack, which provides a generic CDN
+      service over various Openstack services. Custom Delivery Providers can be plugged in, such as
+      Akamai, as well as use of a sample edge network supplied.</para>
+    <para>A Content Delivery Network (CDN) is designed to improve performance of publicly
+      distributed assets.  Assets may be any thing from website content, to web application
+      components, to media like videos, ads, and interactive experiences.   CDNs decrease the load
+      time of these assets by caching them on edge servers, also called Points of Presence (POPs). 
+      Edge servers are distributed around the globe, meaning requests only travel to a local
+      location to grab assets, rather than to and from a datacenter based far from the end
+      user. </para>
+    <para>Today, Rackspace offers CDN delivery for content stored in Cloud Files, however, users
+      want to CDN-enable their content stored on Cloud Servers, Dedicated Servers, Cloud Sites,
+      routed through Load Balancers, etc.  Rackspace CDN will give Rackspace customers this power by
+      giving them a simple API and Control Panel experience for managing their CDN enabled domains,
+      called "hostnames", and the origins and assets associated with those domains.  This API will
+      be open source, allowing anyone interested to create plugins for any popular provider, like
+      Fastly, Akamai, CloudFront, or MaxCDN.  The API will be designed to avoid provider-custom
+      integration, making it truly vendor neutral, and allowing customers to avoid vendor lock
+      in. </para>
+    <para><emphasis role="bold">Architecture:</emphasis></para>
+    <itemizedlist>
+      <listitem>
+        <para>A Restful WSGI Transport Layer</para>
+      </listitem>
+      <listitem>
+        <para>Storage Driver Backend for storage of configuration data/settings</para>
+      </listitem>
+      <listitem>
+        <para>Pluggable CDN Providers (eg Fastly, Amazon CloudFront, ...)</para>
+      </listitem>
+      <listitem>
+        <para>The ability to cache publicly accessible resources hosted on a NOVA instance, or a
+          public SWIFT container</para>
+      </listitem>
+      <listitem>
+        <para>Stevedore Drivers: Storage Drivers to talk to Cassandra. Transport Drivers for the
+          Entry Point e.g. Pecan WSGI, Falcon WSGI, etc.</para>
+      </listitem>
+      <listitem>
+        <para>Stevedore Extensions: Provider Extensions to trigger changes to Fastly, and any number
+          of other CDN providers extending the application. Changes go to all extensions.  Use DNS
+          to dynamically change the CNAME records to the best provider if you want dynamic load
+          balancing between providers.</para>
+      </listitem>
+      <listitem>
+        <para>A single global endpoint to access the API.  The architecture will be deployed to each
+          Rackspace Datacenter.  Configuration data will be geographically replicated using
+          Cassandra.  Geographic Load Balancing will ensure customers hit their nearest
+          infra.</para>
+      </listitem>
+    </itemizedlist>
+    <section xml:id="Intended_Audience-d1e166">
+      <title>Intended audience</title>
+      <para>This document is intended for software developers who want to develop applications that
+        use the Rackspace CDN API. You should be familiar with:</para>
+      <itemizedlist>
         <listitem>
-          <para>If you are creating an architectural diagram, seqence
-            diagram, flowchart, or something like a drawing with lots
-            of lines and text, then the preferred format is .svg.
-            Typically these are created with tools like <link
-              xlink:href="http://inkscape.org/">Inkscape</link>, Adobe
-            Illustrator, <link
-              xlink:href="https://www.omnigroup.com/products/omnigraffle/"
-              >Omnigraffle</link>, or Visio.</para>
+          <para>RESTful web services</para>
         </listitem>
         <listitem>
-          <para>If you are working with screen shots or photos, use
-            png and a tool suited for manipulating raster formats.
-          </para>
+          <para>HTTP/1.1 conventions</para>
         </listitem>
-      </itemizedlist>Note that the for html output formats, the build
-      system converts .svg images to .png at build time since not all
-      browsers are capable of displaying .svg images. The .svg is used
-      directly for pdf output however. <table width="90%" >
-        <caption>An example of a table with a title</caption>
-        <col width="36%"/>
-        <col width="13%"/>
-        <col width="50%"/>
+        <listitem>
+          <para>JSON data serialization formats</para>
+        </listitem>
+      </itemizedlist>
+    </section>
+    <section xml:id="Document_Change_History-d1e166">
+      <title>Document change history</title>
+      <para>This version of the Developer Guide replaces and obsoletes all earlier versions. The
+        most recent changes are described in the following table:</para>
+      <?rax revhistory?>
+    </section>
+    <section xml:id="Additional_Resources-d1e532">
+      <title>Additional resources</title>
+      <!--
+      <para>Descriptive information about Rackspace CDN is also
+        published in its Web Application Description Language (WADL).
+        You are welcome to read this information here:
+        <link xlink:href="http://docs.rackspace.com/cdn/api/v1.0/cdn.wadl">http://docs.rackspace.com/cdn/api/v1.0/cdn.wadl
+        </link></para>
+        -->
+      <para>You can download the most current versions of the Rackspace API-related documents from
+          <link xlink:href="http://docs.rackspace.com/">docs.rackspace.com</link>.</para>
+      <!--
+      <para> For more details about Rackspace CDN, refer to ??? (link
+        to www.rackspace.com/cloud/cdn???) . This site also offers
+        links to the Rackspace official support channels, including
+        knowledge base articles, forums, phone, chat, and
+        email.</para>
+        -->
+      <para>Using this API document and your Rackspace Cloud account, you can get started whenever
+        you'd like. </para>
+<!--<para>See the
+        <citetitle>Rackspace CDN Getting Started Guide</citetitle> at <link xlink:href="http://docs.rackspace.com/">docs.rackspace.com</link>
+        for information about getting started using the API.</para> -->
+      <para>During Early Access, email all support questions to:
+        <link xlink:href="mailto:support@rackspacecloud.com"
+          >cloudcdn@rackspace.com</link>. </para>
+      <para>Please visit our <link xlink:href="http://feedback.rackspace.com">Product Feedback
+          Forum</link> and let us know what you think about Rackspace CDN.</para>
+      <para>You can follow Rackspace updates and announcements via <link
+          xlink:href="http://www.twitter.com/rackspace"
+          >Twitter</link>. </para>
+      <para>This API uses standard HTTP 1.1 status codes as documented at: <link
+          xlink:href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html">HTTP Status Code
+          Definitions</link>. (Also see <xref linkend="responseCodes-d101e"/></para>
+    </section>
+    <section xml:id="API_Contract_Changes-d1e363">
+      <title>API contract changes</title>
+      <para>The API contract is not locked and may change during the Early Access program.</para>
+      <para>Rackspace will notify customers in Release Notes when and
+        if the contract does change.</para>
+    </section>
+    <section xml:id="Pricing_SLA-d1e1362">
+      <title>Pricing and service level</title>
+      <para>During Early Access, there is no charge for Rackspace CDN. </para>
+<!--      <para>When Rackspace CDN moves to Unlimited Availability, customers will be billed for outbound
+        bandwidth.</para> -->
+      <para>While Rackspace CDN is in Early Access, it is subject to the Rackspace test terms at
+          <link xlink:href="http://www.rackspace.com/information/legal/testterms">Legal Information
+          - Test Terms</link>. When Rackspace CDN moves to Unlimited Availability, the Service Level
+        Agreement (SLA) will be available.</para>
+    </section>
+  </chapter>
+   <chapter xml:id="concepts-d1eo1">
+    <title>Concepts and terminology</title>
+     <para>To use the Rackspace CDN API effectively, you should understand several key
+      concepts:</para>
+     <section xml:id="cachingRule-d1eo1">
+      <title>Caching rule</title>
+      <para>A caching rule provides you with fine-grained control over the time-to-live (TTL) of an
+        object. When the TTL expires for an object, the edge node pulls the object from the origin
+        again..</para>
+    </section>
+    <section xml:id="CDN-d1eo1">
+      <title>Content delivery network</title>
+      <para>A content delivery network (CDN) is a system of multiple computers that contains copies
+        of data stored at various network nodes. A CDN is designed to improve performance of
+        publicly distributed assets. Assets can be anything from website content, to web application
+        components, to media such as videos, ads, and interactive experiences.  CDNs decrease the
+        load time of these assets by caching them on edge servers, also called points of presence
+        (POPs).  Edge servers are distributed around the globe, meaning requests only travel to a
+        local location to grab assets, rather than to and from a datacenter based far from the end
+        user. </para>
+    </section>
+     <section xml:id="domain-d1eo1">
+      <title>Domain</title>
+      <para>A domain represents the domain name through which visitors retrieve content. The
+        underlying site may be served through a CDN. A service can have multiple domains. A user
+        typically uses CNAME for this domain to their CDN provider.</para>
+    </section>
+     <section xml:id="driver-d1eo1">
+      <title>Driver</title>
+      <para>Rackspace CDN has a modular API where many components are interchangeable. These
+        components are known as drivers. It is possible to use different transport drivers, manager
+        drivers, storage drivers, and provider drivers.</para>
+    </section>
+     <section xml:id="edgeNode-d1eo1">
+      <title>Edge node</title>
+      <para>CDN providers have many points of presence (PoP) servers around the world. These servers
+        are known as edge nodes. These edge nodes cache the content and serve it directly to
+        customers, thus reducing transit time to a customers location.</para>
+    </section>
+    <section xml:id="edgeServer-d1eo1">
+      <title>Edge server</title>
+      <para>An edge server  is the same as an edge node. See .</para>
+    </section>
+     <section xml:id="flavor-d1eo1">
+      <title>Flavor</title>
+      <para>A flavor allows you to decide which CDN providers you want your service to use.
+        Operators can define the flavors offered, and assign a CDN provider belonging to that
+        flavor. Use flavors to abstract the underlying provider used.</para>
+    </section>
+     <section xml:id="managerDriver-d1eo1">
+      <title>Manager driver</title>
+      <para>A manager driver contains the business logic within the application. This driver is
+        responsible for delegating tasks to storage and provider drivers.</para>
+    </section>
+     <section xml:id="Origin-d1eo1">
+      <title>Origin</title>
+      <para>An origin is an address (ip or domain) from which the CDN provider pulls content. A
+        service can have multiple origins.</para>
+    </section>
+     <section xml:id="pointOfPresence-d1eo1">
+      <title>Point of presence</title>
+      <para>A point of presence (PoP) is the point at which two or more different networks or
+        communication devices build a connection with each other. PoP mainly refers to an access
+        point, location, or facility that connects to and helps other devices establish a connection
+        with the Internet. </para>
+    </section>
+     <section xml:id="provider-d1eo1">
+      <title>Provider</title>
+      <para>There are many established CDN vendors in the market. A provider is one of these
+        vendors, who has decided to participate in Rackspace CDN. These participating providers will
+        have a provider driver that can communicate with their API.</para>
+    </section>
+     <section xml:id="providerDriver-d1eo1">
+      <title>Provider driver</title>
+      <para>A provider driver is responsible for communicating with the third party providers who
+        are participating in Rackspace CDN.</para>
+    </section>
+     <section xml:id="purge-d1eo1" >
+      <title>Purge</title>
+      <para>Purging removes content from the edge servers, so it can be refreshed from your origin
+        servers.</para>
+    </section>
+     <section xml:id="restriction-d1eo1">
+      <title>Restriction</title>
+      <para>A restriction enables you to define rules about who can or cannot access content from
+        the cache. Examples of a restriction are allowing requests only from certain domains,
+        geographies, or IP addresses.</para>
+    </section>
+     <section xml:id="service-d1eo1">
+      <title>Service</title>
+      <para>A service represents your application that has its content cached to the edge
+        nodes.</para>
+    </section>
+     <section xml:id="status-d1eo1">
+      <title>Status</title>
+      <para>The status indicates the current state of the service. The time it takes for a service
+        configuration to be distributed amongst a CDN provider cache can vary. </para>
+    </section>
+     <section xml:id="storageDiver-d1eo1" >
+      <title>Storage driver</title>
+      <para>A storage driver is responsible for communicating with the chosen data store to store
+        service configurations.</para>
+    </section>
+     <section xml:id="transportDriver-d1eo1">
+      <title>Transport driver</title>
+      <para>A transport driver handles the incoming requests to the API. The recommended transport
+        driver for Rackspace CDN is the Pecan driver based on the Web Server Gateway Interface
+        (WSGI).</para>
+    </section>
+  </chapter>
+  <chapter xml:id="generalAPIInfo-d1eo1">
+    <title>General API information</title>
+    <para xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:html="http://www.w3.org/1999/xhtml">The
+      Rackspace CDN API is implemented using a RESTful web service interface. Like other products in
+      the Rackspace Cloud suite, Rackspace CDN shares a common token-based authentication system
+      that allows seamless access between products and services.</para>
+    <note xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:html="http://www.w3.org/1999/xhtml">
+      <para>All requests to authenticate against and operate the service are performed using SSL
+        over HTTP (HTTPS) on TCP port 443.</para>
+    </note>
+    <section xml:id="Authentication-d1e639" xmlns:m="http://www.w3.org/the key 1998/Math/MathML"
+      xmlns:html="http://www.w3.org/1999/xhtml">
+      <title>Authentication</title>
+      <para xmlns:m="http://www.w3.org/1998/Math/MathML"> Every REST request against the Rackspace
+        CDN service requires the inclusion of a specific authorization token, supplied by the
+          <code>X-Auth-Token</code> HTTP header. You obtain this token by using the Rackspace Cloud
+        Identity service and supplying a valid username and API access key. </para>
+      <section xml:id="Geographic_Endpoints" xmlns:m="http://www.w3.org/1998/Math/MathML">
+        <title>Geographic endpoints</title>
+        <para> The Rackspace Cloud Identity service serves as the entry point to all Rackspace Cloud
+          APIs and is itself a RESTful web service. </para>
+        <para> You can use either of the following endpoints to access the Rackspace Cloud Identity
+          service (for authentication), regardless of US or UK identities:</para>
+        <itemizedlist spacing="compact">
+          <listitem>
+            <para>
+              <link xlink:href="&ENDPOINT-US-20;">&ENDPOINT-US-20;</link>
+            </para>
+          </listitem>
+          <listitem>
+            <para>
+              <link xlink:href="&ENDPOINT-UK-20;">&ENDPOINT-UK-20;</link>
+            </para>
+          </listitem>
+        </itemizedlist>
+        <para>Your account can be based in either the US or the UK. This is not determined by your
+          physical location but by the location of the Rackspace retail site that was used to create
+          your account. </para>
+        <itemizedlist spacing="compact">
+          <listitem>
+            <para>If your account was created via <link xlink:href="http://www.rackspacecloud.com"
+                >http://www.rackspacecloud.com</link>, it is a US-based account. </para>
+          </listitem>
+          <listitem>
+            <para>If your account was created via <link xlink:href="http://www.rackspace.co.uk"
+                >http://www.rackspace.co.uk</link>, it is a UK-based account. </para>
+          </listitem>
+        </itemizedlist>
+        <para>If you are unsure how your account was created, use the Rackspace contact information
+          at either site to ask for help. </para>
+      </section>
+      <section xml:id="Retrieving_Auth_Token" xmlns:m="http://www.w3.org/1998/Math/MathML">
+        <title>Retrieving the authentication token</title>
+        <informaltable rules="all">
+          <tbody>
+            <tr>
+              <td colspan="1">&POST; </td>
+              <td colspan="1"> v2.0/tokens </td>
+              <td colspan="4"> Authenticate to receive a token and a service catalog. </td>
+            </tr>
+          </tbody>
+        </informaltable>
+        <simpara> Normal Status Code(s): <returnvalue>200</returnvalue>,
+            <returnvalue>203</returnvalue>
+        </simpara>
+        <simpara> Error Status Code(s): unauthorized (<errorcode>401</errorcode>), userDisabled
+            (<errorcode>403</errorcode>), badRequest (<errorcode>400</errorcode>), authFault
+            (<errorcode>500</errorcode>), serviceUnavailable (<errorcode>503</errorcode>) </simpara>
+        <para> The authenticate operation provides clients with an authentication token and a list
+          of regional cloud endpoints. </para>
+ <!--       <note>
+          <para>To see how to use cURL to retrieve the authentication token, see the
+              <citetitle>Rackspace CDN Getting Started Guide</citetitle>.</para>
+        </note> -->
+        <para>The sample requests and responses in this section illustrate a general case. In your
+          authentication request, use your own credentials rather than the sample values shown here
+          for <code>username</code> and <code>apiKey</code>. When you authenticate successfully, the
+          response to your authentication request will include a catalog of the services to which
+          you have subscribed rather than the sample values shown here.</para>
+        <example>
+          <title>Authentication request: XML</title>
+          <programlistingco>
+            <areaspec>
+              <area xml:id="credentials.xml.user" units="linecolumn" coords="13 17"/>
+              <area xml:id="credentials.xml.key" units="linecolumn" coords="14 15"/>
+            </areaspec>
+            <programlisting language="xml"><xi:include href="samples/credentials-20.xml" parse="text"/></programlisting>
+          </programlistingco>
+        </example>
+        <example>
+          <title>Authentication request: JSON</title>
+          <programlistingco>
+            <areaspec>
+              <area xml:id="credentials.json.user" units="linecolumn" coords="14 22"/>
+              <area xml:id="credentials.json.key" units="linecolumn" coords="15 20"/>
+            </areaspec>
+            <programlisting language="json"><xi:include href="samples/credentials-20.json" parse="text"/></programlisting>
+          </programlistingco>
+        </example>
+        <calloutlist>
+          <callout arearefs="credentials.xml.user">
+            <para>The username is your common Rackspace Cloud username. </para>
+          </callout>
+          <callout arearefs="credentials.xml.key">
+            <para>The key is your API access key. </para>
+            <para><emphasis role="bold">To find your API key:</emphasis>
+            </para>
+            <orderedlist>
+              <listitem>
+                <para>Log in to the Cloud Control Panel (<link
+                    xlink:href="https://mycloud.rackspace.com"
+                  >https://mycloud.rackspace.com</link>).</para>
+              </listitem>
+              <listitem>
+                <para>On the upper-right side of the top navigation pane, click your
+                  username.</para>
+              </listitem>
+              <listitem>
+                <para>From the menu, select <guilabel>Account Settings</guilabel>.</para>
+              </listitem>
+              <listitem>
+                <para>In the Login Details section of the Account Settings page, locate the
+                    <guilabel>API Key</guilabel> field and click <guibutton>Show</guibutton>.</para>
+              </listitem>
+              <listitem>
+                <para>Copy the value of the API Key and paste it into a text editor of your
+                  choice.</para>
+              </listitem>
+              <listitem>
+                <para>Click <guibutton>Hide</guibutton> to hide the value of the API Key.</para>
+              </listitem>
+            </orderedlist>
+            <para>You also need your cloud account number. In the documentation, the account number
+              is often referred to as your tenant name or tenant ID (technically, the ID is
+              different from the name, but at Rackspace, they are the same thing). Together, three
+              components—your username, your API Key, and your tenant ID or cloud account
+              number—form the authentication credentials that are required to connect to the
+              Rackspace cloud.</para>
+            <para>To find your tenant ID or cloud account number, locate your username on the
+              upper-right side of the top navigation pane in the Cloud Control Panel. The tenant ID
+              or account number is in parentheses just to the right of your username.</para>
+          </callout>
+        </calloutlist>
+        <remark>Update responses to include CloudCDN in the service catalog.</remark>
+        <example>
+          <title>Authentication response: XML</title>
+          <programlistingco>
+            <areaspec>
+              <area xml:id="response.xml.namespaces" units="linecolumn" coords="7 9"/>
+              <area xml:id="response.xml.token" units="linecolumn" coords="15 10"/>
+              <area xml:id="response.xml.dfltregion" units="linecolumn" coords="16 67"/>
+              <area xml:id="response.xml.role" units="linecolumn" coords="17 12"/>
+              <area xml:id="response.xml.catalog" units="linecolumn" coords="22 21"/>
+              <area xml:id="response.xml.servicetype" units="linecolumn" coords="51 34"/>
+              <area xml:id="response.xml.servicename" units="linecolumn" coords="51 54"/>
+              <area xml:id="response.xml.region" units="linecolumn" coords="52 30"/>
+              <area xml:id="response.xml.tenant" units="linecolumn" coords="53 66"/>
+              <area xml:id="response.xml.url" units="linecolumn" coords="54 9"/>
+            </areaspec>
+            <programlisting language="xml"><xi:include href="samples/auth-20.xml" parse="text"/></programlisting>
+          </programlistingco>
+        </example>
+        <example xml:id="auth-response-example-json">
+          <title>Authentication response: JSON</title>
+          <programlistingco>
+            <areaspec>
+              <area xml:id="response.json.namespaces" units="linecolumn" coords="200 1"/>
+              <area xml:id="response.json.token" units="linecolumn" coords="9 8"/>
+              <area xml:id="response.json.dfltregion" units="linecolumn" coords="16 45"/>
+              <area xml:id="response.json.role" units="linecolumn" coords="17 12"/>
+              <area xml:id="response.json.catalog" units="linecolumn" coords="30 8"/>
+              <area xml:id="response.json.servicetype" units="linecolumn" coords="114 16"/>
+              <area xml:id="response.json.servicename" units="linecolumn" coords="113 16"/>
+              <area xml:id="response.json.region" units="linecolumn" coords="104 24"/>
+              <area xml:id="response.json.tenant" units="linecolumn" coords="101 24"/>
+              <area xml:id="response.json.url" units="linecolumn" coords="102 24"/>
+            </areaspec>
+            <programlisting language="json"><xi:include href="samples/auth-20.json" parse="text"/></programlisting>
+          </programlistingco>
+        </example>
+        <note>
+          <para>The information shown in the authentication response examples is for US-based
+            accounts. If you authenticate against the UK endpoint, you see the service catalog
+            information for UK-based accounts.</para>
+        </note>
+        <calloutlist>
+          <callout arearefs="response.xml.namespaces">
+            <para> In XML responses only, a list of namespaces identifies API extensions that add
+              functionality to the core API. </para>
+            <para> </para>
+          </callout>
+          <callout arearefs="response.xml.token">
+            <para> This token can be presented to a service as evidence of authentication. Tokens
+              are valid for a finite duration. An authentication token's default lifespan is 24
+              hours. Applications should be designed to re-authenticate after receiving a 401
+              (Unauthorized) response from a service endpoint. </para>
+            <para> The token's <code>expires</code> attribute denotes the time after which the token
+              automatically becomes invalid. A token can be manually revoked before the time
+              identified by the <code>expires</code> attribute. The attribute predicts a token's
+              maximum possible lifespan but does not guarantee that it will reach that lifespan.
+              Clients are encouraged to cache a token until it expires. </para>
+            <note>
+              <para>The token's expiration time is
+                formatted differently in the US and
+                UK. These response examples show the
+                US format. For examples of the UK
+                format please refer to <link
+                  xlink:href="http://docs.rackspace.com/auth/api/v2.0/auth-client-devguide/content/POST_authenticate_v2.0_tokens_.html"
+                  >http://docs.rackspace.com/auth/api/v2.0/auth-client-devguide/content/POST_authenticate_v2.0_tokens_.html</link>.</para>
+            </note>   
+            <para> </para>
+          </callout>
+          <callout arearefs="response.xml.dfltregion">
+            <para>Users can be assigned a default region. If multiple endpoints are associated with
+              a service in the user's catalog, the endpoint for the user's default region is
+              selected if it is available. In this example, the user's default region is DFW, and
+              several of the services in the catalog are associated with endpoints in that region.
+              Whenever possible, the user's work is directed to the DFW region. </para>
+            <para> </para>
+          </callout>
+          <callout arearefs="response.xml.role">
+            <para>Users can be assigned multiple roles, with each role providing specific
+              privileges. In this example, <code>yourUserName</code> is the administrative user for
+              the account and holds the fully-privileged <code>identity:admin</code> role. Other
+              users might hold other roles with different privileges. Roles do not have to be
+              associated with actual job functions such as Administrator, Operator, Developer,
+              Tester, or Trainer. </para>
+            <para> </para>
+          </callout>
+          <callout arearefs="response.xml.catalog">
+            <para> The service catalog lists the services that you can access. In this example, the
+              user can access one database service, one load-balancing service, two compute services
+              (Cloud Servers OpenStack and Cloud Servers), two object storage services (Cloud Files
+              CDN and Cloud Files), one DNS service, and ???? one Rackspace CDN service. The catalog
+              entry for each service provides at least one endpoint URI for that service. Other
+              information, such as regions, versions, and tenants, is provided if it is relevant to
+              a user's access to a service. </para>
+            <para> </para>
+          </callout>
+          <callout arearefs="response.xml.servicetype">
+            <para> The service <code>type</code> attribute identifies services that perform similar
+              functions, regardless of service names. In this example, the service named cloudCDN is
+              identified as <code>type="????"</code>, identifying it as a CDN service even though
+              the "CDN" does not appear in its name. </para>
+            <tip>
+              <para>Beginning with Auth 2.0, the service catalog includes a service
+                  <code>type</code> attribute to identify services that perform similar functions
+                but have different names. For example, <code>type="compute"</code> identifies
+                compute services such as cloudServers and cloudServersOpenStack. Some developers
+                have found the service <code>type</code> attribute to be useful in parsing the
+                service catalog. For additional information on Auth 2.0 (also known as the Cloud
+                Identity service), see the <citetitle>Cloud Identity Client Developer
+                  Guide</citetitle> at <link xlink:href="http://docs.rackspace.com"
+                  >http://docs.rackspace.com/</link>.</para>
+            </tip>
+            <important>
+              <para>Use the service <code>type</code> attribute as the primary value for locating a
+                service. If multiple endpoints of the same service type exist in the same region,
+                use the service <code>name</code> attribute to locate the appropriate
+                service.</para>
+            </important>
+            <para> </para>
+          </callout>
+          <callout arearefs="response.xml.servicename">
+            <para> The service <code>name</code> attribute identifies each unique service in the
+              catalog. After a service is created, its name does not change. However, new services
+              of the same service <code>type</code> can be added to the catalog with new names. </para>
+            <important>
+              <para> If you are programmatically parsing an authentication response, use service
+                  <code>type</code> rather than service <code>name</code> to determine whether a
+                user has access to a particular kind of service. Service type is stable across all
+                releases. New service types might be developed, but existing service types are not
+                renamed. In this example, <code>type="compute"</code> identifies all the available
+                compute services. If new compute services are added in future releases, you can
+                recognize them by parsing for <code>type="compute"</code> in the authentication
+                response's service catalog.</para>
+            </important>
+            <para> </para>
+          </callout>
+          <callout arearefs="response.xml.region">
+            <para> A service might expose endpoints in different regions. Regional endpoints enable
+              users to provision resources in a manner that provides high availability. </para>
+            <para> Some services are not region-specific. These services supply a single
+              non-regional endpoint and do not provide access to internal URLs. </para>
+            <para> </para>
+          </callout>
+          <callout arearefs="response.xml.tenant">
+            <para> Some services recognize specification of a tenant. If a service recognizes
+              tenants, the format of the tenant specification is defined only by the service. For
+              details about whether and how to specify a tenant, check the documentation for the
+              service that you are using.</para>
+            <para> </para>
+          </callout>
+          <callout arearefs="response.xml.url">
+            <para> An endpoint can be assigned public and internal URIs. A public URI is accessible
+              from anywhere. Access to a public URI usually incurs traffic charges. Internal URIs
+              are accessible only to services within the same region. Access to an internal URI is
+              free of charge. </para>
+            <para> </para>
+          </callout>
+        </calloutlist>
+        <para>Rackspace CDN service endpoints are published in the service catalog in the
+          authentication response with the account information, which is a required element of the
+          service endpoints. The examples shown in this document are for authentication for US
+          customers. Customers with UK-based accounts see different values in the service catalog.
+          For more information about service endpoints, see <xref linkend="serviceEndpoints"/>. </para>
+      </section>
+    </section>
+    <section xml:id="RBAC" xmlns:wadl="http://wadl.dev.java.net/2009/02"
+      xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:html="http://www.w3.org/1999/xhtml">
+      <title>Role Based Access Control</title>
+      <para>Role Based Access Control (RBAC) restricts access to the capabilities of Rackspace Cloud
+        services, including the Rackspace CDN API, to authorized users only. RBAC enables Rackspace
+        Cloud customers to specify which account users of their Cloud account have access to which
+        Rackspace CDN API service capabilities, based on roles defined by Rackspace (see <xref
+          linkend="RBAC_product_roles_table"/>). The permissions to perform certain operations in
+        the Rackspace CDN API – create, read, update, delete – are assigned to specific roles, and
+        the Cloud account admin user assigns these roles to account users. </para>
+      <para>For more information about RBAC, see the <link
+        xlink:href="http://docs.rackspace.com/auth/api/v2.0/auth-client-devguide/content/Role_Based_Access_Control-d1e808.html"
+        >RBAC</link> section in the <citetitle>Cloud
+          Identity Client Developer Guide</citetitle>.</para>
+      <section xml:id="assigningRoles">
+        <title>Assigning roles to account users</title>
+        <para>The account owner (identity:user-admin) can create account users on the account and
+          then assign roles to those users. The roles grant the account users specific permissions
+          for accessing the capabilities of the Rackspace CDN service. Each account has only one
+          account owner, and that role is assigned by default to any Rackspace Cloud account when
+          the account is created.</para>
+        <para>For information about how to perform the following tasks, see the <citetitle>Cloud
+            Identity Client Developer Guide</citetitle>:</para>
+        <itemizedlist spacing="compact">
+          <listitem>
+            <para><link
+              xlink:href="http://docs.rackspace.com/auth/api/v2.0/auth-client-devguide/content/POST_addUser__v2.0_users_User_Calls.html"
+                >Create account users</link></para>
+          </listitem>
+          <listitem>
+            <para><link
+              xlink:href="http://docs.rackspace.com/auth/api/v2.0/auth-client-devguide/content/PUT_addUserRole__v2.0_users__userId__roles_OS-KSADM__roleid__Role_Calls.html"
+                >Assign roles to account users</link></para>
+          </listitem>
+          <listitem>
+            <para><link
+              xlink:href="http://docs.rackspace.com/auth/api/v2.0/auth-client-devguide/content/DELETE_deleteUserRole__v2.0_users__userId__roles_OS-KSADM__roleid__Role_Calls.html"                            
+                >Delete roles from account users</link></para>
+          </listitem>
+        </itemizedlist>
+        <note>
+          <para>The account owner (identity:user-admin) role cannot hold any additional roles
+            because it already has full access to all capabilities.</para>
+        </note>
+      </section>
+      <section xml:id="rolesAvailable">
+        <title>Roles available for Rackspace CDN </title>
+        <para>Three roles (admin, creator, and observer) can be used to access the Rackspace CDN API
+          specifically. The following table describes these roles and their permissions. </para>
+        <table rules="all" xml:id="RBAC_product_roles_table">
+          <caption>Rackspace CDN product roles and permissions</caption>
+          <col width="50%"/>
+          <col width="50%"/>
+          <thead>
+            <tr>
+              <th>Role name</th>
+              <th>Role permissions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>cdn:admin</td>
+              <td>This role provides Create, Read, Update, and Delete permissions in Rackspace CDN,
+                where access is granted.</td>
+            </tr>
+            <tr>
+              <td>cdn:creator</td>
+              <td>This role provides Create, Read, and Update permissions in Rackspace CDN, where
+                access is granted.</td>
+            </tr>
+            <tr>
+              <td>cdn:observer</td>
+              <td>This role provides Read permission in Rackspace CDN, where access is granted.</td>
+            </tr>
+          </tbody>
+        </table>
+        <para>Additionally, two multiproduct roles apply to all products. Users with multiproduct
+          roles inherit access to future products when those products become RBAC-enabled. The
+          following table describes these roles and their permissions.</para>
+        <table rules="all" width="100%" xml:id="RBAC_global_roles_table_3">
+          <caption> Multiproduct (global) roles and permissions</caption>
+          <thead>
+            <tr>
+              <td colspan="1">Role name</td>
+              <td colspan="2">Role permissions</td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td colspan="1">admin</td>
+              <td colspan="2">This role provides Create, Read, Update, and Delete permissions in all
+                products, where access is granted.</td>
+            </tr>
+            <tr>
+              <td colspan="1">observer</td>
+              <td colspan="2">This role provides Read permission in all products, where access is
+                granted.</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+      <section version="5.0" xml:id="RBAC_Role_Conflict_3">
+        <title>Resolving conflicts between RBAC multiproduct and custom (product-specific)
+          roles</title>
+        <para>The account owner can set roles for both multiproduct and Rackspace CDN scope, and it
+          is important to understand how any potential conflicts among these roles are resolved.
+          When two roles appear to conflict, the role that provides the more extensive permissions
+          takes precedence. Therefore, admin roles take precedence over observer and creator roles,
+          because admin roles provide more permissions. </para>
+        <para>The following table shows two examples of how potential conflicts between user roles
+          in the Control Panel are resolved: </para>
+        <para>
+          <informaltable rules="all">
+            <thead>
+              <tr align="center">
+                <td>Permission configuration</td>
+                <td>View of permission in the Control Panel </td>
+                <td>Can the user perform product admin functions in the Control Panel?</td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>User is assigned the following roles: multiproduct <emphasis role="bold"
+                    >observer</emphasis> and Rackspace CDN <emphasis role="bold"
+                  >admin</emphasis></td>
+                <td>Appears that the user has only the multiproduct <emphasis role="bold"
+                    >observer</emphasis> role</td>
+                <td>Yes, for Rackspace CDN only. The user has the <emphasis role="bold"
+                    >observer</emphasis> role for the rest of the products.</td>
+              </tr>
+              <tr>
+                <td>User is assigned the following roles: multiproduct <emphasis role="bold"
+                    >admin</emphasis> and Rackspace CDN <emphasis role="bold"
+                  >observer</emphasis></td>
+                <td>Appears that the user has only the multiproduct <emphasis role="bold"
+                    >admin</emphasis> role</td>
+                <td>Yes, for all of the products. The Rackspace CDN <emphasis role="bold"
+                    >observer</emphasis> role is ignored.</td>
+              </tr>
+            </tbody>
+          </informaltable>
+        </para>
+      </section>
+      <section version="5.0" xml:id="RBAC_API_XREF_3">
+        <title>RBAC permissions cross-reference to Rackspace CDN API operations</title>
+        <remark>Make sure the Rackspace CDN is added to the KC article. Renee Rendon is the
+          responsible writer for that.</remark>
+        <para>API operations for Rackspace CDN may or may not be available to all roles. To see
+          which operations are permitted to invoke which calls, see the <link
+            xlink:href="http://www.rackspace.com/knowledge_center/article/permissions-matrix-for-role-based-access-control-rbac"
+            >Permissions Matrix</link> article in the Rackspace Knowledge Center.</para>
+      </section>
+    </section>
+    <section xml:id="serviceEndpoints" xmlns:m="http://www.w3.org/1998/Math/MathML"
+      xmlns:html="http://www.w3.org/1999/xhtml">
+      <title>Service access endpoints</title>
+      <para>Rackspace CDN is a regionalized service. The user of the service is therefore
+        responsible for appropriate replication, caching, and overall maintenance of Rackspace CDN
+        data across regional boundaries to other Rackspace CDN servers.</para>
+      <para>To help you decide which regionalized endpoint to use, read the Knowledge Center article
+        about special considerations for choosing a data center at <link
+          xlink:href="http://www.rackspace.com/knowledge_center/article/about-regions">About
+          Regions</link>. </para>
+      <para>For the Early Access release, the endpoints to use for your Rackspace CDN API calls are
+        summarized in the following table.</para>
+      <remark>Get the correct endpoints </remark>
+      <para>
+        <table rules="all">
+          <caption>Regionalized service endpoints for the Early Access release</caption>
+          <thead>
+            <tr align="center">
+              <td colspan="2">Region</td>
+              <td colspan="5">Endpoint</td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr align="left">
+              <td colspan="2">London (LON)</td>
+              <td colspan="5"><code>https://global.cdn.api.rackspacecloud.com/v1.0/</code></td>
+            </tr>
+            <tr>
+              <td colspan="2">Northern Virginia (IAD)</td>
+              <td colspan="5"><code>https://global.cdn.api.rackspacecloud.com/v1.0/</code></td>
+            </tr>
+          </tbody>
+        </table>
+      </para>
+     <!-- 
+      <remark>Left for use after EA release</remark>
+      <para>
+        <table rules="all">
+          <caption>Regionalized service endpoints</caption>
+          <thead>
+            <tr align="center">
+              <td colspan="2">Region</td>
+              <td colspan="5">Endpoint</td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr align="left">
+              <td colspan="2" rowspan="2">Chicago (ORD)</td>
+              <td colspan="5"><code>https://ord.cdn.api.rackspacecloud.com/v1.0/1234/</code></td>
+            </tr>
+            <tr>
+              <td colspan="5"
+                    ><code>https://snet-ord.cdn.api.rackspacecloud.com/v1.0/<replaceable>1234</replaceable>/</code></td>
+            </tr>
+            <tr>
+              <td colspan="2" rowspan="2">Dallas/Ft. Worth (DFW)</td>
+              <td colspan="5"
+                    ><code>https://dfw.cdn.api.rackspacecloud.com/v1.0/<replaceable>1234</replaceable></code></td>
+            </tr>
+            <tr>
+              <td colspan="5"
+                    ><code>https://snet-dfw.cdn.api.rackspacecloud.com/v1.0/<replaceable>1234</replaceable>/</code></td>
+            </tr>
+            <tr align="left">
+              <td colspan="2" rowspan="2">London (LON)</td>
+              <td colspan="5"
+                    ><code>https://lon.cdn.api.rackspacecloud.com/v1.0/<replaceable>1234</replaceable></code>/</td>
+            </tr>
+            <tr>
+              <td colspan="5"
+                    ><code>https://snet-lon.cdn.api.rackspacecloud.com/v1.0/<replaceable>1234</replaceable>/</code></td>
+            </tr>
+            <tr>
+              <td colspan="2" rowspan="2">Northern Virginia (IAD)</td>
+              <td colspan="5"
+                    ><code>https://iad.cdn.api.rackspacecloud.com/v1.0/<replaceable>1234</replaceable>/</code></td>
+            </tr>
+            <tr>
+              <td colspan="5"
+                    ><code>https://snet-iad.cdn.api.rackspacecloud.com/v1.0/<replaceable>1234</replaceable>/</code></td>
+            </tr>
+            <tr>
+              <td colspan="2">Sydney (SYD)</td>
+              <td colspan="5"
+                    ><code>https://syd.cdn.api.rackspacecloud.com/v1.0/<replaceable>1234</replaceable>/</code></td>
+            </tr>
+            <tr>
+              <td colspan="2"/>
+              <td colspan="5"
+                    ><code>https://snet-syd.cdn.api.rackspacecloud.com/v1.0/<replaceable>1234</replaceable>/</code></td>
+            </tr>
+          </tbody>
+        </table>
+      </para>
+     --> 
+        <para>Every REST request for Rackspace CDN requires one of the following:<itemizedlist>
+          <listitem>
+            <para>The <code>project_id</code> in the URI</para>
+            <para><code>project_id</code> is the unique identifier for the user. Use
+                <code>project_id</code> as the first parameter before the request path, for example
+                <code>GET
+                  https://global.cdn.api.rackspacecloud.com/<replaceable>project_id</replaceable>/v1.0/</code>.</para>
+          </listitem>
+          <listitem>
+            <para>The <code>X-Project-Id</code> header</para>
+            <para>Set the <code>X-Project_Id</code> header in the HTTP information in your request.
+              For more information about the header, see <xref linkend="commonHeaders"/>.</para>
+          </listitem>
+        </itemizedlist></para>
+      <note>
+        <para>You should copy the base URLs directly from the service catalog rather than trying to
+          construct them manually.</para>
+        <para>Rackspace Cloud Identity returns an endpoint with your <code>project_id</code>, which
+          is also referred to as your tenant ID or your account ID. </para>
+     
+        <para>The <code>project_id</code>  refers to your Rackspace account number, which you can
+          also find in your Cloud Control Panel at <link xlink:href="https://mycloud.rackspace.com/"
+            >mycloud.rackspace.com</link>.</para>
+      </note>
+    </section>
+    <section xml:id="contractVersion" xmlns:m="http://www.w3.org/1998/Math/MathML"
+      xmlns:html="http://www.w3.org/1999/xhtml">
+      <title>Rackspace CDN contract version</title>
+      <para> The Rackspace CDN version defines the contract and build information for the API. </para>
+      <para> The contract version denotes the data model and behavior that the API supports. The
+        requested contract version is included in all request URLs. Different contract versions of
+        the API may be available at any given time and are not guaranteed to be compatible with one
+        another. </para>
+      <example>
+        <title>Example Request URL (contract version in <emphasis role="strong"
+          >bold</emphasis>)</title>
+        <programlisting>https://global.cdn.api.rackspacecloud.com/<emphasis role="bold">v1.0</emphasis>/</programlisting>
+      </example>
+      <note>
+        <para>This document pertains to contract version 1.0.</para>
+      </note>
+    </section>
+    <section xml:id="Request_Response_Types-d1e903" xmlns:m="http://www.w3.org/1998/Math/MathML"
+      xmlns:html="http://www.w3.org/1999/xhtml">
+      <title>Request and response types</title>
+      <para>The Rackspace CDN API supports JSON data serialization formats. </para>
+      <para>Specify the request format by using the <code>Content-Type</code> header, which is
+          <emphasis role="italic">required</emphasis> for calls that have a request body. </para>
+      <para>You can specify the response format in requests by using the <code>Accept</code> header
+        or by adding a <code>.json</code> extension to the request URI. If no response format is
+        specified, JSON is the default. </para>
+      <table rules="all">
+        <caption>Response Format</caption>
+        <?dbfo keep-together="always"?>
         <thead>
-          <tr>
-            <th>Type of image</th>
-            <th>Preferred format</th>
-            <th>Tools</th>
+          <tr align="center">
+            <td>Format</td>
+            <td>Accept header</td>
+            <td>Query extension</td>
+            <td>Default</td>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td>Architectural diagrams, seqence diagrams, flowcharts,
-              or drawings with lots of lines and text</td>
-            <td>
-              <para>.svg</para>
-            </td>
-            <td>
-              <link xlink:href="http://inkscape.org/">Inkscape</link>,
-              Adobe Illustrator, <link
-                xlink:href="https://www.omnigroup.com/products/omnigraffle/"
-                >Omnigraffle</link>, or Visio.</td>
-          </tr>
-          <tr>
-            <td>A screen shot or picture</td>
-            <td>
-              <para>.png</para>
-            </td>
-            <td>
-              <para>Any screen capture utility or raster image
-                manipulating utility like the GIMP or Photoshop.
-              </para>
-            </td>
+            <td>JSON</td>
+            <td>application/json</td>
+            <td>.json</td>
+            <td>Yes</td>
           </tr>
         </tbody>
       </table>
-    </para>
-    <para>You can also include tables without titles. These are
-        <tag>informaltable</tag>s in DocBook. <important>
-        <para>When you insert tables, be sure always to switch to the
-          html format instead of the CALS table format. For more
-          information on tables see the <link
-            xlink:href="http://docs.rackspace.com/writers-guide/content/ch_tables.html"
-            >Writer's Guide</link>.</para>
-        <para>Also note that this is an example of an admonition.
-          DocBook supports the following admonitions: <tag>note</tag>,
-            <tag>tip</tag>, <tag>important</tag>, <tag>caution</tag>,
-          and <tag>warning</tag>.</para>
-      </important>
-    </para>
-    <section xml:id="the-xml-id-attribute">
-      <title>The xml:id attribute and linking</title>
-      <para>You must add the <tag>xml:id</tag> attribute to all
-          <tag>book</tag>s, <tag>chapter</tag>s, <tag>section</tag>s,
-          <tag>appendix</tag>s, and <tag>preface</tag>s. These ids are
-        used for more than one thing:<itemizedlist>
-          <listitem>
-            <para>The <tag>xml:id</tag> on the <tag>book</tag> element
-              must be unique among all other Rackspace documents. This
-              ensures that the <link xlink:href="http://disqus.com"
-                >Disqus</link> comments are associated with that one
-              document. See <link
-                xlink:href="https://one.rackspace.com/display/C3/Disqus+project+identifiers"
-                >Disqus project identifiers</link> for a list of
-                <tag>xml:id</tag>s currently in use.</para>
-          </listitem>
-          <listitem>
-            <para>The <tag>xml:id</tag> on each  <tag>chapter</tag>,
-                <tag>section</tag>, <tag>appendix</tag>, and
-                <tag>preface</tag> must be unique within the current
-              book. These ids are used to generate the filename for
-              the html format and also to associate the Disqus thread
-              with that page. </para>
-          </listitem>
-        </itemizedlist></para>
-      <para><?rax-fo keep-together?>The <tag>xml:id</tag> attribute is
-        also important for linking within the document. You use the
-          <tag>xref</tag> element with the <tag>linkend</tag>
-        attribute to create a hyperlink from one section to another.
-        At build-time, the <tag>xref</tag> is replaced with a
-        hyperlink and link text appropriate to the format. For
-        example, in html output an xref is just a hyperlink with the
-        title of the target as the link text. In pdf output, which is
-        intended for printing, the link text includes the page number
-        of the target, though in the pdf, the link is also a hot link
-        to the target. In the following example, <code>preface</code>
-        is the value of the <tag>xml:id</tag> of the target:<programlisting language="xml">&lt;xref linkend="preface"/></programlisting><important>
-          <para>Avoid putting the <tag>xml:id</tag> attribute on the
-              <tag>title</tag> tag. Instead put it on the element that
-            contains the <tag>title</tag>. For example avoid doing
-            this:<programlisting language="xml">&lt;section>&lt;title xml:id="widgets">Understanding widgets&lt;/title>...&lt;/section> &lt;!-- AVOID This! --></programlisting>Instead
-            do
-            this:<programlisting language="xml">&lt;section xml:id="widgets">&lt;title>Understanding widgets&lt;/title>...&lt;/section> &lt;!-- Much better! --></programlisting></para>
-        </important></para>
-      <para>We soon hope to support the <tag>olink</tag> tag, which
-        will allow you to link to other docs and provide a more
-        convenient way to link within a document. </para>
-      <para>If you need to link to a url, use the <tag>link</tag> tag
-        and the <tag>xlink:href</tag> attribute. For example, the
-        paragraph above contains some
-        hyperlinks:<programlisting language="xml">&lt;para>The &lt;tag>xml:id&lt;/tag> on the &lt;tag>book&lt;/tag> element
-must be unique among all other Rackspace documents. This
-ensures that the &lt;link xlink:href="http://disqus.com"
->Disqus&lt;/link> comments are associated with that one
-document. See &lt;link 
-xlink:href="https://one.rackspace.com/display/C3/Disqus+project+identifiers"
->Disqus project identifiers&lt;/link> for a list of
-&lt;tag>xml:id&lt;/tag>s currently in use.&lt;/para></programlisting>
-      </para>
     </section>
-    <section xml:id="lists">
-      <title>Lists</title>
-      <para>The DocBook vocabulary supports several kinds of lists.
-        These lists can optionally have titles. <tip>
-          <para>A common pitfall writers fall into is to create
-            several small sections. This is suboptimal because you're
-            giving the full weight of a title in the table of contents
-            to something that may have a single sentence of content.
-            What you probably want in this case is some kind of
-            list.</para>
-        </tip><itemizedlist>
-          <title>Types of list in DocBook</title>
-          <para>Notice that this list has a title and an introductary
-            paragraph before the first list item. The title and intro
-            para are optional.</para>
-          <listitem>
-            <para><tag>itemizedlist</tag>: A bulleted list. Your hands
-              are soaking in one.</para>
-          </listitem>
-          <listitem>
-            <para><tag>orderedlist</tag>: A numbered list. There are
-              attributes that let you control the type of numbering
-              and the start of the numbering for unusual
-              situations.</para>
-          </listitem>
-          <listitem>
-            <para><tag>procedure</tag>: This is a list of steps.
-            </para>
-          </listitem>
-          <listitem>
-            <para><tag>variablelist</tag>: This is a list where each
-              item includes one or more <quote>terms</quote> followed
-              by a block of text describing it. You can control the
-              formatting so that it's formatted as blocks or as a
-              runin head. I'll include examples later in this
-              section.</para>
-          </listitem>
-          <listitem>
-            <para><tag>simplelist</tag>: This is a list without
-              bullets.</para>
-          </listitem>
-        </itemizedlist>The following are examples of
-          <tag>variablelist</tag>s. Notice that the
-          <quote>term</quote> is in bold. See <link
-          xlink:href="http://www.sagehill.net/docbookxsl/Variablelists.html"
-          >variablelist options</link> for detailed information on
-        formatting variablelists.<variablelist>
-          <title>Variablelist with default layout</title>
-          <varlistentry>
-            <term>itemizedlist</term>
-            <listitem>
-              <para>A bulleted list. Your hands are soaking in
-                one.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>orderedlist</term>
-            <listitem>
-              <para> A numbered list. There are attributes that let
-                you control the type of numbering and the start of the
-                numbering for unusual situations.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>procedure</term>
-            <listitem>
-              <para>This is a list of steps. As with other lists,
-                  <tag>procedure</tag>s can have <tag>title</tag>s and
-                some content before the first step. One use for
-                  <tag>procedure</tag>s is that you can create a list
-                of procedures at the front of the book. </para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>variablelist</term>
-            <listitem>
-              <para>This is a list where each item includes one or
-                more <quote>terms</quote> followed by a block of text
-                describing it. You can control the formatting so that
-                it's formatted as blocks or as a runin head. I'll
-                include examples later in this section.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>simplelist</term>
-            <listitem>
-              <para>This is a list without bullets.</para>
-            </listitem>
-          </varlistentry>
-        </variablelist><variablelist>
-          <title>The same variablelist formatted as blocks</title>
-          <?dbfo list-presentation="blocks"?> 
-          <?dbfo term-width=".75in"?> 
-          <?dbhtml list-presentation="table"?> 
-          <?dbhtml term-width="15%"  list-width="85%" ?> 
-          <varlistentry>
-            <term>itemizedlist</term>
-            <listitem>
-              <para>A bulleted list. Your hands are soaking in
-                one.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>orderedlist</term>
-            <listitem>
-              <para> A numbered list. There are attributes that let
-                you control the type of numbering and the start of the
-                numbering for unusual situations.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>procedure</term>
-            <listitem>
-              <para>This is a list of steps. As with other lists,
-                  <tag>procedure</tag>s can have <tag>title</tag>s and
-                some content before the first step. One use for
-                  <tag>procedure</tag>s is that you can create a list
-                of procedures at the front of the book. </para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>variablelist</term>
-            <listitem>
-              <para>This is a list where each item includes one or
-                more <quote>terms</quote> followed by a block of text
-                describing it. You can control the formatting so that
-                it's formatted as blocks or as a runin head. I'll
-                include examples later in this section.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>simplelist</term>
-            <listitem>
-              <para>This is a list without bullets.</para>
-            </listitem>
-          </varlistentry>
-        </variablelist></para>
-    </section>
-  </chapter>
-  <chapter xml:id="other-features">
-    <title>Conditional text/profiling</title>
-    <para>One important feature of the publishing system is the
-      ability to flag elements with certain attributes and produce
-      different versions of the same document from the same source
-      file. There are two scenarios in which you might use conditional text:<itemizedlist>
+    <section xml:id="Limits-d1e1397" xmlns:m="http://www.w3.org/1998/Math/MathML"
+      xmlns:html="http://www.w3.org/1999/xhtml">
+      <title>Limits</title>
+      <para>All accounts are configured with default thresholds, or limits, that manage capacity and
+        prevent abuse of the system. </para>
+      <para>The system recognizes the following types of limits: </para>
+      <itemizedlist>
         <listitem>
-          <para>Flagging content as internal, reviewer, or writeronly,
-            for
-            example:<programlisting>&lt;para security="internal">This para will not appear in the customer-facing external
-verison of the document. It will appear in blue text in the internal version published on 
-docs-internal.rackspace.com. &lt;/para></programlisting>If
-            you instead use <tag>security="reviewer"</tag> the content
-            will appear only if you set
-              <tag>&lt;security>reviewer&lt;/security></tag> in your
-              <filename>pom.xml</filename> file. </para>
+          <para>rate limits</para>
+          <para>Rate limits are thresholds that are reset after a certain amount of time passes.
+            Rate limits control the frequency at which the user can issue specific API requests. For
+            more information, see <xref linkend="Rate-Limits-d1e003"/>.</para>
         </listitem>
         <listitem>
-          <para>Using a feature-flag to control whether content
-            appears:<programlisting>&lt;para condition="foo-feature">This will appear only if the parameter profileCondition 
-contains foo-feature in your pom.xml file.&lt;/para></programlisting>In
-            your <filename>pom.xml</filename>, you can set
-              <tag>&lt;profileCondition>foo-feature&lt;/profileCondition></tag>.
-            Note that you can also use a semi-colon delimeted list:
-              <tag>&lt;profileCondition>foo-feature;bar-feature&lt;/profileCondition></tag>
-            to turn on elements with
-              <tag>condition="foo-feature"</tag> and
-              <tag>condition="bar-feature"</tag>.</para>
+          <para>absolute limits</para>
+          <para>Absolute limits are fixed. Absolute limits control the total number of specific
+            objects that the user can possess simultaneously. For more information, see <xref
+              linkend="Absolute-Limits-d1e003"/>.</para>
         </listitem>
-      </itemizedlist></para>
-  </chapter>
-    <chapter xml:id="somesection" role="api-reference">
-      <title>API Reference</title>
-      <para>For more information on how this section works, see <link
-        xlink:href="http://docs-internal.rackspace.com/writers-guide/content/ch_wadl.html"
-        >Generating an API reference from a WADL file</link>. </para>
+      </itemizedlist>
+      <note>
+        <para>If the default limits are too low for your particular application, please contact
+          Rackspace Cloud support to request an increase. All requests require reasonable
+          justification.</para>
+      </note>
+      <section xml:id="Rate-Limits-d1e003">
+        <title>Rate limits</title>
+        <para>Rate limits control the frequency at which the user can issue specific API
+          requests.</para>
+        <para>For Rackspace CDN, the rate limit is ????. </para>
+        <para>Rate limits are reset after a certain amount of time passes. </para>
+      </section>
+      <section xml:id="Absolute-Limits-d1e003">
+        <title>Absolute limits</title>
+        <para>The following table provides details about the absolute limits for the Rackspace CDN
+          API.</para>
+        <table rules="all">
+          <caption>Absolute Limits</caption>
+          <col width="30%"/>
+          <col width="40%"/>
+          <col width="30%"/>
+          <thead>
+            <tr>
+              <th>Type of limit</th>
+              <th>Description</th>
+              <th>Limit</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td> </td>
+              <td/>
+              <td/>
+            </tr>
+            <tr>
+              <td/>
+              <td/>
+              <td/>
+            </tr>
+            <tr>
+              <td/>
+              <td/>
+              <td/>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+      <section xml:id="commonHeaders">
+        <title>Common headers</title>
+        <para>Each request to the Rackspace CDN API must include certain standard and extended HTTP
+          headers. These headers provide host, agent, authentication, and other pertinent
+          information to the server. The following table provides the common headers used by the
+          API.</para>
+        <table rules="all">
+          <caption>Common Headers</caption>
+          <col width="30%"/>
+          <col width="70%"/>
+          <thead>
+            <tr>
+              <th>Header</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>X-Auth-Token</td>
+              <td>Auth token</td>
+            </tr>
+            <tr>
+              <td>X-Project-Id</td>
+              <td>A unique ID for the user to which the value of X-Auth-Token grants access. </td>
+            </tr>
+            <tr>
+              <td>Accept</td>
+              <td>Media type desired; initially, only <code>application/json</code> is supported.
+                The <code>Accept</code> header is required.</td>
+            </tr>
+            <tr>
+              <td>Accept-Encoding</td>
+              <td>Specifies that the agent accepts gzip-encoded response bodies</td>
+            </tr>
+            <tr>
+              <td>Client-ID</td>
+              <td>A unique ID for each client instance. The Client-ID is used to avoid echoing a
+                sender's messages back to the same instance and may be logged by the server for
+                future use. The client generates the Client-ID once. It persists between restarts of
+                the client. The client should reuse the same Client-ID. Note: All message-related
+                operations require that Client-ID is included in the headers to ensure that messages
+                are not echoed back to the client that posted them, unless the client explicitly
+                requests this.</td>
+            </tr>
+            <tr>
+              <td>Content-Length</td>
+              <td>For <command>POST</command> or <command>PUT</command> requests, the length in
+                bytes of the message document being submitted</td>
+            </tr>
+            <tr>
+              <td>Content-Type</td>
+              <td><code>application/json</code>
+              </td>
+            </tr>
+            <tr>
+              <td>Date</td>
+              <td>Current date and time</td>
+            </tr>
+            <tr>
+              <td>Host</td>
+              <td>Host name of the API</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+      <section xml:id="datetimeformat">
+        <title>Date and time format</title>
+        <para>The Rackspace CDN service uses an ISO-8601 compliant date format for the display and
+          consumption of date/time values. </para>
+        <example>
+          <title>Service Date/Time Format</title>
+          <programlisting>yyyy-MM-dd'T'HH:mm:ss.SSSZ</programlisting>
+          <para>See the table below for a description of the date and time format codes.</para>
+          <para>September 19th, 2014 at 8:07:08 AM, GMT-5 would have the following format:</para>
+          <programlisting>2014-09-19T08:07:08-05:00</programlisting>
+        </example>
+        <table rules="all">
+          <caption>Explanation of Date/Time Format Codes</caption>
+          <thead>
+            <tr>
+              <td>Code</td>
+              <td>Description</td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>yyyy</td>
+              <td>Four digit year</td>
+            </tr>
+            <tr>
+              <td>MM</td>
+              <td>Two digit month</td>
+            </tr>
+            <tr>
+              <td>dd</td>
+              <td>Two digit day of month</td>
+            </tr>
+            <tr>
+              <td>T</td>
+              <td>Separator for date/time</td>
+            </tr>
+            <tr>
+              <td>HH</td>
+              <td>Two digit hour of day (00-23)</td>
+            </tr>
+            <tr>
+              <td>mm</td>
+              <td>Two digit minutes of hour</td>
+            </tr>
+            <tr>
+              <td>ss</td>
+              <td>Two digit seconds of the minute</td>
+            </tr>
+            <tr>
+              <td>SSS</td>
+              <td>Three digit milliseconds of the second</td>
+            </tr>
+            <tr>
+              <td>Z</td>
+              <td>RFC-822 timezone</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+      <section xml:id="pagination-dle101">
+        <title>Pagination</title>
+        <remark>???? Do we need a pagination section for Rackspace CDN?</remark>
+        <para>???? Do we need a pagination section for Rackspace CDN?</para>
+      </section>
+    </section>
+    <section xml:id="responseCodes-d101e">
+      <title>Response codes</title>
+      <para>Rackspace CDN returns an HTTP code that denotes the type of response. </para>
+      <itemizedlist>
+        <listitem>
+          <para>Successful response codes are returned only if all configured providers were
+            successful in processing the request.</para>
+        </listitem>
+        <listitem>
+          <para>Error response codes are accompanied by an <code>application/json</code> response
+            body containing the error messages.</para>
+        </listitem>
+      </itemizedlist>
+      <para>The following table lists possible responses with their associated codes and
+        descriptions.</para>
+      <informaltable rules="all">
+        <thead>
+          <tr align="center">
+            <td colspan="2">Response</td>
+            <td colspan="1">Associated Response Code</td>
+            <td colspan="3">Description</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td colspan="2"><code>OK</code></td>
+            <td colspan="1">200</td>
+            <td colspan="3">The request has succeeded. (Some API calls may return 201 instead.)</td>
+          </tr>
+          <tr>
+            <td colspan="2"><code>Created</code></td>
+            <td colspan="1">201</td>
+            <td colspan="3">The request has been fulfilled and a resource was created.</td>
+          </tr>
+          <tr>
+            <td colspan="2"><code>Accepted</code></td>
+            <td colspan="1">202</td>
+            <td colspan="3">The request has been accepted for processing.</td>
+          </tr>
+          <tr>
+            <td colspan="2"><code>No Content</code></td>
+            <td colspan="1">204</td>
+            <td colspan="3">The request has been fulfilled, but does not return a representation
+              (that is, the response is empty).</td>
+          </tr>
+          <tr>
+            <td colspan="2"><code>Bad Request</code></td>
+            <td colspan="1">400</td>
+            <td colspan="3">The request was understood or was missing required parameters.</td>
+          </tr>
+          <tr>
+            <td colspan="2"><code>Unauthorized</code></td>
+            <td colspan="1">401</td>
+            <td colspan="3">Authentication failed, or the user does not have permissions for a
+              requested operation.</td>
+          </tr>
+          <tr>
+            <td colspan="2"><code>Forbidden</code></td>
+            <td colspan="1">403</td>
+            <td colspan="3">The server understood the request, but refused to fulfill it.</td>
+          </tr>
+          <tr>
+            <td colspan="2"><code>Not Found</code></td>
+            <td colspan="1">404</td>
+            <td colspan="3">A requested resource was not found.</td>
+          </tr>
+          <tr>
+            <td colspan="2"><code>Method Not Allowed</code></td>
+            <td colspan="1">405</td>
+            <td colspan="3">The request method is not supported for this resource.</td>
+          </tr>
+          <tr>
+            <td colspan="2"><code>Too Many Requests</code></td>
+            <td colspan="1">429</td>
+            <td colspan="3">Too many requests have been sent in a given amount of time.  Pause
+              requests, wait up to one minute, and try again. (Intended for use with rate
+              limiting.)</td>
+          </tr>
+          <tr>
+            <td colspan="2"><code>Service Unavailable</code></td>
+            <td colspan="1">503</td>
+            <td colspan="3">The service is temporarily unavailable (for example, for scheduled
+              platform maintenance). Try again later.</td>
+          </tr>
+        </tbody>
+      </informaltable>
+      <para xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:html="http://www.w3.org/1999/xhtml"
+        ><?rax-fo keep-with-next?> An example of an error message follows. </para>
+      <example xmlns:m="http://www.w3.org/1998/Math/MathML"
+        xmlns:html="http://www.w3.org/1999/xhtml">
+        <title>Error Message Example</title>
+        <programlisting>HTTP/1.1 400 Bad Request
+Content-Type: application/json
 
-      <resources xmlns="http://wadl.dev.java.net/2009/02" href="../wadl/example.wadl"/>
+{
+  "title": "Unsupported limit",
+  "description": "The given limit cannot be negative, and cannot be greater than 50.",
+  "code": 1092,
+  "link": {
+    "rel": "help",
+    "href": "http://docs.example.com/messages#limit",
+    "text": "API documentation for the limit parameter"
+  }
+}</programlisting>
+      </example>
+    </section>
+  </chapter>
+  <chapter xml:id="apiOperations-d101" xmlns="http://docbook.org/ns/docbook" role="api-reference">
+    <title>API operations</title>
+    <para>This chapter describes each of the Rackspace CDN operations, which are summarized in the
+      following table. </para>
+ 
+      <section xml:id="baseOperations">
+        <title>Base operations</title>  
+      <para>The section describes base operations for Rackspace CDN, such the operations to get the
+        home document, to get a health check, and to ping.</para>
+      <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
+          
+          <wadl:resource href="../../src/wadl/cdn-devguide.wadl#version">
+               <wadl:method href="#getHomeDocument"/>
+          </wadl:resource> 
+          
+          <wadl:resource href="../../src/wadl/cdn-devguide.wadl#health">
+               <wadl:method href="#getHealthCheck"/>
+          </wadl:resource>
+        
+          <wadl:resource href="../../src/wadl/cdn-devguide.wadl#subsystem">
+             <wadl:method href="#getHealthDetails"/>          
+          </wadl:resource>
+        
+          <wadl:resource href="../../src/wadl/cdn-devguide.wadl#ping">
+             <wadl:method href="#getPing"/>
+        </wadl:resource>
+        
+      </wadl:resources>
+    </section>
+    <section xml:id="servicesOperations">
+      <title>Services</title>
+      <para>The section describes the services-related resources of the services API.</para>
       
-    </chapter>
+      <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
+        <wadl:resource href="../../src/wadl/cdn-devguide.wadl#services">
+          <wadl:method href="#getAllServices"/>
+        </wadl:resource>
+      </wadl:resources>
+    </section>
+    <!--    <section xml:id="flavorsOperations">
+      <title>Flavors</title>
+      <para>The section describes how to get the home document for Rackspace CDN.</para>
+      <note>
+        <para>The home document schema is currently not ratified in OpenStack and may change.
+        </para>
+      </note>
+      <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
+        <wadl:resource href="../../src/wadl/cdn-devguide.wadl#version">
+          <wadl:method href="#getHomeDocument"/>
+        </wadl:resource>
+      </wadl:resources>
+    </section>
+    <section xml:id="loggingOperations">
+      <title>Logging</title>
+      <para>The section describes how to get the home document for Rackspace CDN.</para>
+      <note>
+        <para>The home document schema is currently not ratified in OpenStack and may change.
+        </para>
+      </note>
+      <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
+        <wadl:resource href="../../src/wadl/cdn-devguide.wadl#version">
+          <wadl:method href="#getHomeDocument"/>
+        </wadl:resource>
+      </wadl:resources>
+    </section>
+    <section xml:id="streamingOperations">
+      <title>Streaming</title>
+      <para>The section describes how to get the home document for Rackspace CDN.</para>
+      <note>
+        <para>The home document schema is currently not ratified in OpenStack and may change.
+        </para>
+      </note>
+      <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
+        <wadl:resource href="../../src/wadl/cdn-devguide.wadl#version">
+          <wadl:method href="#getHomeDocument"/>
+        </wadl:resource>
+      </wadl:resources>
+    </section> -->
+  </chapter>
+
 </book>

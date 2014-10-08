@@ -1,0 +1,24 @@
+{
+    "storage": {
+        "cassandra": {
+            "online": true,
+            "links": [
+                      {
+                      "href": "https://www.poppycdn.io/health/storage/cassandra",
+                      "rel": "self"
+                      }
+                      ]
+        }
+    },
+    "transport": {
+        "pecan": {
+            "online": true,
+            "node": "ppy-web-01",
+            "links": [
+                      {
+                      "href": "https://www.poppycdn.io/health/transport/pecan",
+                      "rel": "self"
+                      }
+                      ]
+        }
+    }
