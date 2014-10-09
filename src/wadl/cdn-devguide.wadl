@@ -52,64 +52,22 @@
 			   	
 			<resource id="services" path="services">
 				<method href="#getAllServices"/>
-			</resource>
-							<!--	<resource id="queue_name" path="{queue_name}">
-					<param name="queue_name" style="template"
-						type="xsd:string">
+				<method href="#createService"/>
+		
+				<resource id="service_name" path="{service_name}">
+					<param name="service_name" style="template"
+						type="xsd:string" required="true">
 						<wadl:doc
 							xmlns="http://docbook.org/ns/docbook"
-							xml:lang="EN"><para>The name of the
-								queue. <code>queue_name</code> is the name that you
-								give to the queue. The name must not exceed 64
-								bytes in length, and it is limited to US-ASCII
-								letters, digits, underscores, and hyphens.</para> </wadl:doc>
+							xml:lang="EN"><para>Specifies the name of the service representing their distributed content. For example: mywebsite.com 
+								</para> </wadl:doc>
 					</param>
-					<method href="#createQueue"/>
-					<method href="#deleteQueue"/>
-					<method href="#checkQueueExists"/>
-					<resource id="metadata" path="metadata">
-						<method href="#setQueueMetadata"/>
-						<method href="#getQueueMetadata"/>
-					</resource>
-					<resource id="stats" path="stats">
-						<method href="#getQueueStats"/>
-					</resource>
-					<resource id="messages" path="messages">
-						<method href="#postMessage"/>
-						<method href="#getMessages"/>
-						<method href="#getSetMessagesByID"/>
-						<method href="#deleteMessages"/>
-						<resource id="messageId" path="{messageId}">
-							<param name="messageId" style="template"
-								type="xsd:string">
-								<wadl:doc
-								xmlns="http://docbook.org/ns/docbook"
-								xml:lang="EN"><para>The message
-								ID.</para></wadl:doc>
-							</param>
-							<method href="#getSpecificMessage"/>
-							<method href="#deleteMessage"/>
-						</resource>
-					</resource>
-					<resource id="claims" path="claims">
-						<method href="#claimMessages"/>
-						<resource id="claimId" path="{claimId}">
-							<param name="claimId" style="template"
-								type="xsd:string">
-								<wadl:doc
-								xmlns="http://docbook.org/ns/docbook"
-								xml:lang="EN"><para>The claim
-								ID.</para></wadl:doc>
-							</param>
-							<method href="#queryClaim"/>
-							<method href="#updateClaim"/>
-							<method href="#deleteClaim"/> -->
-						</resource>
-
- 
- 
- 
-	
+					<method href="#getService"/>
+					<method href="#patchService"/>
+					<method href="#deleteService"/>
+				</resource>									
+			</resource>
+		 </resource>	
 	</resources>
 <!--*******************************************************-->
 <!--               All methods                             -->
@@ -159,10 +117,10 @@
 <!--               Get health check                        -->
 <!--*******************************************************-->
 	<method name="GET" id="getHealthCheck">
-		<wadl:doc xml:lang="EN" title="Get health check"
+		<wadl:doc xml:lang="EN" title="Performs health check"
 			xmlns="http://docbook.org/ns/docbook">
-			<para role="shortdesc">Gets the health check.</para>
-			<para>This operation gets the health check. </para>			
+			<para role="shortdesc">Performs a health check.</para>
+			<para>This operation performs a health check. </para>			
 		</wadl:doc>
 		<request>
 			<representation mediaType="application/json" >
@@ -202,14 +160,14 @@
 	<method name="GET" id="getHealthDetails">
 		<wadl:doc xml:lang="EN" title="Get health details"
 			xmlns="http://docbook.org/ns/docbook">
-			<para role="shortdesc">Gets the health details.</para>
-			<para>This operation gets the health details. </para>
+			<para role="shortdesc">Gets the health details for a subsystem.</para>
+			<para>This operation shows whether a subsystem is online or offline. </para>
 					
 		</wadl:doc>
 		<request>
 			<representation mediaType="application/json" >
 				<doc>
-					<xsdxt:code href="../wadl/samples/cdn-getHomeDocument_request-json-http.txt"/>
+					<xsdxt:code href="../wadl/samples/cdn-getHealthDetails_request-json-http.txt"/>
 				</doc>
 			</representation>
 		</request>
@@ -219,13 +177,23 @@
 				<wadl:doc xmlns="http://docbook.org/ns/docbook"
 					xml:lang="EN">
 					<xsdxt:code
-						href="../wadl/samples/cdn-getHomeDocument_response-json-http.txt"
+						href="../wadl/samples/cdn-getHealthDetails1_response-json-http.txt"
 					/>
 					<xsdxt:code
-						href="../wadl/samples/cdn-getHomeDocument_response.json"
+						href="../wadl/samples/cdn-getHealthDetails1_response.json"
+					/>
+					<xsdxt:code
+					href="../wadl/samples/cdn-getHealthDetails2_response-json-http.txt"
+					/>
+					<xsdxt:code
+						href="../wadl/samples/cdn-getHealthDetails2_response.json"
 					/>
 				</wadl:doc>
 			</representation>
+		</response>
+		<response status="503" xmlns="http://wadl.dev.java.net/2009/02">
+			<doc title="Service Unavailable" xml:lang="EN">The service is temporarily unavailable (for example, for scheduled
+				platform maintenance). Try again later.</doc>			
 		</response>
 	</method>
 <!--*******************************************************-->
@@ -269,7 +237,7 @@
 	<method name="GET" id="getAllServices">
 		<wadl:doc xml:lang="EN" title="List all services"
 			xmlns="http://docbook.org/ns/docbook">
-			<para role="shortdesc">Gets the home document.</para>
+			<para role="shortdesc">Lists all the services.</para>
 			<para>This operation lists all available services. </para>			
 		</wadl:doc>
 		<request>
@@ -288,7 +256,7 @@
 			</param>
 			<representation mediaType="application/json" >
 				<doc>
-					<xsdxt:code href="../wadl/samples/cdn-getHomeDocument_request-json-http.txt"/>
+					<xsdxt:code href="../wadl/samples/cdn-getAllServices_request-json-http.txt"/>
 				</doc>
 			</representation>
 		</request>
@@ -298,16 +266,306 @@
 				<wadl:doc xmlns="http://docbook.org/ns/docbook"
 					xml:lang="EN">
 					<xsdxt:code
-						href="../wadl/samples/cdn-getHomeDocument_response-json-http.txt"
+						href="../wadl/samples/cdn-getAllServices_response-json-http.txt"
 					/>
 					<xsdxt:code
-						href="../wadl/samples/cdn-getHomeDocument_response.json"
+						href="../wadl/samples/cdn-getAllServices_response.json"
 					/>
 				</wadl:doc>
 			</representation>
 		</response>
 		<response status="400" xmlns="http://wadl.dev.java.net/2009/02">
-			<doc title="Bad Request" xml:lang="EN">Invalid limit value (string, less than or equal to 0, 1000000000) or the limit value is greated than the maximum allowed, which defaults to 20.</doc>			
+			<doc title="Bad Request" xml:lang="EN">Invalid limit value (string, less than or equal to 0, 1000000000), or the limit value is greater than the maximum allowed (which defaults to 20).</doc>			
 		</response>
-	</method>	
+	</method>
+	<!--*******************************************************-->
+	<!--               Create a service                        -->
+	<!--*******************************************************-->
+	<method name="POST" id="createService">
+		<wadl:doc xml:lang="EN" title="Create a service"
+			xmlns="http://docbook.org/ns/docbook">
+			<para role="shortdesc">Creates a service.</para>
+			<para>This operation creates a service. </para>
+            <para>To create a new service, provide a JSON body of the new service with the required attributes.</para>			
+		</wadl:doc>
+		<request>			
+			<representation mediaType="application/json" >
+				<doc>
+					<xsdxt:code href="../wadl/samples/cdn-createService_request-json-http.txt"/>
+					<xsdxt:code href="../wadl/samples/cdn-createService_request.json"/>
+				</doc>
+				<param name="domain" style="plain" path="$.domains.domain"
+					required="true">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN">Specifies the domain used to access the assets on their website, which will be CNAMEd to the CDN provider.</wadl:doc>
+				</param>
+				
+				<param name="origin" style="plain" path="$.origins.origin"
+					required="true">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN">Specifies the URI or ip address to pull origin content from.</wadl:doc>
+				</param>
+				<param name="port" style="plain" path="$.origins.port"
+					required="false">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN">Specifies the port used to access the origin. Defaults to port 80.</wadl:doc>
+				</param>
+				<param name="ssl" style="plain" path="$.origins.ssl"
+					required="false">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN">Uses https to access the origin. Defaults to false.</wadl:doc>
+				</param>
+				<param name="name" style="plain" path="$.origins.rules"
+					required="false">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN">Specifies a collection of rules defining the conditions when this origin should be accessed. </wadl:doc>
+				</param>
+				<param name="name" style="plain" path="$.origins.rules.name"
+					required="true">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN">Specifies the name of this rule.</wadl:doc>
+				</param>
+				<param name="request_url" style="plain" path="$.origins.rules.request_url"
+					required="true">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN">Specifies the request URL this rule should match for this origin to be used. (Regex is supported.)</wadl:doc>
+				</param>
+				
+				<param name="name" style="plain" path="$.caching.name"
+					required="true">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN">Specifies the a collection of rules that determine if this TTL should be applied to an asset.</wadl:doc>
+				</param>
+				<param name="ttl" style="plain" path="$.caching.ttl"
+					required="true">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN">Specifies the the ttl to apply.</wadl:doc>
+				</param>
+				<param name="rules" style="plain" path="$.caching.rules"
+					required="false">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN">Specifies a collection of rules that determine if this TTL should be applied to an asset.</wadl:doc>
+				</param>
+				<param name="name" style="plain" path="$.caching.rules.name"
+					required="true">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN">Specifies the name of this rule.</wadl:doc>
+				</param>
+				<param name="request_url" style="plain" path="$.caching.rules.request_url"
+					required="true">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN">Specifies the request URL this rule should match for this TTL to be used. (Regex is supported.)</wadl:doc>
+				</param>
+				
+				<param name="name" style="plain" path="$.restrictions.name"
+					required="true">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN">Specifies the name of this restriction.</wadl:doc>
+				</param>
+				<param name="rules" style="plain" path="$.restrictions.rules"
+					required="false">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN">Specifies a collection of rules that determine if this TTL should be applied to an asset.</wadl:doc>
+				</param>
+				<param name="name" style="plain" path="$.restrictions.rules.name"
+					required="true">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN">Specifies the name of this rule.</wadl:doc>
+				</param>
+				<param name="request_url" style="plain" path="$.restrictions.rules.request_url"
+					required="true">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN">Specifies the request URL this rule should match for this TTL to be used. (Regex is supported.)</wadl:doc>
+				</param>
+				<param name="http_host" style="plain" path="$.restrictions.rules.http_host"
+					required="false">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN">Specifies the http host that requests must come from.</wadl:doc>
+				</param>
+				<param name="client_ip" style="plain" path="$.restrictions.rules.client_ip"
+					required="false">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN">Specifies the client IP that requests can be accepted from.</wadl:doc>
+				</param>
+				<param name="http_method" style="plain" path="$.restrictions.rules.http_method"
+					required="false">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN">Specifies the HTTP method (GET, PUT, POST, DELETE, PATCH, and so on) that can be accepted.</wadl:doc>
+				</param>
+				
+				<param name="flavorRef" style="plain" path="$.flavorRef.flavorRef"
+					required="true">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN">Specifies the CDN provider flavor id to use. For a list of flavors, see "Flavors".</wadl:doc>
+				</param>
+				
+				<param name="status" style="plain" path="$.status.status"
+					required="true">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN">Specifies the current status of the service. Status is generated.</wadl:doc>
+				</param>
+				<param name="in_progress" style="plain" path="$.status.in_progress"
+					required="false">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN">Specifies that the service is currently being deployed.</wadl:doc>
+				</param>
+				<param name="deployed" style="plain" path="$.status.deployed"
+					required="false">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN">Specifies that the service has been deployed and is ready to use.</wadl:doc>
+				</param>
+				
+				<param name="href" style="plain" path="$.links.href"
+					required="true">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN">Specifies the location to access this resource. This parameter is generated and is part of the self-navigating JSON document paths.</wadl:doc>
+				</param>
+				<param name="rel" style="plain" path="$.links.rel"
+					required="true">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN">Specifies how the href link provided is related to this resourcer_url. This parameter is generated and is part of the self-navigating JSON document paths.</wadl:doc>
+				</param>				
+				
+			</representation>
+		</request>
+		<response status="202" xmlns="http://wadl.dev.java.net/2009/02">
+			<doc title="Accepted" xml:lang="EN">The request has been accepted for processing.</doc>
+			<representation mediaType="application/json">
+				<wadl:doc xmlns="http://docbook.org/ns/docbook"
+					xml:lang="EN">
+					<xsdxt:code
+						href="../wadl/samples/cdn-createService_response-json-http.txt"
+					/>
+					<xsdxt:code
+						href="../wadl/samples/cdn-createService_request.json"
+					/>
+				</wadl:doc>
+			</representation>
+		</response>
+		<response status="400" xmlns="http://wadl.dev.java.net/2009/02">
+			<doc title="Bad Request" xml:lang="EN">Invalid JSON.</doc>			
+		</response>
+		<response status="400" xmlns="http://wadl.dev.java.net/2009/02">
+			<doc title="Bad Request" xml:lang="EN">Missing or empty domains list.</doc>			
+		</response>
+		<response status="400" xmlns="http://wadl.dev.java.net/2009/02">
+			<doc title="Bad Request" xml:lang="EN">Maximum length of domains list reached.</doc>			
+		</response>
+		<response status="400" xmlns="http://wadl.dev.java.net/2009/02">
+			<doc title="Bad Request" xml:lang="EN">Invalid entry for domain value (such as [{"domain": "invalid"}]. </doc>			
+		</response>
+		<response status="400" xmlns="http://wadl.dev.java.net/2009/02">
+			<doc title="Bad Request" xml:lang="EN">Missing or empty origins list. </doc>			
+		</response>
+		<response status="400" xmlns="http://wadl.dev.java.net/2009/02">
+			<doc title="Bad Request" xml:lang="EN">Maximum length of origins list reached.</doc>			
+		</response>
+		<response status="400" xmlns="http://wadl.dev.java.net/2009/02">
+			<doc title="Bad Request" xml:lang="EN">Invalid entry for origin value (such as [{"origin": "invalid"}]. </doc>			
+		</response>
+		<response status="400" xmlns="http://wadl.dev.java.net/2009/02">
+			<doc title="Bad Request" xml:lang="EN">Non-boolean value for origins:origin:ssl. </doc>			
+		</response>
+		<response status="400" xmlns="http://wadl.dev.java.net/2009/02">
+			<doc title="Bad Request" xml:lang="EN">Value for origins:origin:port is something other than (80,443). </doc>			
+		</response>
+		<response status="400" xmlns="http://wadl.dev.java.net/2009/02">
+			<doc title="Bad Request" xml:lang="EN">Restrictions list present with no name.</doc>			
+		</response>
+		<response status="400" xmlns="http://wadl.dev.java.net/2009/02">
+			<doc title="Bad Request" xml:lang="EN">Attempt to post service with flavor value that is not present in the database.</doc>			
+		</response>
+	</method>
+<!--*******************************************************-->
+<!--               Retrieve a service                      -->
+<!--*******************************************************-->
+	<method name="GET" id="getService">
+		<wadl:doc xml:lang="EN" title="Retrieves a service"
+			xmlns="http://docbook.org/ns/docbook">
+			<para role="shortdesc">Retrieves a service.</para>
+			<para>This operation retrieves a service. </para>			
+		</wadl:doc>
+		<request>
+			<representation mediaType="application/json" >
+				<doc>
+					<xsdxt:code href="../wadl/samples/cdn-getService_request-json-http.txt"/>
+				</doc>
+			</representation>
+		</request>
+		<response status="200" xmlns="http://wadl.dev.java.net/2009/02">
+			<doc title="OK" xml:lang="EN">Success.</doc>
+			<representation mediaType="application/json">
+				<wadl:doc xmlns="http://docbook.org/ns/docbook"
+					xml:lang="EN">
+					<xsdxt:code
+						href="../wadl/samples/cdn-getService_response-json-http.txt"
+					/>
+					<xsdxt:code
+						href="../wadl/samples/cdn-getService_response.json"
+					/>
+				</wadl:doc>
+			</representation>
+		</response>
+	</method>
+<!--*******************************************************-->
+<!--                   Edit a service                      -->
+<!--*******************************************************-->
+	<method name="PATCH" id="patchService">
+		<wadl:doc xml:lang="EN" title="Edits or updates a service"
+			xmlns="http://docbook.org/ns/docbook">
+			<para role="shortdesc">Edits or updates a service.</para>
+			<para>This operation edits or updates a service. </para>
+			<para>To edit or update a service, send a JSON body with an updated value for one or more of the top level service resource attributes, which are given in the create service operation description. All attributes values (states) from the previous version of this service are carried over by default if not included in the body.</para>			
+		</wadl:doc>
+		<request>
+			<representation mediaType="application/json" >
+				<doc>
+					<xsdxt:code href="../wadl/samples/cdn-patchService_request-json-http.txt"/>
+					<xsdxt:code
+						href="../wadl/samples/cdn-patchService_request.json"
+					/>
+				</doc>
+			</representation>
+		</request>
+		<response status="202" xmlns="http://wadl.dev.java.net/2009/02">
+			<doc title="Accepted" xml:lang="EN">The request has been accepted for processing.</doc>
+			<representation mediaType="application/json">
+				<wadl:doc xmlns="http://docbook.org/ns/docbook"
+					xml:lang="EN">
+					<xsdxt:code
+						href="../wadl/samples/cdn-patchService_response-json-http.txt"
+					/>
+				</wadl:doc>
+			</representation>
+		</response>
+	</method>
+	<!--*******************************************************-->
+	<!--                   Delete a service                    -->
+	<!--*******************************************************-->
+	<method name="DELETE" id="deleteService">
+		<wadl:doc xml:lang="EN" title="Deletes a service"
+			xmlns="http://docbook.org/ns/docbook">
+			<para role="shortdesc">Deletes a service.</para>
+			<para>This operation deletes a service. </para>			
+		</wadl:doc>
+		<request>
+			<representation mediaType="application/json" >
+				<doc>
+					<xsdxt:code href="../wadl/samples/cdn-deleteService_request-json-http.txt"/>
+				</doc>
+			</representation>
+		</request>
+		<response status="204" xmlns="http://wadl.dev.java.net/2009/02">
+			<doc title="Accepted" xml:lang="EN">The request has been fulfilled, but does not return a representation
+				(that is, the response is empty).</doc>
+			<representation mediaType="application/json">
+				<wadl:doc xmlns="http://docbook.org/ns/docbook"
+					xml:lang="EN">
+					<xsdxt:code
+						href="../wadl/samples/cdn-deleteService_response-json-http.txt"
+					/>
+				</wadl:doc>
+			</representation>
+		</response>
+	</method>		
 </application>

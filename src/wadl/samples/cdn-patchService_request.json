@@ -1,0 +1,10 @@
+{
+    "origins": [
+                {
+                "origin": "44.33.22.11",
+                "port": 80,
+                "ssl": false
+                }
+                ]
+}' \
+https://global.cdn.api.rackspacecloud.com/services/mywebsite.com

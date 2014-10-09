@@ -1334,48 +1334,78 @@ Content-Type: application/json
       <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
         <wadl:resource href="../../src/wadl/cdn-devguide.wadl#services">
           <wadl:method href="#getAllServices"/>
+          <wadl:method href="#createService" />
         </wadl:resource>
+        
+        <wadl:resource href="../../src/wadl/cdn-devguide.wadl#service_name">
+          <wadl:method href="#getService"/>
+          <wadl:method href="#patchService"/>
+          <wadl:method href="#deleteService"/>
+        </wadl:resource>
+        
       </wadl:resources>
     </section>
-    <!--    <section xml:id="flavorsOperations">
-      <title>Flavors</title>
-      <para>The section describes how to get the home document for Rackspace CDN.</para>
-      <note>
-        <para>The home document schema is currently not ratified in OpenStack and may change.
-        </para>
-      </note>
+    
+    <section xml:id="serviceAssetsOperations">
+      <title>Services assets</title>
+      <para>A service distributes assets across the network. 
+        Service assets let you interrogate properties about these assets and perform certain actions on them. </para>  
+      <para>The section describes operations related to service assets.</para>
+      <!--
       <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
         <wadl:resource href="../../src/wadl/cdn-devguide.wadl#version">
           <wadl:method href="#getHomeDocument"/>
         </wadl:resource>
-      </wadl:resources>
+      </wadl:resources> -->
+    </section>
+    
+    <section xml:id="serviceAnalyticsOperations">
+      <title>Services analytics (To Do)</title>
+      <para>Service analytics report usage data (hits, misses, and so on) about the service. </para>  
+      <para>The section describes operations related to service analytics.</para>
+      <!--
+      <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
+        <wadl:resource href="../../src/wadl/cdn-devguide.wadl#version">
+          <wadl:method href="#getHomeDocument"/>
+        </wadl:resource>
+      </wadl:resources> -->
+    </section>
+    
+        <section xml:id="flavorsOperations">
+      <title>Flavors</title>
+          <para>A flavor is a mapping configuration to a CDN provider. Each flavor may contain a list of providers. 
+            The operator can decide the flavor names offered and the mapping to each provider offered. </para>  
+      <para>The section describes operations related to flavors.</para>
+          <!--
+      <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
+        <wadl:resource href="../../src/wadl/cdn-devguide.wadl#version">
+          <wadl:method href="#getHomeDocument"/>
+        </wadl:resource>
+      </wadl:resources> -->
     </section>
     <section xml:id="loggingOperations">
       <title>Logging</title>
-      <para>The section describes how to get the home document for Rackspace CDN.</para>
-      <note>
-        <para>The home document schema is currently not ratified in OpenStack and may change.
-        </para>
-      </note>
+      <para>Rackspace CDN has the ability to instruct CDN providers about where to transfer the logs for CDN traffic. 
+        The operator can then parse these logs for various tasks such as analytics, billing, and support.</para>
+      <para>The section describes the operations related to logging.</para>
+     <!--
       <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
         <wadl:resource href="../../src/wadl/cdn-devguide.wadl#version">
           <wadl:method href="#getHomeDocument"/>
         </wadl:resource>
-      </wadl:resources>
+      </wadl:resources> -->
     </section>
     <section xml:id="streamingOperations">
-      <title>Streaming</title>
-      <para>The section describes how to get the home document for Rackspace CDN.</para>
-      <note>
-        <para>The home document schema is currently not ratified in OpenStack and may change.
-        </para>
-      </note>
+      <title>Streaming (To Do)</title>
+      <para>Rackspace CDN supports video streaming, with Adaptive Bit Rate, HLS/HDS, and some sort of transcoding of a video.</para>
+      <para>The section describes the operations related to streaming.</para>
+     <!--
       <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
         <wadl:resource href="../../src/wadl/cdn-devguide.wadl#version">
           <wadl:method href="#getHomeDocument"/>
         </wadl:resource>
-      </wadl:resources>
-    </section> -->
+      </wadl:resources>-->
+    </section> 
   </chapter>
 
 </book>
