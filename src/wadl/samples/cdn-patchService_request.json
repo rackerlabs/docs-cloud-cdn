@@ -6,5 +6,4 @@
                 "ssl": false
                 }
                 ]
-}' \
-https://global.cdn.api.rackspacecloud.com/services/mywebsite.com
+}

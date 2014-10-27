@@ -115,71 +115,37 @@
   <chapter xml:id="Overview">
     <title>Overview</title>
     <!--You can use the <?dbhtml stop-chunking?> processing instruction to prevent a chapter or section for chunking further in the html output. -->
-    <remark>From  http://docs.cloudcdn.apiary.io/</remark>
-    <para>Rackspace CDN is an OpenStack-related project to provide a generic and modular
-      vendor-neutral API that wraps provisioning instructions for CDN vendors that support
-      it.</para>
-    <para>OpenStack operators have many choices when incorporating a content delivery network (CDN)
-      into their infrastructure. The CDN marketplace has both tried-and-true vendors and
-      up-and-coming upstarts with innovative new features. But these vendors often have
-      highly-customized and proprietary provisioning APIs. This can be problematic when an operator
-      wishes to support multiple providers -  or swap out one vendor for another. These challenges
-      spill over to developers who become forced into codifying the CDN instructions for multiple
-      vendors into their applications. </para>
-    <para>Rackspace CDN aims to solve these challenges. Written as a modular, vendor-neutral API,
-      Rackspace CDN incorporates a driver-based model that wraps provisioning instructions for all
-      CDN vendors that support it. Application developers can write their code once, and Rackspace
-      CDN handles all the requisite translations behind-the-scenes.</para>
+    <remark>From http://docs.cloudcdn.apiary.io/     All deleted per Megan's edits.</remark>
     <remark>From https://one.rackspace.com/display/atlanta/Rackspace+CDN+Engineering</remark>
-    <para>CDN is a content delivery network built for Openstack, which provides a generic CDN
-      service over various Openstack services. Custom Delivery Providers can be plugged in, such as
-      Akamai, as well as use of a sample edge network supplied.</para>
     <para>A Content Delivery Network (CDN) is designed to improve performance of publicly
-      distributed assets.  Assets may be any thing from website content, to web application
-      components, to media like videos, ads, and interactive experiences.   CDNs decrease the load
-      time of these assets by caching them on edge servers, also called Points of Presence (POPs). 
-      Edge servers are distributed around the globe, meaning requests only travel to a local
-      location to grab assets, rather than to and from a datacenter based far from the end
-      user. </para>
-    <para>Today, Rackspace offers CDN delivery for content stored in Cloud Files, however, users
-      want to CDN-enable their content stored on Cloud Servers, Dedicated Servers, Cloud Sites,
-      routed through Load Balancers, etc.  Rackspace CDN will give Rackspace customers this power by
-      giving them a simple API and Control Panel experience for managing their CDN enabled domains,
-      called "hostnames", and the origins and assets associated with those domains.  This API will
-      be open source, allowing anyone interested to create plugins for any popular provider, like
-      Fastly, Akamai, CloudFront, or MaxCDN.  The API will be designed to avoid provider-custom
-      integration, making it truly vendor neutral, and allowing customers to avoid vendor lock
-      in. </para>
-    <para><emphasis role="bold">Architecture:</emphasis></para>
+      distributed assets.  Assets can be any thing from website content, to web application
+      components, to media like videos, ads, and interactive experiences.  CDNs decrease the load
+      time of these assets by caching them on edge servers, which are also called Points of Presence
+      (POPs).  Edge servers are distributed around the globe and cache content and serve it directly
+      to customers, thus reducing transit time to a customer's location. </para>
+    <para>Rackspace CDN gives Rackspace customers the power to accelerate content on any public
+      resource at Rackspace by giving them a simple API and Control Panel experience for managing
+      their CDN enabled domains and the origins and assets associated with those domains. </para>
+    <para>The Rackspace CDN architecture includes the following components:</para>
     <itemizedlist>
       <listitem>
-        <para>A Restful WSGI Transport Layer</para>
+        <para>RESTful WSGI transport layer</para>
       </listitem>
       <listitem>
-        <para>Storage Driver Backend for storage of configuration data/settings</para>
+        <para>Storage driver backend for storage of configuration data and settings</para>
       </listitem>
       <listitem>
-        <para>Pluggable CDN Providers (eg Fastly, Amazon CloudFront, ...)</para>
+        <para>The ability to cache publicly accessible resources hosted on a Cloud Server instance,
+          or a public Cloud Files container</para>
       </listitem>
       <listitem>
-        <para>The ability to cache publicly accessible resources hosted on a NOVA instance, or a
-          public SWIFT container</para>
+        <para>Stevedore drivers: Storage drivers to talk to Cassandra. Transport drivers for the
+          entry point such as the Pecan WSGI or the  Falcon WSGI.</para>
       </listitem>
       <listitem>
-        <para>Stevedore Drivers: Storage Drivers to talk to Cassandra. Transport Drivers for the
-          Entry Point e.g. Pecan WSGI, Falcon WSGI, etc.</para>
-      </listitem>
-      <listitem>
-        <para>Stevedore Extensions: Provider Extensions to trigger changes to Fastly, and any number
-          of other CDN providers extending the application. Changes go to all extensions.  Use DNS
-          to dynamically change the CNAME records to the best provider if you want dynamic load
-          balancing between providers.</para>
-      </listitem>
-      <listitem>
-        <para>A single global endpoint to access the API.  The architecture will be deployed to each
-          Rackspace Datacenter.  Configuration data will be geographically replicated using
-          Cassandra.  Geographic Load Balancing will ensure customers hit their nearest
-          infra.</para>
+        <para>A single global endpoint to access the API:  The architecture is deployed to each
+          Rackspace datacenter.  Configuration data is geographically replicated using Cassandra.
+           Geographic load balancing ensures customers hit their nearest infrastructure.</para>
       </listitem>
     </itemizedlist>
     <section xml:id="Intended_Audience-d1e166">
@@ -227,9 +193,8 @@
 <!--<para>See the
         <citetitle>Rackspace CDN Getting Started Guide</citetitle> at <link xlink:href="http://docs.rackspace.com/">docs.rackspace.com</link>
         for information about getting started using the API.</para> -->
-      <para>During Early Access, email all support questions to:
-        <link xlink:href="mailto:support@rackspacecloud.com"
-          >cloudcdn@rackspace.com</link>. </para>
+      <para>During Early Access, email all support questions to: <link
+          xlink:href="mailto:cdn@rackspacecloud.com">cdn@rackspace.com</link>. </para>
       <para>Please visit our <link xlink:href="http://feedback.rackspace.com">Product Feedback
           Forum</link> and let us know what you think about Rackspace CDN.</para>
       <para>You can follow Rackspace updates and announcements via <link
@@ -281,13 +246,7 @@
       <title>Domain</title>
       <para>A domain represents the domain name through which visitors retrieve content. The
         underlying site may be served through a CDN. A service can have multiple domains. A user
-        typically uses CNAME for this domain to their CDN provider.</para>
-    </section>
-     <section xml:id="driver-d1eo1">
-      <title>Driver</title>
-      <para>Rackspace CDN has a modular API where many components are interchangeable. These
-        components are known as drivers. It is possible to use different transport drivers, manager
-        drivers, storage drivers, and provider drivers.</para>
+        typically provides their CDN provider with a Canonical Name (CNAME) for this domain.</para>
     </section>
      <section xml:id="edgeNode-d1eo1">
       <title>Edge node</title>
@@ -301,14 +260,7 @@
     </section>
      <section xml:id="flavor-d1eo1">
       <title>Flavor</title>
-      <para>A flavor allows you to decide which CDN providers you want your service to use.
-        Operators can define the flavors offered, and assign a CDN provider belonging to that
-        flavor. Use flavors to abstract the underlying provider used.</para>
-    </section>
-     <section xml:id="managerDriver-d1eo1">
-      <title>Manager driver</title>
-      <para>A manager driver contains the business logic within the application. This driver is
-        responsible for delegating tasks to storage and provider drivers.</para>
+      <para>A flavor enables you to decide which CDN features that you want your service to use. </para>
     </section>
      <section xml:id="Origin-d1eo1">
       <title>Origin</title>
@@ -322,21 +274,10 @@
         point, location, or facility that connects to and helps other devices establish a connection
         with the Internet. </para>
     </section>
-     <section xml:id="provider-d1eo1">
-      <title>Provider</title>
-      <para>There are many established CDN vendors in the market. A provider is one of these
-        vendors, who has decided to participate in Rackspace CDN. These participating providers will
-        have a provider driver that can communicate with their API.</para>
-    </section>
-     <section xml:id="providerDriver-d1eo1">
-      <title>Provider driver</title>
-      <para>A provider driver is responsible for communicating with the third party providers who
-        are participating in Rackspace CDN.</para>
-    </section>
      <section xml:id="purge-d1eo1" >
       <title>Purge</title>
-      <para>Purging removes content from the edge servers, so it can be refreshed from your origin
-        servers.</para>
+      <para>Purging removes content from the edge servers - thus invalidating the content -  so that
+        it can be refreshed from your origin servers.</para>
     </section>
      <section xml:id="restriction-d1eo1">
       <title>Restriction</title>
@@ -353,17 +294,6 @@
       <title>Status</title>
       <para>The status indicates the current state of the service. The time it takes for a service
         configuration to be distributed amongst a CDN provider cache can vary. </para>
-    </section>
-     <section xml:id="storageDiver-d1eo1" >
-      <title>Storage driver</title>
-      <para>A storage driver is responsible for communicating with the chosen data store to store
-        service configurations.</para>
-    </section>
-     <section xml:id="transportDriver-d1eo1">
-      <title>Transport driver</title>
-      <para>A transport driver handles the incoming requests to the API. The recommended transport
-        driver for Rackspace CDN is the Pecan driver based on the Web Server Gateway Interface
-        (WSGI).</para>
     </section>
   </chapter>
   <chapter xml:id="generalAPIInfo-d1eo1">
@@ -599,7 +529,7 @@
             <para> The service catalog lists the services that you can access. In this example, the
               user can access one database service, one load-balancing service, two compute services
               (Cloud Servers OpenStack and Cloud Servers), two object storage services (Cloud Files
-              CDN and Cloud Files), one DNS service, and ???? one Rackspace CDN service. The catalog
+              CDN and Cloud Files), one DNS service, and one Rackspace CDN service. The catalog
               entry for each service provides at least one endpoint URI for that service. Other
               information, such as regions, versions, and tenants, is provided if it is relevant to
               a user's access to a service. </para>
@@ -607,7 +537,7 @@
           </callout>
           <callout arearefs="response.xml.servicetype">
             <para> The service <code>type</code> attribute identifies services that perform similar
-              functions, regardless of service names. In this example, the service named cloudCDN is
+              functions, regardless of service names. In this example, the service named rackCDN is
               identified as <code>type="????"</code>, identifying it as a CDN service even though
               the "CDN" does not appear in its name. </para>
             <tip>
@@ -648,8 +578,8 @@
           <callout arearefs="response.xml.region">
             <para> A service might expose endpoints in different regions. Regional endpoints enable
               users to provision resources in a manner that provides high availability. </para>
-            <para> Some services are not region-specific. These services supply a single
-              non-regional endpoint and do not provide access to internal URLs. </para>
+            <para> Some services, such as Rackspace CDN, are not region-specific. These services
+              supply a single non-regional endpoint and do not provide access to internal URLs. </para>
             <para> </para>
           </callout>
           <callout arearefs="response.xml.tenant">
@@ -1023,7 +953,8 @@
         <title>Rate limits</title>
         <para>Rate limits control the frequency at which the user can issue specific API
           requests.</para>
-        <para>For Rackspace CDN, the rate limit is ????. </para>
+        <para>For Rackspace CDN, the rate limit is ???? (Megan added "invalidation vs delete purges"
+          in her review of this section). </para>
         <para>Rate limits are reset after a certain amount of time passes. </para>
       </section>
       <section xml:id="Absolute-Limits-d1e003">
@@ -1188,7 +1119,41 @@
       <section xml:id="pagination-dle101">
         <title>Pagination</title>
         <remark>???? Do we need a pagination section for Rackspace CDN?</remark>
-        <para>???? Do we need a pagination section for Rackspace CDN?</para>
+        <para xmlns:wadl="http://wadl.dev.java.net/2009/02">Pagination provides the ability to limit
+          the size of the returned data in the response body as well as retrieve a specified subset
+          of a large data set. Pagination has two key concepts: <emphasis>limit</emphasis> and
+            <emphasis>marker</emphasis>. </para>
+        <para xmlns:wadl="http://wadl.dev.java.net/2009/02">
+          <itemizedlist>
+            <listitem>
+              <para><code>limit</code> is the restriction on the maximum number of items that can be
+                returned. </para>
+            </listitem>
+            <listitem>
+              <para><code>marker</code> is the last item in the previous list returned. </para>
+              <para>For example, a query could request the next 10 services after the service “xyz”
+                as follows: <code>?limit=10&amp;marker=xyz</code>. </para>
+            </listitem>
+          </itemizedlist>
+        </para>
+        <para xmlns:wadl="http://wadl.dev.java.net/2009/02">Pagination applies only to the
+          operations listed in the following table: </para>
+        <informaltable rules="all" xmlns:wadl="http://wadl.dev.java.net/2009/02">
+          <thead>
+            <tr align="center">
+              <td colspan="1">Verb</td>
+              <td colspan="2">URI</td>
+              <td colspan="3">Description</td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td colspan="1">&GET;</td>
+              <td colspan="2">/v1.0/services </td>
+              <td colspan="3">Lists all services.</td>
+            </tr>
+          </tbody>
+        </informaltable>
       </section>
     </section>
     <section xml:id="responseCodes-d101e">
@@ -1351,24 +1316,25 @@ Content-Type: application/json
       <para>A service distributes assets across the network. 
         Service assets let you interrogate properties about these assets and perform certain actions on them. </para>  
       <para>The section describes operations related to service assets.</para>
-      <!--
+      
       <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
-        <wadl:resource href="../../src/wadl/cdn-devguide.wadl#version">
-          <wadl:method href="#getHomeDocument"/>
+        <wadl:resource href="../../src/wadl/cdn-devguide.wadl#assets">
+          <wadl:method href="#getCachedAsset"/>
+          <wadl:method href="#deleteCachedAsset"/>
         </wadl:resource>
-      </wadl:resources> -->
+      </wadl:resources> 
     </section>
     
     <section xml:id="serviceAnalyticsOperations">
-      <title>Services analytics (To Do)</title>
+      <title>Services analytics (To Do????)</title>
       <para>Service analytics report usage data (hits, misses, and so on) about the service. </para>  
       <para>The section describes operations related to service analytics.</para>
-      <!--
+      
       <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
-        <wadl:resource href="../../src/wadl/cdn-devguide.wadl#version">
-          <wadl:method href="#getHomeDocument"/>
+        <wadl:resource href="../../src/wadl/cdn-devguide.wadl#analytics">
+          <wadl:method href="#getAssetAnalytics"/>
         </wadl:resource>
-      </wadl:resources> -->
+      </wadl:resources> 
     </section>
     
         <section xml:id="flavorsOperations">
@@ -1376,36 +1342,43 @@ Content-Type: application/json
           <para>A flavor is a mapping configuration to a CDN provider. Each flavor may contain a list of providers. 
             The operator can decide the flavor names offered and the mapping to each provider offered. </para>  
       <para>The section describes operations related to flavors.</para>
-          <!--
+          
       <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
-        <wadl:resource href="../../src/wadl/cdn-devguide.wadl#version">
-          <wadl:method href="#getHomeDocument"/>
+        <wadl:resource href="../../src/wadl/cdn-devguide.wadl#flavors">
+          <wadl:method href="#getFlavors"/>
+          <wadl:method href="#postFlavors"/>
         </wadl:resource>
-      </wadl:resources> -->
+        <wadl:resource href="../../src/wadl/cdn-devguide.wadl#flavor_id">
+          <wadl:method href="#getFlavorDetails"/>
+          <wadl:method href="#deleteFlavor"/>
+        </wadl:resource>
+      </wadl:resources>
     </section>
     <section xml:id="loggingOperations">
       <title>Logging</title>
       <para>Rackspace CDN has the ability to instruct CDN providers about where to transfer the logs for CDN traffic. 
         The operator can then parse these logs for various tasks such as analytics, billing, and support.</para>
       <para>The section describes the operations related to logging.</para>
-     <!--
+     
       <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
-        <wadl:resource href="../../src/wadl/cdn-devguide.wadl#version">
-          <wadl:method href="#getHomeDocument"/>
+        <wadl:resource href="../../src/wadl/cdn-devguide.wadl#logging">
+          <wadl:method href="#getLogging"/>
+          <wadl:method href="#postLogging"/>
         </wadl:resource>
-      </wadl:resources> -->
+      </wadl:resources> 
     </section>
+<!-- Not available for Early Access  
     <section xml:id="streamingOperations">
       <title>Streaming (To Do)</title>
       <para>Rackspace CDN supports video streaming, with Adaptive Bit Rate, HLS/HDS, and some sort of transcoding of a video.</para>
       <para>The section describes the operations related to streaming.</para>
-     <!--
+    
       <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
         <wadl:resource href="../../src/wadl/cdn-devguide.wadl#version">
           <wadl:method href="#getHomeDocument"/>
         </wadl:resource>
-      </wadl:resources>-->
-    </section> 
+      </wadl:resources>
+    </section> -->
   </chapter>
 
 </book>

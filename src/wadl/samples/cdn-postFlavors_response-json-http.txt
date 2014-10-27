@@ -1,0 +1,2 @@
+204 (No Content)
+Location: https://global.cdn.api.rackspacecloud.com/v1.0/flavors/asia

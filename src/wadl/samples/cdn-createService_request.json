@@ -37,6 +37,5 @@
                                ]
                      }
                      ],
-    "flavorRef": "https://www.poppycdn.io/v1.0/flavors/asia"
-}' \
-https://cloudcdn.apiary-mock.com/services
+    "flavorRef": "https://global.cdn.api.rackspacecloud.com/v1.0/flavors/asia"
+}

@@ -1,0 +1,127 @@
+[
+ {
+ "id" : "europe",
+ "limits": [
+            "origins": {
+            "min": 1,
+            "max": 5
+            },
+            "domains" : {
+            "min": 1,
+            "max": 5
+            },
+            "caching": {
+            "min": 3600,
+            "max": 604800,
+            "incr": 300
+            }
+            ],
+ "providers" : [
+                {
+                "provider" : "Fastly",
+                "links": [
+                          {
+                          "href": "http://www.fastly.com",
+                          "rel": "provider_url"
+                          }
+                          ]
+                }
+                ],
+ "links": [
+           {
+           "href": "https://global.cdn.api.rackspacecloud.com/v1.0/flavors/europe",
+           "rel": "self"
+           }
+           ]
+ },
+ {
+ "id" : "asia",
+ "limits": {
+            "origins": {
+            "min": 1,
+            "max": 5
+            },
+            "domains" : {
+            "min": 1,
+            "max": 5
+            },
+            "caching": {
+            "min": 3600,
+            "max": 604800,
+            "incr": 300
+            }
+            },
+ "providers" : [
+                {
+                "provider" : "ChinaCache",
+                "links": [
+                          {
+                          "href": "http://www.chinacache.com",
+                          "rel": "provider_url"
+                          }
+                          ]
+                }
+                ],
+ "links": [
+           {
+           "href": "https://global.cdn.api.rackspacecloud.com/v1.0/flavors/asia",
+           "rel": "self"
+           }
+           ]
+ },
+ {
+ "id" : "americas",
+ "limits": [
+            "origins": {
+            "min": 1,
+            "max": 5
+            },
+            "domains" : {
+            "min": 1,
+            "max": 5
+            },
+            "caching": {
+            "min": 3600,
+            "max": 604800,
+            "incr": 300
+            }
+            ],
+ "providers" : [
+                {
+                "provider" : "CloudFront",
+                "links": [
+                          {
+                          "href": "http://aws.amazon.com/cloudfront",
+                          "rel": "provider_url"
+                          }
+                          ]
+                }
+                ],
+ "links": [
+           {
+           "href": "https://global.cdn.api.rackspacecloud.com/v1.0/flavors/americas",
+           "rel": "self"
+           }
+           ]
+ },
+ {
+ "id" : "global",
+ "providers" : [
+                {
+                "provider" : "Akamai",
+                "links": [
+                          {
+                          "href": "http://www.akamai.com",
+                          "rel": "provider_url"
+                          }
+                          ]
+                }
+                ],
+ "links": [
+           {
+           "href": "https://global.cdn.api.rackspacecloud.com/v1.0/flavors/global",
+           "rel": "self"
+           }
+           ]
+ }
+ ]

@@ -2,7 +2,7 @@
     "links": [
               {
               "rel": "next",
-              "href": "https://www.poppycdn.io/v1.0/services?marker=www.myothersite.com&limit=20"
+              "href": "https://global.cdn.api.rackspacecloud.com/v1.0/services?marker=www.myothersite.com&limit=20"
               }
               ],
     "services": [
@@ -57,15 +57,15 @@
                                             ]
                                   }
                                   ],
-                 "flavorRef": "https://www.poppycdn.io/v1.0/flavors/asia",
+                 "flavorRef": "https://global.cdn.api.rackspacecloud.com/v1.0/flavors/asia",
                  "status": "deployed",
                  "links": [
                            {
-                           "href": "https://www.poppycdn.io/v1.0/services/mywebsite.com",
+                           "href": "https://global.cdn.api.rackspacecloud.com/v1.0/services/mywebsite.com",
                            "rel": "self"
                            },
                            {
-                           "href": "mywebsite.com.poppycdn.net",
+                           "href": "mywebsite.com",
                            "rel": "access_url"
                            }
                            ]
@@ -104,15 +104,15 @@
                  "restrictions": [
                  {}
                  ],
-                 "flavorRef": "https://www.poppycdn.io/v1.0/flavors/europe",
+                 "flavorRef": "https://global.cdn.api.rackspacecloud.com/v1.0/flavors/europe",
                  "status": "deployed",
                  "links": [
                            {
-                           "href": "https://www.poppycdn.io/v1.0/services/myothersite.com",
+                           "href": "https://global.cdn.api.rackspacecloud.com/v1.0/services/myothersite.com",
                            "rel": "self"
                            },
                            {
-                           "href": "myothersite.com.poppycdn.net",
+                           "href": "myothersite.com",
                            "rel": "access_url"
                            }
                            ]

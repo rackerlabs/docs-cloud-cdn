@@ -60,15 +60,15 @@
                                ]
                      }
                      ],
-    "flavorRef" : "https://www.poppycdn.io/v1.0/flavors/europe",
+    "flavorRef" : "https://global.cdn.api.rackspacecloud.com/v1.0/flavors/europe",
     "status" : "deployed",
     "links": [
               {
-              "href": "https://www.poppycdn.io/v1.0/services/mywebsite.com",
+              "href": "https://global.cdn.api.rackspacecloud.com/v1.0/services/mywebsite.com",
               "rel": "self"
               },
               {
-              "href": "mywebsite.com.poppycdn.net",
+              "href": "mywebsite.com",
               "rel": "access_url"
               }
               ]
