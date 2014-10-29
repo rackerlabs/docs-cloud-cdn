@@ -322,6 +322,11 @@
 					<xsdxt:code href="../wadl/samples/cdn-createService_request-json-http.txt"/>
 					<xsdxt:code href="../wadl/samples/cdn-createService_request.json"/>
 				</doc>
+				<param name="name" style="plain" path="$.name"
+					required="true">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN">Specifies a the name of the service.</wadl:doc>
+				</param>
 				<param name="domains" style="plain" path="$.domains"
 					required="true">
 					<wadl:doc xmlns="http://docbook.org/ns/docbook"

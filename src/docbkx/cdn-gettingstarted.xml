@@ -7,53 +7,25 @@
     version="5.0" 
     xml:id="cdn-gettingstarted" 
     status="DRAFT">
-  <title>Rackspace Cloud CDN Getting Started Guide</title>
+  <title>Rackspace CDN Getting Started Guide</title>
   <?rax canonical.url.base="http://docs.rackspace.com/cdn/api/v1.0/cdn-gettingstarted/content"?>
   <info>
     <copyright>
-      <year>2013</year>
+      <year>2015</year>
       <holder>Rackspace US, Inc.</holder>
     </copyright>
     <releaseinfo>API v1.0</releaseinfo>
-    <productname>Rackspace Cloud CDN</productname><!--Note that the <productname> text matches the first few words of the title. The build system splits the title into productname + rest of title on the pdf cover.-->
-    <pubdate><!--If you leave the <pubdate> element empty, the build system inserts today's date automatically. --></pubdate>
+    <productname>Rackspace CDN</productname><!--Note that the <productname> text matches the first few words of the title. The build system splits the title into productname + rest of title on the pdf cover.-->
+    <pubdate/>
+    <abstract xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:html="http://www.w3.org/1999/xhtml">
+      <para>This document is intended for software developers interested in developing applications
+        using the Rackspace CDN Application Programming Interface (<abbrev>API</abbrev>). </para>
+    </abstract>
     <revhistory>
       <revision>
-        <date>2011-03-01</date>
+        <date>2015-01-06</date>
         <revdescription>
-          <para>This is the revision history section. The technical
-            writer updates this section when major changes are made to
-            the doc to indicate what changed. Typically this will
-            include links into the body of the document. From this
-            element we generate the list in <xref
-              linkend="change_history"/> as well as the atom feed for
-            the document an <link xlink:href="../atom.xml">atom feed</link> for the document.
-              <itemizedlist spacing="compact">
-              <listitem>
-                <para>Itemized lists are useful constructs for improving the readability of documents.</para>
-              </listitem>
-              <listitem>
-                <para>One way that itemized lists improve readablity
-                  is by adding whitespace between the list
-                  items.</para>
-              </listitem>
-              <listitem>
-                <para>Dates should be in the format YYYY-MM-DD.
-                </para>
-              </listitem>
-            </itemizedlist></para>
-        </revdescription>
-      </revision>
-      <revision>
-        <date>2011-02-02</date>
-        <revdescription>
-          <para>This release fixed several bugs and, no doubt,
-            introduced some new ones. Etiam eros ipsum, tempor ut
-            laoreet nec, adipiscing vel eros. Integer sit amet nibh
-            iaculis sapien sagittis blandit. Quisque vel lectus felis,
-            vel congue lorem. Pellentesque vitae elit id sem faucibus
-            ornare. Ut dictum dapibus quam, in scelerisque quam tempus
-            sit amet. </para>
+          <para>Initial Early Access (EA0 release for Rackspace CDN.</para>
         </revdescription>
       </revision>
     </revhistory>
@@ -73,381 +45,483 @@
         <raxm:priority>10</raxm:priority>
       </raxm:metadata>
   </info>
-  <preface xml:id="preface">
-    <title>Preface</title>
-    <para>Ipsum lorem lacus suscipit nunc, in consequat tortor turpis
-      vel nibh. Nulla eros nulla, iaculis vel laoreet at, consectetur
-      vitae massa. Praesent in imperdiet urna. Etiam commodo hendrerit
-      tincidunt. Aliquam non tortor lectus, sit amet laoreet tortor.
-      Vivamus sit amet tempor lorem. Fusce aliquam, lacus et eleifend
-      auctor, augue justo consectetur risus, a congue arcu mi a velit.
-      Donec lectus est, egestas eget laoreet a, accumsan ornare erat.
-      Suspendisse sed nulla ligula.</para>
-    <section xml:id="section_eow_tmw_ad">
-      <title>Intended Audience</title>
-      <para>This document is intended for technical writers and
-        developers who are learning to write DocBook documents. We
-        assume you have the following skills:</para>
-      <itemizedlist spacing="compact">
-        <listitem>
-          <para>Basic technical writing concepts</para>
-        </listitem>
-        <listitem>
-          <para>Basic XML </para>
-        </listitem>
-      </itemizedlist>
-      <para>Maecenas euismod, lectus vitae tincidunt sollicitudin, est
-        lacus suscipit nunc, in consequat tortor turpis vel nibh.
-        Nulla eros nulla, iaculis vel laoreet at, consectetur vitae
-        massa. Praesent in imperdiet urna. Etiam commodo hendrerit
-        tincidunt. Aliquam non tortor lectus, sit amet laoreet tortor.
-        Vivamus sit amet tempor lorem. Fusce aliquam, lacus et
-        eleifend auctor, augue justo consectetur risus, a congue arcu
-        mi a velit. Donec lectus est, egestas eget laoreet a, accumsan
-        ornare erat. Suspendisse sed nulla ligula.</para>
-      <para>Maecenas euismod, <link
-          xlink:href="http://www.rackspace.com">lectus</link> vitae
-        tincidunt sollicitudin, est lacus suscipit nunc, in consequat
-        tortor turpis vel nibh. Nulla eros nulla, iaculis vel laoreet
-        at, consectetur vitae massa. </para>
-    </section>
-    <section xml:id="change_history">
-      <title>Document Change History</title>
-      <para>This section is generated dynamically from the
-          <tag>revhistory</tag> element in <tag>book/info</tag>. The
-        processing instruction <code>&lt;?rax revhistory?></code> is
-        replaced at build-time with a formatted version of the
-          <tag>revhistory</tag> section.</para>
-      <para>
-        <?rax revhistory?>
+  <chapter xml:id="doc-change-history" xmlns:m="http://www.w3.org/1998/Math/MathML"
+    xmlns:html="http://www.w3.org/1999/xhtml">
+    <title>Document change history</title>
+    <para>This version of the document replaces and obsoletes all earlier versions. The most recent
+      changes are described in the following table: </para>
+    <?rax revhistory?>
+  </chapter>
+  <chapter xml:id="Overview">
+    <title>Overview</title>
+    <!--You can use the <?dbhtml stop-chunking?> processing instruction to prevent a chapter or section for chunking furhter in the html output. -->
+    <remark>From https://one.rackspace.com/display/atlanta/Rackspace+CDN+Engineering</remark>
+    <para>A Content Delivery Network (CDN) is designed to improve performance of publicly
+      distributed assets.  Assets can be any thing from website content, to web application
+      components, to media like videos, ads, and interactive experiences.  CDNs decrease the load
+      time of these assets by caching them on edge servers, which are also called Points of Presence
+      (POPs).  Edge servers are distributed around the globe and cache content and serve it directly
+      to customers, thus reducing transit time to a customer's location. </para>
+    <para>Rackspace CDN gives Rackspace customers the power to accelerate content on any public
+      resource at Rackspace by giving them a simple API and Control Panel experience for managing
+      their CDN enabled domains and the origins and assets associated with those domains. </para>
+    <para>The Rackspace CDN architecture includes the following components:</para>
+    <itemizedlist>
+      <listitem>
+        <para>RESTful WSGI transport layer</para>
+      </listitem>
+      <listitem>
+        <para>Storage driver backend for storage of configuration data and settings</para>
+      </listitem>
+      <listitem>
+        <para>The ability to cache publicly accessible resources hosted on a Cloud Server instance,
+          or a public Cloud Files container</para>
+      </listitem>
+      <listitem>
+        <para>Stevedore drivers: Storage drivers to talk to Cassandra. Transport drivers for the
+          entry point such as the Pecan WSGI or the Falcon WSGI.</para>
+      </listitem>
+      <listitem>
+        <para>A single global endpoint to access the API:  The architecture is deployed to each
+          Rackspace datacenter.  Configuration data is geographically replicated using Cassandra.
+           Geographic load balancing ensures customers hit their nearest infrastructure.</para>
+      </listitem>
+    </itemizedlist>
+    <para xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:html="http://www.w3.org/1999/xhtml"
+      >This guide explains how to access and start using the API so that you can begin to use
+      Rackspace CDN for your applications. Instructions are given for how to properly enter the
+      necessary URLs, using cURL, to set up and use a basic set of Rackspace CDN operations. </para>
+    <para xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:html="http://www.w3.org/1999/xhtml">You
+      can find additional details about Rackspace Cloud Queues in the <citetitle>Rackspace CDN
+        Developer Guide</citetitle> at <link xlink:href="http://docs.rackspace.com/"
+        >http://docs.rackspace.com/</link>. </para>
+    <para>During Early Access, email all support questions to: <link
+        xlink:href="mailto:cdn@rackspacecloud.com">cdn@rackspace.com</link>. </para>
+    
+<!--    <para xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:html="http://www.w3.org/1999/xhtml">For
+      more details about Rackspace CDN, refer to <link
+        xlink:href="http://www.rackspace.com/cloud/queues/"
+        >http://www.rackspace.com/cloud/queues/</link>. This site also offers links to Rackspace's
+      official support channels, including phone, chat, and email as well as Knowledge Center
+      articles.</para> -->
+    <section xml:id="core_concepts" xmlns:m="http://www.w3.org/1998/Math/MathML"
+      xmlns:html="http://www.w3.org/1999/xhtml">
+      <title>Prerequisites for running examples </title>
+      <para xmlns:wadl="http://wadl.dev.java.net/2009/02">In order to run the examples in this
+        guide, you must have the following prerequisites: <itemizedlist spacing="compact">
+          <listitem>
+            <para>A Rackspace Cloud account</para>
+          </listitem>
+          <listitem>
+            <para>A Rackspace Cloud username and password, as specified during registration</para>
+          </listitem>
+          <listitem>
+            <para>Prior knowledge of HTTP/1.1 conventions</para>
+          </listitem>
+          <listitem>
+            <para>Basic familiarity with RESTful APIs</para>
+          </listitem>
+        </itemizedlist>
       </para>
     </section>
-  </preface>
-  <chapter xml:id="Overview">
-    <title>Introduction</title>
-    <!--You can use the <?dbhtml stop-chunking?> processing instruction to prevent a chapter or section for chunking furhter in the html output. -->
-    <para>This would normally be a good place to introduce the product
-      and API, but in this example document we'll look at some
-      commonly used constructs. The following an image with a title
-      using the <tag>figure</tag> element. The oXygen editor provides
-      a convenient way to insert figures with the necessary markup. <figure>
-        <title>An example of an .svg figure with a title</title>
-        <mediaobject>
-          <imageobject>
-            <imagedata fileref="figures/example.png"
-              contentwidth="6in"/>
-          </imageobject>
-        </mediaobject>
-      </figure>
-    </para>
-    <para>When creating an image or diagram, use the correct
-      application and format for the situation. For images with lines
-      and text, you should use this scalable vector graphic format ,
-      SVG. SVG and other vector formats store the information as
-      points, lines, and fonts. As a result, they are very crisp when
-      printed and when scaled down or up. For screen shots and photos,
-      vector formats add no real value since they can only store the
-      raster image inside the vector as a binary blob. As a result,
-      you should use the png format scaled to the appropriate
-      size/resolution for your target browsers/screens. <itemizedlist>
-        <listitem>
-          <para>If you are creating an architectural diagram, seqence
-            diagram, flowchart, or something like a drawing with lots
-            of lines and text, then the preferred format is .svg.
-            Typically these are created with tools like <link
-              xlink:href="http://inkscape.org/">Inkscape</link>, Adobe
-            Illustrator, <link
-              xlink:href="https://www.omnigroup.com/products/omnigraffle/"
-              >Omnigraffle</link>, or Visio.</para>
-        </listitem>
-        <listitem>
-          <para>If you are working with screen shots or photos, use
-            png and a tool suited for manipulating raster formats.
-          </para>
-        </listitem>
-      </itemizedlist>Note that the for html output formats, the build
-      system converts .svg images to .png at build time since not all
-      browsers are capable of displaying .svg images. The .svg is used
-      directly for pdf output however. <table width="90%" >
-        <caption>An example of a table with a title</caption>
-        <col width="36%"/>
-        <col width="13%"/>
-        <col width="50%"/>
+    <section xml:id="Pricing_SLA-d1e1362">
+      <title>Pricing and service level</title>
+      <para>During Early Access, there is no charge for Rackspace CDN. </para>
+      <!--      <para>When Rackspace CDN moves to Unlimited Availability, customers will be billed for outbound
+        bandwidth.</para> -->
+      <para>While Rackspace CDN is in Early Access, it is subject to the Rackspace test terms at
+          <link xlink:href="http://www.rackspace.com/information/legal/testterms">Legal Information
+          - Test Terms</link>. When Rackspace CDN moves to Unlimited Availability, the Service Level
+        Agreement (SLA) will be available.</para>
+    </section>
+  </chapter>
+  <chapter xml:id="prerequisites" xmlns:m="http://www.w3.org/1998/Math/MathML"
+    xmlns:html="http://www.w3.org/1999/xhtml">
+    <title>Send requests to the API</title>
+    <para>You have several options for sending requests through an API: </para>
+    <itemizedlist spacing="compact">
+      <listitem>
+        <para>Developers and testers may prefer to use cURL, the command-line tool from <link
+            xlink:href="http://curl.haxx.se/">http://curl.haxx.se/</link>. </para>
+        <para>With cURL you can send HTTP requests and receive responses back from the command line.
+        </para>
+      </listitem>
+      <listitem>
+        <para>If you like to use a more graphical interface, the REST client for Firefox also works
+          well for testing and trying out commands, see <link
+            xlink:href="https://addons.mozilla.org/en-US/firefox/addon/restclient/"
+            >https://addons.mozilla.org/en-US/firefox/addon/restclient/</link>. </para>
+      </listitem>
+      <listitem>
+        <para>You can also download and install rest-client, a Java application to test RESTful web
+          services, from <link xlink:href="http://code.google.com/p/rest-client/"
+            >http://code.google.com/p/rest-client/</link>. </para>
+      </listitem>
+    </itemizedlist>
+    <section xml:id="using_curl">
+      <title>Sending API requests using cURL</title>
+      <para>cURL is a command-line tool that is available in UNIX® system-based environments and
+        Apple Mac OS X® systems, and can be downloaded for Microsoft Windows® to interact with the
+        REST interfaces. For more information about cURL, visit <link
+          xlink:href="http://curl.haxx.se/">http://curl.haxx.se/</link>. </para>
+      <para>cURL enables you to transmit and receive HTTP requests and responses from the command
+        line or from within a shell script. As a result, you can work with the REST API directly
+        without using one of the client APIs.</para>
+      <para>The following cURL command-line options are used in this guide to run the
+        examples.</para>
+      <table rules="all">
+        <caption>cURL command-line options</caption>
+        <col width="30%"/>
+        <col width="70%"/>
         <thead>
           <tr>
-            <th>Type of image</th>
-            <th>Preferred format</th>
-            <th>Tools</th>
+            <th>Option</th>
+            <th>Description</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td>Architectural diagrams, seqence diagrams, flowcharts,
-              or drawings with lots of lines and text</td>
-            <td>
-              <para>.svg</para>
-            </td>
-            <td>
-              <link xlink:href="http://inkscape.org/">Inkscape</link>,
-              Adobe Illustrator, <link
-                xlink:href="https://www.omnigroup.com/products/omnigraffle/"
-                >Omnigraffle</link>, or Visio.</td>
+            <td><code>-d</code></td>
+            <td>Sends the specified data in a <code>POST</code> request to the HTTP server.</td>
           </tr>
           <tr>
-            <td>A screen shot or picture</td>
-            <td>
-              <para>.png</para>
-            </td>
-            <td>
-              <para>Any screen capture utility or raster image
-                manipulating utility like the GIMP or Photoshop.
-              </para>
-            </td>
+            <td><code>-i</code></td>
+            <td>Includes the HTTP header in the output.</td>
+          </tr>
+          <tr>
+            <td><code>-H HEADER</code></td>
+            <td>Specifies an HTTP header in the request.</td>
+          </tr>
+          <tr>
+            <td><code>-X</code></td>
+            <td>Specifies the request method to use when communicating with the HTTP server. The
+              specified request is used instead of the default method, which is GET. For example,
+                <code>-X PUT</code> specifies to use the <code>PUT</code> request method.</td>
           </tr>
         </tbody>
       </table>
-    </para>
-    <para>You can also include tables without titles. These are
-        <tag>informaltable</tag>s in DocBook. <important>
-        <para>When you insert tables, be sure always to switch to the
-          html format instead of the CALS table format. For more
-          information on tables see the <link
-            xlink:href="http://docs.rackspace.com/writers-guide/content/ch_tables.html"
-            >Writer's Guide</link>.</para>
-        <para>Also note that this is an example of an admonition.
-          DocBook supports the following admonitions: <tag>note</tag>,
-            <tag>tip</tag>, <tag>important</tag>, <tag>caution</tag>,
-          and <tag>warning</tag>.</para>
-      </important>
-    </para>
-    <section xml:id="the-xml-id-attribute">
-      <title>The xml:id attribute and linking</title>
-      <para>You must add the <tag>xml:id</tag> attribute to all
-          <tag>book</tag>s, <tag>chapter</tag>s, <tag>section</tag>s,
-          <tag>appendix</tag>s, and <tag>preface</tag>s. These ids are
-        used for more than one thing:<itemizedlist>
-          <listitem>
-            <para>The <tag>xml:id</tag> on the <tag>book</tag> element
-              must be unique among all other Rackspace documents. This
-              ensures that the <link xlink:href="http://disqus.com"
-                >Disqus</link> comments are associated with that one
-              document. See <link
-                xlink:href="https://one.rackspace.com/display/C3/Disqus+project+identifiers"
-                >Disqus project identifiers</link> for a list of
-                <tag>xml:id</tag>s currently in use.</para>
-          </listitem>
-          <listitem>
-            <para>The <tag>xml:id</tag> on each  <tag>chapter</tag>,
-                <tag>section</tag>, <tag>appendix</tag>, and
-                <tag>preface</tag> must be unique within the current
-              book. These ids are used to generate the filename for
-              the html format and also to associate the Disqus thread
-              with that page. </para>
-          </listitem>
-        </itemizedlist></para>
-      <para><?rax-fo keep-together?>The <tag>xml:id</tag> attribute is
-        also important for linking within the document. You use the
-          <tag>xref</tag> element with the <tag>linkend</tag>
-        attribute to create a hyperlink from one section to another.
-        At build-time, the <tag>xref</tag> is replaced with a
-        hyperlink and link text appropriate to the format. For
-        example, in html output an xref is just a hyperlink with the
-        title of the target as the link text. In pdf output, which is
-        intended for printing, the link text includes the page number
-        of the target, though in the pdf, the link is also a hot link
-        to the target. In the following example, <code>preface</code>
-        is the value of the <tag>xml:id</tag> of the target:<programlisting language="xml">&lt;xref linkend="preface"/></programlisting><important>
-          <para>Avoid putting the <tag>xml:id</tag> attribute on the
-              <tag>title</tag> tag. Instead put it on the element that
-            contains the <tag>title</tag>. For example avoid doing
-            this:<programlisting language="xml">&lt;section>&lt;title xml:id="widgets">Understanding widgets&lt;/title>...&lt;/section> &lt;!-- AVOID This! --></programlisting>Instead
-            do
-            this:<programlisting language="xml">&lt;section xml:id="widgets">&lt;title>Understanding widgets&lt;/title>...&lt;/section> &lt;!-- Much better! --></programlisting></para>
-        </important></para>
-      <para>We soon hope to support the <tag>olink</tag> tag, which
-        will allow you to link to other docs and provide a more
-        convenient way to link within a document. </para>
-      <para>If you need to link to a url, use the <tag>link</tag> tag
-        and the <tag>xlink:href</tag> attribute. For example, the
-        paragraph above contains some
-        hyperlinks:<programlisting language="xml">&lt;para>The &lt;tag>xml:id&lt;/tag> on the &lt;tag>book&lt;/tag> element
-must be unique among all other Rackspace documents. This
-ensures that the &lt;link xlink:href="http://disqus.com"
->Disqus&lt;/link> comments are associated with that one
-document. See &lt;link 
-xlink:href="https://one.rackspace.com/display/C3/Disqus+project+identifiers"
->Disqus project identifiers&lt;/link> for a list of
-&lt;tag>xml:id&lt;/tag>s currently in use.&lt;/para></programlisting>
-      </para>
+      <note>
+        <para>If you have the tools, you can run the cURL JSON request examples with the following
+          options to format the output from cURL: <command>&lt;curl JSON request example> | python
+            -mjson.tool</command>.</para>
+      </note>
     </section>
-    <section xml:id="lists">
-      <title>Lists</title>
-      <para>The DocBook vocabulary supports several kinds of lists.
-        These lists can optionally have titles. <tip>
-          <para>A common pitfall writers fall into is to create
-            several small sections. This is suboptimal because you're
-            giving the full weight of a title in the table of contents
-            to something that may have a single sentence of content.
-            What you probably want in this case is some kind of
-            list.</para>
-        </tip><itemizedlist>
-          <title>Types of list in DocBook</title>
-          <para>Notice that this list has a title and an introductary
-            paragraph before the first list item. The title and intro
-            para are optional.</para>
-          <listitem>
-            <para><tag>itemizedlist</tag>: A bulleted list. Your hands
-              are soaking in one.</para>
-          </listitem>
-          <listitem>
-            <para><tag>orderedlist</tag>: A numbered list. There are
-              attributes that let you control the type of numbering
-              and the start of the numbering for unusual
-              situations.</para>
-          </listitem>
-          <listitem>
-            <para><tag>procedure</tag>: This is a list of steps.
-            </para>
-          </listitem>
-          <listitem>
-            <para><tag>variablelist</tag>: This is a list where each
-              item includes one or more <quote>terms</quote> followed
-              by a block of text describing it. You can control the
-              formatting so that it's formatted as blocks or as a
-              runin head. I'll include examples later in this
-              section.</para>
-          </listitem>
-          <listitem>
-            <para><tag>simplelist</tag>: This is a list without
-              bullets.</para>
-          </listitem>
-        </itemizedlist>The following are examples of
-          <tag>variablelist</tag>s. Notice that the
-          <quote>term</quote> is in bold. See <link
-          xlink:href="http://www.sagehill.net/docbookxsl/Variablelists.html"
-          >variablelist options</link> for detailed information on
-        formatting variablelists.<variablelist>
-          <title>Variablelist with default layout</title>
-          <varlistentry>
-            <term>itemizedlist</term>
-            <listitem>
-              <para>A bulleted list. Your hands are soaking in
-                one.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>orderedlist</term>
-            <listitem>
-              <para> A numbered list. There are attributes that let
-                you control the type of numbering and the start of the
-                numbering for unusual situations.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>procedure</term>
-            <listitem>
-              <para>This is a list of steps. As with other lists,
-                  <tag>procedure</tag>s can have <tag>title</tag>s and
-                some content before the first step. One use for
-                  <tag>procedure</tag>s is that you can create a list
-                of procedures at the front of the book. </para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>variablelist</term>
-            <listitem>
-              <para>This is a list where each item includes one or
-                more <quote>terms</quote> followed by a block of text
-                describing it. You can control the formatting so that
-                it's formatted as blocks or as a runin head. I'll
-                include examples later in this section.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>simplelist</term>
-            <listitem>
-              <para>This is a list without bullets.</para>
-            </listitem>
-          </varlistentry>
-        </variablelist><variablelist>
-          <title>The same variablelist formatted as blocks</title>
-          <?dbfo list-presentation="blocks"?> 
-          <?dbfo term-width=".75in"?> 
-          <?dbhtml list-presentation="table"?> 
-          <?dbhtml term-width="15%"  list-width="85%" ?> 
-          <varlistentry>
-            <term>itemizedlist</term>
-            <listitem>
-              <para>A bulleted list. Your hands are soaking in
-                one.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>orderedlist</term>
-            <listitem>
-              <para> A numbered list. There are attributes that let
-                you control the type of numbering and the start of the
-                numbering for unusual situations.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>procedure</term>
-            <listitem>
-              <para>This is a list of steps. As with other lists,
-                  <tag>procedure</tag>s can have <tag>title</tag>s and
-                some content before the first step. One use for
-                  <tag>procedure</tag>s is that you can create a list
-                of procedures at the front of the book. </para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>variablelist</term>
-            <listitem>
-              <para>This is a list where each item includes one or
-                more <quote>terms</quote> followed by a block of text
-                describing it. You can control the formatting so that
-                it's formatted as blocks or as a runin head. I'll
-                include examples later in this section.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>simplelist</term>
-            <listitem>
-              <para>This is a list without bullets.</para>
-            </listitem>
-          </varlistentry>
-        </variablelist></para>
+    <section xml:id="Copying-and_Pasting-cURL-d1e003">
+      <title>Copying and pasting cURL request examples into a terminal window</title>
+      <para>To run the cURL request examples shown in this guide (<xref
+          linkend="stepping_through_the_api"/>) on Linux or Mac systems, perform the following
+        actions:</para>
+      <orderedlist>
+        <listitem>
+          <para>Copy and paste each example from the HTML version of this guide into an ASCII text
+            editor (for example, vi or TextEdit). You can click on the small document icon to the
+            right of each request example to select it.</para>
+        </listitem>
+        <listitem>
+          <para>Modify each example with your required account information and so forth, as detailed
+            in this guide.</para>
+        </listitem>
+        <listitem>
+          <para>After you are finished modifying the text for the cURL request example with your
+            information (for example,<emphasis role="bold"
+              ><literal>your_username</literal></emphasis> and <emphasis role="bold"
+                ><literal>your_api_key</literal></emphasis>), paste it into your terminal window.
+          </para>
+        </listitem>
+        <listitem>
+          <para>Press <guilabel>Enter</guilabel> to run the cURL command.</para>
+        </listitem>
+      </orderedlist>
+      <note>
+        <para>The carriage returns in the cURL request examples that are part of the cURL syntax are
+          escaped with a backslash (\) in order to avoid prematurely terminating the command.
+          However, you should not escape carriage returns inside the JSON message within the
+          command.</para>
+      </note>
+      <para>Consider the following cURL authentication request: JSON example, which is described in
+        detail in <xref linkend="Generating_Auth_Token"/>.</para>
+      <para>
+        <example>
+          <title>cURL authenticate request: JSON</title>
+          <?dbfo keep-together="always"?>
+          <screen language="bash"><command>curl</command> <option>-i</option> <option>-d</option> \
+'{
+    "auth":
+    {
+       "RAX-KSKEY:apiKeyCredentials":
+       {
+          "username": "<emphasis role="bold">your_username</emphasis>",
+          "apiKey": "<emphasis role="bold">your_api_key</emphasis>"}
+    }
+}' \
+<option>-H 'Content-Type: application/json'</option> \
+<uri>'https://identity.api.rackspacecloud.com/v2.0/tokens'</uri></screen>
+        </example>
+      </para>
+      <para>Notice that the lines that are part of the cURL command syntax have been escaped with a
+        backslash (\) to indicate that the command continues on the next line.</para>
+      <screen language="bash"><command>curl</command> <option>-i</option> <option>-d</option> \
+  
+   
+(... lines within the JSON portion of the message are not shown in this example)
+(... the example only shows lines that are part of cURL syntax)     
+     
+
+   
+<option>-H 'Content-Type: application/json'</option> \
+<uri>'https://identity.api.rackspacecloud.com/v2.0/tokens'</uri></screen>
+      <para>However, the lines within the JSON portion of the message are not escaped with a
+        backslash in order, to avoid issues with the JSON processing.</para>
+      <screen language="bash">'{
+    "auth":
+    {
+       "RAX-KSKEY:apiKeyCredentials":
+       {
+          "username": "<emphasis role="bold">your_username</emphasis>",
+          "apiKey": "<emphasis role="bold">your_api_key</emphasis>"}
+    }
+}' \
+</screen>
+      <para>The final line of the JSON message is escaped because the backslash lies outside the
+        JSON message and continues the cURL command to the next line.</para>
+      <tip>
+        <para>If you have trouble copying and pasting the examples as described, try typing the
+          entire example on one long line, removing all the backslash line continuation
+          characters.</para>
+      </tip>
     </section>
   </chapter>
-  <chapter xml:id="other-features">
-    <title>Conditional text/profiling</title>
-    <para>One important feature of the publishing system is the
-      ability to flag elements with certain attributes and produce
-      different versions of the same document from the same source
-      file. There are two scenarios in which you might use conditional text:<itemizedlist>
+  <chapter xml:id="Generating_Auth_Token" xmlns:m="http://www.w3.org/1998/Math/MathML"
+    xmlns:html="http://www.w3.org/1999/xhtml">
+    <title>Generate an authentication token</title>
+    <para>You need to generate a token whether you use cURL or a REST client.</para>
+    <para>In order to use the REST API, you first need to obtain an authentication token, which
+      needs to be passed in each request using the <code>X-Auth-Token</code> header. </para>
+    <para>The following example demonstrates how to use cURL to obtain the authentication token and
+      the account number. You will need to supply the authentication token and account number when
+      making subsequent Cloud Queues API calls.</para>
+    <para>Remember to replace the names in the authenticate request examples below with their
+      respective values:<itemizedlist spacing="compact">
         <listitem>
-          <para>Flagging content as internal, reviewer, or writeronly,
-            for
-            example:<programlisting>&lt;para security="internal">This para will not appear in the customer-facing external
-verison of the document. It will appear in blue text in the internal version published on 
-docs-internal.rackspace.com. &lt;/para></programlisting>If
-            you instead use <tag>security="reviewer"</tag> the content
-            will appear only if you set
-              <tag>&lt;security>reviewer&lt;/security></tag> in your
-              <filename>pom.xml</filename> file. </para>
+          <para><emphasis role="bold">your_username</emphasis> &mdash; The username is your common
+            Rackspace Cloud username, as supplied during registration.</para>
         </listitem>
         <listitem>
-          <para>Using a feature-flag to control whether content
-            appears:<programlisting>&lt;para condition="foo-feature">This will appear only if the parameter profileCondition 
-contains foo-feature in your pom.xml file.&lt;/para></programlisting>In
-            your <filename>pom.xml</filename>, you can set
-              <tag>&lt;profileCondition>foo-feature&lt;/profileCondition></tag>.
-            Note that you can also use a semi-colon delimeted list:
-              <tag>&lt;profileCondition>foo-feature;bar-feature&lt;/profileCondition></tag>
-            to turn on elements with
-              <tag>condition="foo-feature"</tag> and
-              <tag>condition="bar-feature"</tag>.</para>
+          <para><emphasis role="bold">your_api_key</emphasis> &mdash; The key is your API access
+            key. </para>
+          <para><emphasis role="bold">To find your API key:</emphasis>
+          </para>
+          <orderedlist>
+            <listitem>
+              <para>Log in to the Cloud Control Panel (<link
+                  xlink:href="https://mycloud.rackspace.com"
+                >https://mycloud.rackspace.com</link>).</para>
+            </listitem>
+            <listitem>
+              <para>On the upper-right side of the top navigation pane, click your username.</para>
+            </listitem>
+            <listitem>
+              <para>From the menu, select <guilabel>Account Settings</guilabel>.</para>
+            </listitem>
+            <listitem>
+              <para>In the Login Details section of the Account Settings page, locate the
+                  <guilabel>API Key</guilabel> field and click <guibutton>Show</guibutton>.</para>
+            </listitem>
+            <listitem>
+              <para> Copy the value of the API key and paste it into a text editor of your
+                choice.</para>
+            </listitem>
+            <listitem>
+              <para>Click <guibutton>Hide</guibutton> to hide the value of the API key.</para>
+            </listitem>
+          </orderedlist>
         </listitem>
       </itemizedlist></para>
+    <para>You also need your cloud account number. In the documentation, the account number is often
+      referred to as your tenant name or tenant ID (technically, the ID is different from the name,
+      but at Rackspace, they are the same thing). Together, three components—your username, your API
+      key, and your tenant ID or cloud account number—form the authentication credentials that are
+      required to connect to the Rackspace cloud.</para>
+    <para>To find your tenant ID or cloud account number, locate your username on the upper-right
+      side of the top navigation pane in the Cloud Control Panel. The tenant ID or account number is
+      in parentheses just to the right of your username.</para>
+    <para> You can use either of the following endpoints to access the Cloud Identity service,
+      regardless of US or UK identities: </para>
+    <itemizedlist spacing="compact">
+      <listitem>
+        <para><link xlink:href="&ENDPOINT-US-20;">&ENDPOINT-US-20;</link>
+        </para>
+      </listitem>
+      <listitem>
+        <para><link xlink:href="&ENDPOINT-UK-20;">&ENDPOINT-UK-20;</link></para>
+      </listitem>
+    </itemizedlist>
+    <para> Your account may be based in either the US or the UK. This is not determined by your
+      physical location but by the location of the Rackspace retail site which was used to create
+      your account: </para>
+    <itemizedlist spacing="compact">
+      <listitem>
+        <para> If your account was created via <link xlink:href="http://www.rackspacecloud.com"
+            >http://www.rackspacecloud.com</link>, it is a US-based account. </para>
+      </listitem>
+      <listitem>
+        <para> If your account was created via <link xlink:href="http://www.rackspace.co.uk"
+            >http://www.rackspace.co.uk</link>, it is a UK-based account. </para>
+      </listitem>
+    </itemizedlist>
+    <para>Notice that you authenticate using a special URL for the Cloud Identity services. For
+      example, you may use <code>https://identity.api.rackspacecloud.com/v2.0/tokens</code>, as
+      shown in the following authenticate request examples. Note that the <code>v2.0</code>
+      component in the URL indicates that you are using version 2.0 of the Cloud Identity
+      API.</para>
+    <example>
+      <title>cURL authenticate request: XML</title>
+      <?dbfo keep-together="always"?>
+      <screen language="bash"><command>curl</command> <option>-i</option> <option>-d</option> \
+'&lt;?xml version="1.0" encoding="UTF-8"?>
+&lt;auth>
+   &lt;apiKeyCredentials
+      xmlns="http://docs.rackspace.com/identity/api/ext/RAX-KSKEY/v1.0"
+         username="<emphasis role="bold">your_username</emphasis>"
+         apiKey="<emphasis role="bold">your_api_key</emphasis>"/>
+&lt;/auth>' \
+<option>-H 'Content-Type: application/xml'</option> \
+<option>-H 'Accept: application/xml'</option> \
+<uri>'https://identity.api.rackspacecloud.com/v2.0/tokens'</uri></screen>
+    </example>
+    <example>
+      <title>cURL authenticate request: JSON</title>
+      <?dbfo keep-together="always"?>
+      <screen language="bash"><command>curl</command> <option>-i</option> <option>-d</option> \
+'{
+    "auth":
+    {
+       "RAX-KSKEY:apiKeyCredentials":
+       {
+          "username": "<emphasis role="bold">your_username</emphasis>",
+          "apiKey": "<emphasis role="bold">your_api_key</emphasis>"}
+    }
+}' \
+<option>-H 'Content-Type: application/json'</option> \
+<uri>'https://identity.api.rackspacecloud.com/v2.0/tokens'</uri></screen>
+    </example>
+    <note>
+      <para>For UK-based accounts, you may decide to use
+          <code>'https://lon.identity.api.rackspacecloud.com/v2.0/tokens'</code> instead.</para>
+    </note>
+    <example>
+      <title>Authenticate response: XML</title>
+      <programlisting language="xml"><xi:include href="../../src/resources/samples/auth-20.xml" parse="text"/></programlisting>
+    </example>
+    <example xml:id="Authenticate-Response-JSON-d1e001">
+      <title>Authenticate response: JSON</title>
+      <programlisting language="json"><xi:include href="../../src/resources/samples/auth-20.json" parse="text"/></programlisting>
+    </example>
+    <para>The authentication token <code>id</code> is returned along with an <code>expires</code>
+      attribute that specifies when the token expires. Authentication tokens are typically valid for
+      24 hours. Applications should be designed to re-authenticate after receiving a 401
+      (Unauthorized) response from a service endpoint. </para>
+    <note>
+      <title>Notes</title>
+      <itemizedlist spacing="compact">
+        <listitem>
+          <para>For all response examples in this guide, the field values you receive in your
+            responses will vary from those shown here since they will be specific to your
+            account.</para>
+        </listitem>
+        <listitem>
+          <para>The information shown in the Authenticate Response examples above is for US-based
+            accounts. If you authenticate against the UK-endpoint for auth, you will see the service
+            catalog information for UK-based accounts.</para>
+        </listitem>
+        <listitem>
+          <para>The <code>id</code> attribute in the Authenticate Response specifies the
+            authentication token. Tokens are valid for a finite duration.</para>
+          <para>Remember to supply your authentication token wherever you see the field <emphasis
+              role="bold">your_auth_token</emphasis> in the examples in this guide.</para>
+        </listitem>
+        <listitem>
+          <para> The <code>expires</code> attribute denotes the time after which the token will
+            automatically become invalid. A token may be manually revoked before the time identified
+            by the expires attribute; <code>expires</code> predicts a token's maximum possible
+            lifespan but does not guarantee that it will reach that lifespan. Clients are encouraged
+            to cache a token until it expires.</para>
+        </listitem>
+        <listitem>
+          <para>Applications should be designed to re-authenticate after receiving a 401
+            (Unauthorized) response from a service endpoint.</para>
+        </listitem>
+      </itemizedlist>
+    </note>
+    <para>The <code>publicURL</code> endpoints for <code>cloudQueues</code> (for example
+        <code>https://ord.queues.api.rackspacecloud.com/v1/1100111</code>) are also returned in the
+      response. </para>
+    <para>You will find the actual account number after the final backslash (/) in the
+        <code>publicURL</code> field. In this example, you can see that the account number is
+      1100111. You need to specify your account number on most of the Cloud Queues API calls,
+      wherever you see the field <emphasis role="bold">your_acct_id</emphasis> specified in the
+      examples in this guide.</para>
+    <para>After authentication, you can use cURL to perform &GET;, &DELETE;, and &POST; requests for
+      the Cloud Queues API.</para>
+  </chapter>
+  <chapter>
+    <section xml:id="serviceEndpoints" xmlns:m="http://www.w3.org/1998/Math/MathML"
+      xmlns:html="http://www.w3.org/1999/xhtml">
+      <title>Service access endpoints</title>
+      <para>Rackspace CDN is a regionalized service. The user of the service is therefore
+        responsible for appropriate replication, caching, and overall maintenance of Rackspace CDN
+        data across regional boundaries to other Rackspace CDN servers.</para>
+      <para>To help you decide which regionalized endpoint to use, read the Knowledge Center article
+        about special considerations for choosing a data center at <link
+          xlink:href="http://www.rackspace.com/knowledge_center/article/about-regions">About
+          Regions</link>. </para>
+      <para>For the Early Access release, the endpoints to use for your Rackspace CDN API calls are
+        summarized in the following table.</para>
+      <remark>Get the correct endpoints </remark>
+      <para>
+        <table rules="all">
+          <caption>Regionalized service endpoints for the Early Access release</caption>
+          <thead>
+            <tr align="center">
+              <td colspan="2">Region</td>
+              <td colspan="5">Endpoint</td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr align="left">
+              <td colspan="2">London (LON)</td>
+              <td colspan="5"><code>https://global.cdn.api.rackspacecloud.com/v1.0/</code></td>
+            </tr>
+            <tr>
+              <td colspan="2">Northern Virginia (IAD)</td>
+              <td colspan="5"><code>https://global.cdn.api.rackspacecloud.com/v1.0/</code></td>
+            </tr>
+          </tbody>
+        </table>
+      </para>
+      <para>Every REST request for Rackspace CDN requires one of the following:<itemizedlist>
+          <listitem>
+            <para>The <code>project_id</code> in the URI</para>
+            <para><code>project_id</code> is the unique identifier for the user. Use
+                <code>project_id</code> as the first parameter before the request path, for example
+                <code>GET
+                  https://global.cdn.api.rackspacecloud.com/<replaceable>project_id</replaceable>/v1.0/</code>.</para>
+          </listitem>
+          <listitem>
+            <para>The <code>X-Project-Id</code> header</para>
+            <para>Set the <code>X-Project_Id</code> header in the HTTP information in your request.
+              For more information about the header, see <xref linkend="commonHeaders"/>.</para>
+          </listitem>
+        </itemizedlist></para>
+      <note>
+        <para>You should copy the base URLs directly from the service catalog rather than trying to
+          construct them manually.</para>
+        <para>Rackspace Cloud Identity returns an endpoint with your <code>project_id</code>, which
+          is also referred to as your tenant ID or your account ID. </para>
+        <para>The <code>project_id</code> refers to your Rackspace account number, which you can
+          also find in your Cloud Control Panel at <link xlink:href="https://mycloud.rackspace.com/"
+            >mycloud.rackspace.com</link>.</para>
+      </note>
+    </section>
   </chapter>
 </book>

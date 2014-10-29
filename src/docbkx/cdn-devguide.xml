@@ -991,7 +991,7 @@
             </tr>
           </tbody>
         </table>
-      </section>
+      </section> </section>
       <section xml:id="commonHeaders">
         <title>Common headers</title>
         <para>Each request to the Rackspace CDN API must include certain standard and extended HTTP
@@ -1155,7 +1155,7 @@
           </tbody>
         </informaltable>
       </section>
-    </section>
+
     <section xml:id="responseCodes-d101e">
       <title>Response codes</title>
       <para>Rackspace CDN returns an HTTP code that denotes the type of response. </para>
