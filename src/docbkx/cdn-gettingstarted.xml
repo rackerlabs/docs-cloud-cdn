@@ -1,4 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE book [
+<!-- Some useful entities borrowed from HTML -->
+        <!ENTITY ndash "&#x2013;">
+        <!ENTITY mdash "&#x2014;">
+        <!ENTITY hellip "&#x2026;">
+        
+        <!-- Useful for describing APIs -->
+        <!ENTITY GET '<command xmlns="http://docbook.org/ns/docbook">GET</command>'>
+        <!ENTITY PUT '<command xmlns="http://docbook.org/ns/docbook">PUT</command>'>
+        <!ENTITY POST '<command xmlns="http://docbook.org/ns/docbook">POST</command>'>
+        <!ENTITY DELETE '<command xmlns="http://docbook.org/ns/docbook">DELETE</command>'>
+        
+        <!-- changing authentication endpoints; define entities for US & UK rather than maintaining in text -->
+        <!ENTITY ENDPOINT-US "https://identity.api.rackspacecloud.com/v1.1/">
+        <!ENTITY ENDPOINT-UK "https://lon.identity.api.rackspacecloud.com/v1.1/">
+        <!ENTITY ENDPOINT-US-20 "https://identity.api.rackspacecloud.com/v2.0/">
+        <!ENTITY ENDPOINT-UK-20 "https://lon.identity.api.rackspacecloud.com/v2.0/">
+        
+        <!ENTITY CHECK '<inlinemediaobject xmlns="http://docbook.org/ns/docbook">
+                 <imageobject>
+                  <imagedata fileref="img/Check_mark_23x20_02.svg"
+                             format="SVG" scale="60"/>
+                </imageobject>
+              </inlinemediaobject>'>
+              
+        <!ENTITY ARROW '<inlinemediaobject xmlns="http://docbook.org/ns/docbook">
+                 <imageobject>
+                  <imagedata fileref="img/Arrow_east.svg"
+                             format="SVG" scale="60"/>
+                </imageobject>
+              </inlinemediaobject>'>
+]>
+
   <book  
     xmlns="http://docbook.org/ns/docbook" 
     xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -208,9 +241,8 @@
     </section>
     <section xml:id="Copying-and_Pasting-cURL-d1e003">
       <title>Copying and pasting cURL request examples into a terminal window</title>
-      <para>To run the cURL request examples shown in this guide (<xref
-          linkend="stepping_through_the_api"/>) on Linux or Mac systems, perform the following
-        actions:</para>
+      <para>To run the cURL request examples shown in this guide (     ?????   ) on Linux or Mac
+        systems, perform the following actions:</para>
       <orderedlist>
         <listitem>
           <para>Copy and paste each example from the HTML version of this guide into an ASCII text
@@ -464,8 +496,7 @@
     <para>After authentication, you can use cURL to perform &GET;, &DELETE;, and &POST; requests for
       the Cloud Queues API.</para>
   </chapter>
-  <chapter>
-    <section xml:id="serviceEndpoints" xmlns:m="http://www.w3.org/1998/Math/MathML"
+  <chapter xml:id="serviceEndpoints" xmlns:m="http://www.w3.org/1998/Math/MathML"
       xmlns:html="http://www.w3.org/1999/xhtml">
       <title>Service access endpoints</title>
       <para>Rackspace CDN is a regionalized service. The user of the service is therefore
@@ -509,8 +540,8 @@
           </listitem>
           <listitem>
             <para>The <code>X-Project-Id</code> header</para>
-            <para>Set the <code>X-Project_Id</code> header in the HTTP information in your request.
-              For more information about the header, see <xref linkend="commonHeaders"/>.</para>
+            <para>Set the <code>X-Project_Id</code> header in the HTTP information in your
+            request.</para>
           </listitem>
         </itemizedlist></para>
       <note>
@@ -522,6 +553,6 @@
           also find in your Cloud Control Panel at <link xlink:href="https://mycloud.rackspace.com/"
             >mycloud.rackspace.com</link>.</para>
       </note>
-    </section>
+
   </chapter>
 </book>
