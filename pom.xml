@@ -37,7 +37,7 @@
 	    	<security>internal</security>
 	      <includes>
 		cdn-devguide.xml,
-		cdn-gettingstarted.xml
+		cdn-gettingstarted.xml,
 	    cdn-releasenotes.xml
 	      </includes>
 	    </configuration>
