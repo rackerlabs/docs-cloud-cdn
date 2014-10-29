@@ -38,7 +38,7 @@
 	      <includes>
 		cdn-devguide.xml,
 		cdn-gettingstarted.xml
-	      	<!--		cdn-releasenotes.xml -->
+	    cdn-releasenotes.xml
 	      </includes>
 	    </configuration>
 	  </execution>
