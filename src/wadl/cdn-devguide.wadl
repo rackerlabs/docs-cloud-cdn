@@ -446,7 +446,7 @@
 						xml:lang="EN">Specifies the HTTP method (GET, PUT, POST, DELETE, PATCH, and so on) that can be accepted.</wadl:doc>
 				</param>
 				
-				<param name="flavorRef" style="plain" path="$.flavorRef"
+				<param name="flavor_ref" style="plain" path="$.flavor_ref"
 					required="true">
 					<wadl:doc xmlns="http://docbook.org/ns/docbook"
 						xml:lang="EN">Specifies the CDN provider flavor id to use. For a list of flavors, see the operation to list the available flavors.</wadl:doc>
@@ -680,8 +680,13 @@
 			<param name="url" style="query" type="xsd:string"
 				required="false">
 				<wadl:doc xmlns="http://docbook.org/ns/docbook"
-					xml:lang="EN">Specifies the <code>url</code> of the asset that is purged. If left blank, the purge occurs against all of the assets for the service</wadl:doc>
-			</param>			
+					xml:lang="EN">Specifies the <code>url</code> of the asset that is purged.</wadl:doc>
+			</param>
+			<param name="all" style="query" type="xsd:string"
+				required="false">
+				<wadl:doc xmlns="http://docbook.org/ns/docbook"
+					xml:lang="EN">If set to <code>true</code>, specifies that the purge occurs against all of the assets for the service.</wadl:doc>
+			</param>
 			<representation mediaType="application/json" >
 				<doc>
 					<xsdxt:code href="../wadl/samples/cdn-deleteCachedAsset_request-json-http.txt"/>
@@ -836,8 +841,8 @@
 				
 			</representation>
 		</request>
-		<response status="204" xmlns="http://wadl.dev.java.net/2009/02">
-			<doc title="No Content" xml:lang="EN">The server successfully processed the request, but is not returning any content.</doc>
+		<response status="201" xmlns="http://wadl.dev.java.net/2009/02">
+			<doc title="Created" xml:lang="EN">Following a POST command, this status indicates success. The request has been fulfilled and resulted in a new resource being created.</doc>
 			<representation mediaType="application/json">
 				<wadl:doc xmlns="http://docbook.org/ns/docbook"
 					xml:lang="EN">
