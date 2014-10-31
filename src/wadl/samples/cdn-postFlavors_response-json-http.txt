@@ -1,2 +1,2 @@
-204 (No Content)
+201 (Created)
 Location: https://global.cdn.api.rackspacecloud.com/v1.0/flavors/asia

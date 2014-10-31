@@ -60,7 +60,7 @@
                                ]
                      }
                      ],
-    "flavorRef" : "https://global.cdn.api.rackspacecloud.com/v1.0/flavors/europe",
+    "flavor_ref" : "https://global.cdn.api.rackspacecloud.com/v1.0/flavors/europe",
     "status" : "deployed",
     "links": [
               {

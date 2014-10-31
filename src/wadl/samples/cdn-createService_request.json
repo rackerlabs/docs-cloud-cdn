@@ -37,5 +37,5 @@
                                ]
                      }
                      ],
-    "flavorRef": "https://global.cdn.api.rackspacecloud.com/v1.0/flavors/asia"
+    "flavor_ref": "https://global.cdn.api.rackspacecloud.com/v1.0/flavors/asia"
 }

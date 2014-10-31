@@ -493,10 +493,7 @@
 					xml:lang="EN">
 					<xsdxt:code
 						href="../wadl/samples/cdn-createService_response-json-http.txt"
-					/>
-					<xsdxt:code
-						href="../wadl/samples/cdn-createService_request.json"
-					/>
+					/>				
 				</wadl:doc>
 			</representation>
 		</response>
