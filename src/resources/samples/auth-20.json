@@ -134,42 +134,22 @@
             "name":"cloudDNS",
             "type":"rax:dns"
          },
-         {
+                  {
             "endpoints":[
                {
-                  "internalURL":"https://snet-ord.queues.api.rackspacecloud.com/v1/1100111",
-                  "publicURL":"https://ord.queues.api.rackspacecloud.com/v1/1100111",
-                  "region":"ORD",
-                  "tenantId":"1100111"
+                  "tenantId":"1100111",
+                  "publicURL":"https://global.cdn.api.rackspacecloud.com/v1.0/1100111",
+                  "region":"IAD"
                },
                {
-                  "internalURL":"https://snet-syd.queues.api.rackspacecloud.com/v1/1100111",
-                  "publicURL":"https://syd.queues.api.rackspacecloud.com/v1/1100111",
-                  "region":"SYD",
-                  "tenantId":"1100111"
-               },
-               {
-                  "internalURL":"https://snet-dfw.queues.api.rackspacecloud.com/v1/1100111",
-                  "publicURL":"https://dfw.queues.api.rackspacecloud.com/v1/1100111",
-                  "region":"DFW",
-                  "tenantId":"1100111"
-               },
-               {
-                  "internalURL":"https://snet-iad.queues.api.rackspacecloud.com/v1/1100111",
-                  "publicURL":"https://iad.queues.api.rackspacecloud.com/v1/1100111",
-                  "region":"IAD",
-                  "tenantId":"1100111"
-               },
-               {
-                  "internalURL":"https://snet-hkg.queues.api.rackspacecloud.com/v1/1100111",
-                  "publicURL":"https://hkg.queues.api.rackspacecloud.com/v1/1100111",
-                  "region":"HKG",
-                  "tenantId":"1100111"
+                  "tenantId":"1100111",
+                  "publicURL":"https://global.cdn.api.rackspacecloud.com/v1.0/1100111",
+                  "region":"LON"
                }
             ],
-            "name":"cloudQueues",
-            "type":"rax:queues"
-         }
+            "name":"rackCDN",
+            "type":"rax:cdn"
+         },
       ]
    }
 }

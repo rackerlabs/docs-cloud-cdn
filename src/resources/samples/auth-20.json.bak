@@ -1,5 +1,4 @@
 {
-<<<<<<< HEAD
     "access": {
      
         "token": {
@@ -23,31 +22,6 @@
                 }
             ]
         },
-        "serviceCatalog": [
-=======
-   "access":{
-      "token":{
-         "expires":"2012-04-13T22:51:02.000-06:00",
-         "id":"vvvvvvvv-wwww-xxxx-yyyy-zzzzzzzzzzzz"
-      },
-      "user":{
-         "id":"123456",
-         "name":"jsmith",
-         "RAX-AUTH:defaultRegion":"DFW",
-         "roles":[
->>>>>>> f7257e9bcc50c03ff6b9dd16a48cd046a4e6023e
-            {
-               "description":"Admin Role.",
-               "id":"identity:admin",
-               "name":"identity:admin"
-            },
-            {
-               "description":"Default Role.",
-               "id":"identity:default",
-               "name":"identity:default"
-            }
-         ]
-      },
       "serviceCatalog":[
          {
             "endpoints":[
@@ -159,42 +133,6 @@
             ],
             "name":"cloudDNS",
             "type":"rax:dns"
-         },
-         {
-            "endpoints":[
-               {
-                  "internalURL":"https://snet-ord.queues.api.rackspacecloud.com/v1/1100111",
-                  "publicURL":"https://ord.queues.api.rackspacecloud.com/v1/1100111",
-                  "region":"ORD",
-                  "tenantId":"1100111"
-               },
-               {
-                  "internalURL":"https://snet-syd.queues.api.rackspacecloud.com/v1/1100111",
-                  "publicURL":"https://syd.queues.api.rackspacecloud.com/v1/1100111",
-                  "region":"SYD",
-                  "tenantId":"1100111"
-               },
-               {
-                  "internalURL":"https://snet-dfw.queues.api.rackspacecloud.com/v1/1100111",
-                  "publicURL":"https://dfw.queues.api.rackspacecloud.com/v1/1100111",
-                  "region":"DFW",
-                  "tenantId":"1100111"
-               },
-               {
-                  "internalURL":"https://snet-iad.queues.api.rackspacecloud.com/v1/1100111",
-                  "publicURL":"https://iad.queues.api.rackspacecloud.com/v1/1100111",
-                  "region":"IAD",
-                  "tenantId":"1100111"
-               },
-               {
-                  "internalURL":"https://snet-hkg.queues.api.rackspacecloud.com/v1/1100111",
-                  "publicURL":"https://hkg.queues.api.rackspacecloud.com/v1/1100111",
-                  "region":"HKG",
-                  "tenantId":"1100111"
-               }
-            ],
-            "name":"cloudQueues",
-            "type":"rax:queues"
          }
       ]
    }

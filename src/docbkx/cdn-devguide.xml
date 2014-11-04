@@ -229,7 +229,7 @@
       <title>Caching rule</title>
       <para>A caching rule provides you with fine-grained control over the time-to-live (TTL) of an
         object. When the TTL expires for an object, the edge node pulls the object from the origin
-        again..</para>
+        again.</para>
     </section>
     <section xml:id="CDN-d1eo1">
       <title>Content delivery network</title>
@@ -256,7 +256,7 @@
     </section>
     <section xml:id="edgeServer-d1eo1">
       <title>Edge server</title>
-      <para>An edge server  is the same as an edge node. See .</para>
+      <para>An edge server is the same as an edge node. </para>
     </section>
      <section xml:id="flavor-d1eo1">
       <title>Flavor</title>
@@ -538,8 +538,7 @@
           <callout arearefs="response.xml.servicetype">
             <para> The service <code>type</code> attribute identifies services that perform similar
               functions, regardless of service names. In this example, the service named rackCDN is
-              identified as <code>type="????"</code>, identifying it as a CDN service even though
-              the "CDN" does not appear in its name. </para>
+              identified as <code>type="rackCDN"</code>, identifying it as a CDN service. </para>
             <tip>
               <para>Beginning with Auth 2.0, the service catalog includes a service
                   <code>type</code> attribute to identify services that perform similar functions
@@ -604,6 +603,98 @@
           For more information about service endpoints, see <xref linkend="serviceEndpoints"/>. </para>
       </section>
     </section>
+
+<!--MFA sections from Identity Guide - from Margaret -->
+    <section
+      xml:id="MFA_Ops">
+      
+      <title>Multifactor authentication</title>
+      <para>Multi-factor authentication is for Rackspace Cloud Customers who require a greater level of
+        security when accessing Rackspace Cloud resources. When multifactor authentication is added to
+        user accounts, users have an additional layer of identity verification that offers various methods
+        to obtain the second factor for authentication. Additionally, Rackspace provides user administrators
+        with account level controls that can be configured to require all users within an organization to
+        use multifactor authentication.</para>
+      <para>With multifactor authentication enabled, authentication is a two-step process:<orderedlist>
+        <listitem>
+          <para>A user submits an inital <command>POST tokens</command> request to the Identity Service endpoint,
+            with username and password credentials.</para>
+          <para>The response body returned by the Identity service includes an X-SessionId header and
+            a request for additional credentials. The Identity service also sends an SMS text message
+            with a passcode to the phone number associated with the account.</para>
+        </listitem>
+        <listitem>
+          <para>To complete the authentication process, the user submits
+            a second <command>POST tokens</command> request, including
+            the session ID header and passcode as credentials.</para>
+          <para>If the credentials are valid, the Identity service returns an authentication response
+            that includes the authentication token and a service catalog showing the available
+            services and <glossterm baseform="endpoint">endpoints</glossterm> to access the API for each service.</para>
+          <important><para>Multifactor authentication is supported only by Rackspace Cloud
+            Identity Service version 2.0 or later. User accounts set
+            up for multifactor authentication cannot authenticate by using
+            version 1.0 or 1.1 of the service. This feature is currently available only to customers enrolled in the Early Access program for this feature.</para></important>
+        </listitem>
+      </orderedlist></para>
+ <!--     <para>Figure <xref linkend="mfa_auth"
+        xrefstyle="select: labelnumber"/> shows the multifactor
+        authentication process flow.<figure xml:id="mfa_auth">
+          <title>Multifactor authentication process flow</title>
+          <mediaobject>
+            <imageobject>
+                <imagedata format="png"
+                fileref="../figures/multifactor_auth.png"
+                contentdepth="100%" contentwidth="100%" align="center"/> 
+            </imageobject>
+          </mediaobject> 
+        </figure>
+      </para> -->
+      <para>Users interested in enabling multifactor authentication must update their Rackspace Cloud user
+        accounts to add a phone number that can be used in the authentication process, verify the phone,
+        and enable the user account for multifactor authentication. This work can be completed from the Cloud Control panel
+        or by using the Rackspace Cloud Identity Service API.</para>
+ <!--     <para>Figure <xref linkend="mfa_workflow_setup"
+        xrefstyle="select: labelnumber"/> provides an overview of the
+        work flow to complete these tasks.</para><figure xml:id="mfa_workflow_setup">
+          <title>Multifactor authentication user account set up work flow </title>
+          <mediaobject condition="admin">
+            <imageobject>
+              <imagedata fileref="../figures/multifactor_setup_user.png"
+                contentdepth="100%" contentwidth="100%" format="PNG" align="center"/>
+            </imageobject>
+          </mediaobject>
+          <mediaobject condition="client">
+            <imageobject>
+              <imagedata fileref="../figures/multifactor_setup_user1.png"
+                contentdepth="100%" contentwidth="100%" align="center"/>
+            </imageobject>
+          </mediaobject>
+          
+        </figure>  -->
+      <para>For information about using multifactor authentication capabilities through the Cloud
+        Identity API, see the following topics in the <citetitle>Cloud Identity Client Developer
+          Guide</citetitle>: <itemizedlist>
+          <listitem>
+            <para><link
+                xlink:href="http://docs-internal-staging.rackspace.com/auth/api/v2.0/auth-client-devguide/content/proc_mfa_setup.html"
+                >Set up multi-factor authentication</link></para>
+          </listitem>
+          <listitem>
+            <para><link
+                xlink:href="http://docs-internal-staging.rackspace.com/auth/api/v2.0/auth-client-devguide/content/proc_mfa_auth.html"
+                >Authenticate from a multi-factor-enabled user account</link></para>
+          </listitem>
+          <listitem>
+            <para><link
+                xlink:href="http://docs-internal-staging.rackspace.com/auth/api/v2.0/auth-client-devguide/content/proc_mfa_manage.html"
+                >Manage multi-factor authentication settings and operation</link></para>
+          </listitem>
+        </itemizedlist>
+      </para>
+
+    </section>
+    
+    
     <section xml:id="RBAC" xmlns:wadl="http://wadl.dev.java.net/2009/02"
       xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:html="http://www.w3.org/1999/xhtml">
       <title>Role Based Access Control</title>
@@ -771,8 +862,15 @@
         summarized in the following table.</para>
       <remark>Get the correct endpoints </remark>
       <para>
-        <table rules="all">
+        <table rules="all" width="553">
           <caption>Regionalized service endpoints for the Early Access release</caption>
+          <col width="33pt"/>
+          <col width="39pt"/>
+          <col width="94pt"/>
+          <col width="95pt"/>
+          <col width="95pt"/>
+          <col width="95pt"/>
+          <col width="95pt"/>
           <thead>
             <tr align="center">
               <td colspan="2">Region</td>

@@ -8,12 +8,7 @@
   xmlns:ksgrp="http://docs.rackspace.com/identity/api/ext/RAX-KSGRP/v1.0"
   xmlns:rax-kscatalog="http://docs.openstack.org/identity/api/ext/OS-KSCATALOG/v1.0"
   xmlns:atom="http://www.w3.org/2005/Atom">
-<<<<<<< HEAD
   <token id="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" expires="2012-04-13T22:51:02.000-06:00"/>
-=======
-  <token id="vvvvvvvv-wwww-xxxx-yyyy-zzzzzzzzzzzz"
-    expires="2012-04-13T22:51:02.000-06:00"/>
->>>>>>> f7257e9bcc50c03ff6b9dd16a48cd046a4e6023e
   <user id="123456" name="jsmith" rax-auth:defaultRegion="DFW">
     <roles>
       <role id="identity:admin" name="identity:admin"
