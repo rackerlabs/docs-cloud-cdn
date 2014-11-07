@@ -4,7 +4,7 @@
 
 This github repository contains the source files for the following Rackspace CDN API documentation:
 
-* [Rackspace CDN Getting Started Guide](http://docs-internal.rackspace.com/cdn/api/v1.0/cdn-getting-started/)
+* [Rackspace CDN Getting Started Guide](http://docs-internal.rackspace.com/cdn/api/v1.0/cdn-gettingstarted/)
 * [Rackspace CDN Developer Guide](http://docs-internal.rackspace.com/cdn/api/v1.0/cdn-devguide/)
 * [Rackspace CDN Release Notes](http://docs-internal.rackspace.com/cdn/api/v1.0/cdn-releasenotes/)
 
