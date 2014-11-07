@@ -1,29 +1,50 @@
-docs-rackspace-cdn
-========================
+# Rackspace CDN API documentation (CURRENTLY WIP - INTERNAL ONLY)
 
-Rackspace CDN API Documentation
+## Resources
 
-This github repository contains the source files for the Rackspace CDN API documentation. 
+This github repository contains the source files for the following Rackspace CDN API documentation:
 
-Contributions are welcome! To suggest changes to the documentation, please submit an Issue (https://github.com/rackerlabs/docs-cloud-cdn/issues) or a Pull Request (https://github.com/rackerlabs/docs-cloud-cdn/pulls).
+* [Rackspace CDN Getting Started Guide](http://docs-internal.rackspace.com/cdn/api/v1.0/cdn-getting-started/)
+* [Rackspace CDN Developer Guide](http://docs-internal.rackspace.com/cdn/api/v1.0/cdn-devguide/)
+* [Rackspace CDN Release Notes](http://docs-internal.rackspace.com/cdn/api/v1.0/cdn-releasenotes/)
 
-Source files are for the following documents:
+## Contributing
 
-     o Rackspace CDN Getting Started Guide
-     o Rackspace CDN Developer Guide
-     o Rackspace CDN Release Notes
-    
-You should create your own branch to make changes to the files and send a Pull Request to have your changes reviewed and merged into the master branch as appropriate.
+Contributions are welcome! To suggest changes to the documentation, submit an [issue](https://github.com/rackerlabs/docs-cloud-cdn/issues) or a [pull request](https://github.com/rackerlabs/docs-cloud-cdn/pulls).
 
-You can use any editor to work with the files. The files that are most likely to be of interest are:
- 
-    o src/docbkx/cdn-gettingstarted.xml
-    o src/docbkx/cdn-devguide.xml
-    o src/wadl/cdn-devguide.wadl
-    o src/docbkx/cdn-releasenotes.xml
-    
-You might also be interested in making changes to the example files referenced in the WADL file. They are here:
+To make changes to a project, create your own fork of the project and send a pull request to have your changes reviewed and merged into the master branch as appropriate.
 
-    o src/wadl/samples
-    
+### Building from Source
+
+This repository uses Maven to generate the output documentation. Command line users can generate the complete output from this repository by using the following command:
+
+    mvn clean generate-sources
+
+The output appears in PDF and HTML form in the following locations. The items in the **Name** column link to the location where the documentation is published, when available.
+
+| Name | Build Location |
+| --- | --- |
+| Getting Started Guide (Internal) | target/docbkx/webhelp/cdn-gettingstarted-internal |
+| Developer Guide (Internal) | target/docbkx/webhelp/cdn-devguide-internal |
+| Release Notes (Internal) | target/docbkx/webhelp/cdn-releasenotes-internal |
+
+#### Editors
+
+You can use any text editor to work with these source files. If you want to use an IDE, consider [NetBeans](http://netbeans.org). This cross-platform IDE offers seamless support for Maven projects and does not require  additional configuration to open the **pom.xml** file as a project. You can configure the project so that the **Build** command, which appears when you right-click a project in the **Projects** pane, executes the `clean generate-sources` command. To do so, perform the following steps:
+
+1. Right-click the project in the **Projects** pane and select **Properties**.
+2. Select the **Build** category in the left pane, and then select the **Build project** action in the right pane.
+3. Change **Execute Goals** to `clean generate-sources`.
+4. *(Optional)* Repeat steps 2 and 3 for the **Clean and Build project** and **Build with Dependencies** actions.
+
+### Quick Links
+
+The files that are most likely to be of interest to you are as follows:
+
+* [src/docbkx/cdn-gettingstarted.xml](src/docbkx/cdn-gettingstarted.xml)
+* [src/docbkx/cdn-devguide.xml](src/docbkx/cdn-devguide.xml)
+* [src/wadl/cdn-devguide.wadl](src/wadl/cdn-devguide.wadl)
+
+If you want to make changes to the example files referenced in the WADL file, you can find the example files at  [src/wadl/samples](src/wadl/samples).
+   
 
