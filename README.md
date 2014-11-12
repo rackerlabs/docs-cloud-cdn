@@ -7,6 +7,7 @@ This github repository contains the source files for the following Rackspace CDN
 * [Rackspace CDN Getting Started Guide](http://docs-internal.rackspace.com/cdn/api/v1.0/cdn-gettingstarted/)
 * [Rackspace CDN Developer Guide](http://docs-internal.rackspace.com/cdn/api/v1.0/cdn-devguide/)
 * [Rackspace CDN Release Notes](http://docs-internal.rackspace.com/cdn/api/v1.0/cdn-releasenotes/)
+* [Rackspace CDN Developer Guide for Service Management](http://docs-internal.rackspace.com/cdn/api/v1.0/cdn-adminguide/)
 
 ## Contributing
 
@@ -27,6 +28,7 @@ The output appears in PDF and HTML form in the following locations. The items in
 | Getting Started Guide (Internal) | target/docbkx/webhelp/cdn-gettingstarted-internal |
 | Developer Guide (Internal) | target/docbkx/webhelp/cdn-devguide-internal |
 | Release Notes (Internal) | target/docbkx/webhelp/cdn-releasenotes-internal |
+| Developer Guide for Service Management (Internal) | target/docbkx/webhelp/cdn-adminguide-internal |
 
 #### Editors
 
@@ -39,7 +41,7 @@ You can use any text editor to work with these source files. If you want to use 
 
 ### Quick Links
 
-The files that are most likely to be of interest to you are as follows:
+The files that are most likely to be of interest to you as a contributor are as follows:
 
 * [src/docbkx/cdn-gettingstarted.xml](src/docbkx/cdn-gettingstarted.xml)
 * [src/docbkx/cdn-devguide.xml](src/docbkx/cdn-devguide.xml)
