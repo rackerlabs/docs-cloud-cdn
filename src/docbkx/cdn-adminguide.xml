@@ -995,10 +995,10 @@ Content-Type: application/json
       <para>The section describes base operations for Rackspace CDN, such the operations to get the
         home document, to get a health check, and to ping.</para>
       <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
-        <wadl:resource href="../../src/wadl/cdn-devguide.wadl#health">
+        <wadl:resource href="../../src/wadl/cdn-adminguide.wadl#health">
           <wadl:method href="#getHealthCheck"/>
         </wadl:resource>
-        <wadl:resource href="../../src/wadl/cdn-devguide.wadl#subsystem">
+        <wadl:resource href="../../src/wadl/cdn-adminguide.wadl#subsystem">
           <wadl:method href="#getHealthDetails"/>
         </wadl:resource>
       </wadl:resources>
@@ -1010,10 +1010,10 @@ Content-Type: application/json
         offered. </para>
       <para>The section describes operations related to flavors.</para>
       <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
-        <wadl:resource href="../../src/wadl/cdn-devguide.wadl#flavors">
+        <wadl:resource href="../../src/wadl/cdn-adminguide.wadl#flavors">
           <wadl:method href="#postFlavors"/>
         </wadl:resource>
-        <wadl:resource href="../../src/wadl/cdn-devguide.wadl#flavor_id">
+        <wadl:resource href="../../src/wadl/cdn-adminguide.wadl#flavor_id">
           <wadl:method href="#deleteFlavor"/>
         </wadl:resource>
       </wadl:resources>

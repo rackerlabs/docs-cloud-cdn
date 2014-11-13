@@ -1291,6 +1291,7 @@ Content-Type: application/json
         </wadl:resource>
       </wadl:resources>
     </section>
+    <!-- No yet available
     <section xml:id="serviceAnalyticsOperations">
       <title>Services analytics (To Do????)</title>
       <para>Service analytics report usage data (hits, misses, and so on) about the service. </para>
@@ -1300,7 +1301,7 @@ Content-Type: application/json
           <wadl:method href="#getAssetAnalytics"/>
         </wadl:resource>
       </wadl:resources>
-    </section>
+    </section> -->
     <section xml:id="flavorsOperations">
       <title>Flavors</title>
       <para>A flavor is a mapping configuration to a CDN provider. Each flavor may contain a list of
@@ -1316,6 +1317,7 @@ Content-Type: application/json
         </wadl:resource>
       </wadl:resources>
     </section>
+    <!-- Not yet available
     <section xml:id="loggingOperations">
       <title>Logging</title>
       <para>Rackspace CDN has the ability to instruct CDN providers about where to transfer the logs
@@ -1328,7 +1330,7 @@ Content-Type: application/json
           <wadl:method href="#postLogging"/>
         </wadl:resource>
       </wadl:resources>
-    </section>
+    </section> -->
     <!-- Not available for Early Access  
     <section xml:id="streamingOperations">
       <title>Streaming (To Do)</title>

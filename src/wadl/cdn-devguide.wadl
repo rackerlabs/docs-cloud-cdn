@@ -34,7 +34,7 @@
 -->
 			<method href="#getHomeDocument"/>
 			
-			<resource id="health" path="health">
+<!--			<resource id="health" path="health">
 			    <method href="#getHealthCheck"/>
 				<resource id="subsystem" path="{subsystem}">
 					<param name="subsystem" style="template" type="xsd:string"> 
@@ -44,7 +44,7 @@
 					</param>
 				    <method href="#getHealthDetails"/>				                
 				</resource>	
-			</resource>
+			</resource> -->
 			
 			<resource id="ping" path="ping"> 	
 			    <method href="#getPing"/> 
@@ -77,7 +77,7 @@
 				
 			<resource id="flavors" path="flavors">
 				<method href="#getFlavors"/>
-				<method href="#postFlavors"/>
+           <!-- 	<method href="#postFlavors"/> -->
 				<resource id="flavor_id" path="{flavor_id}">
 					<param name="flavor_id" style="template"
 						type="xsd:string" required="true">
@@ -87,7 +87,7 @@
 							</para> </wadl:doc>
 					</param>
 					<method href="#getFlavorDetails"/>
-					<method href="#deleteFlavor"/>
+			<!--		<method href="#deleteFlavor"/>  -->
 			    </resource>
 			</resource>
 			
@@ -142,9 +142,9 @@
 		</response>
 	</method>
 <!--*******************************************************-->
-<!--               Get health check                        -->
+<!--      Get health check - moved to Admin WADL           -->
 <!--*******************************************************-->
-	<method name="GET" id="getHealthCheck">
+<!--	<method name="GET" id="getHealthCheck">
 		<wadl:doc xml:lang="EN" title="Perform health check"
 			xmlns="http://docbook.org/ns/docbook">
 			<para role="shortdesc">Performs a health check.</para>
@@ -181,11 +181,11 @@
 			<doc title="Service Unavailable" xml:lang="EN">The service is temporarily unavailable (for example, for scheduled
 				platform maintenance). Try again later.</doc>			
 		</response>
-	</method>	
+	</method>	-->
 <!--*******************************************************-->
-<!--               Get health details                      -->
+<!--     Get health details   - moved to Admin WADL        -->
 <!--*******************************************************-->
-	<method name="GET" id="getHealthDetails">
+<!--	<method name="GET" id="getHealthDetails">
 		<wadl:doc xml:lang="EN" title="Get health details"
 			xmlns="http://docbook.org/ns/docbook">
 			<para role="shortdesc">Gets the health details for a subsystem.</para>
@@ -223,7 +223,7 @@
 			<doc title="Service Unavailable" xml:lang="EN">The service is temporarily unavailable (for example, for scheduled
 				platform maintenance). Try again later.</doc>			
 		</response>
-	</method>
+	</method> -->
 <!--*******************************************************-->
 <!--               Get ping                                -->
 <!--*******************************************************-->
@@ -779,9 +779,9 @@
 		</response>
 	</method>
 <!--*******************************************************-->
-<!--               Create flavors                          -->
+<!--       Create flavors - moved to Admin WADL            -->
 <!--*******************************************************-->	
-	<method name="POST" id="postFlavors">
+<!--	<method name="POST" id="postFlavors">
 		<wadl:doc xml:lang="EN" title="Create flavors"
 			xmlns="http://docbook.org/ns/docbook">
 			<para role="shortdesc">Creates flavors.</para>
@@ -876,7 +876,7 @@
 		<response status="400" xmlns="http://wadl.dev.java.net/2009/02">
 			<doc title="Bad Request" xml:lang="EN">Invalid json.</doc>
 		</response>
-	</method>
+	</method> -->
 <!--*******************************************************-->
 <!--               List flavor details                     -->
 <!--*******************************************************-->	
@@ -911,9 +911,9 @@
 		</response>
 	</method>
 <!--*******************************************************-->
-<!--               Delete flavor                           -->
+<!--           Delete flavor  - moved to Admin WADL        -->
 <!--*******************************************************-->	
-	<method name="DELETE" id="deleteFlavor">
+<!--	<method name="DELETE" id="deleteFlavor">
 		<wadl:doc xml:lang="EN" title="Delete flavor"
 			xmlns="http://docbook.org/ns/docbook">
 			<para role="shortdesc">Deletes the flavor specified by flavor_id.</para>
@@ -940,7 +940,7 @@
 				</wadl:doc>
 			</representation>
 		</response>
-	</method>
+	</method> -->
 <!--*******************************************************-->
 <!--              Logging methods                          -->
 <!--*******************************************************-->	
