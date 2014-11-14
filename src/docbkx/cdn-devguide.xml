@@ -33,7 +33,7 @@
 ]>
 <book xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink"
   xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:svg="http://www.w3.org/2000/svg" version="5.0"
-  xml:id="cdn-devguide" status=" ">
+  xml:id="cdn-devguide" status="DRAFT ">
   <title>Rackspace CDN Developer Guide</title>
   <?rax status.bar.text.font.size="40px"
      status.bar.text="Early Access - Draft"
@@ -41,7 +41,7 @@
   <titleabbrev>CDN Developer Guide</titleabbrev>
   <info>
     <copyright>
-      <year>2014</year>
+      <year>2015</year>
       <holder>Rackspace US, Inc.</holder>
     </copyright>
     <releaseinfo>API v1.0 Early Access</releaseinfo>
@@ -50,7 +50,7 @@
     <pubdate><!--If you leave the <pubdate> element empty, the build system inserts today's date automatically. --></pubdate>
     <revhistory>
       <revision>
-        <date>2014-11-01</date>
+        <date>2015-01-01</date>
         <revdescription>
           <para>Initial Early Access (EA) release.</para>
         </revdescription>
@@ -588,7 +588,7 @@
         </para>
       </section>
     </section>
-    <!--MFA sections from Identity Guide - from Margaret -->
+    <!--MFA sections from Identity Guide from Margaret - may not be launched in time for Rackspace CDN launch
     <section xml:id="MFA_Ops">
       <title>Multifactor authentication</title>
       <para>Multi-factor authentication is for Rackspace Cloud Customers who require a greater level
@@ -621,8 +621,8 @@
                 feature.</para>
             </important>
           </listitem>
-        </orderedlist></para>
-      <!--     <para>Figure <xref linkend="mfa_auth"
+        </orderedlist></para> 
+          <para>Figure <xref linkend="mfa_auth"
         xrefstyle="select: labelnumber"/> shows the multifactor
         authentication process flow.<figure xml:id="mfa_auth">
           <title>Multifactor authentication process flow</title>
@@ -634,13 +634,13 @@
             </imageobject>
           </mediaobject> 
         </figure>
-      </para> -->
+      </para> 
       <para>Users interested in enabling multifactor authentication must update their Rackspace
         Cloud user accounts to add a phone number that can be used in the authentication process,
         verify the phone, and enable the user account for multifactor authentication. This work can
         be completed from the Cloud Control panel or by using the Rackspace Cloud Identity Service
         API.</para>
-      <!--     <para>Figure <xref linkend="mfa_workflow_setup"
+           <para>Figure <xref linkend="mfa_workflow_setup"
         xrefstyle="select: labelnumber"/> provides an overview of the
         work flow to complete these tasks.</para><figure xml:id="mfa_workflow_setup">
           <title>Multifactor authentication user account set up work flow </title>
@@ -657,7 +657,7 @@
             </imageobject>
           </mediaobject>
           
-        </figure>  -->
+        </figure>  
       <para>For information about using multifactor authentication capabilities through the Cloud
         Identity API, see the following topics in the <citetitle>Cloud Identity Client Developer
           Guide</citetitle>: <itemizedlist>
@@ -677,8 +677,8 @@
                 >Manage multi-factor authentication settings and operation</link></para>
           </listitem>
         </itemizedlist>
-      </para>
-    </section>
+      </para> 
+    </section>  -->
     <section xml:id="RBAC" xmlns:wadl="http://wadl.dev.java.net/2009/02"
       xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:html="http://www.w3.org/1999/xhtml">
       <title>Role Based Access Control</title>

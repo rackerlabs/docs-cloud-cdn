@@ -35,13 +35,15 @@
   xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:svg="http://www.w3.org/2000/svg" version="5.0"
   xml:id="cdn-gettingstarted" status="DRAFT">
   <title>Rackspace CDN Getting Started Guide</title>
-  <?rax canonical.url.base="http://docs.rackspace.com/cdn/api/v1.0/cdn-gettingstarted/content"?>
+  <?rax status.bar.text.font.size="40px"
+     status.bar.text="Early Access - Draft"
+     canonical.url.base="http://docs.rackspace.com/cdn/api/v1.0/cdn-gettingstarted/content"?>
   <info>
     <copyright>
       <year>2015</year>
       <holder>Rackspace US, Inc.</holder>
     </copyright>
-    <releaseinfo>API v1.0</releaseinfo>
+    <releaseinfo>API v1.0 Early Access</releaseinfo>
     <productname>Rackspace CDN</productname>
     <!--Note that the <productname> text matches the first few words of the title. The build system splits the title into productname + rest of title on the pdf cover.-->
     <pubdate/>
@@ -51,9 +53,9 @@
     </abstract>
     <revhistory>
       <revision>
-        <date>2015-01-06</date>
+        <date>2015-01-01</date>
         <revdescription>
-          <para>Initial Early Access (EA0 release for Rackspace CDN.</para>
+          <para>Initial Early Access (EA) release for Rackspace CDN.</para>
         </revdescription>
       </revision>
     </revhistory>
@@ -83,7 +85,6 @@
   <chapter xml:id="Overview">
     <title>Overview</title>
     <!--You can use the <?dbhtml stop-chunking?> processing instruction to prevent a chapter or section for chunking furhter in the html output. -->
-    <remark>From https://one.rackspace.com/display/atlanta/Rackspace+CDN+Engineering</remark>
     <para>A Content Delivery Network (CDN) is designed to improve performance of publicly
       distributed assets.  Assets can be any thing from website content, to web application
       components, to media like videos, ads, and interactive experiences.  CDNs decrease the load
@@ -99,29 +100,23 @@
         <para>RESTful WSGI transport layer</para>
       </listitem>
       <listitem>
-        <para>Storage driver backend for storage of configuration data and settings</para>
-      </listitem>
-      <listitem>
         <para>The ability to cache publicly accessible resources hosted on a Cloud Server instance,
           or a public Cloud Files container</para>
       </listitem>
       <listitem>
-        <para>Stevedore drivers: Storage drivers to talk to Cassandra. Transport drivers for the
-          entry point such as the Pecan WSGI or the Falcon WSGI.</para>
-      </listitem>
-      <listitem>
-        <para>A single global endpoint to access the API:  The architecture is deployed to each
-          Rackspace datacenter.  Configuration data is geographically replicated using Cassandra.
-           Geographic load balancing ensures customers hit their nearest infrastructure.</para>
+        <para>A single global endpoint to access the API</para>
       </listitem>
     </itemizedlist>
+    <para>Rackspace CDN gives Rackspace customers the power to accelerate content on any public
+      resource at Rackspace by giving them a simple API and Control Panel experience for managing
+      their CDN enabled domains and the origins and assets associated with those domains. </para>
     <para xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:html="http://www.w3.org/1999/xhtml"
       >This guide explains how to access and start using the API so that you can begin to use
       Rackspace CDN for your applications. Instructions are given for how to properly enter the
       necessary URLs, using cURL, to set up and use a basic set of Rackspace CDN operations. </para>
     <para xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:html="http://www.w3.org/1999/xhtml">You
-      can find additional details about Rackspace Cloud Queues in the <citetitle>Rackspace CDN
-        Developer Guide</citetitle> at <link xlink:href="http://docs.rackspace.com/"
+      can find additional details about Rackspace CDN in the <citetitle>Rackspace CDN Developer
+        Guide</citetitle> at <link xlink:href="http://docs.rackspace.com/"
         >http://docs.rackspace.com/</link>. </para>
     <para>During Early Access, email all support questions to: <link
         xlink:href="mailto:cdn@rackspacecloud.com">cdn@rackspace.com</link>. </para>
@@ -154,401 +149,82 @@
     <section xml:id="Pricing_SLA-d1e1362">
       <title>Pricing and service level</title>
       <para>During Early Access, there is no charge for Rackspace CDN. </para>
-      <!--      <para>When Rackspace CDN moves to Unlimited Availability, customers will be billed for outbound
-        bandwidth.</para> -->
       <para>While Rackspace CDN is in Early Access, it is subject to the Rackspace test terms at
           <link xlink:href="http://www.rackspace.com/information/legal/testterms">Legal Information
           - Test Terms</link>. When Rackspace CDN moves to Unlimited Availability, the Service Level
         Agreement (SLA) will be available.</para>
     </section>
   </chapter>
-  <chapter xml:id="prerequisites" xmlns:m="http://www.w3.org/1998/Math/MathML"
-    xmlns:html="http://www.w3.org/1999/xhtml">
-    <title>Send requests to the API</title>
-    <para>You have several options for sending requests through an API: </para>
-    <itemizedlist spacing="compact">
-      <listitem>
-        <para>Developers and testers may prefer to use cURL, the command-line tool from <link
-            xlink:href="http://curl.haxx.se/">http://curl.haxx.se/</link>. </para>
-        <para>With cURL you can send HTTP requests and receive responses back from the command line.
-        </para>
-      </listitem>
-      <listitem>
-        <para>If you like to use a more graphical interface, the REST client for Firefox also works
-          well for testing and trying out commands, see <link
-            xlink:href="https://addons.mozilla.org/en-US/firefox/addon/restclient/"
-            >https://addons.mozilla.org/en-US/firefox/addon/restclient/</link>. </para>
-      </listitem>
-      <listitem>
-        <para>You can also download and install rest-client, a Java application to test RESTful web
-          services, from <link xlink:href="http://code.google.com/p/rest-client/"
-            >http://code.google.com/p/rest-client/</link>. </para>
-      </listitem>
-    </itemizedlist>
-    <section xml:id="using_curl">
-      <title>Sending API requests using cURL</title>
-      <para>cURL is a command-line tool that is available in UNIX® system-based environments and
-        Apple Mac OS X® systems, and can be downloaded for Microsoft Windows® to interact with the
-        REST interfaces. For more information about cURL, visit <link
-          xlink:href="http://curl.haxx.se/">http://curl.haxx.se/</link>. </para>
-      <para>cURL enables you to transmit and receive HTTP requests and responses from the command
-        line or from within a shell script. As a result, you can work with the REST API directly
-        without using one of the client APIs.</para>
-      <para>The following cURL command-line options are used in this guide to run the
-        examples.</para>
-      <table rules="all">
-        <caption>cURL command-line options</caption>
-        <col width="30%"/>
-        <col width="70%"/>
-        <thead>
-          <tr>
-            <th>Option</th>
-            <th>Description</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><code>-d</code></td>
-            <td>Sends the specified data in a <code>POST</code> request to the HTTP server.</td>
-          </tr>
-          <tr>
-            <td><code>-i</code></td>
-            <td>Includes the HTTP header in the output.</td>
-          </tr>
-          <tr>
-            <td><code>-H HEADER</code></td>
-            <td>Specifies an HTTP header in the request.</td>
-          </tr>
-          <tr>
-            <td><code>-X</code></td>
-            <td>Specifies the request method to use when communicating with the HTTP server. The
-              specified request is used instead of the default method, which is GET. For example,
-                <code>-X PUT</code> specifies to use the <code>PUT</code> request method.</td>
-          </tr>
-        </tbody>
-      </table>
-      <note>
-        <para>If you have the tools, you can run the cURL JSON request examples with the following
-          options to format the output from cURL: <command>&lt;curl JSON request example> | python
-            -mjson.tool</command>.</para>
-      </note>
-    </section>
-    <section xml:id="Copying-and_Pasting-cURL-d1e003">
-      <title>Copying and pasting cURL request examples into a terminal window</title>
-      <para>To run the cURL request examples shown in this guide (     ?????   ) on Linux or Mac
-        systems, perform the following actions:</para>
-      <orderedlist>
-        <listitem>
-          <para>Copy and paste each example from the HTML version of this guide into an ASCII text
-            editor (for example, vi or TextEdit). You can click on the small document icon to the
-            right of each request example to select it.</para>
-        </listitem>
-        <listitem>
-          <para>Modify each example with your required account information and so forth, as detailed
-            in this guide.</para>
-        </listitem>
-        <listitem>
-          <para>After you are finished modifying the text for the cURL request example with your
-            information (for example,<emphasis role="bold"
-              ><literal>your_username</literal></emphasis> and <emphasis role="bold"
-                ><literal>your_api_key</literal></emphasis>), paste it into your terminal window.
-          </para>
-        </listitem>
-        <listitem>
-          <para>Press <guilabel>Enter</guilabel> to run the cURL command.</para>
-        </listitem>
-      </orderedlist>
-      <note>
-        <para>The carriage returns in the cURL request examples that are part of the cURL syntax are
-          escaped with a backslash (\) in order to avoid prematurely terminating the command.
-          However, you should not escape carriage returns inside the JSON message within the
-          command.</para>
-      </note>
-      <para>Consider the following cURL authentication request: JSON example, which is described in
-        detail in <xref linkend="Generating_Auth_Token"/>.</para>
-      <para>
-        <example>
-          <title>cURL authenticate request: JSON</title>
-          <?dbfo keep-together="always"?>
-          <screen language="bash"><command>curl</command> <option>-i</option> <option>-d</option> \
-'{
-    "auth":
-    {
-       "RAX-KSKEY:apiKeyCredentials":
-       {
-          "username": "<emphasis role="bold">your_username</emphasis>",
-          "apiKey": "<emphasis role="bold">your_api_key</emphasis>"}
-    }
-}' \
-<option>-H 'Content-Type: application/json'</option> \
-<uri>'https://identity.api.rackspacecloud.com/v2.0/tokens'</uri></screen>
-        </example>
-      </para>
-      <para>Notice that the lines that are part of the cURL command syntax have been escaped with a
-        backslash (\) to indicate that the command continues on the next line.</para>
-      <screen language="bash"><command>curl</command> <option>-i</option> <option>-d</option> \
+  <chapter xml:id="generalAPIInfo-cdn101">
+    <title>General API information</title>
   
-   
-(... lines within the JSON portion of the message are not shown in this example)
-(... the example only shows lines that are part of cURL syntax)     
-     
-
-   
-<option>-H 'Content-Type: application/json'</option> \
-<uri>'https://identity.api.rackspacecloud.com/v2.0/tokens'</uri></screen>
-      <para>However, the lines within the JSON portion of the message are not escaped with a
-        backslash in order, to avoid issues with the JSON processing.</para>
-      <screen language="bash">'{
-    "auth":
-    {
-       "RAX-KSKEY:apiKeyCredentials":
-       {
-          "username": "<emphasis role="bold">your_username</emphasis>",
-          "apiKey": "<emphasis role="bold">your_api_key</emphasis>"}
-    }
-}' \
-</screen>
-      <para>The final line of the JSON message is escaped because the backslash lies outside the
-        JSON message and continues the cURL command to the next line.</para>
-      <tip>
-        <para>If you have trouble copying and pasting the examples as described, try typing the
-          entire example on one long line, removing all the backslash line continuation
-          characters.</para>
-      </tip>
-    </section>
-  </chapter>
-  <chapter xml:id="Generating_Auth_Token" xmlns:m="http://www.w3.org/1998/Math/MathML"
-    xmlns:html="http://www.w3.org/1999/xhtml">
-    <title>Generate an authentication token</title>
-    <para>You need to generate a token whether you use cURL or a REST client.</para>
-    <para>In order to use the REST API, you first need to obtain an authentication token, which
-      needs to be passed in each request using the <code>X-Auth-Token</code> header. </para>
-    <para>The following example demonstrates how to use cURL to obtain the authentication token and
-      the account number. You will need to supply the authentication token and account number when
-      making subsequent Cloud Queues API calls.</para>
-    <para>Remember to replace the names in the authenticate request examples below with their
-      respective values:<itemizedlist spacing="compact">
+    <section xml:id="serviceEndpoint-cdn101">
+    <title>Service access endpoint</title>
+    <para xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:html="http://www.w3.org/1999/xhtml"
+      >Rackspace CDN has a global endpoint. Data is replicated to all datacenters. The global
+      endpoint is:</para>
+    <programlisting xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:html="http://www.w3.org/1999/xhtml">https://global.cdn.api.rackspacecloud.com/v1.0/</programlisting>
+    <para xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:html="http://www.w3.org/1999/xhtml"
+      >Every REST request for Rackspace CDN requires one of the following:<itemizedlist>
         <listitem>
-          <para><emphasis role="bold">your_username</emphasis> &mdash; The username is your common
-            Rackspace Cloud username, as supplied during registration.</para>
-        </listitem>
-        <listitem>
-          <para><emphasis role="bold">your_api_key</emphasis> &mdash; The key is your API access
-            key. </para>
-          <para><emphasis role="bold">To find your API key:</emphasis>
-          </para>
-          <orderedlist>
-            <listitem>
-              <para>Log in to the Cloud Control Panel (<link
-                  xlink:href="https://mycloud.rackspace.com"
-                >https://mycloud.rackspace.com</link>).</para>
-            </listitem>
-            <listitem>
-              <para>On the upper-right side of the top navigation pane, click your username.</para>
-            </listitem>
-            <listitem>
-              <para>From the menu, select <guilabel>Account Settings</guilabel>.</para>
-            </listitem>
-            <listitem>
-              <para>In the Login Details section of the Account Settings page, locate the
-                  <guilabel>API Key</guilabel> field and click <guibutton>Show</guibutton>.</para>
-            </listitem>
-            <listitem>
-              <para> Copy the value of the API key and paste it into a text editor of your
-                choice.</para>
-            </listitem>
-            <listitem>
-              <para>Click <guibutton>Hide</guibutton> to hide the value of the API key.</para>
-            </listitem>
-          </orderedlist>
-        </listitem>
-      </itemizedlist></para>
-    <para>You also need your cloud account number. In the documentation, the account number is often
-      referred to as your tenant name or tenant ID (technically, the ID is different from the name,
-      but at Rackspace, they are the same thing). Together, three components—your username, your API
-      key, and your tenant ID or cloud account number—form the authentication credentials that are
-      required to connect to the Rackspace cloud.</para>
-    <para>To find your tenant ID or cloud account number, locate your username on the upper-right
-      side of the top navigation pane in the Cloud Control Panel. The tenant ID or account number is
-      in parentheses just to the right of your username.</para>
-    <para> You can use either of the following endpoints to access the Cloud Identity service,
-      regardless of US or UK identities: </para>
-    <itemizedlist spacing="compact">
-      <listitem>
-        <para><link xlink:href="&ENDPOINT-US-20;">&ENDPOINT-US-20;</link>
-        </para>
-      </listitem>
-      <listitem>
-        <para><link xlink:href="&ENDPOINT-UK-20;">&ENDPOINT-UK-20;</link></para>
-      </listitem>
-    </itemizedlist>
-    <para> Your account may be based in either the US or the UK. This is not determined by your
-      physical location but by the location of the Rackspace retail site which was used to create
-      your account: </para>
-    <itemizedlist spacing="compact">
-      <listitem>
-        <para> If your account was created via <link xlink:href="http://www.rackspacecloud.com"
-            >http://www.rackspacecloud.com</link>, it is a US-based account. </para>
-      </listitem>
-      <listitem>
-        <para> If your account was created via <link xlink:href="http://www.rackspace.co.uk"
-            >http://www.rackspace.co.uk</link>, it is a UK-based account. </para>
-      </listitem>
-    </itemizedlist>
-    <para>Notice that you authenticate using a special URL for the Cloud Identity services. For
-      example, you may use <code>https://identity.api.rackspacecloud.com/v2.0/tokens</code>, as
-      shown in the following authenticate request examples. Note that the <code>v2.0</code>
-      component in the URL indicates that you are using version 2.0 of the Cloud Identity
-      API.</para>
-    <example>
-      <title>cURL authenticate request: XML</title>
-      <?dbfo keep-together="always"?>
-      <screen language="bash"><command>curl</command> <option>-i</option> <option>-d</option> \
-'&lt;?xml version="1.0" encoding="UTF-8"?>
-&lt;auth>
-   &lt;apiKeyCredentials
-      xmlns="http://docs.rackspace.com/identity/api/ext/RAX-KSKEY/v1.0"
-         username="<emphasis role="bold">your_username</emphasis>"
-         apiKey="<emphasis role="bold">your_api_key</emphasis>"/>
-&lt;/auth>' \
-<option>-H 'Content-Type: application/xml'</option> \
-<option>-H 'Accept: application/xml'</option> \
-<uri>'https://identity.api.rackspacecloud.com/v2.0/tokens'</uri></screen>
-    </example>
-    <example>
-      <title>cURL authenticate request: JSON</title>
-      <?dbfo keep-together="always"?>
-      <screen language="bash"><command>curl</command> <option>-i</option> <option>-d</option> \
-'{
-    "auth":
-    {
-       "RAX-KSKEY:apiKeyCredentials":
-       {
-          "username": "<emphasis role="bold">your_username</emphasis>",
-          "apiKey": "<emphasis role="bold">your_api_key</emphasis>"}
-    }
-}' \
-<option>-H 'Content-Type: application/json'</option> \
-<uri>'https://identity.api.rackspacecloud.com/v2.0/tokens'</uri></screen>
-    </example>
-    <note>
-      <para>For UK-based accounts, you may decide to use
-          <code>'https://lon.identity.api.rackspacecloud.com/v2.0/tokens'</code> instead.</para>
-    </note>
-    <example>
-      <title>Authenticate response: XML</title>
-      <programlisting language="xml"><xi:include href="../../src/resources/samples/auth-20.xml" parse="text"/></programlisting>
-    </example>
-    <example xml:id="Authenticate-Response-JSON-d1e001">
-      <title>Authenticate response: JSON</title>
-      <programlisting language="json"><xi:include href="../../src/resources/samples/auth-20.json" parse="text"/></programlisting>
-    </example>
-    <para>The authentication token <code>id</code> is returned along with an <code>expires</code>
-      attribute that specifies when the token expires. Authentication tokens are typically valid for
-      24 hours. Applications should be designed to re-authenticate after receiving a 401
-      (Unauthorized) response from a service endpoint. </para>
-    <note>
-      <title>Notes</title>
-      <itemizedlist spacing="compact">
-        <listitem>
-          <para>For all response examples in this guide, the field values you receive in your
-            responses will vary from those shown here since they will be specific to your
-            account.</para>
-        </listitem>
-        <listitem>
-          <para>The information shown in the Authenticate Response examples above is for US-based
-            accounts. If you authenticate against the UK-endpoint for auth, you will see the service
-            catalog information for UK-based accounts.</para>
-        </listitem>
-        <listitem>
-          <para>The <code>id</code> attribute in the Authenticate Response specifies the
-            authentication token. Tokens are valid for a finite duration.</para>
-          <para>Remember to supply your authentication token wherever you see the field <emphasis
-              role="bold">your_auth_token</emphasis> in the examples in this guide.</para>
-        </listitem>
-        <listitem>
-          <para> The <code>expires</code> attribute denotes the time after which the token will
-            automatically become invalid. A token may be manually revoked before the time identified
-            by the expires attribute; <code>expires</code> predicts a token's maximum possible
-            lifespan but does not guarantee that it will reach that lifespan. Clients are encouraged
-            to cache a token until it expires.</para>
-        </listitem>
-        <listitem>
-          <para>Applications should be designed to re-authenticate after receiving a 401
-            (Unauthorized) response from a service endpoint.</para>
-        </listitem>
-      </itemizedlist>
-    </note>
-    <para>The <code>publicURL</code> endpoints for <code>raxcdn</code> (for example
-        <code>https://global.cdn.api.rackspacecloud.com/v1.0/1100111</code>) are also returned in
-      the response. </para>
-    <para>You will find the actual account number after the final backslash (/) in the
-        <code>publicURL</code> field. In this example, you can see that the account number is
-      1100111. You need to specify your account number on most of the Cloud Queues API calls,
-      wherever you see the field <emphasis role="bold">your_acct_id</emphasis> specified in the
-      examples in this guide.</para>
-    <para>After authentication, you can use cURL to perform &GET;, &DELETE;, and &POST; requests for
-      the Cloud Queues API.</para>
-  </chapter>
-  <chapter xml:id="serviceEndpoints" xmlns:m="http://www.w3.org/1998/Math/MathML"
-    xmlns:html="http://www.w3.org/1999/xhtml">
-    <title>Service access endpoints</title>
-    <para>Rackspace CDN is a regionalized service. The user of the service is therefore responsible
-      for appropriate replication, caching, and overall maintenance of Rackspace CDN data across
-      regional boundaries to other Rackspace CDN servers.</para>
-    <para>To help you decide which regionalized endpoint to use, read the Knowledge Center article
-      about special considerations for choosing a data center at <link
-        xlink:href="http://www.rackspace.com/knowledge_center/article/about-regions">About
-        Regions</link>. </para>
-    <para>For the Early Access release, the endpoints to use for your Rackspace CDN API calls are
-      summarized in the following table.</para>
-    <remark>Get the correct endpoints </remark>
-    <para>
-      <table rules="all">
-        <caption>Regionalized service endpoints for the Early Access release</caption>
-        <thead>
-          <tr align="center">
-            <td colspan="2">Region</td>
-            <td colspan="5">Endpoint</td>
-          </tr>
-        </thead>
-        <tbody>
-          <tr align="left">
-            <td colspan="2">London (LON)</td>
-            <td colspan="5"><code>https://global.cdn.api.rackspacecloud.com/v1.0/</code></td>
-          </tr>
-          <tr>
-            <td colspan="2">Northern Virginia (IAD)</td>
-            <td colspan="5"><code>https://global.cdn.api.rackspacecloud.com/v1.0/</code></td>
-          </tr>
-        </tbody>
-      </table>
-    </para>
-    <para>Every REST request for Rackspace CDN requires one of the following:<itemizedlist>
-        <listitem>
-          <para>The <code>project_id</code> in the URI</para>
-          <para><code>project_id</code> is the unique identifier for the user. Use
-              <code>project_id</code> as the first parameter before the request path, for example
+          <para>The <code>projectID</code> in the URI</para>
+          <para><code>projectID</code> is the unique identifier for the user. Use
+              <code>projectID</code> as the first parameter before the request path, for example
               <code>GET
-                https://global.cdn.api.rackspacecloud.com/<replaceable>project_id</replaceable>/v1.0/</code>.</para>
+                https://global.cdn.api.rackspacecloud.com/<replaceable>projectID</replaceable>/v1.0/</code>.</para>
         </listitem>
         <listitem>
           <para>The <code>X-Project-Id</code> header</para>
-          <para>Set the <code>X-Project_Id</code> header in the HTTP information in your
-            request.</para>
+          <para>Set the <code>X-Project-Id</code> header in the HTTP information in your request.
+            For more information about the header, see <xref linkend="commonHeaders-d1e101"
+            />.</para>
         </listitem>
       </itemizedlist></para>
-    <note>
-      <para>You should copy the base URLs directly from the service catalog rather than trying to
-        construct them manually.</para>
-      <para>Rackspace Cloud Identity returns an endpoint with your <code>project_id</code>, which is
+    <note xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:html="http://www.w3.org/1999/xhtml">
+      <para>The service catalog returned in the auth response specifies the correct service access
+        endpoint for your account to use for accessing Rackspace CDN. You should copy the endpoint
+        directly from the service catalog rather than trying to construct it manually.</para>
+      <para>Rackspace Cloud Identity returns an endpoint with your <code>projectID</code>, which is
         also referred to as your tenant ID or your account ID. </para>
-      <para>The <code>project_id</code> refers to your Rackspace account number, which you can also
+      <para>The <code>projectID</code> refers to your Rackspace account number, which you can also
         find in your Cloud Control Panel at <link xlink:href="https://mycloud.rackspace.com/"
           >mycloud.rackspace.com</link>.</para>
     </note>
-  </chapter>
-  <chapter xml:id="commonHeaders-d1e101">
+  </section>
+  <section xml:id="requestResponseType-cdn1e01" >
+    <title>Request and response type</title>
+    <para xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:html="http://www.w3.org/1999/xhtml">The
+      Rackspace CDN API supports JSON data serialization formats. </para>
+    <para xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:html="http://www.w3.org/1999/xhtml"
+      >Specify the request format by using the <code>Content-Type</code> header, which is <emphasis
+        role="italic">required</emphasis> for calls that have a request body. </para>
+    <para xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:html="http://www.w3.org/1999/xhtml">You
+      can specify the response format in requests by using the <code>Accept</code> header or by
+      adding a <code>.json</code> extension to the request URI. If no response format is specified,
+      JSON is the default. </para>
+    <table rules="all" xmlns:m="http://www.w3.org/1998/Math/MathML"
+      xmlns:html="http://www.w3.org/1999/xhtml">
+      <caption>Response Format</caption>
+      <?dbfo keep-together="always"?>
+      <thead>
+        <tr align="center">
+          <td>Format</td>
+          <td>Accept header</td>
+          <td>Query extension</td>
+          <td>Default</td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>JSON</td>
+          <td>application/json</td>
+          <td>.json</td>
+          <td>Yes</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+    <section xml:id="commonHeaders-d1e101">
     <title>Common headers</title>
     <para>Each request to the Rackspace CDN API must include certain standard and extended HTTP
       headers. These headers provide host, agent, authentication, and other pertinent information to
@@ -610,8 +286,8 @@
         </tr>
       </tbody>
     </table>
-  </chapter>
-  <chapter xml:id="responseCodes-d1e101">
+  </section>
+  <section xml:id="responseCodes-d1e101">
     <title>Response codes</title>
     <para>Rackspace CDN returns an HTTP code that denotes the type of response. </para>
     <itemizedlist>
@@ -715,11 +391,435 @@ Content-Type: application/json
   }
 }</programlisting>
     </example>
+  </section>
+  </chapter>
+  <chapter xml:id="prerequisites" xmlns:m="http://www.w3.org/1998/Math/MathML"
+    xmlns:html="http://www.w3.org/1999/xhtml">
+    <title>Send requests to the API</title>
+    <para>You have several options for sending requests through an API: </para>
+    <itemizedlist spacing="compact">
+      <listitem>
+        <para>Developers and testers may prefer to use cURL, the command-line tool from <link
+            xlink:href="http://curl.haxx.se/">http://curl.haxx.se/</link>. </para>
+        <para>With cURL you can send HTTP requests and receive responses back from the command line.
+        </para>
+      </listitem>
+      <listitem>
+        <para>If you like to use a more graphical interface, the REST client for Firefox also works
+          well for testing and trying out commands, see <link
+            xlink:href="https://addons.mozilla.org/en-US/firefox/addon/restclient/"
+            >https://addons.mozilla.org/en-US/firefox/addon/restclient/</link>. </para>
+      </listitem>
+      <listitem>
+        <para>You can also download and install rest-client, a Java application to test RESTful web
+          services, from <link xlink:href="http://code.google.com/p/rest-client/"
+            >http://code.google.com/p/rest-client/</link>. </para>
+      </listitem>
+    </itemizedlist>
+    <section xml:id="using_curl">
+      <title>Sending API requests using cURL</title>
+      <para>cURL is a command-line tool that is available in UNIX® system-based environments and
+        Apple Mac OS X® systems, and can be downloaded for Microsoft Windows® to interact with the
+        REST interfaces. For more information about cURL, visit <link
+          xlink:href="http://curl.haxx.se/">http://curl.haxx.se/</link>. </para>
+      <para>cURL enables you to transmit and receive HTTP requests and responses from the command
+        line or from within a shell script. As a result, you can work with the REST API directly
+        without using one of the client APIs.</para>
+      <para>The following cURL command-line options are used in this guide to run the
+        examples.</para>
+      <table xml:id="curl_options" rules="all" width="75%">
+        <caption>cURL command-line options</caption>
+        <thead>
+          <tr>
+            <th>Option</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <option>-d</option>
+            </td>
+            <td>
+              <para>Sends the specified data in a &POST; request to the HTTP server. Use this option
+                to send a JSON request body to the server.</para>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <option>-H</option>
+            </td>
+            <td>
+              <para>Specifies an extra HTTP header in the request. You can specify any number of
+                extra headers. Precede each header with the <option>-H</option> option. </para>
+              <para>Common headers in Rackspace API requests are:<itemizedlist>
+                  <listitem>
+                    <para><literal>Content-Type</literal>. Required for operations with a request
+                      body. </para>
+                    <para>Specifies the format of the request body. The syntax for the
+                        <literal>Content-Type</literal> header is:</para>
+                    <screen><computeroutput>Content-Type: application/<parameter>format</parameter></computeroutput></screen>
+                    <para>Where <parameter>format</parameter> is <literal>json</literal>.</para>
+                  </listitem>
+                  <listitem>
+                    <para><literal>X-Auth-Project-Id</literal>. Optional. Specifies the project ID,
+                      which can be your account number or another value.</para>
+                  </listitem>
+                  <listitem>
+                    <para><literal>Accept</literal>. Optional. </para>
+                    <para>Specifies the format of the response body. The syntax for the
+                        <literal>Accept</literal> header is:</para>
+                    <screen><computeroutput>Accept: application/<parameter>format</parameter></computeroutput></screen>
+                    <para>Where <parameter>format</parameter> is <literal>json</literal>. Default is
+                        <literal>json</literal>.</para>
+                  </listitem>
+                  <listitem>
+                    <para><literal>X-Auth-Token</literal>. Required. Specifies the authentication
+                      token.</para>
+                  </listitem>
+                </itemizedlist></para>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <option>-i</option>
+            </td>
+            <td>
+              <para>Includes the HTTP header in the output. </para>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <option>-s</option>
+            </td>
+            <td>
+              <para>Silent or quiet mode. Does not show progress or error messages. Makes cURL mute.<note>
+                  <para>If your cURL command is not generating any output, try replacing the
+                      <code>-s</code> option with <code>-i</code>.</para>
+                </note>
+              </para>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <option>-T</option>
+            </td>
+            <td>
+              <para>Transfers the specified local file to the remote URL.</para>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <option>-X</option>
+            </td>
+            <td>
+              <para>Specifies the request method to use when communicating with the HTTP server. The
+                specified request is used instead of the default method, which is &GET;. </para>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <note xml:id="json_tool">
+        <title>json.tool</title>
+        <para>For commands that return a response, you can append the following code to the command
+          to call the json.tool to pretty-print output: </para>
+        <programlisting language="bash" role="gutter: false">| python -m json.tool</programlisting>
+        <para>To use the json.tool, import the json module. For information about the json.tool, see
+            <link xlink:href="http://docs.python.org/2/library/json.html">json — JSON encoder and
+            decoder</link>. </para>
+        <para>If you do not want to pretty-print JSON output, omit this code. </para>
+      </note>
+    </section>
+    <section xml:id="Copying-and_Pasting-cURL-d1e003">
+      <title>Copying and pasting cURL request examples into a terminal window</title>
+      <para>To run the cURL request examples shown in this guide on Linux or Mac systems, perform
+        the following actions:</para>
+      <orderedlist>
+        <listitem>
+          <para>Copy and paste each example from the HTML version of this guide into an ASCII text
+            editor (for example, vi or TextEdit). You can click on the small document icon to the
+            right of each request example to select it.</para>
+        </listitem>
+        <listitem>
+          <para>Modify each example with your required account information and so forth, as detailed
+            in this guide.</para>
+        </listitem>
+        <listitem>
+          <para>After you are finished modifying the text for the cURL request example with your
+            information (for example,<emphasis role="bold"
+              ><literal>your_username</literal></emphasis> and <emphasis role="bold"
+                ><literal>your_api_key</literal></emphasis>), paste it into your terminal window.
+          </para>
+        </listitem>
+        <listitem>
+          <para>Press <guilabel>Enter</guilabel> to run the cURL command.</para>
+        </listitem>
+      </orderedlist>
+      <note>
+        <para>The carriage returns in the cURL request examples that are part of the cURL syntax are
+          escaped with a backslash (\) in order to avoid prematurely terminating the command.
+          However, you should not escape carriage returns inside the JSON message within the
+          command.</para>
+      </note>
+      <para>Consider the following cURL authentication request: JSON example, which is described in
+        detail in <xref linkend="Generating_Auth_Token"/>.</para>
+      <para>
+        <example>
+          <title>cURL authenticate request: JSON</title>
+          <?dbfo keep-together="always"?>
+          <screen language="bash"><command>curl</command> <option>-i</option> <option>-d</option> \
+'{
+    "auth":
+    {
+       "RAX-KSKEY:apiKeyCredentials":
+       {
+          "username": "<emphasis role="bold">your_username</emphasis>",
+          "apiKey": "<emphasis role="bold">your_api_key</emphasis>"}
+    }
+}' \
+<option>-H 'Content-Type: application/json'</option> \
+<uri>'https://identity.api.rackspacecloud.com/v2.0/tokens'</uri></screen>
+        </example>
+      </para>
+      <para>Notice that the lines that are part of the cURL command syntax have been escaped with a
+        backslash (\) to indicate that the command continues on the next line.</para>
+      <screen language="bash"><command>curl</command> <option>-i</option> <option>-d</option> \
+  
+   
+(... lines within the JSON portion of the message are not shown in this example)
+(... the example only shows lines that are part of cURL syntax)     
+     
+
+   
+<option>-H 'Content-Type: application/json'</option> \
+<uri>'https://identity.api.rackspacecloud.com/v2.0/tokens'</uri></screen>
+      <para>However, the lines within the JSON portion of the message are not escaped with a
+        backslash in order, to avoid issues with the JSON processing.</para>
+      <screen language="bash">'{
+    "auth":
+    {
+       "RAX-KSKEY:apiKeyCredentials":
+       {
+          "username": "<emphasis role="bold">your_username</emphasis>",
+          "apiKey": "<emphasis role="bold">your_api_key</emphasis>"}
+    }
+}' \
+</screen>
+      <para>The final line of the JSON message is escaped because the backslash lies outside the
+        JSON message and continues the cURL command to the next line.</para>
+      <tip>
+        <para>If you have trouble copying and pasting the examples as described, try typing the
+          entire example on one long line, removing all the backslash line continuation
+          characters.</para>
+      </tip>
+      <para>After you are finished modifying the text for the cURL request example with your
+        information (for example <emphasis role="bold">your_username</emphasis> and <emphasis
+          role="bold">your_api_key</emphasis>), paste it into your terminal window. Then execute the
+        cURL command by pressing <emphasis role="bold">Enter</emphasis>.</para>
+    </section>
   </chapter>
   <chapter xml:id="additional-resources" xmlns:m="http://www.w3.org/1998/Math/MathML"
     xmlns:html="http://www.w3.org/1999/xhtml">
     <title>Working with the Rackspace CDN API</title>
-    <para></para>
+    <para>The following sections describe the basic operations you perform to work with the
+      Rackspace CDN API, including authorization using the Rackspace Cloud Identity service.</para>
+    <section xml:id="Generating_Auth_Token" xmlns:m="http://www.w3.org/1998/Math/MathML"
+      xmlns:html="http://www.w3.org/1999/xhtml">
+      <title>Generate an authentication token</title>
+      <para>You need to generate a token whether you use cURL or a REST client.</para>
+      <para>In order to use the REST API, you first need to obtain an authentication token, which
+        needs to be passed in each request using the <code>X-Auth-Token</code> header. </para>
+      <para>The following example demonstrates how to use cURL to obtain the authentication token and
+        the account number. You will need to supply the authentication token and account number when
+        making subsequent Rackspace CDN API calls.</para>
+      <para>Remember to replace the names in the authenticate request examples below with their
+        respective values:<itemizedlist spacing="compact">
+          <listitem>
+            <para><emphasis role="bold">your_username</emphasis> &mdash; The username is your common
+              Rackspace Cloud username, as supplied during registration.</para>
+          </listitem>
+          <listitem>
+            <para><emphasis role="bold">your_api_key</emphasis> &mdash; The key is your API access
+              key. </para>
+            <para><emphasis role="bold">To find your API key:</emphasis>
+            </para>
+            <orderedlist>
+              <listitem>
+                <para>Log in to the Cloud Control Panel (<link
+                  xlink:href="https://mycloud.rackspace.com"
+                  >https://mycloud.rackspace.com</link>).</para>
+              </listitem>
+              <listitem>
+                <para>On the upper-right side of the top navigation pane, click your username.</para>
+              </listitem>
+              <listitem>
+                <para>From the menu, select <guilabel>Account Settings</guilabel>.</para>
+              </listitem>
+              <listitem>
+                <para>In the Login Details section of the Account Settings page, locate the
+                  <guilabel>API Key</guilabel> field and click <guibutton>Show</guibutton>.</para>
+              </listitem>
+              <listitem>
+                <para> Copy the value of the API key and paste it into a text editor of your
+                  choice.</para>
+              </listitem>
+              <listitem>
+                <para>Click <guibutton>Hide</guibutton> to hide the value of the API key.</para>
+              </listitem>
+            </orderedlist>
+          </listitem>
+        </itemizedlist></para>
+      <para>You also need your cloud account number. In the documentation, the account number is often
+        referred to as your tenant name or tenant ID (technically, the ID is different from the name,
+        but at Rackspace, they are the same thing). Together, three components—your username, your API
+        key, and your tenant ID or cloud account number—form the authentication credentials that are
+        required to connect to the Rackspace cloud.</para>
+      <para>To find your tenant ID or cloud account number, locate your username on the upper-right
+        side of the top navigation pane in the Cloud Control Panel. The tenant ID or account number is
+        in parentheses just to the right of your username.</para>
+      <para> You can use either of the following endpoints to access the Cloud Identity service,
+        regardless of US or UK identities: </para>
+      <itemizedlist spacing="compact">
+        <listitem>
+          <para><link xlink:href="&ENDPOINT-US-20;">&ENDPOINT-US-20;</link>
+          </para>
+        </listitem>
+        <listitem>
+          <para><link xlink:href="&ENDPOINT-UK-20;">&ENDPOINT-UK-20;</link></para>
+        </listitem>
+      </itemizedlist>
+      <para> Your account may be based in either the US or the UK. This is not determined by your
+        physical location but by the location of the Rackspace retail site which was used to create
+        your account: </para>
+      <itemizedlist spacing="compact">
+        <listitem>
+          <para> If your account was created via <link xlink:href="http://www.rackspacecloud.com"
+            >http://www.rackspacecloud.com</link>, it is a US-based account. </para>
+        </listitem>
+        <listitem>
+          <para> If your account was created via <link xlink:href="http://www.rackspace.co.uk"
+            >http://www.rackspace.co.uk</link>, it is a UK-based account. </para>
+        </listitem>
+      </itemizedlist>
+      <para>Notice that you authenticate using a special URL for the Cloud Identity services. For
+        example, you may use <code>https://identity.api.rackspacecloud.com/v2.0/tokens</code>, as
+        shown in the following authenticate request examples. Note that the <code>v2.0</code>
+        component in the URL indicates that you are using version 2.0 of the Cloud Identity
+        API.</para>
+      <example>
+        <title>cURL authenticate request: XML</title>
+        <?dbfo keep-together="always"?>
+        <screen language="bash"><command>curl</command> <option>-i</option> <option>-d</option> \
+'&lt;?xml version="1.0" encoding="UTF-8"?>
+&lt;auth>
+   &lt;apiKeyCredentials
+      xmlns="http://docs.rackspace.com/identity/api/ext/RAX-KSKEY/v1.0"
+         username="<emphasis role="bold">your_username</emphasis>"
+         apiKey="<emphasis role="bold">your_api_key</emphasis>"/>
+&lt;/auth>' \
+<option>-H 'Content-Type: application/xml'</option> \
+<option>-H 'Accept: application/xml'</option> \
+<uri>'https://identity.api.rackspacecloud.com/v2.0/tokens'</uri></screen>
+      </example>
+      <example>
+        <title>cURL authenticate request: JSON</title>
+        <?dbfo keep-together="always"?>
+        <screen language="bash"><command>curl</command> <option>-i</option> <option>-d</option> \
+'{
+    "auth":
+    {
+       "RAX-KSKEY:apiKeyCredentials":
+       {
+          "username": "<emphasis role="bold">your_username</emphasis>",
+          "apiKey": "<emphasis role="bold">your_api_key</emphasis>"}
+    }
+}' \
+<option>-H 'Content-Type: application/json'</option> \
+<uri>'https://identity.api.rackspacecloud.com/v2.0/tokens'</uri></screen>
+      </example>
+      <note>
+        <para>For UK-based accounts, you may decide to use
+          <code>'https://lon.identity.api.rackspacecloud.com/v2.0/tokens'</code> instead.</para>
+      </note>
+      <example>
+        <title>Authenticate response: XML</title>
+        <programlisting language="xml"><xi:include href="../../src/resources/samples/auth-20.xml" parse="text"/></programlisting>
+      </example>
+      <example xml:id="Authenticate-Response-JSON-d1e001">
+        <title>Authenticate response: JSON</title>
+        <programlisting language="json"><xi:include href="../../src/resources/samples/auth-20.json" parse="text"/></programlisting>
+      </example>
+      <para>The authentication token <code>id</code> is returned along with an <code>expires</code>
+        attribute that specifies when the token expires. Authentication tokens are typically valid for
+        24 hours. Applications should be designed to re-authenticate after receiving a 401
+        (Unauthorized) response from a service endpoint. </para>
+      <note>
+        <title>Notes</title>
+        <itemizedlist spacing="compact">
+          <listitem>
+            <para>For all response examples in this guide, the field values you receive in your
+              responses will vary from those shown here since they will be specific to your
+              account.</para>
+          </listitem>
+          <listitem>
+            <para>The information shown in the Authenticate Response examples above is for US-based
+              accounts. If you authenticate against the UK-endpoint for auth, you will see the service
+              catalog information for UK-based accounts.</para>
+          </listitem>
+          <listitem>
+            <para>The <code>id</code> attribute in the Authenticate Response specifies the
+              authentication token. Tokens are valid for a finite duration.</para>
+            <para>Remember to supply your authentication token wherever you see the field <emphasis
+              role="bold">your_auth_token</emphasis> in the examples in this guide.</para>
+          </listitem>
+          <listitem>
+            <para> The <code>expires</code> attribute denotes the time after which the token will
+              automatically become invalid. A token may be manually revoked before the time identified
+              by the expires attribute; <code>expires</code> predicts a token's maximum possible
+              lifespan but does not guarantee that it will reach that lifespan. Clients are encouraged
+              to cache a token until it expires.</para>
+          </listitem>
+          <listitem>
+            <para>Applications should be designed to re-authenticate after receiving a 401
+              (Unauthorized) response from a service endpoint.</para>
+          </listitem>
+        </itemizedlist>
+      </note>
+      <para>The <code>publicURL</code> endpoints for <code>raxcdn</code> (for example
+        <code>https://global.cdn.api.rackspacecloud.com/v1.0/1100111</code>) are also returned in
+        the response. </para>
+      <para>You will find the actual account number after the final backslash (/) in the
+        <code>publicURL</code> field. In this example, you can see that the account number is
+        1100111. You need to specify your account number on most of the Rackspace CDN API calls,
+        wherever you see the field <emphasis role="bold">your_acct_id</emphasis> specified in the
+        examples in this guide.</para>
+      <para>After authentication, you can use cURL to perform &GET;, &DELETE;, and &POST; requests for
+        the Rackspace CDN API.</para>
+    </section>
+    <section xml:id="createService-d1cdn">
+      <title>Create a service</title>
+      <para/>
+    </section>
+    <section xml:id="listService-d1cdn">
+      <title>List a service</title>
+      <para/>
+    </section>
+    <section xml:id="checkCachedAsset-d1cdn">
+      <title>Check a cached asset</title>
+      <para/>
+    </section>
+    <section xml:id="purgeAsset-d1cdn">
+      <title>Purge assets</title>
+      <para/>
+    </section>
+    <section xml:id="listFlavors-d1cdn">
+      <title>List flavors</title>
+      <para/>
+    </section>
+    <section xml:id="deleteService-d1cdn">
+      <title>Delete a service</title>
+      <para/>
+    </section>
   </chapter>
   <chapter xml:id="additionalResources-d1e101"><title>Additional resources</title>
     <para>For more information about using the API, see the <citetitle>Rackspace CDN Developer

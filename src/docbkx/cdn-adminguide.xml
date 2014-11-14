@@ -33,11 +33,12 @@
 ]>
 <book xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink"
   xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:svg="http://www.w3.org/2000/svg" version="5.0"
-  xml:id="cdn-devguide" status=" ">
+  xml:id="cdn-adminguide" status="DRAFT ">
+  <?rax title.font.size="35px" subtitle.font.size="20px"?> 
   <title>Rackspace CDN Developer Guide for Service Management</title>
   <?rax status.bar.text.font.size="40px"
      status.bar.text="Early Access - Draft"
-      canonical.url.base="http://docs.rackspace.com/cdn/api/v1.0/cdn-devguide/content"?>
+      canonical.url.base="http://docs.rackspace.com/cdn/api/v1.0/cdn-adminguide/content"?>
   <titleabbrev>Rackspace CDN Developer Guide for Service Management</titleabbrev>
   <info>
     <copyright>
@@ -47,7 +48,7 @@
     <releaseinfo>API v1.0 Early Access</releaseinfo>
     <productname>Rackspace CDN</productname>
     <pubdate xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:html="http://www.w3.org/1999/xhtml"
-      >2015-01-01</pubdate>
+      ></pubdate>
     <legalnotice role="rs-api" xmlns:m="http://www.w3.org/1998/Math/MathML"
       xmlns:html="http://www.w3.org/1999/xhtml">
       <annotation>
