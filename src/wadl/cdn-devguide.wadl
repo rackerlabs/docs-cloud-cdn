@@ -666,7 +666,7 @@
 <!--*******************************************************-->
 <!--               Delete a cached asset                    -->
 <!--*******************************************************-->
-	<method name="GET" id="deleteCachedAsset">
+	<method name="DELETE" id="deleteCachedAsset">
 		<wadl:doc xml:lang="EN" title="Purge a cached asset"
 			xmlns="http://docbook.org/ns/docbook">
 			<para role="shortdesc">Purges (or removes) a cached asset.</para>

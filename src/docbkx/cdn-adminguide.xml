@@ -491,6 +491,11 @@
               <td>cdn:observer</td>
               <td>This role provides Read permission in Rackspace CDN, where access is granted.</td>
             </tr>
+            <tr>
+              <td>cdn:operator</td>
+              <td>This roles provides permissions to create and delete flavors. (This role is
+                specific to the Rackspace CDN service.)</td>
+            </tr>
           </tbody>
         </table>
         <para>Additionally, two multiproduct roles apply to all products. Users with multiproduct

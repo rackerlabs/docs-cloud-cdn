@@ -78,23 +78,12 @@
       <endpoint tenantId="1100111"
         publicURL="https://dns.api.rackspacecloud.com/v1.0/1100111"/>
     </service>
-    <service type="rax:queues" name="cloudQueues">
-      <endpoint region="ORD" tenantId="1100111"
-        publicURL="https://ord.queues.api.rackspacecloud.com/v1/1100111"
-        internalURL="https://snet-ord.queues.api.rackspacecloud.com/v1/1100111"/>
-      <endpoint region="SYD" tenantId="1100111"
-        publicURL="https://syd.queues.api.rackspacecloud.com/v1/1100111"
-        internalURL="https://snet-syd.queues.api.rackspacecloud.com/v1/1100111"/>
-      <endpoint region="DFW" tenantId="1100111"
-        publicURL="https://dfw.queues.api.rackspacecloud.com/v1/1100111"
-        internalURL="https://snet-dfw.queues.api.rackspacecloud.com/v1/1100111"/>
+    <service type="rax:cdn" name="rackCDN">
       <endpoint region="IAD" tenantId="1100111"
-        publicURL="https://iad.queues.api.rackspacecloud.com/v1/1100111"
-        internalURL="https://snet-iad.queues.api.rackspacecloud.com/v1/1100111"/>
-      <endpoint region="HKG" tenantId="1100111"
-        publicURL="https://hkg.queues.api.rackspacecloud.com/v1/1100111"
-        internalURL="https://snet-hkg.queues.api.rackspacecloud.com/v1/1100111"
-      />
+        publicURL="https://global.cdn.api.rackspacecloud.com/v1.0/1100111"/>
+      <endpoint region="LON" tenantId="1100111"
+        publicURL="https://global.cdn.api.rackspacecloud.com/v1.0/1100111"/>
+       />
     </service>
   </serviceCatalog>
 </access>
