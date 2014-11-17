@@ -169,9 +169,9 @@
         <listitem>
           <para>The <code>projectID</code> in the URI</para>
           <para><code>projectID</code> is the unique identifier for the user. Use
-              <code>projectID</code> as the first parameter before the request path, for example
-              <code>GET
-                https://global.cdn.api.rackspacecloud.com/<replaceable>projectID</replaceable>/v1.0/</code>.</para>
+                <code>projectID</code> as the first parameter before the request path, for example
+                <code>GET
+                  https://global.cdn.api.rackspacecloud.com/v1.0/<replaceable>projectID</replaceable>/</code>.</para>
         </listitem>
         <listitem>
           <para>The <code>X-Project-Id</code> header</para>
