@@ -838,29 +838,38 @@
       <para>Rackspace CDN has a global endpoint. Data is replicated to all datacenters. The global
         endpoint is:</para>
       <programlisting>https://global.cdn.api.rackspacecloud.com/v1.0/</programlisting>
-      <para>Every REST request for Rackspace CDN requires one of the following:<itemizedlist>
-          <listitem>
-            <para>The <code>projectID</code> in the URI</para>
-            <para><code>projectID</code> is the unique identifier for the user. Use
-                <code>projectID</code> as the first parameter before the request path, for example
-                <code>GET
-                  https://global.cdn.api.rackspacecloud.com/v1.0/<replaceable>projectID</replaceable>/</code>.</para>
-          </listitem>
-          <listitem>
-            <para>The <code>X-Project-Id</code> header</para>
-            <para>Set the <code>X-Project-Id</code> header in the HTTP information in your request.
-              For more information about the header, see <xref linkend="commonHeaders"/>.</para>
-          </listitem>
-        </itemizedlist></para>
-      <note>
-        <para>You should copy the base URLs directly from the service catalog rather than trying to
-          construct them manually.</para>
-        <para>Rackspace Cloud Identity returns an endpoint with your <code>projectID</code>, which
-          is also referred to as your tenant ID or your account ID. </para>
-        <para>The <code>projectID</code> refers to your Rackspace account number, which you can also
-          find in your Cloud Control Panel at <link xlink:href="https://mycloud.rackspace.com/"
-            >mycloud.rackspace.com</link>.</para>
-      </note>
+      <para>The service catalog returned in the authentication response (<xref
+          linkend="auth-response-example-json"/>) specifies the correct service access endpoint for
+        your account to use to access Rackspace CDN. You can copy the endpoint directly from the
+        service catalog rather than trying to construct it manually.</para>
+      <para>Rackspace Cloud Identity returns an endpoint with your account ID. Note the following
+        information about account ID:</para>
+      <itemizedlist>
+        <listitem>
+          <para>Account ID refers to your Rackspace account number. (You can also find your account
+            number in the Cloud Control Panel at <link xlink:href="https://mycloud.rackspace.com/"
+              >mycloud.rackspace.com</link>.)</para>
+        </listitem>
+        <listitem>
+          <para>Account ID from Cloud Identity is the same as the project ID given in the
+              <code>X-Project-Id</code> header in Rackspace CDN. (You might also see account ID or
+            project ID referred to as tenant ID.)</para>
+        </listitem>
+        <listitem>
+          <para>You do not have to provide the account ID in the service access endpoint for the
+            Rackspace CDN API if you have the <code>X-Project-Id</code> header set. (With the
+              <code>X-Project-Id</code> header set, the Rackspace CDN API works with or without the
+            account ID specified in the service access endpoint.) </para>
+        </listitem>
+        <listitem>
+          <para>Without the <code>X-Project-Id</code> header, you receive an auth error if the
+            account ID is not in the service access endpoint URL. </para>
+        </listitem>
+        <listitem>
+          <para>If the account ID is in the URL, the Rackspace CDN API will use that ID in place of
+            the <code>X-Project-Id</code> header.</para>
+        </listitem>
+      </itemizedlist>
     </section>
     <section xml:id="contractVersion" xmlns:m="http://www.w3.org/1998/Math/MathML"
       xmlns:html="http://www.w3.org/1999/xhtml">

@@ -135,7 +135,7 @@ Date: Thu, 12 Apr 2012 18:45:13 GMT
                         "tenantId": "MossoCloudFS_aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee"
                     },
                     {
-                        "internalURL": "MossoCloudFS_aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee",
+                        "internalURL": "https://snet-storage101.syd2.clouddrive.com/v1/MossoCloudFS_aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee",
                         "publicURL": "https://storage101.syd2.clouddrive.com/v1/MossoCloudFS_0672d7fa-9f85-4a81-a3ab-adb66a880321",
                         "region": "SYD",
                         "tenantId": "MossoCloudFS_aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee"

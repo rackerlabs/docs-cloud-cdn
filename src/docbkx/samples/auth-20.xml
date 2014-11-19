@@ -91,5 +91,12 @@ Date: Thu, 12 Apr 2012 18:50:20 GMT
       <endpoint tenantId="1100111"
         publicURL="https://dns.api.rackspacecloud.com/v1.0/1100111"/>
     </service>
+    <service type="rax:cdn" name="rackCDN">
+      <endpoint region="IAD" tenantId="1100111"
+        publicURL="https://global.cdn.api.rackspacecloud.com/v1.0/1100111"/>
+      <endpoint region="LON" tenantId="1100111"
+        publicURL="https://global.cdn.api.rackspacecloud.com/v1.0/1100111"/>
+      />
+    </service>
   </serviceCatalog>
 </access>
