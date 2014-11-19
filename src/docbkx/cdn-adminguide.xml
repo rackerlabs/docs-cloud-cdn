@@ -942,7 +942,7 @@
           <tr>
             <td colspan="2"><code>Bad Request</code></td>
             <td colspan="1">400</td>
-            <td colspan="3">The request was understood or was missing required parameters.</td>
+            <td colspan="3">The request was not understood or was missing required parameters.</td>
           </tr>
           <tr>
             <td colspan="2"><code>Unauthorized</code></td>

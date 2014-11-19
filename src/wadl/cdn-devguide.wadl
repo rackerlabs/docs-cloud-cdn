@@ -871,7 +871,7 @@
 			<doc title="Bad Request" xml:lang="EN">Missing provider-url entry.</doc>
 		</response>
 		<response status="400" xmlns="http://wadl.dev.java.net/2009/02">
-			<doc title="Bad Request" xml:lang="EN">Missing rel filed.</doc>
+			<doc title="Bad Request" xml:lang="EN">Missing rel file.</doc>
 		</response>
 		<response status="400" xmlns="http://wadl.dev.java.net/2009/02">
 			<doc title="Bad Request" xml:lang="EN">Invalid json.</doc>
