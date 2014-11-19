@@ -755,11 +755,11 @@ Content-Type: application/json
       <para>In the XML and JSAON authentication responses below, the elipses in the example
         represents other service endpoints, which are not shown.</para>
       <example>
-        <title>Authenticatition response: XML</title>
+        <title>Authentication response: XML</title>
         <programlisting language="xml"><xi:include href="../../src/resources/samples/auth-20.xml" parse="text"/></programlisting>
       </example>
       <example xml:id="Authenticate-Response-JSON-d1e001">
-        <title>Authenticatition response: JSON</title>
+        <title>Authentication response: JSON</title>
         <programlisting language="json"><xi:include href="../../src/resources/samples/auth-20.json" parse="text"/></programlisting>
       </example>
       <para>The authentication token <code>id</code> is returned along with an <code>expires</code>
