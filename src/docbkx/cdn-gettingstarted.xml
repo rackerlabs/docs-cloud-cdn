@@ -335,7 +335,7 @@
         <tr>
           <td colspan="2"><code>Accepted</code></td>
           <td colspan="1">202</td>
-          <td colspan="3">The request has been accepted for processing.</td>
+          <td colspan="3">The request has been accepted for processing. </td>
         </tr>
         <tr>
           <td colspan="2"><code>No Content</code></td>
