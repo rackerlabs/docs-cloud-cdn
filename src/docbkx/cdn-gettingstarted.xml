@@ -797,11 +797,10 @@ Content-Type: application/json
       <para>Following are examples of a create service request and response. </para>
       <example>
         <title>cURL create service request</title>
-        <programlisting language="bash">curl -i -X POST https://global.cdn.api.rackspacecloud.com/v1.0/services \
+        <programlisting language="bash">curl -i -X POST https://global.cdn.api.rackspacecloud.com/v1.0/<emphasis role="bold">yourAccountID</emphasis>/services \
 '[{"name": "mywebsite.com", "domains": [{"domain": "www.mywebsite.com"}, {"domain": "blog.mywebsite.com"}], "origins": [{"origin": "mywebsite.com", "port": 80,"ssl": false}], "caching": [{"name": "default", "ttl": 3600 }, {"name": "home", "ttl" : 17200, "rules": [{"name": "index", "request_url": "/index.htm"}]}, {"name" :"images", "ttl": 12800, "rules": [      }], "restrictions": [{ "name": "images", "request_url": "*.png" }] { "name": "website only", "rules": [{"name": "mywebsite.com", "http_host": "www.mywebsite.com"}]}], "flavor_ref": "https://global.cdn.api.rackspacecloud.com/v1.0/flavors/asia"}]' \     
--H "X-Auth-Token: <emphasis role="bold">your_auth_token</emphasis>" \
--H "Content-type: application/json" \
--H "X-Project-Id: <emphasis role="bold">your_project_ID</emphasis>"</programlisting>
+-H "X-Auth-Token: <emphasis role="bold">yourAuthToken</emphasis>" \
+-H "Content-type: application/json"</programlisting>
       </example>
       <example>
         <title>Create service response</title>
@@ -816,10 +815,9 @@ Location: https://global.cdn.api.rackspacecloud.com/v1.0/services/mywebsite     
       <para>Following are examples of a retrieve service request and response. </para>
       <example>
         <title>cURL retrieve service request</title>
-        <programlisting language="bash">curl -i -X GET https://global.cdn.api.rackspacecloud.com/v1.0/services/<emphasis role="bold">yourServiceName</emphasis> \
--H "X-Auth-Token: <emphasis role="bold">your_auth_token</emphasis>" \
--H "Content-type: application/json" \
--H "X-Project-Id: <emphasis role="bold">your_project_ID</emphasis>"</programlisting>
+        <programlisting language="bash">curl -i -X GET https://global.cdn.api.rackspacecloud.com/v1.0/<emphasis role="bold">yourAccountID</emphasis>/services/<emphasis role="bold">yourServiceName</emphasis> \
+-H "X-Auth-Token: <emphasis role="bold">yourAuthToken</emphasis>" \
+-H "Content-type: application/json" </programlisting>
       </example>
       <example>
         <title>Retrieve service response</title>
@@ -912,10 +910,9 @@ Content-Type: application/json
         site/assets). </para>
       <example>
         <title>cURL check a cached asset request</title>
-        <programlisting language="bash">curl -i -X GET https://global.cdn.api.rackspacecloud.com/v1.0/services/<emphasis role="bold">yourServiceName</emphasis>/assets?urlOfAssetToCheck \
--H "X-Auth-Token: <emphasis role="bold">your_auth_token</emphasis>" \
--H "Content-type: application/json" \
--H "X-Project-Id: <emphasis role="bold">your_project_ID</emphasis>"</programlisting>
+        <programlisting language="bash">curl -i -X GET https://global.cdn.api.rackspacecloud.com/v1.0/<emphasis role="bold">yourAccountID</emphasis>/services/<emphasis role="bold">yourServiceName</emphasis>/assets?urlOfAssetToCheck \
+-H "X-Auth-Token: <emphasis role="bold">yourAuthToken</emphasis>" \
+-H "Content-type: application/json" </programlisting>
       </example>
       <example>
         <title>Check a cached asset response</title>
@@ -937,10 +934,9 @@ Content-Type: application/json
         site/assets). </para>
       <example>
         <title>cURL purge a cached asset request</title>
-        <programlisting language="bash">curl -i -X DELETE https://global.cdn.api.rackspacecloud.com/v1.0/services/<emphasis role="bold">yourServiceName</emphasis>/assets?urlOfAssetToPurge \
--H "X-Auth-Token: <emphasis role="bold">your_auth_token</emphasis>" \
--H "Content-type: application/json" \
--H "X-Project-Id: <emphasis role="bold">your_project_ID</emphasis>"</programlisting>
+        <programlisting language="bash">curl -i -X DELETE https://global.cdn.api.rackspacecloud.com/v1.0/yourAccountID/services/<emphasis role="bold">yourServiceName</emphasis>/assets?urlOfAssetToPurge \
+-H "X-Auth-Token: <emphasis role="bold">yourAuthToken</emphasis>" \
+-H "Content-type: application/json"</programlisting>
       </example>
       <example>
         <title>Purge a cached asset response</title>
@@ -953,10 +949,9 @@ Content-Type: application/json </programlisting>
       <para>This operation lists all available flavors.</para>
       <example>
         <title>cURL list flavors request</title>
-        <programlisting language="bash">curl -i -X GET https://global.cdn.api.rackspacecloud.com/v1.0/flavors \
--H "X-Auth-Token: <emphasis role="bold">your_auth_token</emphasis>" \
--H "Content-type: application/json" \
--H "X-Project-Id: <emphasis role="bold">your_project_ID</emphasis>"</programlisting>
+        <programlisting language="bash">curl -i -X GET https://global.cdn.api.rackspacecloud.com/v1.0/<emphasis role="bold">yourAccountID</emphasis>/flavors \
+-H "X-Auth-Token: <emphasis role="bold">yourAuthToken</emphasis>" \
+-H "Content-type: application/json" </programlisting>
       </example>
       <example>
         <title>List flavors response</title>
@@ -1098,11 +1093,10 @@ Content-Type: application/json
       <para>Following are examples of a delete message request and response:</para>
       <example>
         <title>cURL delete service request</title>
-        <programlisting language="bash">curl -i -X DELETE https://global.cdn.api.rackspacecloud.com/v1.0/services/<emphasis role="bold">yourServiceName</emphasis> \ 
+        <programlisting language="bash">curl -i -X DELETE https://global.cdn.api.rackspacecloud.com/v1.0/<emphasis role="bold">yourAccountID</emphasis>/services/<emphasis role="bold">yourServiceName</emphasis> \ 
 -H "Content-type: application/json" \
--H "X-Auth-Token: <emphasis role="bold">your_auth_token</emphasis>" \ 
--H "Accept: application/json" \
--H "X-Project-Id: <emphasis role="bold">your_project_ID</emphasis>"</programlisting>
+-H "X-Auth-Token: <emphasis role="bold">yourAuthToken</emphasis>" \ 
+-H "Accept: application/json" </programlisting>
       </example>
       <example>
         <title>Delete service response</title>
