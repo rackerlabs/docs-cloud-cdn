@@ -187,7 +187,7 @@
           xlink:href="http://www.twitter.com/rackspace">Twitter</link>. </para>
       <para>This API uses standard HTTP 1.1 status codes as documented at: <link
           xlink:href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html">HTTP Status Code
-          Definitions</link>. (Also see <xref linkend="responseCodes-d101e"/></para>
+          Definitions</link>. (Also see <xref linkend="responseCodes-d101e"/>.)</para>
     </section>
     <section xml:id="API_Contract_Changes-d1e363">
       <title>API contract changes</title>
@@ -837,7 +837,20 @@
       <title>Service access endpoint</title>
       <para>Rackspace CDN has a global endpoint. Data is replicated to all datacenters. The global
         endpoint is:</para>
-      <programlisting>https://global.cdn.api.rackspacecloud.com/v1.0/</programlisting>
+      <programlisting>https://global.cdn.api.rackspacecloud.com/v1.0/<parameter>1234</parameter></programlisting>
+      <para>Replace the sample account ID number, <parameter>1234</parameter>, with your actual
+        account number returned as part of the authentication service response.</para>
+      <para>You will find the actual account number after the final '/' in the
+          <code>publicURL</code> field returned by the authentication response. For example, in
+          <xref linkend="auth-response-example-json"/> you can see from the <code>publicURL</code>
+        field for <code>rackCDN</code> ("https://global.cdn.api.rackspacecloud.com/v1.0/<emphasis
+          role="bold">1100111</emphasis>") that the account number is 1100111. </para>
+      <note>
+        <para>The account ID from Cloud Identity is the same as the project ID given in the
+          X-Project-Id header in Rackspace CDN. (You might also see account ID or
+          project ID referred to as tenant ID.)</para>
+      </note>
+<!--      <remark> I am hiding information. It it was the previous version of this info prior to the info above based on how repose handles this in Rackspace CDN. </remark>
       <para>The service catalog returned in the authentication response (<xref
           linkend="auth-response-example-json"/>) specifies the correct service access endpoint for
         your account to use to access Rackspace CDN. You can copy the endpoint directly from the
@@ -869,7 +882,7 @@
           <para>If the account ID is in the URL, the Rackspace CDN API will use that ID in place of
             the <code>X-Project-Id</code> header.</para>
         </listitem>
-      </itemizedlist>
+      </itemizedlist> -->
     </section>
     <section xml:id="contractVersion" xmlns:m="http://www.w3.org/1998/Math/MathML"
       xmlns:html="http://www.w3.org/1999/xhtml">
@@ -882,7 +895,7 @@
       <example>
         <title>Example Request URL (contract version in <emphasis role="strong"
           >bold</emphasis>)</title>
-        <programlisting>https://global.cdn.api.rackspacecloud.com/<emphasis role="bold">v1.0</emphasis>/</programlisting>
+        <programlisting>https://global.cdn.api.rackspacecloud.com/<emphasis role="bold">v1.0</emphasis>/<parameter>1234</parameter></programlisting>
       </example>
       <note>
         <para>This document pertains to contract version 1.0.</para>
@@ -1353,4 +1366,103 @@ Content-Type: application/json
       </wadl:resources>
     </section> -->
   </chapter>
+  <glossary xml:id="glossary-d1e018" xmlns:m="http://www.w3.org/1998/Math/MathML"
+    xmlns:html="http://www.w3.org/1999/xhtml">
+    <title>Glossary</title>
+    <glossentry xml:id="claim-d1e017">
+      <glossterm>Caching rule</glossterm>
+      <glossdef>
+        <para>A caching rule provides you with fine-grained control over the time-to-live (TTL) of
+          an object. When the TTL expires for an object, the edge node pulls the object from the
+          origin again.</para>
+      </glossdef>
+    </glossentry>
+    <glossentry>
+      <glossterm>Content delivery network</glossterm>
+      <glossdef>
+        <para>A content delivery network (CDN) is a system of multiple computers that contains
+          copies of data stored at various network nodes. A CDN is designed to improve performance
+          of publicly distributed assets. Assets can be anything from website content, to web
+          application components, to media such as videos, ads, and interactive experiences.  CDNs
+          decrease the load time of these assets by caching them on edge servers, also called points
+          of presence (POPs).  Edge servers are distributed around the globe, meaning requests only
+          travel to a local location to grab assets, rather than to and from a datacenter based far
+          from the end user. </para>
+      </glossdef>
+    </glossentry>
+    <glossentry>
+      <glossterm>Domain</glossterm>
+      <glossdef>
+        <para>A domain represents the domain name through which visitors retrieve content. The
+          underlying site may be served through a CDN. A service can have multiple domains. The CDN
+          provider provides the user with the Canonical Name to CNAME their domain to. </para>
+      </glossdef>
+    </glossentry>
+    <glossentry xml:id="message-d1e016">
+      <glossterm>Edge node</glossterm>
+      <glossdef>
+        <para>CDN providers have many points of presence (PoP) servers around the world. These
+          servers are known as edge nodes. These edge nodes cache the content and serve it directly
+          to customers, thus reducing transit time to a customers location.</para>
+      </glossdef>
+    </glossentry>
+    <glossentry>
+      <glossterm>Edge server</glossterm>
+      <glossdef>
+        <para>An edge server is the same as an edge node. </para>
+      </glossdef>
+    </glossentry>
+    <glossentry>
+      <glossterm>Flavor </glossterm>
+      <glossdef>
+        <para>A flavor enables you to decide which CDN features that you want your service to use.
+        </para>
+      </glossdef>
+    </glossentry>
+    <glossentry>
+      <glossterm>Origin</glossterm>
+      <glossdef>
+        <para>An origin is an address (ip or domain) from which the CDN provider pulls content. A
+          service can have multiple origins.</para>
+      </glossdef>
+    </glossentry>
+    <glossentry>
+      <glossterm>Point of presence</glossterm>
+      <glossdef>
+        <para>A point of presence (PoP) is the point at which two or more different networks or
+          communication devices build a connection with each other. PoP mainly refers to an access
+          point, location, or facility that connects to and helps other devices establish a
+          connection with the Internet. </para>
+      </glossdef>
+    </glossentry>
+    <glossentry>
+      <glossterm>Purge</glossterm>
+      <glossdef>
+        <para>Purging removes content from the edge servers - thus invalidating the content - so
+          that it can be refreshed from your origin servers.</para>
+      </glossdef>
+    </glossentry>
+    <glossentry xml:id="queue-d1e019">
+      <glossterm>Restriction</glossterm>
+      <glossdef>
+        <para>A restriction enables you to define rules about who can or cannot access content from
+          the cache. Examples of a restriction are allowing requests only from certain domains,
+          geographies, or IP addresses.</para>
+      </glossdef>
+    </glossentry>
+    <glossentry xml:id="subscriber-d1e018">
+      <glossterm>Service</glossterm>
+      <glossdef>
+        <para>A service represents your application that has its content cached to the edge
+          nodes.</para>
+      </glossdef>
+    </glossentry>
+    <glossentry>
+      <glossterm>Status</glossterm>
+      <glossdef>
+        <para>The status indicates the current state of the service. The time it takes for a service
+          configuration to be distributed amongst a CDN provider cache can vary. </para>
+      </glossdef>
+    </glossentry>
+  </glossary>
 </book>
