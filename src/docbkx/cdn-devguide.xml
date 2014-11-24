@@ -1309,7 +1309,8 @@ Content-Type: application/json
       <para>The section describes operations related to service assets.</para>
       <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
         <wadl:resource href="../../src/wadl/cdn-devguide.wadl#assets">
-          <wadl:method href="#getCachedAsset"/>
+          <!-- <remark>This operation was removed in November 2014 because it wasn't widely supported by CDN vendors (fastly yes, Akamai no). </remark>
+          <wadl:method href="#getCachedAsset"/> -->
           <wadl:method href="#deleteCachedAsset"/>
         </wadl:resource>
       </wadl:resources>
