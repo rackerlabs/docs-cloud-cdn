@@ -53,7 +53,7 @@
     </abstract>
     <revhistory>
       <revision>
-        <date>2015-01-01</date>
+        <date>2015-01-06</date>
         <revdescription>
           <para>Initial Early Access (EA) release for Rackspace CDN.</para>
         </revdescription>
@@ -165,16 +165,16 @@
     <para xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:html="http://www.w3.org/1999/xhtml"
       >Rackspace CDN has a global endpoint. Data is replicated to all datacenters. The global
       endpoint is:</para>
-    <programlisting xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:html="http://www.w3.org/1999/xhtml">https://global.cdn.api.rackspacecloud.com/v1.0/<parameter>1234</parameter></programlisting>
+    <programlisting xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:html="http://www.w3.org/1999/xhtml">https://global.cdn.api.rackspacecloud.com/v1.0/123456</programlisting>
       <para xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:html="http://www.w3.org/1999/xhtml"
-        >Replace the sample account ID number, <parameter>1234</parameter>, with your actual account
-        number returned as part of the authentication service response.</para>
+        >Replace the sample account ID number, 123456, with your actual account number returned as
+        part of the authentication service response.</para>
       <para xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:html="http://www.w3.org/1999/xhtml"
         >You will find the actual account number after the final '/' in the <code>publicURL</code>
         field returned by the authentication response. For example, in <xref
           linkend="Authenticate-Response-JSON-d1e001"/> you can see from the <code>publicURL</code>
         field for <code>rackCDN</code> ("https://global.cdn.api.rackspacecloud.com/v1.0/<emphasis
-          role="bold">1100111</emphasis>") that the account number is 1100111. </para>
+          role="bold">110011</emphasis>") that the account number is 110011. </para>
       <note>
         <para>The account ID from Cloud Identity is the same as the project ID given in the
           X-Project-Id header in Rackspace CDN. (You might also see account ID or
@@ -236,7 +236,8 @@
         </tr>
         <tr>
           <td>X-Project-Id</td>
-          <td>A unique ID for the user to which the value of X-Auth-Token grants access. </td>
+          <td>A unique ID for the user to which the value of X-Auth-Token grants access. The unique
+              ID is your account ID. </td>
         </tr>
         <tr>
           <td>Accept</td>
@@ -537,9 +538,8 @@ Content-Type: application/json
         <listitem>
           <para>After you are finished modifying the text for the cURL request example with your
             information (for example,<emphasis role="bold"
-              ><literal>your_username</literal></emphasis> and <emphasis role="bold"
-                ><literal>your_api_key</literal></emphasis>), paste it into your terminal window.
-          </para>
+              ><literal>yourUserName</literal></emphasis> and <emphasis role="bold"
+                ><literal>yourApiKey</literal></emphasis>), paste it into your terminal window. </para>
         </listitem>
         <listitem>
           <para>Press <guilabel>Enter</guilabel> to run the cURL command.</para>
@@ -563,8 +563,8 @@ Content-Type: application/json
     {
        "RAX-KSKEY:apiKeyCredentials":
        {
-          "username": "<emphasis role="bold">your_username</emphasis>",
-          "apiKey": "<emphasis role="bold">your_api_key</emphasis>"}
+          "username": "<emphasis role="bold">yourUserName</emphasis>",
+          "apiKey": "<emphasis role="bold">yourApiKey</emphasis>"}
     }
 }' \
 <option>-H 'Content-Type: application/json'</option> \
@@ -590,8 +590,8 @@ Content-Type: application/json
     {
        "RAX-KSKEY:apiKeyCredentials":
        {
-          "username": "<emphasis role="bold">your_username</emphasis>",
-          "apiKey": "<emphasis role="bold">your_api_key</emphasis>"}
+          "username": "<emphasis role="bold">yourUserName</emphasis>",
+          "apiKey": "<emphasis role="bold">yourApiKey</emphasis>"}
     }
 }' \
 </screen>
@@ -603,8 +603,8 @@ Content-Type: application/json
           characters.</para>
       </tip>
       <para>After you are finished modifying the text for the cURL request example with your
-        information (for example <emphasis role="bold">your_username</emphasis> and <emphasis
-          role="bold">your_api_key</emphasis>), paste it into your terminal window. Then execute the
+        information (for example <emphasis role="bold">yourUserName</emphasis> and <emphasis
+          role="bold">yourApiKey</emphasis>), paste it into your terminal window. Then execute the
         cURL command by pressing <emphasis role="bold">Enter</emphasis>.</para>
     </section>
   </chapter>
@@ -625,11 +625,11 @@ Content-Type: application/json
       <para>Remember to replace the names in the authenticate request examples below with their
         respective values:<itemizedlist spacing="compact">
           <listitem>
-            <para><emphasis role="bold">your_username</emphasis> &mdash; The username is your common
+            <para><emphasis role="bold">yourUserName</emphasis> &mdash; The username is your common
               Rackspace Cloud username, as supplied during registration.</para>
           </listitem>
           <listitem>
-            <para><emphasis role="bold">your_api_key</emphasis> &mdash; The key is your API access
+            <para><emphasis role="bold">yourApiKey</emphasis> &mdash; The key is your API access
               key. </para>
             <para><emphasis role="bold">To find your API key:</emphasis>
             </para>
@@ -659,14 +659,14 @@ Content-Type: application/json
             </orderedlist>
           </listitem>
         </itemizedlist></para>
-      <para>You also need your cloud account number. In the documentation, the account number is often
-        referred to as your tenant name or tenant ID (technically, the ID is different from the name,
-        but at Rackspace, they are the same thing). Together, three components—your username, your API
-        key, and your tenant ID or cloud account number—form the authentication credentials that are
-        required to connect to the Rackspace cloud.</para>
-      <para>To find your tenant ID or cloud account number, locate your username on the upper-right
-        side of the top navigation pane in the Cloud Control Panel. The tenant ID or account number is
-        in parentheses just to the right of your username.</para>
+      <para>You also need your cloud account number. In the documentation, the account number is
+        often referred to as your tenant name or tenant ID (technically, the ID is different from
+        the name, but at Rackspace, they are the same thing). Together, three components—your
+        username, your API key, and your tenant ID or cloud account number—form the authentication
+        credentials that are required to connect to the Rackspace cloud. To find your tenant ID or
+        cloud account number, locate your username on the upper-right side of the top navigation
+        pane in the Cloud Control Panel. The tenant ID or account number is in parentheses just to
+        the right of your username.</para>
       <para> You can use either of the following endpoints to access the Cloud Identity service,
         regardless of US or UK identities: </para>
       <itemizedlist spacing="compact">
@@ -696,7 +696,7 @@ Content-Type: application/json
         shown in the following authenticate request examples. Note that the <code>v2.0</code>
         component in the URL indicates that you are using version 2.0 of the Cloud Identity
         API.</para>
-      <example>
+<!--      <example>
         <title>cURL authenticate request: XML</title>
         <?dbfo keep-together="always"?>
         <screen language="bash"><command>curl</command> <option>-i</option> <option>-d</option> \
@@ -704,13 +704,13 @@ Content-Type: application/json
 &lt;auth>
    &lt;apiKeyCredentials
       xmlns="http://docs.rackspace.com/identity/api/ext/RAX-KSKEY/v1.0"
-         username="<emphasis role="bold">your_username</emphasis>"
-         apiKey="<emphasis role="bold">your_api_key</emphasis>"/>
+         username="<emphasis role="bold">yourUserName</emphasis>"
+         apiKey="<emphasis role="bold">yourApiKey</emphasis>"/>
 &lt;/auth>' \
 <option>-H 'Content-Type: application/xml'</option> \
 <option>-H 'Accept: application/xml'</option> \
 <uri>'https://identity.api.rackspacecloud.com/v2.0/tokens'</uri></screen>
-      </example>
+      </example> -->
       <example>
         <title>cURL authenticate request: JSON</title>
         <?dbfo keep-together="always"?>
@@ -720,8 +720,8 @@ Content-Type: application/json
     {
        "RAX-KSKEY:apiKeyCredentials":
        {
-          "username": "<emphasis role="bold">your_username</emphasis>",
-          "apiKey": "<emphasis role="bold">your_api_key</emphasis>"}
+          "username": "<emphasis role="bold">yourUserName</emphasis>",
+          "apiKey": "<emphasis role="bold">yourApiKey</emphasis>"}
     }
 }' \
 <option>-H 'Content-Type: application/json'</option> \
@@ -731,12 +731,12 @@ Content-Type: application/json
         <para>For UK-based accounts, you may decide to use
           <code>'https://lon.identity.api.rackspacecloud.com/v2.0/tokens'</code> instead.</para>
       </note>
-      <para>In the XML and JSAON authentication responses below, the elipses in the example
-        represents other service endpoints, which are not shown.</para>
-      <example>
+      <para>In the JSON authentication response below, the elipses (...) in the example represents
+        other service endpoints, which are not shown.</para>
+<!--      <example>
         <title>Authentication response: XML</title>
         <programlisting language="xml"><xi:include href="../../src/resources/samples/auth-20.xml" parse="text"/></programlisting>
-      </example>
+      </example> -->
       <example xml:id="Authenticate-Response-JSON-d1e001">
         <title>Authentication response: JSON</title>
         <programlisting language="json"><xi:include href="../../src/resources/samples/auth-20.json" parse="text"/></programlisting>
@@ -762,7 +762,7 @@ Content-Type: application/json
             <para>The <code>id</code> attribute in the Authenticate Response specifies the
               authentication token. Tokens are valid for a finite duration.</para>
             <para>Remember to supply your authentication token wherever you see the field <emphasis
-              role="bold">your_auth_token</emphasis> in the examples in this guide.</para>
+                role="bold">yourAuthToken</emphasis> in the examples in this guide.</para>
           </listitem>
           <listitem>
             <para> The <code>expires</code> attribute denotes the time after which the token will
@@ -778,12 +778,12 @@ Content-Type: application/json
         </itemizedlist>
       </note>
       <para>The <code>publicURL</code> endpoints for <code>raxcdn</code> (for example
-        <code>https://global.cdn.api.rackspacecloud.com/v1.0/1100111</code>) are also returned in
+          <code>https://global.cdn.api.rackspacecloud.com/v1.0/110011</code>) are also returned in
         the response. </para>
       <para>You will find the actual account number after the final backslash (/) in the
-        <code>publicURL</code> field. In this example, you can see that the account number is
-        1100111. You need to specify your account number on most of the Rackspace CDN API calls,
-        wherever you see the field <emphasis role="bold">your_acct_id</emphasis> specified in the
+          <code>publicURL</code> field. In this example, you can see that the account number is
+        110011. You need to specify your account number on most of the Rackspace CDN API calls,
+        wherever you see the field <emphasis role="bold">yourAccountID</emphasis> specified in the
         examples in this guide.</para>
       <para>After authentication, you can use cURL to perform &GET;, &DELETE;, and &POST; requests for
         the Rackspace CDN API.</para>
@@ -798,7 +798,7 @@ Content-Type: application/json
       <example>
         <title>cURL create service request</title>
         <programlisting language="bash">curl -i -X POST https://global.cdn.api.rackspacecloud.com/v1.0/<emphasis role="bold">yourAccountID</emphasis>/services \
-'[{"name": "mywebsite.com", "domains": [{"domain": "www.mywebsite.com"}, {"domain": "blog.mywebsite.com"}], "origins": [{"origin": "mywebsite.com", "port": 80,"ssl": false}], "caching": [{"name": "default", "ttl": 3600 }, {"name": "home", "ttl" : 17200, "rules": [{"name": "index", "request_url": "/index.htm"}]}, {"name" :"images", "ttl": 12800, "rules": [      }], "restrictions": [{ "name": "images", "request_url": "*.png" }] { "name": "website only", "rules": [{"name": "mywebsite.com", "http_host": "www.mywebsite.com"}]}], "flavor_ref": "https://global.cdn.api.rackspacecloud.com/v1.0/flavors/asia"}]' \     
+'[{"name": "mywebsite.com", "domains": [{"domain": "www.mywebsite.com"}, {"domain": "blog.mywebsite.com"}], "origins": [{"origin": "mywebsite.com", "port": 80,"ssl": false}], "caching": [{"name": "default", "ttl": 3600 }, {"name": "home", "ttl" : 17200, "rules": [{"name": "index", "request_url": "/index.htm"}]}, {"name" :"images", "ttl": 12800, "rules": [ { "name" : "images", "request_url" : "*.png" }]}], "restrictions": [{ "name": " website only", "rules": [{"name": "mywebsite.com", "referrer": "www.mywebsite.com"}]}], "flavor_ref": "https://global.cdn.api.rackspacecloud.com/v1.0/flavors/asia"}]' \     
 -H "X-Auth-Token: <emphasis role="bold">yourAuthToken</emphasis>" \
 -H "Content-type: application/json"</programlisting>
       </example>
@@ -827,81 +827,82 @@ Content-Type: application/json
 {
     "name": "mywebsite.com",
     "domains": [
-                {
-                "domain": "blog.mywebsite.com"
-                }
-                ],
+        {
+            "domain": "blog.mywebsite.com"
+        }
+    ],
     "origins": [
+        {
+            "origin": "mywebsite.com",
+            "port": 80,
+            "ssl": false
+        },
+        {
+            "origin": "77.66.55.44",
+            "port": 80,
+            "ssl": false,
+            "rules": [
                 {
-                "origin": "mywebsite.com",
-                "port": 80,
-                "ssl": false
-                },
-                {
-                "origin": "77.66.55.44",
-                "port": 80,
-                "ssl": false,
-                "rules": [
-                          {
-                          "name": "videos",
-                          "request_url": "^/videos/*.m3u"
-                          }
-                          ]
+                    "name": "videos",
+                    "request_url": "^/videos/*.m3u"
                 }
-                ],
+            ]
+        }
+    ],
     "caching": [
+        {
+            "name": "default",
+            "ttl": 3600
+        },
+        {
+            "name": "home",
+            "ttl": 17200,
+            "rules": [
                 {
-                "name": "default",
-                "ttl": 3600
-                },
-                {
-                "name": "home",
-                "ttl": 17200,
-                "rules": [
-                          {
-                          "name": "index",
-                          "request_url": "/index.htm"
-                          }
-                          ]
-                },
-                {
-                "name": "images",
-                "ttl": 12800,
-                "rules": [
-                          {
-                          "name": "images",
-                          "request_url": "*.png"
-                          }
-                          ]
+                    "name": "index",
+                    "request_url": "/index.htm"
                 }
-                ],
+            ]
+        },
+        {
+            "name": "images",
+            "ttl": 12800,
+            "rules": [
+                {
+                    "name": "images",
+                    "request_url": "*.png"
+                }
+            ]
+        }
+    ],
     "restrictions": [
-                     {
-                     "name": "website only",
-                     "rules": [
-                               {
-                               "name": "mywebsite.com",
-                               "http_host": "www.mywebsite.com"
-                               }
-                               ]
-                     }
-                     ],
-    "flavor_ref" : "https://global.cdn.api.rackspacecloud.com/v1.0/flavors/europe",
-    "status" : "deployed",
+        {
+            "name": "website only",
+            "rules": [
+                {
+                    "name": "mywebsite.com",
+                    "http_host": "www.mywebsite.com"
+                }
+            ]
+        }
+    ],
+    "flavor_ref": "https://global.cdn.api.rackspacecloud.com/v1.0/flavors/europe",
+    "status": "deployed",
     "links": [
-              {
-              "href": "https://global.cdn.api.rackspacecloud.com/v1.0/services/mywebsite.com",
-              "rel": "self"
-              },
-              {
-              "href": "mywebsite.com",
-              "rel": "access_url"
-              }
-              ]
+        {
+            "href": "https://global.cdn.api.rackspacecloud.com/v1.0/services/mywebsite.com",
+            "rel": "self"
+        },
+        {
+            "href": "mywebsite.com",
+            "rel": "access_url"
+        }
+    ]
 }</programlisting>
       </example>
     </section>
-    <section xml:id="checkCachedAsset-d1cdn">
+<!-- <remark>This operation was removed in November 2014.</remark>
+      <section xml:id="checkCachedAsset-d1cdn">
       <title>Check a cached asset</title>
       <para>This operation checks the version of the asset that has been cached at the edge, along
         with any custom rules for the asset. </para>
@@ -924,7 +925,7 @@ Content-Type: application/json
                 providers and      
 }</programlisting>
       </example>
-    </section>
+    </section> -->
     <section xml:id="purgeAsset-d1cdn">
       <title>Purge a cached asset</title>
       <para>This operation purges (or removes) the current version of the asset that has been cached
@@ -934,7 +935,7 @@ Content-Type: application/json
         site/assets). </para>
       <example>
         <title>cURL purge a cached asset request</title>
-        <programlisting language="bash">curl -i -X DELETE https://global.cdn.api.rackspacecloud.com/v1.0/yourAccountID/services/<emphasis role="bold">yourServiceName</emphasis>/assets?urlOfAssetToPurge \
+        <programlisting language="bash">curl -i -X DELETE https://global.cdn.api.rackspacecloud.com/v1.0/<emphasis role="bold">yourAccountID</emphasis>/services/<emphasis role="bold">yourServiceName</emphasis>/assets?urlOfAssetToPurge \
 -H "X-Auth-Token: <emphasis role="bold">yourAuthToken</emphasis>" \
 -H "Content-type: application/json"</programlisting>
       </example>
@@ -958,133 +959,135 @@ Content-Type: application/json </programlisting>
         <programlisting language="json">HTTP/1.1 200 OK
 Content-Type: application/json 
 
-[
- {
- "id" : "europe",
- "limits": [
-            "origins": {
-            "min": 1,
-            "max": 5
-            },
-            "domains" : {
-            "min": 1,
-            "max": 5
-            },
-            "caching": {
-            "min": 3600,
-            "max": 604800,
-            "incr": 300
-            }
+{
+    "flavors": [
+        {
+            "id": "europe",
+            "limits": [
+                "origins": {
+                    "min": 1,
+                    "max": 5
+                },
+                "domains": {
+                    "min": 1,
+                    "max": 5
+                },
+                "caching": {
+                    "min": 3600,
+                    "max": 604800,
+                    "incr": 300
+                }
             ],
- "providers" : [
+            "providers": [
                 {
-                "provider" : "Fastly",
-                "links": [
-                          {
-                          "href": "http://www.fastly.com",
-                          "rel": "provider_url"
-                          }
-                          ]
+                    "provider": "Fastly",
+                    "links": [
+                        {
+                            "href": "http://www.fastly.com",
+                            "rel": "provider_url"
+                        }
+                    ]
                 }
-                ],
- "links": [
-           {
-           "href": "https://global.cdn.api.rackspacecloud.com/v1.0/flavors/europe",
-           "rel": "self"
-           }
-           ]
- },
- {
- "id" : "asia",
- "limits": {
-            "origins": {
-            "min": 1,
-            "max": 5
-            },
-            "domains" : {
-            "min": 1,
-            "max": 5
-            },
-            "caching": {
-            "min": 3600,
-            "max": 604800,
-            "incr": 300
-            }
-            },
- "providers" : [
-                {
-                "provider" : "ChinaCache",
-                "links": [
-                          {
-                          "href": "http://www.chinacache.com",
-                          "rel": "provider_url"
-                          }
-                          ]
-                }
-                ],
- "links": [
-           {
-           "href": "https://global.cdn.api.rackspacecloud.com/v1.0/flavors/asia",
-           "rel": "self"
-           }
-           ]
- },
- {
- "id" : "americas",
- "limits": [
-            "origins": {
-            "min": 1,
-            "max": 5
-            },
-            "domains" : {
-            "min": 1,
-            "max": 5
-            },
-            "caching": {
-            "min": 3600,
-            "max": 604800,
-            "incr": 300
-            }
             ],
- "providers" : [
+            "links": [
                 {
-                "provider" : "CloudFront",
-                "links": [
-                          {
-                          "href": "http://aws.amazon.com/cloudfront",
-                          "rel": "provider_url"
-                          }
-                          ]
+                    "href": "https://www.poppycdn.io/v1.0/flavors/europe",
+                    "rel": "self"
                 }
-                ],
- "links": [
-           {
-           "href": "https://global.cdn.api.rackspacecloud.com/v1.0/flavors/americas",
-           "rel": "self"
-           }
-           ]
- },
- {
- "id" : "global",
- "providers" : [
+            ]
+        },
+        {
+            "id": "asia",
+            "limits": {
+                "origins": {
+                    "min": 1,
+                    "max": 5
+                },
+                "domains": {
+                    "min": 1,
+                    "max": 5
+                },
+                "caching": {
+                    "min": 3600,
+                    "max": 604800,
+                    "incr": 300
+                }
+            },
+            "providers": [
                 {
-                "provider" : "Akamai",
-                "links": [
-                          {
-                          "href": "http://www.akamai.com",
-                          "rel": "provider_url"
-                          }
-                          ]
+                    "provider": "ChinaCache",
+                    "links": [
+                        {
+                            "href": "http://www.chinacache.com",
+                            "rel": "provider_url"
+                        }
+                    ]
                 }
-                ],
- "links": [
-           {
-           "href": "https://global.cdn.api.rackspacecloud.com/v1.0/flavors/global",
-           "rel": "self"
-           }
-           ]
- }
- ]</programlisting>
+            ],
+            "links": [
+                {
+                    "href": "https://www.poppycdn.io/v1.0/flavors/asia",
+                    "rel": "self"
+                }
+            ]
+        },
+        {
+            "id": "americas",
+            "limits": [
+                "origins": {
+                    "min": 1,
+                    "max": 5
+                },
+                "domains": {
+                    "min": 1,
+                    "max": 5
+                },
+                "caching": {
+                    "min": 3600,
+                    "max": 604800,
+                    "incr": 300
+                }
+            ],
+            "providers": [
+                {
+                    "provider": "CloudFront",
+                    "links": [
+                        {
+                            "href": "http://aws.amazon.com/cloudfront",
+                            "rel": "provider_url"
+                        }
+                    ]
+                }
+            ],
+            "links": [
+                {
+                    "href": "https://www.poppycdn.io/v1.0/flavors/americas",
+                    "rel": "self"
+                }
+            ]
+        },
+        {
+            "id": "global",
+            "providers": [
+                {
+                    "provider": "Akamai",
+                    "links": [
+                        {
+                            "href": "http://www.akamai.com",
+                            "rel": "provider_url"
+                        }
+                    ]
+                }
+            ],
+            "links": [
+                {
+                    "href": "https://www.poppycdn.io/v1.0/flavors/global",
+                    "rel": "self"
+                }
+            ]
+        }
+    ]
+}</programlisting>
       </example>
     </section>
     <section xml:id="deleteService-d1cdn">

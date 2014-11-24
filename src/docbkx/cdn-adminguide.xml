@@ -63,7 +63,7 @@
     <!--Note that the <productname> text matches the first few words of the title. The build system splits the title into productname + rest of title on the pdf cover.-->
     <revhistory>
       <revision>
-        <date>2015-01-01</date>
+        <date>2015-01-06</date>
         <revdescription>
           <para>Initial Early Access (EA) release.</para>
         </revdescription>
@@ -734,7 +734,8 @@
           </tr>
           <tr>
             <td>X-Project-Id</td>
-            <td>A unique ID for the user to which the value of X-Auth-Token grants access. </td>
+            <td>A unique ID for the user to which the value of X-Auth-Token grants access. The
+              unique ID is your account ID.</td>
           </tr>
           <tr>
             <td>Accept</td>

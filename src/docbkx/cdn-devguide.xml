@@ -50,7 +50,7 @@
     <pubdate><!--If you leave the <pubdate> element empty, the build system inserts today's date automatically. --></pubdate>
     <revhistory>
       <revision>
-        <date>2015-01-01</date>
+        <date>2015-01-06</date>
         <revdescription>
           <para>Initial Early Access (EA) release.</para>
         </revdescription>
@@ -1022,7 +1022,8 @@
           </tr>
           <tr>
             <td>X-Project-Id</td>
-            <td>A unique ID for the user to which the value of X-Auth-Token grants access. </td>
+            <td>A unique ID for the user to which the value of X-Auth-Token grants access. The
+              unique ID is your account ID.</td>
           </tr>
           <tr>
             <td>Accept</td>

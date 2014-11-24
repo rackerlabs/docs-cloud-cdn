@@ -69,7 +69,7 @@
             ],
             "name":"rackCDN",
             "type":"rax:cdn"
-         },
+         }
       ]
    }
 }
