@@ -108,7 +108,7 @@
         "id": "global",
         "providers": [
             {
-                "provider": "Akamai",
+                "provider": "akamai",
                 "links": [
                     {
                         "href": "http://www.akamai.com",

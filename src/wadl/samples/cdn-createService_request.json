@@ -1,41 +1,56 @@
 {
     "name": "mywebsite.com",
     "domains": [
-                {"domain": "www.mywebsite.com"},
-                {"domain": "blog.mywebsite.com"}
-                ],
+        {
+            "domain": "www.mywebsite.com"
+        },
+        {
+            "domain": "blog.mywebsite.com"
+        }
+    ],
     "origins": [
-                {
-                "origin": "mywebsite.com",
-                "port": 80,
-                "ssl": false
-                }
-                ],
+        {
+            "origin": "mywebsite.com",
+            "port": 80,
+            "ssl": false
+        }
+    ],
     "caching": [
-                { "name" : "default", "ttl" : 3600 },
-                { "name" : "home",
-                "ttl" : 17200,
-                "rules" : [
-                           { "name" : "index", "request_url" : "/index.htm" }
-                           ]
-                },
-                { "name" : "images",
-                "ttl" : 12800,
-                "rules" : [
-                           { "name" : "images", "request_url" : "*.png" }
-                           ]
+        {
+            "name": "default",
+            "ttl": 3600
+        },
+        {
+            "name": "home",
+            "ttl": 17200,
+            "rules": [
+                {
+                    "name": "index",
+                    "request_url": "/index.htm"
                 }
-                ],
+            ]
+        },
+        {
+            "name": "images",
+            "ttl": 12800,
+            "rules": [
+                {
+                    "name": "images",
+                    "request_url": "*.png"
+                }
+            ]
+        }
+    ],
     "restrictions": [
-                     {
-                     "name": "website only",
-                     "rules": [
-                               {
-                               "name": "mywebsite.com",
-                               "http_host": "www.mywebsite.com"
-                               }
-                               ]
-                     }
-                     ],
+        {
+            "name": "website only",
+            "rules": [
+                {
+                    "name": "mywebsite.com",
+                    "http_host": "www.mywebsite.com"
+                }
+            ]
+        }
+    ],
     "flavor_ref": "https://global.cdn.api.rackspacecloud.com/v1.0/flavors/asia"
 }

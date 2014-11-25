@@ -93,7 +93,7 @@
       to customers, thus reducing transit time to a customer's location. </para>
     <para>Rackspace CDN gives Rackspace customers the power to accelerate content on any public
       resource at Rackspace by giving them a simple API and Control Panel experience for managing
-      their CDN enabled domains and the origins and assets associated with those domains. </para>
+      their CDN-enabled domains and the origins and assets associated with those domains. </para>
     <para>The Rackspace CDN architecture includes the following components:</para>
     <itemizedlist>
       <listitem>
@@ -106,10 +106,11 @@
       <listitem>
         <para>A single global endpoint to access the API</para>
       </listitem>
+      <listitem>
+        <para>Use of the Akamai Technologies's content delivery network -  one of the world's
+          largest distributed computing platforms </para>
+      </listitem>
     </itemizedlist>
-    <para>Rackspace CDN gives Rackspace customers the power to accelerate content on any public
-      resource at Rackspace by giving them a simple API and Control Panel experience for managing
-      their CDN enabled domains and the origins and assets associated with those domains. </para>
     <para xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:html="http://www.w3.org/1999/xhtml"
       >This guide explains how to access and start using the API so that you can begin to use
       Rackspace CDN for your applications. Instructions are given for how to properly enter the
@@ -798,9 +799,66 @@ Content-Type: application/json
       <example>
         <title>cURL create service request</title>
         <programlisting language="bash">curl -i -X POST https://global.cdn.api.rackspacecloud.com/v1.0/<emphasis role="bold">yourAccountID</emphasis>/services \
-'[{"name": "mywebsite.com", "domains": [{"domain": "www.mywebsite.com"}, {"domain": "blog.mywebsite.com"}], "origins": [{"origin": "mywebsite.com", "port": 80,"ssl": false}], "caching": [{"name": "default", "ttl": 3600 }, {"name": "home", "ttl" : 17200, "rules": [{"name": "index", "request_url": "/index.htm"}]}, {"name" :"images", "ttl": 12800, "rules": [ { "name" : "images", "request_url" : "*.png" }]}], "restrictions": [{ "name": " website only", "rules": [{"name": "mywebsite.com", "referrer": "www.mywebsite.com"}]}], "flavor_ref": "https://global.cdn.api.rackspacecloud.com/v1.0/flavors/asia"}]' \     
+-H "Accept: application/json" \
 -H "X-Auth-Token: <emphasis role="bold">yourAuthToken</emphasis>" \
--H "Content-type: application/json"</programlisting>
+-H "Content-Type: application/json" -d \
+'{
+    "name": "mywebsite.com",
+    "domains": [
+        {
+            "domain": "www.mywebsite.com"
+        },
+        {
+            "domain": "blog.mywebsite.com"
+        }
+    ],
+    "origins": [
+        {
+            "origin": "mywebsite.com",
+            "port": 80,
+            "ssl": false
+        }
+    ],
+    "caching": [
+        {
+            "name": "default",
+            "ttl": 3600
+        },
+        {
+            "name": "home",
+            "ttl": 17200,
+            "rules": [
+                {
+                    "name": "index",
+                    "request_url": "/index.htm"
+                }
+            ]
+        },
+        {
+            "name": "images",
+            "ttl": 12800,
+            "rules": [
+                {
+                    "name": "images",
+                    "request_url": "*.png"
+                }
+            ]
+        }
+    ],
+    "restrictions": [
+        {
+            "name": "website only",
+            "rules": [
+                {
+                    "name": "mywebsite.com",
+                    "http_host": "www.mywebsite.com"
+                }
+            ]
+        }
+    ],
+    "flavor_ref": "https://global.cdn.api.rackspacecloud.com/v1.0/flavors/asia"
+}'     
+</programlisting>
       </example>
       <example>
         <title>Create service response</title>
@@ -959,135 +1017,133 @@ Content-Type: application/json </programlisting>
         <programlisting language="json">HTTP/1.1 200 OK
 Content-Type: application/json 
 
-{
-    "flavors": [
-        {
-            "id": "europe",
-            "limits": [
-                "origins": {
-                    "min": 1,
-                    "max": 5
-                },
-                "domains": {
-                    "min": 1,
-                    "max": 5
-                },
-                "caching": {
-                    "min": 3600,
-                    "max": 604800,
-                    "incr": 300
-                }
-            ],
-            "providers": [
-                {
-                    "provider": "Fastly",
-                    "links": [
-                        {
-                            "href": "http://www.fastly.com",
-                            "rel": "provider_url"
-                        }
-                    ]
-                }
-            ],
-            "links": [
-                {
-                    "href": "https://www.poppycdn.io/v1.0/flavors/europe",
-                    "rel": "self"
-                }
-            ]
-        },
-        {
-            "id": "asia",
-            "limits": {
-                "origins": {
-                    "min": 1,
-                    "max": 5
-                },
-                "domains": {
-                    "min": 1,
-                    "max": 5
-                },
-                "caching": {
-                    "min": 3600,
-                    "max": 604800,
-                    "incr": 300
-                }
+[
+    {
+        "id": "europe",
+        "limits": {
+            "origins": {
+                "min": 1,
+                "max": 5
             },
-            "providers": [
-                {
-                    "provider": "ChinaCache",
-                    "links": [
-                        {
-                            "href": "http://www.chinacache.com",
-                            "rel": "provider_url"
-                        }
-                    ]
-                }
-            ],
-            "links": [
-                {
-                    "href": "https://www.poppycdn.io/v1.0/flavors/asia",
-                    "rel": "self"
-                }
-            ]
+            "domains": {
+                "min": 1,
+                "max": 5
+            },
+            "caching": {
+                "min": 3600,
+                "max": 604800,
+                "incr": 300
+            }
         },
-        {
-            "id": "americas",
-            "limits": [
-                "origins": {
-                    "min": 1,
-                    "max": 5
-                },
-                "domains": {
-                    "min": 1,
-                    "max": 5
-                },
-                "caching": {
-                    "min": 3600,
-                    "max": 604800,
-                    "incr": 300
-                }
-            ],
-            "providers": [
-                {
-                    "provider": "CloudFront",
-                    "links": [
-                        {
-                            "href": "http://aws.amazon.com/cloudfront",
-                            "rel": "provider_url"
-                        }
-                    ]
-                }
-            ],
-            "links": [
-                {
-                    "href": "https://www.poppycdn.io/v1.0/flavors/americas",
-                    "rel": "self"
-                }
-            ]
+        "providers": [
+            {
+                "provider": "akamai",
+                "links": [
+                    {
+                        "href": "http://www.akamai.com",
+                        "rel": "provider_url"
+                    }
+                ]
+            }
+        ],
+        "links": [
+            {
+                "href": "https://global.cdn.api.rackspacecloud.com/v1.0/flavors/europe",
+                "rel": "self"
+            }
+        ]
+    },
+    {
+        "id": "asia",
+        "limits": {
+            "origins": {
+                "min": 1,
+                "max": 5
+            },
+            "domains": {
+                "min": 1,
+                "max": 5
+            },
+            "caching": {
+                "min": 3600,
+                "max": 604800,
+                "incr": 300
+            }
         },
-        {
-            "id": "global",
-            "providers": [
-                {
-                    "provider": "Akamai",
-                    "links": [
-                        {
-                            "href": "http://www.akamai.com",
-                            "rel": "provider_url"
-                        }
-                    ]
-                }
-            ],
-            "links": [
-                {
-                    "href": "https://www.poppycdn.io/v1.0/flavors/global",
-                    "rel": "self"
-                }
-            ]
-        }
-    ]
-}</programlisting>
+        "providers": [
+            {
+                "provider": "akamai",
+                "links": [
+                    {
+                        "href": "http://www.akamai.com",
+                        "rel": "provider_url"
+                    }
+                ]
+            }
+        ],
+        "links": [
+            {
+                "href": "https://global.cdn.api.rackspacecloud.com/v1.0/flavors/asia",
+                "rel": "self"
+            }
+        ]
+    },
+    {
+        "id": "americas",
+        "limits": {
+            "origins": {
+                "min": 1,
+                "max": 5
+            },
+            "domains": {
+                "min": 1,
+                "max": 5
+            },
+            "caching": {
+                "min": 3600,
+                "max": 604800,
+                "incr": 300
+            }
+        },
+        "providers": [
+            {
+                "provider": "akamai",
+                "links": [
+                    {
+                        "href": "http://www.akamai.com",
+                        "rel": "provider_url"
+                    }
+                ]
+            }
+        ],
+        "links": [
+            {
+                "href": "https://global.cdn.api.rackspacecloud.com/v1.0/flavors/americas",
+                "rel": "self"
+            }
+        ]
+    },
+    {
+        "id": "global",
+        "providers": [
+            {
+                "provider": "akamai",
+                "links": [
+                    {
+                        "href": "http://www.akamai.com",
+                        "rel": "provider_url"
+                    }
+                ]
+            }
+        ],
+        "links": [
+            {
+                "href": "https://global.cdn.api.rackspacecloud.com/v1.0/flavors/global",
+                "rel": "self"
+            }
+        ]
+    }
+]</programlisting>
       </example>
     </section>
     <section xml:id="deleteService-d1cdn">
