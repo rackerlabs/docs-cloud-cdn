@@ -1,121 +1,121 @@
 {
     "links": [
-              {
-              "rel": "next",
-              "href": "https://global.cdn.api.rackspacecloud.com/v1.0/services?marker=www.myothersite.com&limit=20"
-              }
-              ],
+        {
+            "rel": "next",
+            "href": "https://global.cdn.api.rackspacecloud.com/v1.0/services?marker=www.myothersite.com&limit=20"
+        }
+    ],
     "services": [
-                 {
-                 "name": "mywebsite.com",
-                 "domains": [
-                             {
-                             "domain": "www.mywebsite.com"
-                             }
-                             ],
-                 "origins": [
-                             {
-                             "origin": "mywebsite.com",
-                             "port": 80,
-                             "ssl": false
-                             }
-                             ],
-                 "caching": [
-                             {
-                             "name": "default",
-                             "ttl": 3600
-                             },
-                             {
-                             "name": "home",
-                             "ttl": 17200,
-                             "rules": [
-                                       {
-                                       "name": "index",
-                                       "request_url": "/index.htm"
-                                       }
-                                       ]
-                             },
-                             {
-                             "name": "images",
-                             "ttl": 12800,
-                             "rules": [
-                                       {
-                                       "name": "images",
-                                       "request_url": "*.png"
-                                       }
-                                       ]
-                             }
-                             ],
-                 "restrictions": [
-                                  {
-                                  "name": "website only",
-                                  "rules": [
-                                            {
-                                            "name": "mywebsite.com",
-                                            "http_host": "www.mywebsite.com"
-                                            }
-                                            ]
-                                  }
-                                  ],
-                 "flavor_ref": "https://global.cdn.api.rackspacecloud.com/v1.0/flavors/asia",
-                 "status": "deployed",
-                 "links": [
-                           {
-                           "href": "https://global.cdn.api.rackspacecloud.com/v1.0/services/mywebsite.com",
-                           "rel": "self"
-                           },
-                           {
-                           "href": "mywebsite.com",
-                           "rel": "access_url"
-                           }
-                           ]
-                 },
-                 {
-                 "name": "myothersite.com",,
-                 "domains": [
-                             {
-                             "domain": "www.myothersite.com"
-                             }
-                             ],
-                 "origins": [
-                             {
-                             "origin": "44.33.22.11",
-                             "port": 80,
-                             "ssl": false
-                             },
-                             {
-                             "origin": "77.66.55.44",
-                             "port": 80,
-                             "ssl": false,
-                             "rules": [
-                                       {
-                                       "name": "videos",
-                                       "request_url": "^/videos/*.m3u"
-                                       }
-                                       ]
-                             }
-                             ],
-                 "caching": [
-                             {
-                             "name": "default",
-                             "ttl": 3600
-                             }
-                             ],
-                 "restrictions": [
-                 {}
-                 ],
-                 "flavor_ref": "https://global.cdn.api.rackspacecloud.com/v1.0/flavors/europe",
-                 "status": "deployed",
-                 "links": [
-                           {
-                           "href": "https://global.cdn.api.rackspacecloud.com/v1.0/services/myothersite.com",
-                           "rel": "self"
-                           },
-                           {
-                           "href": "myothersite.com",
-                           "rel": "access_url"
-                           }
-                           ]
-                 }
-                 ]
+        {
+            "name": "mywebsite.com",
+            "domains": [
+                {
+                    "domain": "www.mywebsite.com"
+                }
+            ],
+            "origins": [
+                {
+                    "origin": "mywebsite.com",
+                    "port": 80,
+                    "ssl": false
+                }
+            ],
+            "caching": [
+                {
+                    "name": "default",
+                    "ttl": 3600
+                },
+                {
+                    "name": "home",
+                    "ttl": 17200,
+                    "rules": [
+                        {
+                            "name": "index",
+                            "request_url": "/index.htm"
+                        }
+                    ]
+                },
+                {
+                    "name": "images",
+                    "ttl": 12800,
+                    "rules": [
+                        {
+                            "name": "images",
+                            "request_url": "*.png"
+                        }
+                    ]
+                }
+            ],
+            "restrictions": [
+                {
+                    "name": "website only",
+                    "rules": [
+                        {
+                            "name": "mywebsite.com",
+                            "http_host": "www.mywebsite.com"
+                        }
+                    ]
+                }
+            ],
+            "flavor_ref": "https://global.cdn.api.rackspacecloud.com/v1.0/flavors/asia",
+            "status": "deployed",
+            "links": [
+                {
+                    "href": "https://global.cdn.api.rackspacecloud.com/v1.0/services/mywebsite.com",
+                    "rel": "self"
+                },
+                {
+                    "href": "mywebsite.com",
+                    "rel": "access_url"
+                }
+            ]
+        },
+        {
+            "name": "myothersite.com",
+            "domains": [
+                {
+                    "domain": "www.myothersite.com"
+                }
+            ],
+            "origins": [
+                {
+                    "origin": "44.33.22.11",
+                    "port": 80,
+                    "ssl": false
+                },
+                {
+                    "origin": "77.66.55.44",
+                    "port": 80,
+                    "ssl": false,
+                    "rules": [
+                        {
+                            "name": "videos",
+                            "request_url": "^/videos/*.m3u"
+                        }
+                    ]
+                }
+            ],
+            "caching": [
+                {
+                    "name": "default",
+                    "ttl": 3600
+                }
+            ],
+            "restrictions": [
+                {}
+            ],
+            "flavor_ref": "https://global.cdn.api.rackspacecloud.com/v1.0/flavors/europe",
+            "status": "deployed",
+            "links": [
+                {
+                    "href": "https://global.cdn.api.rackspacecloud.com/v1.0/services/myothersite.com",
+                    "rel": "self"
+                },
+                {
+                    "href": "myothersite.com",
+                    "rel": "access_url"
+                }
+            ]
+        }
+    ]
 }

@@ -1,4 +1,3 @@
 202 Accepted
 Content-Type: application/json
 Location: https://global.cdn.api.rackspacecloud.com/v1.0/services/mywebsite
-

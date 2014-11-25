@@ -8,8 +8,8 @@
             },
             "hints": {
                 "allow": [
-                          "GET"
-                          ],
+                    "GET"
+                ],
                 "formats": {
                     "application/json": {}
                 }

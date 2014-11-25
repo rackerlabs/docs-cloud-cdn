@@ -1,5 +1,7 @@
 {
-    "errors" : [
-                { "message" : "The database server is currently down for maintenance" }
-                ]
+    "errors": [
+        {
+            "message": "The database server is currently down for maintenance"
+        }
+    ]
 }
