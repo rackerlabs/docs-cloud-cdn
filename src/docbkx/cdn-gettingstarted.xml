@@ -53,7 +53,7 @@
     </abstract>
     <revhistory>
       <revision>
-        <date>2015-01-06</date>
+        <date>2015-01-07</date>
         <revdescription>
           <para>Initial Early Access (EA) release for Rackspace CDN.</para>
         </revdescription>
@@ -85,15 +85,17 @@
   <chapter xml:id="Overview">
     <title>Overview</title>
     <!--You can use the <?dbhtml stop-chunking?> processing instruction to prevent a chapter or section for chunking furhter in the html output. -->
-    <para>A Content Delivery Network (CDN) is designed to improve performance of publicly
-      distributed assets.  Assets can be any thing from website content, to web application
+    <para>A content delivery network (CDN) is designed to improve the performance of publicly
+      distributed assets.  Assets can be anything from website content, to web application
       components, to media like videos, ads, and interactive experiences.  CDNs decrease the load
-      time of these assets by caching them on edge servers, which are also called Points of Presence
-      (POPs).  Edge servers are distributed around the globe and cache content and serve it directly
-      to customers, thus reducing transit time to a customer's location. </para>
+      time of these assets by caching them on edge nodes, which are also called edge servers or
+      point of presence (PoP) servers.  Edge nodes are distributed around the globe, and they cache
+      content and serve it directly to customers, thus reducing transit time to a customer's
+      location. </para>
     <para>Rackspace CDN gives Rackspace customers the power to accelerate content on any public
-      resource at Rackspace by giving them a simple API and Control Panel experience for managing
-      their CDN-enabled domains and the origins and assets associated with those domains. </para>
+      resource at Rackspace. It provides a simple API and Control Panel experience for customers to
+      manage their CDN-enabled domains and the origins and assets associated with those
+      domains. </para>
     <para>The Rackspace CDN architecture includes the following components:</para>
     <itemizedlist>
       <listitem>
@@ -107,19 +109,19 @@
         <para>A single global endpoint to access the API</para>
       </listitem>
       <listitem>
-        <para>Use of the Akamai Technologies's content delivery network -  one of the world's
+        <para>Use of the Akamai Technologies's content delivery network, which is one of the world's
           largest distributed computing platforms </para>
       </listitem>
     </itemizedlist>
     <para xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:html="http://www.w3.org/1999/xhtml"
       >This guide explains how to access and start using the API so that you can begin to use
       Rackspace CDN for your applications. Instructions are given for how to properly enter the
-      necessary URLs, using cURL, to set up and use a basic set of Rackspace CDN operations. </para>
+      necessary URLs, use cURL, and set up and use a basic set of Rackspace CDN operations. </para>
     <para xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:html="http://www.w3.org/1999/xhtml">You
       can find additional details about Rackspace CDN in the <citetitle>Rackspace CDN Developer
         Guide</citetitle> at <link xlink:href="http://docs.rackspace.com/"
         >http://docs.rackspace.com/</link>. </para>
-    <para>During Early Access, email all support questions to: <link
+    <para>During Early Access, email all support questions to <link
         xlink:href="mailto:cdn@rackspacecloud.com">cdn@rackspace.com</link>. </para>
     <!--    <para xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:html="http://www.w3.org/1999/xhtml">For
       more details about Rackspace CDN, refer to <link
@@ -130,8 +132,8 @@
     <section xml:id="core_concepts" xmlns:m="http://www.w3.org/1998/Math/MathML"
       xmlns:html="http://www.w3.org/1999/xhtml">
       <title>Prerequisites for running examples </title>
-      <para xmlns:wadl="http://wadl.dev.java.net/2009/02">In order to run the examples in this
-        guide, you must have the following prerequisites: <itemizedlist spacing="compact">
+      <para xmlns:wadl="http://wadl.dev.java.net/2009/02">To run the examples in this guide, you
+        must have the following prerequisites: <itemizedlist spacing="compact">
           <listitem>
             <para>A Rackspace Cloud account</para>
           </listitem>
@@ -152,224 +154,224 @@
       <para>During Early Access, there is no charge for Rackspace CDN. </para>
       <para>While Rackspace CDN is in Early Access, it is subject to the Rackspace test terms at
           <link xlink:href="http://www.rackspace.com/information/legal/testterms">Legal Information
-          - Test Terms</link>. When Rackspace CDN moves to Unlimited Availability, the Service Level
-        Agreement (SLA) will be available.</para>
+          - Test Terms</link>. When Rackspace CDN moves to Unlimited Availability, the service level
+        agreement (SLA) will be available.</para>
     </section>
   </chapter>
   <chapter xml:id="generalAPIInfo-cdn101">
     <title>General API information</title>
     <para xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:html="http://www.w3.org/1999/xhtml">The
       following sections provide some general information about the Rackspace CDN API.</para>
-  
     <section xml:id="serviceEndpoint-cdn101">
-    <title>Service access endpoint</title>
-    <para xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:html="http://www.w3.org/1999/xhtml"
-      >Rackspace CDN has a global endpoint. Data is replicated to all datacenters. The global
-      endpoint is:</para>
-    <programlisting xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:html="http://www.w3.org/1999/xhtml">https://global.cdn.api.rackspacecloud.com/v1.0/123456</programlisting>
+      <title>Service access endpoint</title>
       <para xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:html="http://www.w3.org/1999/xhtml"
-        >Replace the sample account ID number, 123456, with your actual account number returned as
-        part of the authentication service response.</para>
+        >Rackspace CDN has a global endpoint. Data is replicated to all data centers. The global
+        endpoint is as follows:</para>
+      <programlisting xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:html="http://www.w3.org/1999/xhtml">https://global.cdn.api.rackspacecloud.com/v1.0/123456</programlisting>
       <para xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:html="http://www.w3.org/1999/xhtml"
-        >You will find the actual account number after the final '/' in the <code>publicURL</code>
-        field returned by the authentication response. For example, in <xref
-          linkend="Authenticate-Response-JSON-d1e001"/> you can see from the <code>publicURL</code>
-        field for <code>rackCDN</code> ("https://global.cdn.api.rackspacecloud.com/v1.0/<emphasis
-          role="bold">110011</emphasis>") that the account number is 110011. </para>
+        >Replace the example account ID number, 123456, with your actual account ID returned as part
+        of the authentication service response. Your account ID is located after the final slash (/)
+        in the <code>publicURL</code> field returned by the authentication response. For example, in
+          <xref linkend="Authenticate-Response-JSON-d1e001"/>, the <code>publicURL</code> field for
+          <code>rackCDN</code> is <code>https://global.cdn.api.rackspacecloud.com/v1.0/110011</code>
+        and the account ID is <emphasis role="bold">110011</emphasis>. </para>
       <note>
         <para>The account ID from Cloud Identity is the same as the project ID given in the
-          X-Project-Id header in Rackspace CDN. (You might also see account ID or
-          project ID referred to as tenant ID.)</para>
+            <code>X-Project-Id</code> header in Rackspace CDN. (You might also see the account ID or
+          project ID referred to as the tenant ID.)</para>
       </note>
-  </section>
-  <section xml:id="requestResponseType-cdn1e01" >
-    <title>Request and response type</title>
-    <para xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:html="http://www.w3.org/1999/xhtml">The
-      Rackspace CDN API supports JSON data serialization formats. </para>
-    <para xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:html="http://www.w3.org/1999/xhtml"
-      >Specify the request format by using the <code>Content-Type</code> header, which is <emphasis
-        role="italic">required</emphasis> for calls that have a request body. </para>
-    <para xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:html="http://www.w3.org/1999/xhtml">You
-      can specify the response format in requests by using the <code>Accept</code> header or by
-      adding a <code>.json</code> extension to the request URI. If no response format is specified,
-      JSON is the default. </para>
-    <table rules="all" xmlns:m="http://www.w3.org/1998/Math/MathML"
-      xmlns:html="http://www.w3.org/1999/xhtml">
-      <caption>Response Format</caption>
-      <?dbfo keep-together="always"?>
-      <thead>
-        <tr align="center">
-          <td>Format</td>
-          <td>Accept header</td>
-          <td>Query extension</td>
-          <td>Default</td>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>JSON</td>
-          <td>application/json</td>
-          <td>.json</td>
-          <td>Yes</td>
-        </tr>
-      </tbody>
-    </table>
-  </section>
+    </section>
+    <section xml:id="requestResponseType-cdn1e01">
+      <title>Request and response type</title>
+      <para xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:html="http://www.w3.org/1999/xhtml"
+        >The Rackspace CDN API supports JSON data serialization formats. </para>
+      <para xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:html="http://www.w3.org/1999/xhtml"
+        >Specify the request format by using the <code>Content-Type</code> header, which is
+          <emphasis role="italic">required</emphasis> for calls that have a request body. </para>
+      <para xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:html="http://www.w3.org/1999/xhtml"
+        >You can specify the response format in requests by using the <code>Accept</code> header or
+        by adding a <code>.json</code> extension to the request URI. If no response format is
+        specified, JSON is the default. </para>
+      <table rules="all" xmlns:m="http://www.w3.org/1998/Math/MathML"
+        xmlns:html="http://www.w3.org/1999/xhtml">
+        <caption>Response format</caption>
+        <?dbfo keep-together="always"?>
+        <thead>
+          <tr align="center">
+            <td>Format</td>
+            <td>Accept header</td>
+            <td>Query extension</td>
+            <td>Default</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>JSON</td>
+            <td>application/json</td>
+            <td>.json</td>
+            <td>Yes</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
     <section xml:id="commonHeaders-d1e101">
-    <title>Common headers</title>
-    <para>Each request to the Rackspace CDN API must include certain standard and extended HTTP
-      headers. These headers provide host, agent, authentication, and other pertinent information to
-      the server. The following table provides the common headers used by the API.</para>
-    <table rules="all">
-      <caption>Common Headers</caption>
-      <col width="30%"/>
-      <col width="70%"/>
-      <thead>
-        <tr>
-          <th>Header</th>
-          <th>Description</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>X-Auth-Token</td>
-          <td>Auth token</td>
-        </tr>
-        <tr>
-          <td>X-Project-Id</td>
-          <td>A unique ID for the user to which the value of X-Auth-Token grants access. The unique
-              ID is your account ID. </td>
-        </tr>
-        <tr>
-          <td>Accept</td>
-          <td>Media type desired; initially, only <code>application/json</code> is supported. The
-              <code>Accept</code> header is required.</td>
-        </tr>
-        <tr>
-          <td>Accept-Encoding</td>
-          <td>Specifies that the agent accepts gzip-encoded response bodies</td>
-        </tr>
-        <tr>
-          <td>Client-ID</td>
-          <td>A unique ID for each client instance. The Client-ID is used to avoid echoing a
-            sender's messages back to the same instance and may be logged by the server for future
-            use. The client generates the Client-ID once. It persists between restarts of the
-            client. The client should reuse the same Client-ID. Note: All message-related operations
-            require that Client-ID is included in the headers to ensure that messages are not echoed
-            back to the client that posted them, unless the client explicitly requests this.</td>
-        </tr>
-        <tr>
-          <td>Content-Length</td>
-          <td>For <command>POST</command> or <command>PUT</command> requests, the length in bytes of
-            the message document being submitted</td>
-        </tr>
-        <tr>
-          <td>Content-Type</td>
-          <td><code>application/json</code>
-          </td>
-        </tr>
-        <tr>
-          <td>Date</td>
-          <td>Current date and time</td>
-        </tr>
-        <tr>
-          <td>Host</td>
-          <td>Host name of the API</td>
-        </tr>
-      </tbody>
-    </table>
-  </section>
-  <section xml:id="responseCodes-d1e101">
-    <title>Response codes</title>
-    <para>Rackspace CDN returns an HTTP code that denotes the type of response. </para>
-    <itemizedlist>
-      <listitem>
-        <para>Successful response codes are returned only if all configured providers were
-          successful in processing the request.</para>
-      </listitem>
-      <listitem>
-        <para>Error response codes are accompanied by an <code>application/json</code> response body
-          containing the error messages.</para>
-      </listitem>
-    </itemizedlist>
-    <para>The following table lists possible responses with their associated codes and
-      descriptions.</para>
-    <informaltable rules="all">
-      <thead>
-        <tr align="center">
-          <td colspan="2">Response</td>
-          <td colspan="1">Associated Response Code</td>
-          <td colspan="3">Description</td>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td colspan="2"><code>OK</code></td>
-          <td colspan="1">200</td>
-          <td colspan="3">The request has succeeded. (Some API calls may return 201 instead.)</td>
-        </tr>
-        <tr>
-          <td colspan="2"><code>Created</code></td>
-          <td colspan="1">201</td>
-          <td colspan="3">The request has been fulfilled and a resource was created.</td>
-        </tr>
-        <tr>
-          <td colspan="2"><code>Accepted</code></td>
-          <td colspan="1">202</td>
-          <td colspan="3">The request has been accepted for processing. </td>
-        </tr>
-        <tr>
-          <td colspan="2"><code>No Content</code></td>
-          <td colspan="1">204</td>
-          <td colspan="3">The request has been fulfilled, but does not return a representation (that
-            is, the response is empty).</td>
-        </tr>
-        <tr>
-          <td colspan="2"><code>Bad Request</code></td>
-          <td colspan="1">400</td>
-          <td colspan="3">The request was not understood or was missing required parameters.</td>
-        </tr>
-        <tr>
-          <td colspan="2"><code>Unauthorized</code></td>
-          <td colspan="1">401</td>
-          <td colspan="3">Authentication failed, or the user does not have permissions for a
-            requested operation.</td>
-        </tr>
-        <tr>
-          <td colspan="2"><code>Forbidden</code></td>
-          <td colspan="1">403</td>
-          <td colspan="3">The server understood the request, but refused to fulfill it.</td>
-        </tr>
-        <tr>
-          <td colspan="2"><code>Not Found</code></td>
-          <td colspan="1">404</td>
-          <td colspan="3">A requested resource was not found.</td>
-        </tr>
-        <tr>
-          <td colspan="2"><code>Method Not Allowed</code></td>
-          <td colspan="1">405</td>
-          <td colspan="3">The request method is not supported for this resource.</td>
-        </tr>
-        <tr>
-          <td colspan="2"><code>Too Many Requests</code></td>
-          <td colspan="1">429</td>
-          <td colspan="3">Too many requests have been sent in a given amount of time. Pause
-            requests, wait up to one minute, and try again. (Intended for use with rate
-            limiting.)</td>
-        </tr>
-        <tr>
-          <td colspan="2"><code>Service Unavailable</code></td>
-          <td colspan="1">503</td>
-          <td colspan="3">The service is temporarily unavailable (for example, for scheduled
-            platform maintenance). Try again later.</td>
-        </tr>
-      </tbody>
-    </informaltable>
-    <para xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:html="http://www.w3.org/1999/xhtml"
-      ><?rax-fo keep-with-next?> An example of an error message follows. </para>
-    <example xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:html="http://www.w3.org/1999/xhtml">
-      <title>Error Message Example</title>
-      <programlisting>HTTP/1.1 400 Bad Request
+      <title>Common headers</title>
+      <para>Each request to the Rackspace CDN API must include certain standard and extended HTTP
+        headers. These headers provide host, agent, authentication, and other pertinent information
+        to the server. The following table provides the common headers used by the API.</para>
+      <table rules="all">
+        <caption>Common headers</caption>
+        <col width="30%"/>
+        <col width="70%"/>
+        <thead>
+          <tr>
+            <th>Header</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>X-Auth-Token</td>
+            <td>Authentication token</td>
+          </tr>
+          <tr>
+            <td>X-Project-Id</td>
+            <td>A unique ID for the user to which the value of <code>X-Auth-Token</code> grants
+              access. The unique ID is your account ID. </td>
+          </tr>
+          <tr>
+            <td>Accept</td>
+            <td>Media type. Initially, only <code>application/json</code> is supported. The
+                <code>Accept</code> header is required.</td>
+          </tr>
+          <tr>
+            <td>Accept-Encoding</td>
+            <td>Specifies that the agent accepts gzip-encoded response bodies</td>
+          </tr>
+          <tr>
+            <td>Client-ID</td>
+            <td>A unique ID for each client instance. The Client-ID is used to avoid echoing a
+              sender's messages back to the same instance, and it can be logged by the server for
+              future use. The client generates the Client-ID once, and it persists between restarts
+              of the client. The client should reuse the same Client-ID. <emphasis role="bold"
+                >Note:</emphasis> All message-related operations require that Client-ID is included
+              in the headers to ensure that messages are not echoed back to the client that posted
+              them, unless the client explicitly requests this.</td>
+          </tr>
+          <tr>
+            <td>Content-Length</td>
+            <td>For <command>POST</command> or <command>PUT</command> requests, the length in bytes
+              of the message document being submitted</td>
+          </tr>
+          <tr>
+            <td>Content-Type</td>
+            <td><code>application/json</code>
+            </td>
+          </tr>
+          <tr>
+            <td>Date</td>
+            <td>Current date and time</td>
+          </tr>
+          <tr>
+            <td>Host</td>
+            <td>Host name of the API</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+    <section xml:id="responseCodes-d1e101">
+      <title>Response codes</title>
+      <para>Rackspace CDN returns an HTTP code that denotes the type of response. </para>
+      <itemizedlist>
+        <listitem>
+          <para>Successful response codes are returned only if all configured providers were
+            successful in processing the request.</para>
+        </listitem>
+        <listitem>
+          <para>Error response codes are accompanied by an <code>application/json</code> response
+            body that contains the error messages.</para>
+        </listitem>
+      </itemizedlist>
+      <para>The following table lists possible responses with their associated codes and
+        descriptions.</para>
+      <informaltable rules="all">
+        <thead>
+          <tr align="center">
+            <td colspan="2">Response</td>
+            <td colspan="1">Associated response code</td>
+            <td colspan="3">Description</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td colspan="2"><code>OK</code></td>
+            <td colspan="1">200</td>
+            <td colspan="3">The request has succeeded. (Some API calls might return 201
+              instead.)</td>
+          </tr>
+          <tr>
+            <td colspan="2"><code>Created</code></td>
+            <td colspan="1">201</td>
+            <td colspan="3">The request has been fulfilled and a resource was created.</td>
+          </tr>
+          <tr>
+            <td colspan="2"><code>Accepted</code></td>
+            <td colspan="1">202</td>
+            <td colspan="3">The request has been accepted for processing. </td>
+          </tr>
+          <tr>
+            <td colspan="2"><code>No Content</code></td>
+            <td colspan="1">204</td>
+            <td colspan="3">The request has been fulfilled but does not return a representation
+              (that is, the response is empty).</td>
+          </tr>
+          <tr>
+            <td colspan="2"><code>Bad Request</code></td>
+            <td colspan="1">400</td>
+            <td colspan="3">The request was not understood or was missing required parameters.</td>
+          </tr>
+          <tr>
+            <td colspan="2"><code>Unauthorized</code></td>
+            <td colspan="1">401</td>
+            <td colspan="3">Authentication failed, or the user does not have permissions for a
+              requested operation.</td>
+          </tr>
+          <tr>
+            <td colspan="2"><code>Forbidden</code></td>
+            <td colspan="1">403</td>
+            <td colspan="3">The server understood the request but refused to fulfill it.</td>
+          </tr>
+          <tr>
+            <td colspan="2"><code>Not Found</code></td>
+            <td colspan="1">404</td>
+            <td colspan="3">A requested resource was not found.</td>
+          </tr>
+          <tr>
+            <td colspan="2"><code>Method Not Allowed</code></td>
+            <td colspan="1">405</td>
+            <td colspan="3">The request method is not supported for this resource.</td>
+          </tr>
+          <tr>
+            <td colspan="2"><code>Too Many Requests</code></td>
+            <td colspan="1">429</td>
+            <td colspan="3">Too many requests have been sent in a given amount of time. Pause
+              requests, wait up to one minute, and try again. (Intended for use with rate
+              limiting.)</td>
+          </tr>
+          <tr>
+            <td colspan="2"><code>Service Unavailable</code></td>
+            <td colspan="1">503</td>
+            <td colspan="3">The service is temporarily unavailable (for example, for scheduled
+              platform maintenance). Try again later.</td>
+          </tr>
+        </tbody>
+      </informaltable>
+      <para xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:html="http://www.w3.org/1999/xhtml"
+        ><?rax-fo keep-with-next?> An example of an error message follows. </para>
+      <example xmlns:m="http://www.w3.org/1998/Math/MathML"
+        xmlns:html="http://www.w3.org/1999/xhtml">
+        <title>Error message example</title>
+        <programlisting>HTTP/1.1 400 Bad Request
 Content-Type: application/json
 
 {
@@ -382,23 +384,23 @@ Content-Type: application/json
     "text": "API documentation for the limit parameter"
   }
 }</programlisting>
-    </example>
-  </section>
+      </example>
+    </section>
   </chapter>
   <chapter xml:id="prerequisites" xmlns:m="http://www.w3.org/1998/Math/MathML"
     xmlns:html="http://www.w3.org/1999/xhtml">
     <title>Send requests to the API</title>
-    <para>You have several options for sending requests through an API: </para>
+    <para>You have several options for sending requests to the API: </para>
     <itemizedlist spacing="compact">
       <listitem>
-        <para>Developers and testers may prefer to use cURL, the command-line tool from <link
+        <para>Developers and testers might prefer to use cURL, the command-line tool from <link
             xlink:href="http://curl.haxx.se/">http://curl.haxx.se/</link>. </para>
         <para>With cURL you can send HTTP requests and receive responses back from the command line.
         </para>
       </listitem>
       <listitem>
         <para>If you like to use a more graphical interface, the REST client for Firefox also works
-          well for testing and trying out commands, see <link
+          well for testing and trying out commands. See <link
             xlink:href="https://addons.mozilla.org/en-US/firefox/addon/restclient/"
             >https://addons.mozilla.org/en-US/firefox/addon/restclient/</link>. </para>
       </listitem>
@@ -409,7 +411,7 @@ Content-Type: application/json
       </listitem>
     </itemizedlist>
     <section xml:id="using_curl">
-      <title>Sending API requests using cURL</title>
+      <title>Sending API requests by using cURL</title>
       <para>cURL is a command-line tool that is available in UNIX® system-based environments and
         Apple Mac OS X® systems, and can be downloaded for Microsoft Windows® to interact with the
         REST interfaces. For more information about cURL, visit <link
@@ -444,14 +446,14 @@ Content-Type: application/json
             <td>
               <para>Specifies an extra HTTP header in the request. You can specify any number of
                 extra headers. Precede each header with the <option>-H</option> option. </para>
-              <para>Common headers in Rackspace API requests are:<itemizedlist>
+              <para>Common headers in Rackspace API requests are as follows:<itemizedlist>
                   <listitem>
                     <para><literal>Content-Type</literal>. Required for operations with a request
                       body. </para>
                     <para>Specifies the format of the request body. The syntax for the
-                        <literal>Content-Type</literal> header is:</para>
+                        <literal>Content-Type</literal> header is as follows:</para>
                     <screen><computeroutput>Content-Type: application/<parameter>format</parameter></computeroutput></screen>
-                    <para>Where <parameter>format</parameter> is <literal>json</literal>.</para>
+                    <para><parameter>format</parameter> is <literal>json</literal>.</para>
                   </listitem>
                   <listitem>
                     <para><literal>X-Auth-Project-Id</literal>. Optional. Specifies the project ID,
@@ -460,10 +462,10 @@ Content-Type: application/json
                   <listitem>
                     <para><literal>Accept</literal>. Optional. </para>
                     <para>Specifies the format of the response body. The syntax for the
-                        <literal>Accept</literal> header is:</para>
+                        <literal>Accept</literal> header is as follows:</para>
                     <screen><computeroutput>Accept: application/<parameter>format</parameter></computeroutput></screen>
-                    <para>Where <parameter>format</parameter> is <literal>json</literal>. Default is
-                        <literal>json</literal>.</para>
+                    <para><parameter>format</parameter> is <literal>json</literal>.  The default is
+                        <code>json</code>.</para>
                   </listitem>
                   <listitem>
                     <para><literal>X-Auth-Token</literal>. Required. Specifies the authentication
@@ -485,11 +487,9 @@ Content-Type: application/json
               <option>-s</option>
             </td>
             <td>
-              <para>Silent or quiet mode. Does not show progress or error messages. Makes cURL mute.<note>
-                  <para>If your cURL command is not generating any output, try replacing the
-                      <code>-s</code> option with <code>-i</code>.</para>
-                </note>
-              </para>
+              <para>Silent or quiet mode. Does not show progress or error messages. Makes cURL mute. </para>
+              <para><emphasis role="bold">Note: </emphasis>If your cURL command is not generating
+                any output, try replacing the <code>-s</code> option with <code>-i</code>.</para>
             </td>
           </tr>
           <tr>
@@ -512,12 +512,12 @@ Content-Type: application/json
         </tbody>
       </table>
       <note xml:id="json_tool">
-        <title>json.tool</title>
+        <title>About json.tool</title>
         <para>For commands that return a response, you can append the following code to the command
-          to call the json.tool to pretty-print output: </para>
+          to call json.tool to pretty-print output: </para>
         <programlisting language="bash" role="gutter: false">| python -m json.tool</programlisting>
-        <para>To use the json.tool, import the json module. For information about the json.tool, see
-            <link xlink:href="http://docs.python.org/2/library/json.html">json — JSON encoder and
+        <para>To use json.tool, import the json module. For information about json.tool, see <link
+            xlink:href="http://docs.python.org/2/library/json.html">json — JSON encoder and
             decoder</link>. </para>
         <para>If you do not want to pretty-print JSON output, omit this code. </para>
       </note>
@@ -533,14 +533,13 @@ Content-Type: application/json
             right of each request example to select it.</para>
         </listitem>
         <listitem>
-          <para>Modify each example with your required account information and so forth, as detailed
-            in this guide.</para>
+          <para>Modify each example with your required account information and so on, as detailed in
+            this guide.</para>
         </listitem>
         <listitem>
           <para>After you are finished modifying the text for the cURL request example with your
-            information (for example,<emphasis role="bold"
-              ><literal>yourUserName</literal></emphasis> and <emphasis role="bold"
-                ><literal>yourApiKey</literal></emphasis>), paste it into your terminal window. </para>
+            information (for example, your username and your API key), paste the command into your
+            terminal window. </para>
         </listitem>
         <listitem>
           <para>Press <guilabel>Enter</guilabel> to run the cURL command.</para>
@@ -548,9 +547,8 @@ Content-Type: application/json
       </orderedlist>
       <note>
         <para>The carriage returns in the cURL request examples that are part of the cURL syntax are
-          escaped with a backslash (\) in order to avoid prematurely terminating the command.
-          However, you should not escape carriage returns inside the JSON message within the
-          command.</para>
+          escaped with a backslash (\) to avoid prematurely terminating the command. However, you
+          should not escape carriage returns inside the JSON message within the command.</para>
       </note>
       <para>Consider the following cURL authentication request: JSON example, which is described in
         detail in <xref linkend="Generating_Auth_Token"/>.</para>
@@ -585,7 +583,7 @@ Content-Type: application/json
 <option>-H 'Content-Type: application/json'</option> \
 <uri>'https://identity.api.rackspacecloud.com/v2.0/tokens'</uri></screen>
       <para>However, the lines within the JSON portion of the message are not escaped with a
-        backslash in order, to avoid issues with the JSON processing.</para>
+        backslash to avoid issues with the JSON processing.</para>
       <screen language="bash">'{
     "auth":
     {
@@ -603,115 +601,78 @@ Content-Type: application/json
           entire example on one long line, removing all the backslash line continuation
           characters.</para>
       </tip>
-      <para>After you are finished modifying the text for the cURL request example with your
-        information (for example <emphasis role="bold">yourUserName</emphasis> and <emphasis
-          role="bold">yourApiKey</emphasis>), paste it into your terminal window. Then execute the
-        cURL command by pressing <emphasis role="bold">Enter</emphasis>.</para>
     </section>
   </chapter>
   <chapter xml:id="additional-resources" xmlns:m="http://www.w3.org/1998/Math/MathML"
     xmlns:html="http://www.w3.org/1999/xhtml">
     <title>Working with the Rackspace CDN API</title>
-    <para>The following sections describe the basic operations you perform to work with the
+    <para>The following sections describe the basic operations that you perform to work with the
       Rackspace CDN API, including authorization using the Rackspace Cloud Identity service.</para>
     <section xml:id="Generating_Auth_Token" xmlns:m="http://www.w3.org/1998/Math/MathML"
       xmlns:html="http://www.w3.org/1999/xhtml">
       <title>Generate an authentication token</title>
-      <para>You need to generate a token whether you use cURL or a REST client.</para>
-      <para>In order to use the REST API, you first need to obtain an authentication token, which
-        needs to be passed in each request using the <code>X-Auth-Token</code> header. </para>
-      <para>The following example demonstrates how to use cURL to obtain the authentication token and
-        the account number. You will need to supply the authentication token and account number when
-        making subsequent Rackspace CDN API calls.</para>
-      <para>Remember to replace the names in the authenticate request examples below with their
-        respective values:<itemizedlist spacing="compact">
-          <listitem>
-            <para><emphasis role="bold">yourUserName</emphasis> &mdash; The username is your common
-              Rackspace Cloud username, as supplied during registration.</para>
-          </listitem>
-          <listitem>
-            <para><emphasis role="bold">yourApiKey</emphasis> &mdash; The key is your API access
-              key. </para>
-            <para><emphasis role="bold">To find your API key:</emphasis>
-            </para>
-            <orderedlist>
-              <listitem>
-                <para>Log in to the Cloud Control Panel (<link
-                  xlink:href="https://mycloud.rackspace.com"
-                  >https://mycloud.rackspace.com</link>).</para>
-              </listitem>
-              <listitem>
-                <para>On the upper-right side of the top navigation pane, click your username.</para>
-              </listitem>
-              <listitem>
-                <para>From the menu, select <guilabel>Account Settings</guilabel>.</para>
-              </listitem>
-              <listitem>
-                <para>In the Login Details section of the Account Settings page, locate the
-                  <guilabel>API Key</guilabel> field and click <guibutton>Show</guibutton>.</para>
-              </listitem>
-              <listitem>
-                <para> Copy the value of the API key and paste it into a text editor of your
-                  choice.</para>
-              </listitem>
-              <listitem>
-                <para>Click <guibutton>Hide</guibutton> to hide the value of the API key.</para>
-              </listitem>
-            </orderedlist>
-          </listitem>
-        </itemizedlist></para>
-      <para>You also need your cloud account number. In the documentation, the account number is
-        often referred to as your tenant name or tenant ID (technically, the ID is different from
-        the name, but at Rackspace, they are the same thing). Together, three components—your
-        username, your API key, and your tenant ID or cloud account number—form the authentication
-        credentials that are required to connect to the Rackspace cloud. To find your tenant ID or
-        cloud account number, locate your username on the upper-right side of the top navigation
-        pane in the Cloud Control Panel. The tenant ID or account number is in parentheses just to
-        the right of your username.</para>
-      <para> You can use either of the following endpoints to access the Cloud Identity service,
-        regardless of US or UK identities: </para>
-      <itemizedlist spacing="compact">
-        <listitem>
-          <para><link xlink:href="&ENDPOINT-US-20;">&ENDPOINT-US-20;</link>
-          </para>
-        </listitem>
-        <listitem>
-          <para><link xlink:href="&ENDPOINT-UK-20;">&ENDPOINT-UK-20;</link></para>
-        </listitem>
-      </itemizedlist>
-      <para> Your account may be based in either the US or the UK. This is not determined by your
-        physical location but by the location of the Rackspace retail site which was used to create
-        your account: </para>
-      <itemizedlist spacing="compact">
-        <listitem>
-          <para> If your account was created via <link xlink:href="http://www.rackspacecloud.com"
-            >http://www.rackspacecloud.com</link>, it is a US-based account. </para>
-        </listitem>
-        <listitem>
-          <para> If your account was created via <link xlink:href="http://www.rackspace.co.uk"
-            >http://www.rackspace.co.uk</link>, it is a UK-based account. </para>
-        </listitem>
-      </itemizedlist>
-      <para>Notice that you authenticate using a special URL for the Cloud Identity services. For
-        example, you may use <code>https://identity.api.rackspacecloud.com/v2.0/tokens</code>, as
-        shown in the following authenticate request examples. Note that the <code>v2.0</code>
-        component in the URL indicates that you are using version 2.0 of the Cloud Identity
-        API.</para>
-<!--      <example>
-        <title>cURL authenticate request: XML</title>
-        <?dbfo keep-together="always"?>
-        <screen language="bash"><command>curl</command> <option>-i</option> <option>-d</option> \
-'&lt;?xml version="1.0" encoding="UTF-8"?>
-&lt;auth>
-   &lt;apiKeyCredentials
-      xmlns="http://docs.rackspace.com/identity/api/ext/RAX-KSKEY/v1.0"
-         username="<emphasis role="bold">yourUserName</emphasis>"
-         apiKey="<emphasis role="bold">yourApiKey</emphasis>"/>
-&lt;/auth>' \
-<option>-H 'Content-Type: application/xml'</option> \
-<option>-H 'Accept: application/xml'</option> \
-<uri>'https://identity.api.rackspacecloud.com/v2.0/tokens'</uri></screen>
-      </example> -->
+      <para>To use the REST API, you must first obtain an authentication token. This token will be
+        passed in each Rackspace CDN API request in the <code>X-Auth-Token</code> header. You must
+        generate a token whether you use cURL or a REST client. </para>
+      <para>The example in this section demonstrates how to use cURL to obtain the authentication
+        token, as well as your account ID. You must supply both when making subsequent Rackspace CDN
+        API calls.</para>
+      <section xml:id="getYourCredentials-d1e01">
+        <title>Get your credentials</title>
+      
+      <para>You must replace the names in the authenticate request examples in this book with your
+            values:<itemizedlist spacing="compact">
+            <listitem>
+              <para><emphasis role="bold">yourUserName</emphasis> &mdash; Your common Rackspace
+                Cloud username, as supplied during registration</para>
+            </listitem>
+            <listitem>
+              <para><emphasis role="bold">yourApiKey</emphasis> &mdash; Your API access key </para>
+              <para><emphasis role="bold">To find your API key</emphasis>
+              </para>
+              <orderedlist>
+                <listitem>
+                  <para>Log in to the Cloud Control Panel (<link
+                      xlink:href="https://mycloud.rackspace.com"
+                      >https://mycloud.rackspace.com</link>).</para>
+                </listitem>
+                <listitem>
+                  <para>On the upper-right side of the top navigation pane, click your
+                    username.</para>
+                </listitem>
+                <listitem>
+                  <para>From the menu, select <guilabel>Account Settings</guilabel>.</para>
+                </listitem>
+                <listitem>
+                  <para>In the Login Details section of the Account Settings page, locate the
+                      <guilabel>API Key</guilabel> field and click
+                    <guibutton>Show</guibutton>.</para>
+                </listitem>
+                <listitem>
+                  <para> Copy the value of the API key and paste it into a text editor of your
+                    choice.</para>
+                </listitem>
+                <listitem>
+                  <para>Click <guibutton>Hide</guibutton> to hide the value of the API key.</para>
+                </listitem>
+              </orderedlist>
+            </listitem>
+          </itemizedlist></para>
+      <para>You also need your cloud account ID. In the documentation, the account ID is often
+          referred to as your tenant name or tenant ID (technically, the ID is different from the
+          name, but at Rackspace, they are the same thing). Together, three components—your
+          username, your API key, and your tenant ID or cloud account ID—form the authentication
+          credentials that are required to connect to the Rackspace cloud. To find your tenant ID or
+          cloud account ID, click your username on the upper-right side of the top navigation pane
+          in the Cloud Control Panel. The tenant ID or account ID is listed first in the
+          menu.</para>
+      </section>
+      <section xml:id="sendAuthRequest-d10e1">
+        <title>Send the authentication request</title>
+        <para>You authenticate using a special endpoint URL for the Cloud Identity service. For
+          example, use <code>https://identity.api.rackspacecloud.com/v2.0/tokens</code>, as shown in
+          the following authenticate request example. Note that the <code>v2.0</code> component in
+          the URL indicates that you are using version 2.0 of the Cloud Identity API.</para>
       <example>
         <title>cURL authenticate request: JSON</title>
         <?dbfo keep-together="always"?>
@@ -729,75 +690,74 @@ Content-Type: application/json
 <uri>'https://identity.api.rackspacecloud.com/v2.0/tokens'</uri></screen>
       </example>
       <note>
-        <para>For UK-based accounts, you may decide to use
-          <code>'https://lon.identity.api.rackspacecloud.com/v2.0/tokens'</code> instead.</para>
+        <para>For our UK customers, we recommend using
+              <code>'https://lon.identity.api.rackspacecloud.com/v2.0/tokens'</code> for better
+            regional performance.</para>
       </note>
-      <para>In the JSON authentication response below, the elipses (...) in the example represents
-        other service endpoints, which are not shown.</para>
-<!--      <example>
-        <title>Authentication response: XML</title>
-        <programlisting language="xml"><xi:include href="../../src/resources/samples/auth-20.xml" parse="text"/></programlisting>
-      </example> -->
+      </section>
+      <section xml:id="receiveToken-d10e1">
+        <title>Receive the token</title>
+      
+      <para>In the following example JSON authentication response, the ellipsis (...) in the example
+          represents other service endpoints, which are not shown.</para>
       <example xml:id="Authenticate-Response-JSON-d1e001">
         <title>Authentication response: JSON</title>
         <programlisting language="json"><xi:include href="../../src/resources/samples/auth-20.json" parse="text"/></programlisting>
       </example>
-      <para>The authentication token <code>id</code> is returned along with an <code>expires</code>
-        attribute that specifies when the token expires. Authentication tokens are typically valid for
-        24 hours. Applications should be designed to re-authenticate after receiving a 401
-        (Unauthorized) response from a service endpoint. </para>
+      <para>The authentication token <code>id</code> is returned with an <code>expires</code>
+          attribute that specifies when the token expires. Authentication tokens are typically valid
+          for 24 hours. Applications should be designed to re-authenticate after receiving a 401
+          (Unauthorized) response from a service endpoint. </para>
       <note>
         <title>Notes</title>
         <itemizedlist spacing="compact">
           <listitem>
-            <para>For all response examples in this guide, the field values you receive in your
-              responses will vary from those shown here since they will be specific to your
-              account.</para>
+            <para>For all response examples in this guide, the field values that you receive in your
+                responses will vary from those shown here because they are specific to your
+                account.</para>
           </listitem>
           <listitem>
-            <para>The information shown in the Authenticate Response examples above is for US-based
-              accounts. If you authenticate against the UK-endpoint for auth, you will see the service
-              catalog information for UK-based accounts.</para>
+            <para>The information shown in the preceding authentication response example above is
+                for US-based accounts. If you authenticate against the UK-endpoint for
+                authentication, you will see the service catalog information for UK-based
+                accounts.</para>
           </listitem>
           <listitem>
-            <para>The <code>id</code> attribute in the Authenticate Response specifies the
-              authentication token. Tokens are valid for a finite duration.</para>
-            <para>Remember to supply your authentication token wherever you see the field <emphasis
-                role="bold">yourAuthToken</emphasis> in the examples in this guide.</para>
+              <para>Remember to supply your authentication token wherever you see the field
+                  <emphasis role="bold">yourAuthToken</emphasis> in the examples in this
+                guide.</para>
           </listitem>
           <listitem>
-            <para> The <code>expires</code> attribute denotes the time after which the token will
-              automatically become invalid. A token may be manually revoked before the time identified
-              by the expires attribute; <code>expires</code> predicts a token's maximum possible
-              lifespan but does not guarantee that it will reach that lifespan. Clients are encouraged
-              to cache a token until it expires.</para>
-          </listitem>
-          <listitem>
-            <para>Applications should be designed to re-authenticate after receiving a 401
-              (Unauthorized) response from a service endpoint.</para>
+            <para> The <code>expires</code> attribute denotes the time after which the token
+                automatically becomes invalid. A token might be manually revoked before the time
+                identified by the <code>expires</code> attribute; <code>expires</code> predicts a
+                token's maximum possible lifespan but does not guarantee that it will reach that
+                lifespan. Clients are encouraged to cache a token until it expires.</para>
           </listitem>
         </itemizedlist>
       </note>
       <para>The <code>publicURL</code> endpoints for <code>raxcdn</code> (for example
           <code>https://global.cdn.api.rackspacecloud.com/v1.0/110011</code>) are also returned in
         the response. </para>
-      <para>You will find the actual account number after the final backslash (/) in the
-          <code>publicURL</code> field. In this example, you can see that the account number is
-        110011. You need to specify your account number on most of the Rackspace CDN API calls,
-        wherever you see the field <emphasis role="bold">yourAccountID</emphasis> specified in the
-        examples in this guide.</para>
-      <para>After authentication, you can use cURL to perform &GET;, &DELETE;, and &POST; requests for
-        the Rackspace CDN API.</para>
+      <para>Your account ID number is located after the final backslash (/) in the
+            <code>publicURL</code> field. In this example, you can see that the account ID is
+          110011. You need to specify your account ID on most of the Rackspace CDN API calls,
+          wherever you see the field <emphasis role="bold">yourAccountID</emphasis> specified in the
+          examples in this guide.</para>
+      <para>After authentication, you can use cURL to perform &GET;, &DELETE;,
+            <command>PATCH</command>, and &POST; requests for the Rackspace CDN API.</para>
+      </section>
     </section>
     <section xml:id="createService-d1cdn">
       <title>Create a service</title>
-      <para>This POST operation creates a service. To create a service, in your request provide a
-        JSON body with the new  with the required attributes for the new service. (Each of these
-        attributes is described in the <citetitle>Rackspace CDN Developer Guide</citetitle> in the
-        create service operation description.)</para> 
+      <para>A service represents an application that has its content cached to the edge nodes, such
+        as a website. To create a service, issue a <command>POST</command> request and provide a
+        JSON body with the required attributes for the new service. (Each of these attributes is
+        described in the <citetitle>Rackspace CDN Developer Guide</citetitle> in the create service
+        operation description.)  </para>
       <para>Following are examples of a create service request and response. </para>
       <example>
-        <title>cURL create service request</title>
+        <title>Create a service: Request</title>
         <programlisting language="bash">curl -i -X POST https://global.cdn.api.rackspacecloud.com/v1.0/<emphasis role="bold">yourAccountID</emphasis>/services \
 -H "Accept: application/json" \
 -H "X-Auth-Token: <emphasis role="bold">yourAuthToken</emphasis>" \
@@ -861,24 +821,24 @@ Content-Type: application/json
 </programlisting>
       </example>
       <example>
-        <title>Create service response</title>
+        <title>Create a service: Response</title>
         <programlisting language="json">HTTP/1.1 202 Accepted
 Content-Type: application/json 
 Location: https://global.cdn.api.rackspacecloud.com/v1.0/services/mywebsite      </programlisting>
       </example>
     </section>
     <section xml:id="listService-d1cdn">
-      <title>List a service</title>
-      <para>This operation retrieves a specified service. </para>
+      <title>Retrieve a service</title>
+      <para>This operation retrieves the details for a specified service. </para>
       <para>Following are examples of a retrieve service request and response. </para>
       <example>
-        <title>cURL retrieve service request</title>
+        <title>Retrieve a service: Request</title>
         <programlisting language="bash">curl -i -X GET https://global.cdn.api.rackspacecloud.com/v1.0/<emphasis role="bold">yourAccountID</emphasis>/services/<emphasis role="bold">yourServiceName</emphasis> \
 -H "X-Auth-Token: <emphasis role="bold">yourAuthToken</emphasis>" \
 -H "Content-type: application/json" </programlisting>
       </example>
       <example>
-        <title>Retrieve service response</title>
+        <title>Retrieve a service: Response</title>
         <programlisting language="json">HTTP/1.1 200 Accepted
 Content-Type: application/json 
    
@@ -959,7 +919,7 @@ Content-Type: application/json
 }</programlisting>
       </example>
     </section>
-<!-- <remark>This operation was removed in November 2014.</remark>
+    <!-- <remark>This operation was removed in November 2014.</remark>
       <section xml:id="checkCachedAsset-d1cdn">
       <title>Check a cached asset</title>
       <para>This operation checks the version of the asset that has been cached at the edge, along
@@ -986,34 +946,35 @@ Content-Type: application/json
     </section> -->
     <section xml:id="purgeAsset-d1cdn">
       <title>Purge a cached asset</title>
-      <para>This operation purges (or removes) the current version of the asset that has been cached
-        at the edge. </para>
-      <para>The examples contain the expanded URL template with values inherited from parameters
-        (for example, https://private-anon-afee1c004-cloudcdn.apiary-mock.com/services/myweb-
-        site/assets). </para>
+      <para>A service distributes assets across the network. Service assets let you interrogate
+        properties about these assets and perform certain actions on them.</para>
+      <para>This operation purges (or removes) the current version of an asset that has been cached
+        at the edge node. </para>
       <example>
-        <title>cURL purge a cached asset request</title>
+        <title>Purge a cached asset: Request</title>
         <programlisting language="bash">curl -i -X DELETE https://global.cdn.api.rackspacecloud.com/v1.0/<emphasis role="bold">yourAccountID</emphasis>/services/<emphasis role="bold">yourServiceName</emphasis>/assets?urlOfAssetToPurge \
 -H "X-Auth-Token: <emphasis role="bold">yourAuthToken</emphasis>" \
 -H "Content-type: application/json"</programlisting>
       </example>
       <example>
-        <title>Purge a cached asset response</title>
+        <title>Purge a cached asset: Response</title>
         <programlisting language="json">HTTP/1.1 200 OK
 Content-Type: application/json </programlisting>
       </example>
     </section>
     <section xml:id="listFlavors-d1cdn">
       <title>List flavors</title>
+      <para>A flavor is a mapping configuration to the Akamai CDN provider. The operator can decide
+        the flavor names offered and the mapping offered.</para>
       <para>This operation lists all available flavors.</para>
       <example>
-        <title>cURL list flavors request</title>
+        <title>List flavors: Request</title>
         <programlisting language="bash">curl -i -X GET https://global.cdn.api.rackspacecloud.com/v1.0/<emphasis role="bold">yourAccountID</emphasis>/flavors \
 -H "X-Auth-Token: <emphasis role="bold">yourAuthToken</emphasis>" \
 -H "Content-type: application/json" </programlisting>
       </example>
       <example>
-        <title>List flavors response</title>
+        <title>List flavors: Response</title>
         <programlisting language="json">HTTP/1.1 200 OK
 Content-Type: application/json 
 
@@ -1149,33 +1110,34 @@ Content-Type: application/json
     <section xml:id="deleteService-d1cdn">
       <title>Delete a service</title>
       <para>This operation deletes a service.</para>
-      <para>Following are examples of a delete message request and response:</para>
+      <para>Following are examples of a delete service request and response:</para>
       <example>
-        <title>cURL delete service request</title>
+        <title>Delete service: Request</title>
         <programlisting language="bash">curl -i -X DELETE https://global.cdn.api.rackspacecloud.com/v1.0/<emphasis role="bold">yourAccountID</emphasis>/services/<emphasis role="bold">yourServiceName</emphasis> \ 
 -H "Content-type: application/json" \
 -H "X-Auth-Token: <emphasis role="bold">yourAuthToken</emphasis>" \ 
 -H "Accept: application/json" </programlisting>
       </example>
       <example>
-        <title>Delete service response</title>
+        <title>Delete service: Response</title>
         <programlisting language="json">HTTP/1.1 204 No Content</programlisting>
       </example>
     </section>
   </chapter>
-  <chapter xml:id="additionalResources-d1e101"><title>Additional resources</title>
+  <chapter xml:id="additionalResources-d1e101">
+    <title>Additional resources</title>
     <para>For more information about using the API, see the <citetitle>Rackspace CDN Developer
-        Guide</citetitle>. All you need to get started with Rackspace CDN is the getting started
-      guide, the developer guide, and your Rackspace Cloud account.</para>
-    <para>Email all support questions to <email>cdn@rackspace.com</email>. </para>
+        Guide</citetitle> at <link xlink:href="http://docs.rackspace.com">docs.rackspace.com</link>.
+      All you need to get started with Rackspace CDN is the getting started guide, the developer
+      guide, and your Rackspace Cloud account.</para>
     <para>You can download the most current versions of the API-related documents from <link
         xlink:href="http://docs.rackspace.com">docs.rackspace.com</link>. </para>
-    <para>For information about the Poppy API, see <link
-      xlink:href="http://poppycdn.org/"
-      >http://poppycdn.org/</link>.</para>
+    <para>Email all support questions to <email>cdn@rackspace.com</email>. </para>
+    <para>For information about the Poppy API, see <link xlink:href="http://poppycdn.org/"
+        >http://poppycdn.org/</link>.</para>
     <para>For information about Rackspace Cloud products, see <link
         xlink:href="http://www.rackspace.com/cloud/"> www.rackspace.com/cloud</link>. This site also
-      offers links to the official Rackspace support channels, including knowledge base articles,
+      provides links to the official Rackspace support channels, including knowledge base articles,
       forums, phone, chat, and email. </para>
     <para>You can follow Rackspace updates and announcements via Twitter at <link
         xlink:href="http://www.twitter.com/rackspace">www.twitter.com/rackspace</link>. </para>

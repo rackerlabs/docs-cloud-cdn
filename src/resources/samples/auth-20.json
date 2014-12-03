@@ -33,9 +33,7 @@
                 "type": "rax:database"
             },
             
-.           
-.            
-.           
+...        
             
             {
                 "endpoints": [
