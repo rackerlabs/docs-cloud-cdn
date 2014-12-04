@@ -1,5 +1,5 @@
-DELETE /v1.0/services/serviceName/assets?urlOfAssetToCheck HTTP/1.1
+DELETE https://global.cdn.api.rackspacecloud.com/v1.0/110011/services/serviceName/assets?urlOfAssetToCheck
 Host: global.cdn.api.rackspacecloud.com
+Accept: application/json
 Content-type: application/json
 X-Auth-Token: 0f6e9f63600142f0a970911583522217
-X-Project-Id: 101010

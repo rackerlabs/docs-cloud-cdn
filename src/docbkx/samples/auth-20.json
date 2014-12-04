@@ -31,14 +31,14 @@ Date: Thu, 12 Apr 2012 18:45:13 GMT
             {
                 "endpoints": [
                     {
-                        "publicURL": "https://dfw.databases.api.rackspacecloud.com/v1.0/1100111", 
+                        "publicURL": "https://dfw.databases.api.rackspacecloud.com/v1.0/110011", 
                         "region": "DFW", 
-                        "tenantId": "1100111"
+                        "tenantId": "110011"
                     }, 
                     {
-                        "publicURL": "https://ord.databases.api.rackspacecloud.com/v1.0/1100111", 
+                        "publicURL": "https://ord.databases.api.rackspacecloud.com/v1.0/110011", 
                         "region": "ORD", 
-                        "tenantId": "1100111"
+                        "tenantId": "110011"
                     }
                 ], 
                 "name": "cloudDatabases", 
@@ -47,14 +47,14 @@ Date: Thu, 12 Apr 2012 18:45:13 GMT
             {
                 "endpoints": [
                     {
-                        "publicURL": "https://dfw.loadbalancers.api.rackspacecloud.com/v1.0/1100111", 
+                        "publicURL": "https://dfw.loadbalancers.api.rackspacecloud.com/v1.0/110011", 
                         "region": "DFW", 
-                        "tenantId": "1100111"
+                        "tenantId": "110011"
                     }, 
                     {
-                        "publicURL": "https://ord.loadbalancers.api.rackspacecloud.com/v1.0/1100111", 
+                        "publicURL": "https://ord.loadbalancers.api.rackspacecloud.com/v1.0/110011", 
                         "region": "ORD", 
-                        "tenantId": "1100111"
+                        "tenantId": "110011"
                     }
                 ], 
                 "name": "cloudLoadBalancers", 
@@ -63,17 +63,17 @@ Date: Thu, 12 Apr 2012 18:45:13 GMT
             {
                 "endpoints": [
                     {
-                        "tenantId": "1100111",
+                        "tenantId": "110011",
                         "region": "DFW",
-                        "publicURL": "https://dfw.servers.api.rackspacecloud.com/v2/1100111", 
+                        "publicURL": "https://dfw.servers.api.rackspacecloud.com/v2/110011", 
                         "versionId": "2", 
                         "versionInfo": "https://dfw.servers.api.rackspacecloud.com/v2/", 
                         "versionList": "https://dfw.servers.api.rackspacecloud.com/"
                     },
                     {
-                        "tenantId": "1100111",
+                        "tenantId": "110011",
                         "region": "ORD",
-                        "publicURL": "https://ord.servers.api.rackspacecloud.com/v2/1100111", 
+                        "publicURL": "https://ord.servers.api.rackspacecloud.com/v2/110011", 
                         "versionId": "2", 
                         "versionInfo": "https://ord.servers.api.rackspacecloud.com/v2/", 
                         "versionList": "https://ord.servers.api.rackspacecloud.com/"
@@ -85,8 +85,8 @@ Date: Thu, 12 Apr 2012 18:45:13 GMT
             {
                 "endpoints": [
                     {
-                        "tenantId": "1100111", 
-                        "publicURL": "https://servers.api.rackspacecloud.com/v1.0/1100111", 
+                        "tenantId": "110011", 
+                        "publicURL": "https://servers.api.rackspacecloud.com/v1.0/110011", 
                         "versionId": "1.0", 
                         "versionInfo": "https://servers.api.rackspacecloud.com/v1.0/", 
                         "versionList": "https://servers.api.rackspacecloud.com/"
@@ -165,8 +165,8 @@ Date: Thu, 12 Apr 2012 18:45:13 GMT
             {
                 "endpoints": [
                     {
-                        "tenantId": "1100111",
-                        "publicURL": "https://dns.api.rackspacecloud.com/v1.0/1100111"
+                        "tenantId": "110011",
+                        "publicURL": "https://dns.api.rackspacecloud.com/v1.0/110011"
                     }
                 ],
                 "name": "cloudDNS", 
@@ -175,13 +175,13 @@ Date: Thu, 12 Apr 2012 18:45:13 GMT
             {
             "endpoints":[
                {
-                  "tenantId":"1100111",
-                  "publicURL":"https://global.cdn.api.rackspacecloud.com/v1.0/1100111",
+                  "tenantId":"110011",
+                  "publicURL":"https://global.cdn.api.rackspacecloud.com/v1.0/110011",
                   "region":"IAD"
                },
                {
-                  "tenantId":"1100111",
-                  "publicURL":"https://global.cdn.api.rackspacecloud.com/v1.0/1100111",
+                  "tenantId":"110011",
+                  "publicURL":"https://global.cdn.api.rackspacecloud.com/v1.0/110011",
                   "region":"LON"
                }
             ],

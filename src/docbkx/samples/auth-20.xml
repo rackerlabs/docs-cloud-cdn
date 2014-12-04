@@ -21,28 +21,28 @@ Date: Thu, 12 Apr 2012 18:50:20 GMT
   </user>
   <serviceCatalog>
     <service type="rax:database" name="cloudDatabases">
-      <endpoint region="DFW" tenantId="1100111" publicURL="https://dfw.databases.api.rackspacecloud.com/v1.0/1100111"/>
-      <endpoint region="ORD" tenantId="1100111" publicURL="https://ord.databases.api.rackspacecloud.com/v1.0/1100111"/>
+      <endpoint region="DFW" tenantId="110011" publicURL="https://dfw.databases.api.rackspacecloud.com/v1.0/110011"/>
+      <endpoint region="ORD" tenantId="110011" publicURL="https://ord.databases.api.rackspacecloud.com/v1.0/110011"/>
     </service>
     <service type="rax:load-balancer" name="cloudLoadBalancers">
-      <endpoint region="DFW" tenantId="1100111" publicURL="https://dfw.loadbalancers.api.rackspacecloud.com/v1.0/1100111"/>
-      <endpoint region="ORD" tenantId="1100111" publicURL="https://ord.loadbalancers.api.rackspacecloud.com/v1.0/1100111"/>
+      <endpoint region="DFW" tenantId="110011" publicURL="https://dfw.loadbalancers.api.rackspacecloud.com/v1.0/110011"/>
+      <endpoint region="ORD" tenantId="110011" publicURL="https://ord.loadbalancers.api.rackspacecloud.com/v1.0/110011"/>
     </service>
     <service type="compute" name="cloudServersOpenStack">
-      <endpoint region="DFW" tenantId="1100111"
-        publicURL="https://dfw.servers.api.rackspacecloud.com/v2/1100111">
+      <endpoint region="DFW" tenantId="110011"
+        publicURL="https://dfw.servers.api.rackspacecloud.com/v2/110011">
         <version id="2" info="https://dfw.servers.api.rackspacecloud.com/v2/"
           list="https://dfw.servers.api.rackspacecloud.com/" />
       </endpoint>
-      <endpoint region="ORD" tenantId="1100111"
-        publicURL="https://ord.servers.api.rackspacecloud.com/v2/1100111">
+      <endpoint region="ORD" tenantId="110011"
+        publicURL="https://ord.servers.api.rackspacecloud.com/v2/110011">
         <version id="2" info="https://ord.servers.api.rackspacecloud.com/v2/"
           list="https://ord.servers.api.rackspacecloud.com/" />
       </endpoint>
     </service>
     <service type="compute" name="cloudServers">
-      <endpoint tenantId="1100111"
-        publicURL="https://servers.api.rackspacecloud.com/v1.0/1100111">
+      <endpoint tenantId="110011"
+        publicURL="https://servers.api.rackspacecloud.com/v1.0/110011">
         <version id="1.0"
           info="https://servers.api.rackspacecloud.com/v1.0/"
           list="https://servers.api.rackspacecloud.com/"/>
@@ -88,14 +88,14 @@ Date: Thu, 12 Apr 2012 18:50:20 GMT
         publicURL="https://cdn2.clouddrive.com/v1/MossoCloudFS_aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee"/>
     </service>
     <service type="rax:dns" name="cloudDNS">
-      <endpoint tenantId="1100111"
-        publicURL="https://dns.api.rackspacecloud.com/v1.0/1100111"/>
+      <endpoint tenantId="110011"
+        publicURL="https://dns.api.rackspacecloud.com/v1.0/110011"/>
     </service>
     <service type="rax:cdn" name="rackCDN">
-      <endpoint region="IAD" tenantId="1100111"
-        publicURL="https://global.cdn.api.rackspacecloud.com/v1.0/1100111"/>
-      <endpoint region="LON" tenantId="1100111"
-        publicURL="https://global.cdn.api.rackspacecloud.com/v1.0/1100111"/>
+      <endpoint region="IAD" tenantId="110011"
+        publicURL="https://global.cdn.api.rackspacecloud.com/v1.0/110011"/>
+      <endpoint region="LON" tenantId="110011"
+        publicURL="https://global.cdn.api.rackspacecloud.com/v1.0/110011"/>
       />
     </service>
   </serviceCatalog>

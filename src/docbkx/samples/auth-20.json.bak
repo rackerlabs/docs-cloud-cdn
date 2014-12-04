@@ -171,6 +171,22 @@ Date: Thu, 12 Apr 2012 18:45:13 GMT
                 ],
                 "name": "cloudDNS", 
                 "type": "rax:dns"
+            },
+            {
+            "endpoints":[
+               {
+                  "tenantId":"1100111",
+                  "publicURL":"https://global.cdn.api.rackspacecloud.com/v1.0/1100111",
+                  "region":"IAD"
+               },
+               {
+                  "tenantId":"1100111",
+                  "publicURL":"https://global.cdn.api.rackspacecloud.com/v1.0/1100111",
+                  "region":"LON"
+               }
+            ],
+            "name":"rackCDN",
+            "type":"rax:cdn"
             }
         ]
     }
