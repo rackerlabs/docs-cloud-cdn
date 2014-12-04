@@ -241,8 +241,7 @@
           </tr>
           <tr>
             <td>Accept</td>
-            <td>Media type. Initially, only <code>application/json</code> is supported. The
-                <code>Accept</code> header is required.</td>
+            <td>Media type. Initially, only <code>application/json</code> is supported.</td>
           </tr>
           <tr>
             <td>Accept-Encoding</td>

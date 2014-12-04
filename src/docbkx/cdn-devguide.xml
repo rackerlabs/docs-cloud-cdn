@@ -914,7 +914,7 @@
       <title>Request and response types</title>
       <para>The Rackspace CDN API supports JSON data serialization formats. </para>
       <para>Specify the request format by using the <code>Content-Type</code> header, which is
-          <emphasis role="italic">required</emphasis> for calls that have a request body. </para>
+          <emphasis role="italic">required</emphasis> for operations that have a request body. </para>
       <para>You can specify the response format in requests by using the <code>Accept</code> header
         or by adding a <code>.json</code> extension to the request URI. If no response format is
         specified, JSON is the default. </para>
@@ -1038,8 +1038,7 @@
           </tr>
           <tr>
             <td>Accept</td>
-            <td>Media type. Initially, only <code>application/json</code> is supported. The
-                <code>Accept</code> header is required.</td>
+            <td>Media type. Initially, only <code>application/json</code> is supported. </td>
           </tr>
           <tr>
             <td>Accept-Encoding</td>

@@ -63,7 +63,7 @@
     <!--Note that the <productname> text matches the first few words of the title. The build system splits the title into productname + rest of title on the pdf cover.-->
     <revhistory>
       <revision>
-        <date>2015-01-06</date>
+        <date>2015-01-07</date>
         <revdescription>
           <para>Initial Early Access (EA) release.</para>
         </revdescription>
@@ -618,7 +618,7 @@
       <title>Request and response types</title>
       <para>The Rackspace CDN API supports JSON data serialization formats. </para>
       <para>Specify the request format by using the <code>Content-Type</code> header, which is
-          <emphasis role="italic">required</emphasis> for calls that have a request body. </para>
+          <emphasis role="italic">required</emphasis> for operations that have a request body. </para>
       <para>You can specify the response format in requests by using the <code>Accept</code> header
         or by adding a <code>.json</code> extension to the request URI. If no response format is
         specified, JSON is the default. </para>
@@ -739,8 +739,7 @@
           </tr>
           <tr>
             <td>Accept</td>
-            <td>Media type desired; initially, only <code>application/json</code> is supported. The
-                <code>Accept</code> header is required.</td>
+            <td>Media type desired; initially, only <code>application/json</code> is supported. </td>
           </tr>
           <tr>
             <td>Accept-Encoding</td>
