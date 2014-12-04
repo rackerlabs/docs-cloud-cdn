@@ -216,9 +216,7 @@
     </section>
     <section xml:id="commonHeaders-d1e101">
       <title>Common headers</title>
-      <para>Each request to the Rackspace CDN API must include certain standard and extended HTTP
-        headers. These headers provide host, agent, authentication, and other pertinent information
-        to the server. The following table provides the common headers used by the API.</para>
+      <para>The following table describes the common headers used by the API.</para>
       <table rules="all">
         <caption>Common headers</caption>
         <col width="30%"/>
@@ -232,7 +230,7 @@
         <tbody>
           <tr>
             <td>X-Auth-Token</td>
-            <td>Authentication token</td>
+            <td>Authentication token. Required.</td>
           </tr>
           <tr>
             <td>X-Project-Id</td>
