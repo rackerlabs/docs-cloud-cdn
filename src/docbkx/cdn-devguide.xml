@@ -120,8 +120,8 @@
       content and serve it directly to customers, thus reducing transit time to a customer's
       location. </para>
     <para>Rackspace CDN gives Rackspace customers the power to accelerate content on any public
-      resource at Rackspace. It provides a simple API and Control Panel experience for customers to
-      manage their CDN-enabled domains and the origins and assets associated with those
+      resource at Rackspace. It provides a simple API (and soon Control Panel) experience for
+      customers to manage their CDN-enabled domains and the origins and assets associated with those
       domains. </para>
     <para>The Rackspace CDN architecture includes the following components:</para>
     <itemizedlist>
@@ -980,7 +980,7 @@
         <para>The following table provides details about the absolute limits for the Rackspace CDN
           API.</para>
         <table rules="all">
-          <caption>Absolute Limits</caption>
+          <caption>Absolute limits</caption>
           <col width="30%"/>
           <col width="40%"/>
           <col width="30%"/>
@@ -1049,9 +1049,9 @@
               server for future use. The client generates the Client-ID once, and it persists
               between restarts of the client. The client should reuse the same
                 <code>Client-ID</code>. <emphasis role="bold">Note</emphasis>: All message-related
-              operations require that Client-ID is included in the headers to ensure that messages
-              are not echoed back to the client that posted them, unless the client explicitly
-              requests this.</td>
+              operations require that <code>Client-ID</code> is included in the headers to ensure
+              that messages are not echoed back to the client that posted them, unless the client
+              explicitly requests this.</td>
           </tr>
           <tr>
             <td>Content-Length</td>

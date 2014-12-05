@@ -93,8 +93,8 @@
       content and serve it directly to customers, thus reducing transit time to a customer's
       location. </para>
     <para>Rackspace CDN gives Rackspace customers the power to accelerate content on any public
-      resource at Rackspace. It provides a simple API and Control Panel experience for customers to
-      manage their CDN-enabled domains and the origins and assets associated with those
+      resource at Rackspace. It provides a simple API (and soon Control Panel) experience for
+      customers to manage their CDN-enabled domains and the origins and assets associated with those
       domains. </para>
     <para>The Rackspace CDN architecture includes the following components:</para>
     <itemizedlist>

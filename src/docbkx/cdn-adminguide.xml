@@ -90,15 +90,17 @@
     <!--You can use the <?dbhtml stop-chunking?> processing instruction to prevent a chapter or section for chunking further in the html output. -->
     <remark>From http://docs.cloudcdn.apiary.io/ All deleted per Megan's edits.</remark>
     <remark>From https://one.rackspace.com/display/atlanta/Rackspace+CDN+Engineering</remark>
-    <para>A Content Delivery Network (CDN) is designed to improve performance of publicly
-      distributed assets.  Assets can be any thing from website content, to web application
+    <para>A content delivery network (CDN) is designed to improve performance of publicly
+      distributed assets.  Assets can be anything from website content, to web application
       components, to media like videos, ads, and interactive experiences.  CDNs decrease the load
-      time of these assets by caching them on edge servers, which are also called Points of Presence
-      (POPs).  Edge servers are distributed around the globe and cache content and serve it directly
-      to customers, thus reducing transit time to a customer's location. </para>
+      time of these assets by caching them on edge nodes, which are also called edge servers or
+      points of presence (PoP) servers.  Edge nodes are distributed around the globe, and they cache
+      content and serve it directly to customers, thus reducing transit time to a customer's
+      location. </para>
     <para>Rackspace CDN gives Rackspace customers the power to accelerate content on any public
-      resource at Rackspace by giving them a simple API and Control Panel experience for managing
-      their CDN enabled domains and the origins and assets associated with those domains. </para>
+      resource at Rackspace. It provides a simple API (and soon Control Panel) experience for
+      customers to manage their CDN-enabled domains and the origins and assets associated with those
+      domains. </para>
     <para>The Rackspace CDN architecture includes the following components:</para>
     <itemizedlist>
       <listitem>
@@ -111,12 +113,16 @@
       <listitem>
         <para>A single global endpoint to access the API</para>
       </listitem>
+      <listitem>
+        <para>Use of the Akamai Technologies's content delivery network, which is one of the world's
+          largest distributed computing platforms </para>
+      </listitem>
     </itemizedlist>
     <para xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:html="http://www.w3.org/1999/xhtml"
       >Interactions with Rackspace CDN occur programmatically via the Rackspace CDN API as described
       in this <citetitle>Rackspace CDN Developer Guide for Service Management</citetitle> and in the
-      following guides that are available on <link xlink:href="http://docs.rackspace.com/"
-        >docs.rackspace.com</link>:<itemizedlist>
+      following guides that are available on <link xlink:href="http://docs-internal.rackspace.com/"
+        >docs-internal.rackspace.com</link>:<itemizedlist>
         <listitem>
           <para>
             <citetitle>Rackspace CDN Getting Started Guide</citetitle>
@@ -193,8 +199,11 @@
       <title>API contract changes</title>
       <para xmlns:wadl="http://wadl.dev.java.net/2009/02"
         xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:html="http://www.w3.org/1999/xhtml">The
-        API contract is not locked and may change. If the contract changes, Rackspace will notify
-        customers in release notes.</para>
+        API contract is not locked and may change during the Early Access program. </para>
+      <para xmlns:wadl="http://wadl.dev.java.net/2009/02"
+        xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:html="http://www.w3.org/1999/xhtml"
+        >Rackspace will notify customers in Release Notes when and if the contract does
+        change.</para>
     </section>
     <section xml:id="Pricing_SLA-d1e1362">
       <title>Pricing and service level</title>
@@ -203,8 +212,8 @@
         bandwidth.</para> -->
       <para>While Rackspace CDN is in Early Access, it is subject to the Rackspace test terms at
           <link xlink:href="http://www.rackspace.com/information/legal/testterms">Legal Information
-          - Test Terms</link>. When Rackspace CDN moves to Unlimited Availability, the Service Level
-        Agreement (SLA) will be available.</para>
+          - Test Terms</link>. When Rackspace CDN moves to Unlimited Availability, the service level
+        agreement (SLA) will be available.</para>
     </section>
   </chapter>
   <chapter xml:id="concepts-d1eo1">
@@ -224,7 +233,7 @@
         publicly distributed assets. Assets can be anything from website content, to web application
         components, to media such as videos, ads, and interactive experiences.  CDNs decrease the
         load time of these assets by caching them on edge servers, also called points of presence
-        (POPs).  Edge servers are distributed around the globe, meaning requests only travel to a
+        (PoPs).  Edge servers are distributed around the globe, meaning requests only travel to a
         local location to grab assets, rather than to and from a datacenter based far from the end
         user. </para>
     </section>
@@ -286,9 +295,9 @@
   <chapter xml:id="generalAPIInfo-d1eo1">
     <title>General API information</title>
     <para xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:html="http://www.w3.org/1999/xhtml">The
-      Rackspace CDN API is implemented using a RESTful web service interface. Rackspace CDN shares a
-      common token-based authentication system with other products in the Rackspace Cloud suite.
-      This system enables seamless access between Rackspace products and services.</para>
+      Rackspace CDN API is implemented using a RESTful web service interface. Like other Rackspace
+      services,  Rackspace CDN shares a common token-based authentication system that allows
+      seamless access between products and services.</para>
     <para xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:html="http://www.w3.org/1999/xhtml">You
       can access the functions of the public Rackspace CDN API on behalf of a customer. The
       Rackspace CDN API includes operations for managing features of the public API. </para>
@@ -309,8 +318,8 @@
         the message body to a Rackspace authentication endpoint. </para>
       <note xmlns:m="http://www.w3.org/1998/Math/MathML"
         xmlns:wadl="http://wadl.dev.java.net/2009/02">
-        <para>If you cannot access the Cloud Big Data API, send an email to the Cloud Big Data team
-          at <email>cbdteam@rackspace.com</email> to request access. </para>
+        <para>If you cannot access the Rackspace CDN API, send an email to the Rackspace CDN team at
+            <email>cdn@rackspace.com</email> to request access. </para>
       </note>
       <para xmlns:m="http://www.w3.org/1998/Math/MathML"
         xmlns:wadl="http://wadl.dev.java.net/2009/02">
@@ -346,7 +355,7 @@
           >https://identity.api.rackspacecloud.com/v2.0/tokens</link>.</para>
       <note xmlns:m="http://www.w3.org/1998/Math/MathML"
         xmlns:wadl="http://wadl.dev.java.net/2009/02">
-        <para>Users of the Cloud Big Data service management API documented in this guide (see
+        <para>Users of the Rackspace CDN service management API documented in this guide (see
           endpoints at <xref linkend="serviceEndpoints"/>) need to use the internal Identity system
           at <link xlink:href="https://identity-internal.api.rackspacecloud.com:443/v2.0/"
             >https://identity-internal.api.rackspacecloud.com:443/v2.0/</link> for authentication
@@ -389,11 +398,11 @@
           <listitem>
             <para>Use the authentication token to send a <command>GET</command> request to a service
               that you want to use. The following example shows passing an authentication token to
-              the Cloud Big Data service by using the Cloud Big Data service catalog endpoint that
-              was returned along with the token.</para>
+              the Rackspace CDN service by using the Rackspace CDN service catalog endpoint that was
+              returned along with the token.</para>
             <example>
-              <title>cURL get profile request: JSON</title>
-              <programlisting>curl -i -X GET https://dfw.bigdata.api.rackspacecloud.com/v1.0/<emphasis role="bold">yourAccountID</emphasis>/profile -d  \
+              <title>cURL GET request: JSON</title>
+              <programlisting>curl -i -X GET https://global.cdn.api.rackspacecloud.com/v1.0/<emphasis role="bold">yourAccountID</emphasis>/ \
 -H "X-Auth-Token: <emphasis role="bold">yourAuthToken</emphasis>" \
 -H "Accept: application/json"\
 -H "Content-type: application/json"</programlisting>
@@ -403,8 +412,7 @@
       </para>
       <para xmlns:m="http://www.w3.org/1998/Math/MathML"
         xmlns:wadl="http://wadl.dev.java.net/2009/02">In this service management guide, <emphasis
-          role="bold">yourAccountID</emphasis> is the SSO of the user in the lnx-cloud-cbd-engineer
-        group.</para>
+          role="bold">yourAccountID</emphasis> is the SSO of the user.</para>
       <para xmlns:m="http://www.w3.org/1998/Math/MathML"
         xmlns:wadl="http://wadl.dev.java.net/2009/02">Authentication tokens are typically valid for
         24 hours. Applications should be designed to re-authenticate after receiving a 401
@@ -580,20 +588,20 @@
     <section xml:id="serviceEndpoints" xmlns:m="http://www.w3.org/1998/Math/MathML"
       xmlns:html="http://www.w3.org/1999/xhtml">
       <title>Service access endpoint</title>
-      <para>Rackspace CDN has a global endpoint. Data is replicated to all datacenters. The global
-        endpoint is:</para>
-      <programlisting>https://global.cdn.api.rackspacecloud.com/v1.0/<parameter>1234</parameter></programlisting>
-      <para>Replace the sample account ID number, <parameter>1234</parameter>, with your actual
-        account number returned as part of the authentication service response.</para>
-      <para>You will find the actual account number after the final '/' in the
-          <code>publicURL</code> field returned by the authentication response. For example,  in the
-          <code>publicURL</code> field for <code>rackCDN</code> with
-          <code>https://global.cdn.api.rackspacecloud.com/v1.0/1100111</code>,  the account number
-        is 1100111. </para>
+      <para>Rackspace CDN has a global endpoint. Data is replicated to all data centers. The global
+        endpoint is as follows:</para>
+      <programlisting>https://global.cdn.api.rackspacecloud.com/v1.0/<parameter>123456</parameter></programlisting>
+      <para>Replace the sample account ID number, <parameter>123456</parameter>, with your actual
+        account ID returned as part of the authentication service response.</para>
+      <para>Your account ID is located after the final slash (/) in the <code>publicURL</code> field
+        returned by the authentication response. For example, in the <code>publicURL</code> field
+        for <code>rackCDN</code> is
+          <code>https://global.cdn.api.rackspacecloud.com/v1.0/110011</code> and the account ID is
+          <emphasis role="bold">110011</emphasis>. </para>
       <note>
         <para>The account ID from Cloud Identity is the same as the project ID given in the
-          X-Project-Id header in Rackspace CDN. (You might also see account ID or project ID
-          referred to as tenant ID.)</para>
+            <code>X-Project-Id</code> header in Rackspace CDN. (You might also see account ID or
+          project ID referred to as tenant ID.)</para>
       </note>
     </section>
     <section xml:id="contractVersion" xmlns:m="http://www.w3.org/1998/Math/MathML"
@@ -602,12 +610,12 @@
       <para> The Rackspace CDN version defines the contract and build information for the API. </para>
       <para> The contract version denotes the data model and behavior that the API supports. The
         requested contract version is included in all request URLs. Different contract versions of
-        the API may be available at any given time and are not guaranteed to be compatible with one
-        another. </para>
+        the API might be available at any given time and are not guaranteed to be compatible with
+        one another. </para>
       <example>
-        <title>Example Request URL (contract version in <emphasis role="strong"
+        <title>Example request URL (contract version in <emphasis role="strong"
           >bold</emphasis>)</title>
-        <programlisting>https://global.cdn.api.rackspacecloud.com/<emphasis role="bold">v1.0</emphasis>/<parameter>1234</parameter></programlisting>
+        <programlisting>https://global.cdn.api.rackspacecloud.com/<emphasis role="bold">v1.0</emphasis>/<parameter>123456</parameter></programlisting>
       </example>
       <note>
         <para>This document pertains to contract version 1.0.</para>
@@ -623,7 +631,7 @@
         or by adding a <code>.json</code> extension to the request URI. If no response format is
         specified, JSON is the default. </para>
       <table rules="all">
-        <caption>Response Format</caption>
+        <caption>Response format</caption>
         <?dbfo keep-together="always"?>
         <thead>
           <tr align="center">
@@ -646,6 +654,7 @@
     <section xml:id="Limits-d1e1397" xmlns:m="http://www.w3.org/1998/Math/MathML"
       xmlns:html="http://www.w3.org/1999/xhtml">
       <title>Limits</title>
+      <remark>Are there any limits that should be documented?</remark>
       <para>All accounts are configured with default thresholds, or limits, that manage capacity and
         prevent abuse of the system. </para>
       <para>The system recognizes the following types of limits: </para>
@@ -670,6 +679,7 @@
       </note>
       <section xml:id="Rate-Limits-d1e003">
         <title>Rate limits</title>
+        <remark>Are there any rate limits that should be documented?</remark>
         <para>Rate limits control the frequency at which the user can issue specific API
           requests.</para>
         <para>For Rackspace CDN, the rate limit is ???? (Megan added "invalidation vs delete purges"
@@ -678,10 +688,11 @@
       </section>
       <section xml:id="Absolute-Limits-d1e003">
         <title>Absolute limits</title>
+        <remark>Are there any absolute limits that should be documented?</remark>
         <para>The following table provides details about the absolute limits for the Rackspace CDN
           API.</para>
         <table rules="all">
-          <caption>Absolute Limits</caption>
+          <caption>Absolute limits</caption>
           <col width="30%"/>
           <col width="40%"/>
           <col width="30%"/>
@@ -716,7 +727,7 @@
       <title>Common headers</title>
       <para>The following table describes the common headers used by the API.</para>
       <table rules="all">
-        <caption>Common Headers</caption>
+        <caption>Common headers</caption>
         <col width="30%"/>
         <col width="70%"/>
         <thead>
@@ -732,12 +743,12 @@
           </tr>
           <tr>
             <td>X-Project-Id</td>
-            <td>A unique ID for the user to which the value of X-Auth-Token grants access. The
-              unique ID is your account ID.</td>
+            <td>A unique ID for the user to which the value of <code>X-Auth-Token</code> grants
+              access. The unique ID is your account ID.</td>
           </tr>
           <tr>
             <td>Accept</td>
-            <td>Media type desired; initially, only <code>application/json</code> is supported. </td>
+            <td>Media type. Initially, only <code>application/json</code> is supported. </td>
           </tr>
           <tr>
             <td>Accept-Encoding</td>
@@ -745,13 +756,14 @@
           </tr>
           <tr>
             <td>Client-ID</td>
-            <td>A unique ID for each client instance. The Client-ID is used to avoid echoing a
-              sender's messages back to the same instance and may be logged by the server for future
-              use. The client generates the Client-ID once. It persists between restarts of the
-              client. The client should reuse the same Client-ID. Note: All message-related
-              operations require that Client-ID is included in the headers to ensure that messages
-              are not echoed back to the client that posted them, unless the client explicitly
-              requests this.</td>
+            <td>A unique ID for each client instance. The <code>Client-ID</code> is used to avoid
+              echoing a sender's messages back to the same instance, and it can be logged by the
+              server for future use. The client generates the <code>Client-ID</code> once, and it
+              persists between restarts of the client. The client should reuse the same
+                <code>Client-ID</code>. <emphasis role="bold">Note</emphasis>: All message-related
+              operations require that <code>Client-ID</code> is included in the headers to ensure
+              that messages are not echoed back to the client that posted them, unless the client
+              explicitly requests this.</td>
           </tr>
           <tr>
             <td>Content-Length</td>
@@ -779,14 +791,14 @@
       <para>The Rackspace CDN service uses an ISO-8601 compliant date format for the display and
         consumption of date/time values. </para>
       <example>
-        <title>Service Date/Time Format</title>
+        <title>Service date/time format</title>
         <programlisting>yyyy-MM-dd'T'HH:mm:ss.SSSZ</programlisting>
         <para>See the table below for a description of the date and time format codes.</para>
         <para>September 19th, 2014 at 8:07:08 AM, GMT-5 would have the following format:</para>
         <programlisting>2014-09-19T08:07:08-05:00</programlisting>
       </example>
       <table rules="all">
-        <caption>Explanation of Date/Time Format Codes</caption>
+        <caption>Explanation of date/time format codes</caption>
         <thead>
           <tr>
             <td>Code</td>
@@ -884,7 +896,7 @@
         </listitem>
         <listitem>
           <para>Error response codes are accompanied by an <code>application/json</code> response
-            body containing the error messages.</para>
+            body that contains the error messages.</para>
         </listitem>
       </itemizedlist>
       <para>The following table lists possible responses with their associated codes and
@@ -893,7 +905,7 @@
         <thead>
           <tr align="center">
             <td colspan="2">Response</td>
-            <td colspan="1">Associated Response Code</td>
+            <td colspan="1">Associated response code</td>
             <td colspan="3">Description</td>
           </tr>
         </thead>
@@ -901,7 +913,8 @@
           <tr>
             <td colspan="2"><code>OK</code></td>
             <td colspan="1">200</td>
-            <td colspan="3">The request has succeeded. (Some API calls may return 201 instead.)</td>
+            <td colspan="3">The request has succeeded. (Some API calls might return 201
+              instead.)</td>
           </tr>
           <tr>
             <td colspan="2"><code>Created</code></td>
@@ -916,7 +929,7 @@
           <tr>
             <td colspan="2"><code>No Content</code></td>
             <td colspan="1">204</td>
-            <td colspan="3">The request has been fulfilled, but does not return a representation
+            <td colspan="3">The request has been fulfilled but does not return a representation
               (that is, the response is empty).</td>
           </tr>
           <tr>
@@ -933,7 +946,7 @@
           <tr>
             <td colspan="2"><code>Forbidden</code></td>
             <td colspan="1">403</td>
-            <td colspan="3">The server understood the request, but refused to fulfill it.</td>
+            <td colspan="3">The server understood the request but refused to fulfill it.</td>
           </tr>
           <tr>
             <td colspan="2"><code>Not Found</code></td>
@@ -964,7 +977,7 @@
         ><?rax-fo keep-with-next?> An example of an error message follows. </para>
       <example xmlns:m="http://www.w3.org/1998/Math/MathML"
         xmlns:html="http://www.w3.org/1999/xhtml">
-        <title>Error Message Example</title>
+        <title>Error message example</title>
         <programlisting>HTTP/1.1 400 Bad Request
 Content-Type: application/json
 
@@ -1033,7 +1046,7 @@ Content-Type: application/json
           of publicly distributed assets. Assets can be anything from website content, to web
           application components, to media such as videos, ads, and interactive experiences.  CDNs
           decrease the load time of these assets by caching them on edge servers, also called points
-          of presence (POPs).  Edge servers are distributed around the globe, meaning requests only
+          of presence (PoPs).  Edge servers are distributed around the globe, meaning requests only
           travel to a local location to grab assets, rather than to and from a datacenter based far
           from the end user. </para>
       </glossdef>
