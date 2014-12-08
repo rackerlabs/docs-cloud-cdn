@@ -446,7 +446,7 @@
 						xml:lang="EN">Specifies the HTTP method (GET, PUT, POST, DELETE, PATCH, and so on) that can be accepted.</wadl:doc>
 				</param>
 				
-				<param name="flavor_ref" style="plain" path="$.flavor_ref"
+				<param name="flavor_id" style="plain" path="$.flavor_id"
 					required="true">
 					<wadl:doc xmlns="http://docbook.org/ns/docbook"
 						xml:lang="EN">Specifies the CDN provider flavor id to use. For a list of flavors, see the operation to list the available flavors.</wadl:doc>

@@ -1,5 +1,5 @@
-DELETE https://global.cdn.api.rackspacecloud.com/services/mywebsite.com
+DELETE /services/mywebsite.com HTTP/1.1
 Host: global.cdn.api.rackspacecloud.com
+X-Auth-Token: 0f6e9f63600142f0a970911583522217
 Accept: application/json
 Content-type: application/json
-X-Auth-Token: 0f6e9f63600142f0a970911583522217

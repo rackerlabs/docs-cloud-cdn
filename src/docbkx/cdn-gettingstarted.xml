@@ -808,14 +808,13 @@ Content-Type: application/json
             "rules": [
                 {
                     "name": "mywebsite.com",
-                    "http_host": "www.mywebsite.com"
+                    "referrer": "www.mywebsite.com"
                 }
             ]
         }
     ],
-    "flavor_ref": "https://global.cdn.api.rackspacecloud.com/v1.0/flavors/asia"
-}'     
-</programlisting>
+    "flavor_id": " https://global.cdn.api.rackspacecloud.com/v1.0/flavors/asia"
+}'   </programlisting>
       </example>
       <example>
         <title>Create a service: Response</title>
@@ -901,7 +900,7 @@ Content-Type: application/json
             ]
         }
     ],
-    "flavor_ref": "https://global.cdn.api.rackspacecloud.com/v1.0/flavors/europe",
+    "flavor_id": "https://global.cdn.api.rackspacecloud.com/v1.0/flavors/europe",
     "status": "deployed",
     "links": [
         {
