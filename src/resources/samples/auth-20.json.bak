@@ -1,7 +1,19 @@
 {
     "access": {
+        "token": {
+            "id": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+            "expires": "2014-11-24T22:05:39.115Z",           
+            "tenant": {
+                "id": "110011",
+                "name": "110011"
+            },
+            "RAX-AUTH:authenticatedBy": [
+                "APIKEY"
+            ],
+         },
         "serviceCatalog": [
             {
+                "name": "cloudDatabases",
                 "endpoints": [
                     {
                         "publicURL": "https://syd.databases.api.rackspacecloud.com/v1.0/110011",
@@ -29,25 +41,23 @@
                         "tenantId": "110011"
                     }
                 ],
-                "name": "cloudDatabases",
                 "type": "rax:database"
             },
             
-.           
-.            
-.           
+...        
             
             {
+                "name": "cloudDNS",
                 "endpoints": [
                     {
                         "publicURL": "https://dns.api.rackspacecloud.com/v1.0/110011",
                         "tenantId": "110011"
                     }
                 ],
-                "name": "cloudDNS",
                 "type": "rax:dns"
             },
             {
+                "name": "rackCDN",
                 "endpoints": [
                     {
                         "internalURL": "https://global.cdn.api.rackspacecloud.com/v1.0/110011",
@@ -55,25 +65,12 @@
                         "tenantId": "110011"
                     }
                 ],
-                "name": "rackCDN",
+                
                 "type": "rax:cdn"
             }
         ],
-        "token": {
-            "RAX-AUTH:authenticatedBy": [
-                "APIKEY"
-            ],
-            "expires": "2014-11-24T22:05:39.115Z",
-            "id": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-            "tenant": {
-                "id": "110011",
-                "name": "110011"
-            }
-        },
         "user": {
-            "RAX-AUTH:defaultRegion": "ORD",
-            "id": "123456",
-            "name": "jsmith",
+            "id": "123456",           
             "roles": [
                 {
                     "description": "A Role that allows a user access to keystone Service methods",
@@ -86,7 +83,9 @@
                     "id": "3",
                     "name": "identity:user-admin"
                 }
-            ]
+            ],
+            "name": "jsmith",
+            "RAX-AUTH:defaultRegion": "ORD"          
         }
     }
 }

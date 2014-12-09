@@ -1,4 +1,4 @@
-{{
+{
     "storage": {
         "cassandra": {
             "online": false,
