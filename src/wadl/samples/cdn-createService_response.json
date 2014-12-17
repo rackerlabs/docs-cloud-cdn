@@ -1,0 +1,58 @@
+{
+    "name": "mywebsite.com",
+    "domains": [
+                {
+                "domain": "www.mywebsite.com"
+                },
+                {
+                "domain": "blog.mywebsite.com"
+                }
+    ],
+    "origins": [
+                {
+                "origin": "mywebsite.com",
+                "port": 80,
+                "ssl": false,
+                "rules": [
+                
+                ]
+                }
+    ],
+    "restrictions": [
+                     {
+                     "name": "website only",
+                     "rules": [
+                               {
+                               "name": "mywebsite.com",
+                               "http_host": "www.mywebsite.com"
+                }
+            ]
+        }
+    ],
+    "caching": [
+                {
+                "name": "default",
+                "ttl": 3600
+                }
+    ],
+    "status": "failed",
+    "flavor_id": "cdnplus",
+    "errors": [
+               {
+               "message": "An error occurred while connecting to the Akamai API, please try your request again. (Exceeding max number of services: 10)"
+               }
+    ],
+    "links": [
+              "href": "http:\\localhost:8888\v1.0\services\mywebsite.com",
+              "rel": "self"
+              },
+              {
+              "href": "http:\\localhost:8888\v1.0\flavors\cdnplus",
+              "rel": "flavor"
+              },
+              {
+              "href": "mywebsite.com.cdn128.cdn.mywebsite.com",
+              "rel": "access_url"
+        }
+    ]
+}
