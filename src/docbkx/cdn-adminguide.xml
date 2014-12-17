@@ -104,7 +104,7 @@
     <para>The Rackspace CDN architecture includes the following components:</para>
     <itemizedlist>
       <listitem>
-        <para>RESTful WSGI transport layer</para>
+        <para>A RESTful API</para>
       </listitem>
       <listitem>
         <para>The ability to cache publicly accessible resources hosted on a Cloud Server instance,
@@ -241,7 +241,8 @@
       <title>Domain</title>
       <para>A domain represents the domain name through which visitors retrieve content. The
         underlying site may be served through a CDN. A service can have multiple domains. The CDN
-        provider provides the user with the Canonical Name to CNAME their domain to. </para>
+        provider provides the user with a Canonical Name (CName) to specify their domain name as an
+        alias.  </para>
     </section>
     <section xml:id="edgeNode-d1eo1">
       <title>Edge node</title>
@@ -651,6 +652,7 @@
         </tbody>
       </table>
     </section>
+    <!--
     <section xml:id="Limits-d1e1397" xmlns:m="http://www.w3.org/1998/Math/MathML"
       xmlns:html="http://www.w3.org/1999/xhtml">
       <title>Limits</title>
@@ -723,6 +725,7 @@
         </table>
       </section>
     </section>
+    -->
     <section xml:id="commonHeaders">
       <title>Common headers</title>
       <para>The following table describes the common headers used by the API.</para>
@@ -883,8 +886,11 @@
           </tr>
         </tbody>
       </informaltable>
-      <para>This operation is described in the <citetitle>Rackspace CDN Developer
-        Guide</citetitle>.</para>
+      <para>For an example, see the <link
+          xlink:href="http://docs-internal.rackspace.com/cdn/api/v1.0/cdn-devguide/content/GET_getAllServices__services_servicesOperations.html"
+          xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:html="http://www.w3.org/1999/xhtml"
+          >"List all services" operation description</link> in the <citetitle>Rackspace CDN
+          Developer Guide</citetitle>. </para>
     </section>
     <section xml:id="responseCodes-d101e">
       <title>Response codes</title>
@@ -1056,7 +1062,8 @@ Content-Type: application/json
       <glossdef>
         <para>A domain represents the domain name through which visitors retrieve content. The
           underlying site may be served through a CDN. A service can have multiple domains. The CDN
-          provider provides the user with the Canonical Name to CNAME their domain to. </para>
+          provider provides the user with a Canonical Name (CName) to specify their domain name as
+          an alias.  </para>
       </glossdef>
     </glossentry>
     <glossentry xml:id="message-d1e016">

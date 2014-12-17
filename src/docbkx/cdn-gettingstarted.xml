@@ -99,7 +99,7 @@
     <para>The Rackspace CDN architecture includes the following components:</para>
     <itemizedlist>
       <listitem>
-        <para>RESTful WSGI transport layer</para>
+        <para>A RESTful API</para>
       </listitem>
       <listitem>
         <para>The ability to cache publicly accessible resources hosted on a Cloud Server instance,
@@ -773,14 +773,27 @@ Content-Type: application/json
         {
             "origin": "mywebsite.com",
             "port": 80,
-            "ssl": false
+            "ssl": false,
+            "rules": [
+            ]
+        }
+    ],
+    "restrictions": [
+        {
+            "name": "website only",
+            "rules": [
+                {
+                    "name": "mywebsite.com",
+                    "referrer": "www.mywebsite.com"
+                }
+            ]
         }
     ],
     "caching": [
         {
             "name": "default",
             "ttl": 3600
-        },
+        }
         {
             "name": "home",
             "ttl": 17200,
@@ -801,19 +814,8 @@ Content-Type: application/json
                 }
             ]
         }
-    ],
-    "restrictions": [
-        {
-            "name": "website only",
-            "rules": [
-                {
-                    "name": "mywebsite.com",
-                    "referrer": "www.mywebsite.com"
-                }
-            ]
-        }
-    ],
-    "flavor_id": " https://global.cdn.api.rackspacecloud.com/v1.0/flavors/asia"
+    ],    
+    "flavor_id": "asia"
 }'   </programlisting>
       </example>
       <example>
@@ -900,7 +902,7 @@ Content-Type: application/json
             ]
         }
     ],
-    "flavor_id": "https://global.cdn.api.rackspacecloud.com/v1.0/flavors/europe",
+    "flavor_id": "europe",
     "status": "deployed",
     "links": [
         {
@@ -1170,7 +1172,8 @@ Content-Type: application/json
       <glossdef>
         <para>A domain represents the domain name through which visitors retrieve content. The
           underlying site may be served through a CDN. A service can have multiple domains. The CDN
-          provider provides the user with the Canonical Name to CNAME their domain to. </para>
+          provider provides the user with a Canonical Name (CName) to specify their domain name as
+          an alias.</para>
       </glossdef>
     </glossentry>
     <glossentry xml:id="message-d1e016">
