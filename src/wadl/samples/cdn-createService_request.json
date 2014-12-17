@@ -35,18 +35,5 @@
         }
     ],
    
-    "flavor_id": "cdnplus",
-    "links": [
-              "href": "http:\\localhost:8888\v1.0\services\mywebsite.com",
-              "rel": "self"
-              },
-              {
-              "href": "http:\\localhost:8888\v1.0\flavors\cdnplus",
-              "rel": "flavor"
-              },
-              {
-              "href": "mywebsite.com.cdn128.cdn.mywebsite.com",
-              "rel": "access_url"
-        }
-    ]
-}
+    "flavor_id": "cdnplus"
+   }

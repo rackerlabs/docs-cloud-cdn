@@ -478,7 +478,7 @@
 					<wadl:doc xmlns="http://docbook.org/ns/docbook"
 						xml:lang="EN">Specifies that the service has been deployed and is ready to use.</wadl:doc>
 				</param>
--->				
+				
 				<param name="links" style="plain" path="$.links"
 					required="true">
 					<wadl:doc xmlns="http://docbook.org/ns/docbook"
@@ -494,7 +494,7 @@
 					<wadl:doc xmlns="http://docbook.org/ns/docbook"
 						xml:lang="EN">Specifies how the href link provided is related to this resourcer_url. This parameter is generated.</wadl:doc>
 				</param>				
-				
+-->				
 			</representation>
 		</request>
 		<response status="202" xmlns="http://wadl.dev.java.net/2009/02">
