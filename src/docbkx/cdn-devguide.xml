@@ -256,8 +256,13 @@
     </section>
     <section xml:id="flavor-d1eo1">
       <title>Flavor</title>
-      <para>A flavor enables you to decide which CDN features that you want your service to use.
-      </para>
+      <para>A flavor is a configuration option for Rackspace CDN. A flavor enables you to choose
+        from a generic setting that is powered by one or more CDN providers. In the request and
+        response examples for Rackspace CDN, the flavor is referred to with the
+          <code>flavor_id</code> parameter. For this release of Rackspace CDN, the
+          <code>flavor_id</code> value is <code>cdn</code>. The <code>cdn</code> flavor enables your
+        service content to be delivered across the network using the Rackspace CDN partner, Akamai.
+        In the future, Rackspace might offer other flavors.</para>
     </section>
     <section xml:id="Origin-d1eo1">
       <title>Origin</title>
@@ -1250,6 +1255,12 @@
             <td colspan="3">The request method is not supported for this resource.</td>
           </tr>
           <tr>
+            <td colspan="2"><code>Request Entity Too Large</code></td>
+            <td colspan="1">413</td>
+            <td colspan="3">The server is refusing to process a request because the request entity
+              is larger than the server is willing or able to process. </td>
+          </tr>
+          <tr>
             <td colspan="2"><code>Too Many Requests</code></td>
             <td colspan="1">429</td>
             <td colspan="3">Too many requests have been sent in a given amount of time. Pause
@@ -1432,8 +1443,13 @@ Content-Type: application/json
     <glossentry>
       <glossterm>Flavor </glossterm>
       <glossdef>
-        <para>A flavor enables you to decide which CDN features that you want your service to use.
-        </para>
+        <para>A flavor is a configuration option for Rackspace CDN. A flavor enables you to choose
+          from a generic setting that is powered by one or more CDN providers. In the request and
+          response examples for Rackspace CDN, the flavor is referred to with the
+            <code>flavor_id</code> parameter. For this release of Rackspace CDN, the
+            <code>flavor_id</code> value is <code>cdn</code>. The <code>cdn</code> flavor enables
+          your service content to be delivered across the network using the Rackspace CDN partner,
+          Akamai. In the future, Rackspace might offer other flavors.</para>
       </glossdef>
     </glossentry>
     <glossentry>

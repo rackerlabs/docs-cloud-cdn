@@ -1,5 +1,5 @@
 {
-    "id": "akamai_standard",
+    "id": "cdn",
     "limits": [
         {
             "origins": {

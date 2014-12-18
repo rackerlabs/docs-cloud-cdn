@@ -815,7 +815,7 @@ Content-Type: application/json
             ]
         }
     ],    
-    "flavor_id": "asia"
+    "flavor_id": "cdn"
 }'   </programlisting>
       </example>
       <example>
@@ -902,7 +902,7 @@ Content-Type: application/json
             ]
         }
     ],
-    "flavor_id": "europe",
+    "flavor_id": "cdn",
     "status": "deployed",
     "links": [
         {
@@ -962,9 +962,8 @@ Content-Type: application/json </programlisting>
     </section>
     <section xml:id="listFlavors-d1cdn">
       <title>List flavors</title>
-      <para>A flavor is a mapping configuration to the Akamai CDN provider. The operator can decide
-        the flavor names offered and the mapping offered.</para>
-      <para>This operation lists all available flavors.</para>
+      <para>A flavor is a mapping configuration to the Akamai CDN provider. This operation lists all
+        available flavors.</para>
       <example>
         <title>List flavors: Request</title>
         <programlisting language="bash">curl -i -X GET https://global.cdn.api.rackspacecloud.com/v1.0/<emphasis role="bold">yourAccountID</emphasis>/flavors \
@@ -978,7 +977,7 @@ Content-Type: application/json
 
 [
     {
-        "id": "europe",
+        "id": "cdn",
         "limits": {
             "origins": {
                 "min": 1,
@@ -1007,97 +1006,7 @@ Content-Type: application/json
         ],
         "links": [
             {
-                "href": "https://global.cdn.api.rackspacecloud.com/v1.0/flavors/europe",
-                "rel": "self"
-            }
-        ]
-    },
-    {
-        "id": "asia",
-        "limits": {
-            "origins": {
-                "min": 1,
-                "max": 5
-            },
-            "domains": {
-                "min": 1,
-                "max": 5
-            },
-            "caching": {
-                "min": 3600,
-                "max": 604800,
-                "incr": 300
-            }
-        },
-        "providers": [
-            {
-                "provider": "akamai",
-                "links": [
-                    {
-                        "href": "http://www.akamai.com",
-                        "rel": "provider_url"
-                    }
-                ]
-            }
-        ],
-        "links": [
-            {
-                "href": "https://global.cdn.api.rackspacecloud.com/v1.0/flavors/asia",
-                "rel": "self"
-            }
-        ]
-    },
-    {
-        "id": "americas",
-        "limits": {
-            "origins": {
-                "min": 1,
-                "max": 5
-            },
-            "domains": {
-                "min": 1,
-                "max": 5
-            },
-            "caching": {
-                "min": 3600,
-                "max": 604800,
-                "incr": 300
-            }
-        },
-        "providers": [
-            {
-                "provider": "akamai",
-                "links": [
-                    {
-                        "href": "http://www.akamai.com",
-                        "rel": "provider_url"
-                    }
-                ]
-            }
-        ],
-        "links": [
-            {
-                "href": "https://global.cdn.api.rackspacecloud.com/v1.0/flavors/americas",
-                "rel": "self"
-            }
-        ]
-    },
-    {
-        "id": "global",
-        "providers": [
-            {
-                "provider": "akamai",
-                "links": [
-                    {
-                        "href": "http://www.akamai.com",
-                        "rel": "provider_url"
-                    }
-                ]
-            }
-        ],
-        "links": [
-            {
-                "href": "https://global.cdn.api.rackspacecloud.com/v1.0/flavors/global",
+                "href": "https://global.cdn.api.rackspacecloud.com/v1.0/flavors/cdn",
                 "rel": "self"
             }
         ]
@@ -1193,8 +1102,13 @@ Content-Type: application/json
     <glossentry>
       <glossterm>Flavor </glossterm>
       <glossdef>
-        <para>A flavor enables you to decide which CDN features that you want your service to use.
-        </para>
+        <para>A flavor is a configuration option for Rackspace CDN. A flavor enables you to choose
+          from a generic setting that is powered by one or more CDN providers. In the request and
+          response examples for Rackspace CDN, the flavor is referred to with the
+            <code>flavor_id</code> parameter. For this release of Rackspace CDN, the
+            <code>flavor_id</code> value is <code>cdn</code>. The <code>cdn</code> flavor enables
+          your service content to be delivered across the network using the Rackspace CDN partner,
+          Akamai. In the future, Rackspace might offer other flavors.</para>
       </glossdef>
     </glossentry>
     <glossentry>

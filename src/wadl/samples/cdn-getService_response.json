@@ -60,7 +60,7 @@
             ]
         }
     ],
-    "flavor_id": "europe",
+    "flavor_id": "cdn",
     "status": "deployed",
     "links": [
         {

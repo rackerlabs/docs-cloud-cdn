@@ -351,7 +351,7 @@
 				<param name="origin" style="plain" path="$.origins.origin"
 					required="true">
 					<wadl:doc xmlns="http://docbook.org/ns/docbook"
-						xml:lang="EN">Specifies the URl or IP address to pull origin content from.</wadl:doc>
+						xml:lang="EN">Specifies the URL or IP address to pull origin content from.</wadl:doc>
 				</param>
 				<param name="port" style="plain" path="$.origins.port"
 					required="false">
@@ -534,7 +534,7 @@
 				<param name="origin" style="plain" path="$.origins.origin"
 					required="true">
 					<wadl:doc xmlns="http://docbook.org/ns/docbook"
-						xml:lang="EN">Specifies the URl or IP address to pull origin content from.</wadl:doc>
+						xml:lang="EN">Specifies the URL or IP address to pull origin content from.</wadl:doc>
 				</param>
 				<param name="port" style="plain" path="$.origins.port"
 					required="false">
@@ -762,6 +762,26 @@
 						href="../wadl/samples/cdn-patchService_request.json"
 					/>
 				</doc>
+				<param name="origins" style="plain" path="$.origins"
+					required="true">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN">Specifies a list of origin domains or IP addresses where the original assets are stored.</wadl:doc>
+				</param>
+				<param name="origin" style="plain" path="$.origins.origin"
+					required="true">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN">Specifies the URL or IP address to pull origin content from.</wadl:doc>
+				</param>
+				<param name="port" style="plain" path="$.origins.port"
+					required="false">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN">Specifies the port used to access the origin. Defaults to port 80.</wadl:doc>
+				</param>
+				<param name="ssl" style="plain" path="$.origins.ssl"
+					required="false">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN">Uses https to access the origin. Defaults to false.</wadl:doc>
+				</param>
 			</representation>
 		</request>
 		<response status="202" xmlns="http://wadl.dev.java.net/2009/02">

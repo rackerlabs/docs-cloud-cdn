@@ -36,7 +36,7 @@
                 }
     ],
     "status": "failed",
-    "flavor_id": "cdnplus",
+    "flavor_id": "cdn",
     "errors": [
                {
                "message": "An error occurred while connecting to the Akamai API, please try your request again. (Exceeding max number of services: 10)"
@@ -47,7 +47,7 @@
               "rel": "self"
               },
               {
-              "href": "http:\\localhost:8888\v1.0\flavors\cdnplus",
+              "href": "http:\\localhost:8888\v1.0\flavors\cdn",
               "rel": "flavor"
               },
               {

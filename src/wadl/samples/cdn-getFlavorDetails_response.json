@@ -1,5 +1,5 @@
 
-    "id": "akamai_standard",
+    "id": "cdn",
     "limits": [
         "origins": {
             "min": 1,
@@ -28,7 +28,7 @@
     ],
     "links": [
         {
-            "href": "https://global.cdn.api.rackspacecloud.com/v1.0/flavors/akamai_standard",
+            "href": "https://global.cdn.api.rackspacecloud.com/v1.0/flavors/cdn",
             "rel": "self"
         }
     ]
