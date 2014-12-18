@@ -466,7 +466,7 @@
 				<param name="status" style="plain" path="$.status"
 					required="true">
 					<wadl:doc xmlns="http://docbook.org/ns/docbook"
-						xml:lang="EN">Specifies the current status of the service. Status is generated.</wadl:doc>
+						xml:lang="EN">Specifies the current status of the service.</wadl:doc>
 				</param>
 				<param name="in_progress" style="plain" path="$.status.in_progress"
 					required="false">
@@ -482,17 +482,17 @@
 				<param name="links" style="plain" path="$.links"
 					required="true">
 					<wadl:doc xmlns="http://docbook.org/ns/docbook"
-						xml:lang="EN">Specifies the self-navigating JSON document paths. This parameter is generated.</wadl:doc>
+						xml:lang="EN">Specifies the self-navigating JSON document paths.</wadl:doc>
 				</param>
 				<param name="href" style="plain" path="$.links.href"
 					required="true">
 					<wadl:doc xmlns="http://docbook.org/ns/docbook"
-						xml:lang="EN">Specifies the location to access this resource. This parameter is generated.</wadl:doc>
+						xml:lang="EN">Specifies the location to access this resource.</wadl:doc>
 				</param>
 				<param name="rel" style="plain" path="$.links.rel"
 					required="true">
 					<wadl:doc xmlns="http://docbook.org/ns/docbook"
-						xml:lang="EN">Specifies how the href link provided is related to this resourcer_url. This parameter is generated.</wadl:doc>
+						xml:lang="EN">Specifies how the href link provided is related to this resourcer_url.</wadl:doc>
 				</param>				
 -->				
 			</representation>
@@ -649,7 +649,7 @@
 				<param name="status" style="plain" path="$.status"
 					required="true">
 					<wadl:doc xmlns="http://docbook.org/ns/docbook"
-						xml:lang="EN">Specifies the current status of the service. Status is generated.</wadl:doc>
+						xml:lang="EN">Specifies the current status of the service.</wadl:doc>
 				</param>
 				<param name="in_progress" style="plain" path="$.status.in_progress"
 					required="false">
@@ -665,17 +665,17 @@
 				<param name="links" style="plain" path="$.links"
 					required="true">
 					<wadl:doc xmlns="http://docbook.org/ns/docbook"
-						xml:lang="EN">Specifies the self-navigating JSON document paths. This parameter is generated.</wadl:doc>
+						xml:lang="EN">Specifies the self-navigating JSON document paths.</wadl:doc>
 				</param>
 				<param name="href" style="plain" path="$.links.href"
 					required="true">
 					<wadl:doc xmlns="http://docbook.org/ns/docbook"
-						xml:lang="EN">Specifies the location to access this resource. This parameter is generated.</wadl:doc>
+						xml:lang="EN">Specifies the location to access this resource. </wadl:doc>
 				</param>
 				<param name="rel" style="plain" path="$.links.rel"
 					required="true">
 					<wadl:doc xmlns="http://docbook.org/ns/docbook"
-						xml:lang="EN">Specifies how the href link provided is related to this resourcer_url. This parameter is generated.</wadl:doc>
+						xml:lang="EN">Specifies how the href link provided is related to this resourcer_url.</wadl:doc>
 				</param>	
 			</representation>
 		</response>
