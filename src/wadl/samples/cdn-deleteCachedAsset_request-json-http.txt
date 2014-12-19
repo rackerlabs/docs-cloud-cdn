@@ -1,4 +1,4 @@
-DELETE /v1.0/110011/services/serviceName/assets?urlOfAssetToCheck HTTP/1.1
+DELETE /v1.0/110011/services/serviceName/assets?url=//www.myothersite.com HTTP/1.1
 Host: global.cdn.api.rackspacecloud.com
 X-Auth-Token: 0f6e9f63600142f0a970911583522217
 Accept: application/json

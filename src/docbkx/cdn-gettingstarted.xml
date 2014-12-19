@@ -943,35 +943,35 @@ Content-Type: application/json
       </example>
     </section> -->
     <section xml:id="purgeAsset-d1cdn">
-      <title>Purge a cached asset</title>
+      <title>Delete a cached asset</title>
       <para>A service distributes assets across the network. Service assets let you interrogate
         properties about these assets and perform certain actions on them.</para>
-      <para>This operation purges (or removes) the current version of an asset that has been cached
-        at the edge node. </para>
+      <para>This operation deletes the current version of an asset that has been cached at the edge
+        node. </para>
       <example>
-        <title>Purge a cached asset: Request</title>
-        <programlisting language="bash">curl -i -X DELETE https://global.cdn.api.rackspacecloud.com/v1.0/<emphasis role="bold">yourAccountID</emphasis>/services/<emphasis role="bold">yourServiceName</emphasis>/assets?urlOfAssetToPurge \
+        <title>Delete a cached asset: Request</title>
+        <programlisting language="bash">curl -i -X DELETE https://global.cdn.api.rackspacecloud.com/v1.0/<emphasis role="bold">yourAccountID</emphasis>/services/<emphasis role="bold">yourServiceName</emphasis>/assets?url=<replaceable>relativeURLofAssettoDelete</replaceable> \
 -H "X-Auth-Token: <emphasis role="bold">yourAuthToken</emphasis>" \
 -H "Content-type: application/json"</programlisting>
       </example>
       <example>
-        <title>Purge a cached asset: Response</title>
-        <programlisting language="json">HTTP/1.1 200 OK
+        <title>Delete a cached asset: Response</title>
+        <programlisting language="json">HTTP/1.1 202 Accepted
 Content-Type: application/json </programlisting>
       </example>
     </section>
     <section xml:id="listFlavors-d1cdn">
-      <title>List flavors</title>
-      <para>A flavor is a mapping configuration to the Akamai CDN provider. This operation lists all
-        available flavors.</para>
+      <title>Retrieve flavors</title>
+      <para>A flavor is a mapping configuration to the Akamai CDN provider. This operation retrieves
+        a list of all available flavors.</para>
       <example>
-        <title>List flavors: Request</title>
+        <title>Retrieve flavors: Request</title>
         <programlisting language="bash">curl -i -X GET https://global.cdn.api.rackspacecloud.com/v1.0/<emphasis role="bold">yourAccountID</emphasis>/flavors \
 -H "X-Auth-Token: <emphasis role="bold">yourAuthToken</emphasis>" \
 -H "Content-type: application/json" </programlisting>
       </example>
       <example>
-        <title>List flavors: Response</title>
+        <title>Retrieve flavors: Response</title>
         <programlisting language="json">HTTP/1.1 200 OK
 Content-Type: application/json 
 

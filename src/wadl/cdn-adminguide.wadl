@@ -74,10 +74,10 @@
 <!--               Get health check                        -->
 <!--*******************************************************-->
 	<method name="GET" id="getHealthCheck">
-		<wadl:doc xml:lang="EN" title="Perform health check"
+		<wadl:doc xml:lang="EN" title="Retrieve health check"
 			xmlns="http://docbook.org/ns/docbook">
-			<para role="shortdesc">Performs a health check.</para>
-			<para>This operation performs a health check. </para>			
+			<para role="shortdesc">Retrieves a health check.</para>
+			<para>This operation retrieves a health check. </para>			
 		</wadl:doc>
 		<request>
 			<representation mediaType="application/json" >
@@ -116,9 +116,9 @@
 <!--               Get health details                      -->
 <!--*******************************************************-->
 	<method name="GET" id="getHealthDetails">
-		<wadl:doc xml:lang="EN" title="Get health details"
+		<wadl:doc xml:lang="EN" title="Retrieve health details"
 			xmlns="http://docbook.org/ns/docbook">
-			<para role="shortdesc">Gets the health details for a subsystem.</para>
+			<para role="shortdesc">Retrieves the health details for a subsystem.</para>
 			<para>This operation shows whether a subsystem is online or offline. </para>
 					
 		</wadl:doc>
@@ -181,11 +181,12 @@
 					<wadl:doc xmlns="http://docbook.org/ns/docbook"
 						xml:lang="EN">Specifies the name of the flavor. The name must not exceed 64 bytes in length and is limited to unicode, digits, underscores, and hyphens.</wadl:doc>
 				</param>
+				<!--
 				<param name="limits" style="plain" path="$.limits"
 					required="true">
 					<wadl:doc xmlns="http://docbook.org/ns/docbook"
 						xml:lang="EN">Specifies the list of limits to apply to origins, domains, and caching configurations to services using this flavor class.</wadl:doc>
-				</param>
+				</param> 
 				<param name="origins" style="plain" path="$.limits.origins"
 					required="true">
 					<wadl:doc xmlns="http://docbook.org/ns/docbook"
@@ -200,7 +201,7 @@
 					required="true">
 					<wadl:doc xmlns="http://docbook.org/ns/docbook"
 						xml:lang="EN">Specifies the minimum and maximum minute limits to apply to the list of caching TTLs. An <code>incr</code> can be specified to enforce the TTL to be a factor of. <code>Incr</code> defaults to 1. </wadl:doc>
-				</param>
+				</param> -->
 				<param name="providers" style="plain" path="$.providers"
 					required="true">
 					<wadl:doc xmlns="http://docbook.org/ns/docbook"
