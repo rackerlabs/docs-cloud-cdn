@@ -1,37 +1,37 @@
 {
-    "flavors":[
+    "flavors": [
         {
-            "id":"cdn",
-            "limits":{
-                "origins":{
-                    "min":1,
-                    "max":5
+            "id": "cdn",
+            "limits": {
+                "origins": {
+                    "min": 1,
+                    "max": 5
                 },
-                "domains":{
-                    "min":1,
-                    "max":5
+                "domains": {
+                    "min": 1,
+                    "max": 5
                 },
-                "caching":{
-                    "min":3600,
-                    "max":604800,
-                    "incr":300
+                "caching": {
+                    "min": 3600,
+                    "max": 604800,
+                    "incr": 300
                 }
             },
-            "providers":[
+            "providers": [
                 {
-                    "provider":"akamai",
-                    "links":[
+                    "provider": "akamai",
+                    "links": [
                         {
-                            "href":"http://www.akamai.com",
-                            "rel":"provider_url"
+                            "href": "http: //www.akamai.com",
+                            "rel": "provider_url"
                         }
                     ]
                 }
             ],
-            "links":[
+            "links": [
                 {
-                    "href":"https://global.cdn.api.rackspacecloud.com/v1.0/flavors/cdn",
-                    "rel":"self"
+                    "href": "https: //global.cdn.api.rackspacecloud.com/v1.0/flavors/cdn",
+                    "rel": "self"
                 }
             ]
         }
