@@ -4,7 +4,7 @@
             "online": false,
             "links": [
                 {
-                    "href": "https://global.cdn.api.rackspacecloud.com/health/storage/cassandra",
+                    "href": "https://global.cdn.api.rackspacecloud.com/v1.0/110011/health/storage/cassandra",
                     "rel": "self"
                 }
             ]
@@ -16,7 +16,7 @@
             "node": "phx-web-01",
             "links": [
                 {
-                    "href": "https://global.cdn.api.rackspacecloud.com/health/transport/pecan",
+                    "href": "https://global.cdn.api.rackspacecloud.com/v1.0/110011/health/transport/pecan",
                     "rel": "self"
                 }
             ]

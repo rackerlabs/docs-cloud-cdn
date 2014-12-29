@@ -1,25 +1,27 @@
 {
     "name": "mywebsite.com",
     "domains": [
-                {
-                "domain": "www.mywebsite.com"
-                },
-                {
-                "domain": "blog.mywebsite.com"
-                }
+            {
+                "domain": "www.mywebsite.com",
+                "protocol": "http"
+            },
+            {
+                "domain": "blog.mywebsite.com",
+                "protocol": "http"
+            }
     ],
     "origins": [
-                {
+            {
                 "origin": "mywebsite.com",
                 "port": 80,
                 "ssl": false,
                 "rules": [
                 
                 ]
-                }
+            }
     ],
     "restrictions": [
-                     {
+        {
                      "name": "website only",
                      "rules": [
                                {
@@ -43,11 +45,11 @@
                }
     ],
     "links": [
-              "href": "http:\\localhost:8888\v1.0\services\mywebsite.com",
+              "href": "https://global.cdn.api.rackspace.com/v1.0/110011/services/mywebsite.com",
               "rel": "self"
               },
               {
-              "href": "http:\\localhost:8888\v1.0\flavors\cdn",
+              "href": "https://global.cdn.api.rackspace.com/v1.0/110011/flavors/cdn",
               "rel": "flavor"
               },
               {

@@ -2,25 +2,16 @@
     "name": "mywebsite.com",
     "domains": [
         {
-            "domain": "blog.mywebsite.com"
+            "domain": "blog.mywebsite.com",
+            "protocol": "http"
         }
     ],
     "origins": [
         {
             "origin": "mywebsite.com",
             "port": 80,
-            "ssl": false
-        },
-        {
-            "origin": "77.66.55.44",
-            "port": 80,
-            "ssl": false,
-            "rules": [
-                {
-                    "name": "videos",
-                    "request_url": "^/videos/*.m3u"
-                }
-            ]
+                "ssl": false,
+                "rules": []
         }
     ],
     "caching": [
@@ -62,10 +53,15 @@
     ],
     "flavor_id": "cdn",
     "status": "deployed",
+    "errors": [],
     "links": [
         {
-            "href": "https://global.cdn.api.rackspacecloud.com/v1.0/services/mywebsite.com",
+            "href": "https://global.cdn.api.rackspacecloud.com/v1.0/110011/services/mywebsite.com",
             "rel": "self"
+        },
+        {
+              "href": "https://global.cdn.api.rackspacecloud.com/v1.0/110011/flavors/cdn",
+              "rel": "flavor"
         },
         {
             "href": "mywebsite.com",

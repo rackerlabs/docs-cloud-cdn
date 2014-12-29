@@ -325,7 +325,7 @@
 				<param name="name" style="plain" path="$.name"
 					required="true">
 					<wadl:doc xmlns="http://docbook.org/ns/docbook"
-						xml:lang="EN">Specifies a the name of the service.</wadl:doc>
+						xml:lang="EN">Specifies the name of the service.</wadl:doc>
 				</param>
 				<param name="domains" style="plain" path="$.domains"
 					required="true">
@@ -340,7 +340,7 @@
 				<param name="protocol" style="plain" path="$.domains.protocol"
 					required="false">
 					<wadl:doc xmlns="http://docbook.org/ns/docbook"
-						xml:lang="EN">Specifies the protocol used to access the assets on this domain. Only <code>http</code> or <code>https</code> are currently allowed. <code>protocol</code> defaults to <code>http</code>http.</wadl:doc>
+						xml:lang="EN">Specifies the protocol used to access the assets on this domain. Only <code>http</code> or <code>https</code> are currently allowed. <code>protocol</code> defaults to <code>http</code>.</wadl:doc>
 				</param>
 				
 				<param name="origins" style="plain" path="$.origins"
@@ -382,7 +382,7 @@
 				<param name="caching" style="plain" path="$.caching"
 					required="false">
 					<wadl:doc xmlns="http://docbook.org/ns/docbook"
-						xml:lang="EN">Specifies the TTL rules for the assets under this service. Supports wildcard for fine grained control..</wadl:doc>
+						xml:lang="EN">Specifies the TTL rules for the assets under this service. Supports wildcards for fine grained control.</wadl:doc>
 				</param>
 				<param name="name" style="plain" path="$.caching.name"
 					required="true">
@@ -413,7 +413,7 @@
 				<param name="restrictions" style="plain" path="$.restrictions"
 					required="false">
 					<wadl:doc xmlns="http://docbook.org/ns/docbook"
-						xml:lang="EN">Specifies the restrictions defining who can access assets.</wadl:doc>
+						xml:lang="EN">Specifies the restrictions defining who can access assets (content from the CDN cache).</wadl:doc>
 				</param>
 				<param name="name" style="plain" path="$.restrictions.name"
 					required="true">
@@ -523,7 +523,7 @@
 				<param name="protocol" style="plain" path="$.domains.protocol"
 					required="false">
 					<wadl:doc xmlns="http://docbook.org/ns/docbook"
-						xml:lang="EN">Specifies the protocol used to access the assets on this domain. Only <code>http</code> or <code>https</code> are currently allowed. <code>protocol</code> defaults to <code>http</code>http.</wadl:doc>
+						xml:lang="EN">Specifies the protocol used to access the assets on this domain. Only <code>http</code> or <code>https</code> are currently allowed. <code>protocol</code> defaults to <code>http</code>.</wadl:doc>
 				</param>
 				
 				<param name="origins" style="plain" path="$.origins"
@@ -565,7 +565,7 @@
 				<param name="caching" style="plain" path="$.caching"
 					required="false">
 					<wadl:doc xmlns="http://docbook.org/ns/docbook"
-						xml:lang="EN">Specifies the TTL rules for the assets under this service. Supports wildcard for fine grained control..</wadl:doc>
+						xml:lang="EN">Specifies the TTL rules for the assets under this service. Supports wildcards for fine grained control.</wadl:doc>
 				</param>
 				<param name="name" style="plain" path="$.caching.name"
 					required="true">
@@ -596,7 +596,7 @@
 				<param name="restrictions" style="plain" path="$.restrictions"
 					required="false">
 					<wadl:doc xmlns="http://docbook.org/ns/docbook"
-						xml:lang="EN">Specifies the restrictions defining who can access assets.</wadl:doc>
+						xml:lang="EN">Specifies the restrictions defining who can access assets (content from the CDN cache).</wadl:doc>
 				</param>
 				<param name="name" style="plain" path="$.restrictions.name"
 					required="true">
@@ -710,7 +710,7 @@
 			<doc title="Bad Request" xml:lang="EN">Restrictions list present with no name.</doc>			
 		</response>
 		<response status="400" xmlns="http://wadl.dev.java.net/2009/02">
-			<doc title="Bad Request" xml:lang="EN">Attempt to post service with flavor value that is not present in the database.</doc>			
+			<doc title="Bad Request" xml:lang="EN">Attempt to post a service with a flavor_id that is not present in the database.</doc>			
 		</response>
 	</method>
 <!--*******************************************************-->
@@ -794,6 +794,39 @@
 					/>
 				</wadl:doc>
 			</representation>
+		</response>
+		<response status="400" xmlns="http://wadl.dev.java.net/2009/02">
+			<doc title="Bad Request" xml:lang="EN">Invalid JSON.</doc>			
+		</response>
+		<response status="400" xmlns="http://wadl.dev.java.net/2009/02">
+			<doc title="Bad Request" xml:lang="EN">Missing or empty domains list.</doc>			
+		</response>
+		<response status="400" xmlns="http://wadl.dev.java.net/2009/02">
+			<doc title="Bad Request" xml:lang="EN">Maximum length of domains list reached.</doc>			
+		</response>
+		<response status="400" xmlns="http://wadl.dev.java.net/2009/02">
+			<doc title="Bad Request" xml:lang="EN">Invalid entry for domain value (such as [{"domain": "invalid"}]. </doc>			
+		</response>
+		<response status="400" xmlns="http://wadl.dev.java.net/2009/02">
+			<doc title="Bad Request" xml:lang="EN">Missing or empty origins list. </doc>			
+		</response>
+		<response status="400" xmlns="http://wadl.dev.java.net/2009/02">
+			<doc title="Bad Request" xml:lang="EN">Maximum length of origins list reached.</doc>			
+		</response>
+		<response status="400" xmlns="http://wadl.dev.java.net/2009/02">
+			<doc title="Bad Request" xml:lang="EN">Invalid entry for origin value (such as [{"origin": "invalid"}]. </doc>			
+		</response>
+		<response status="400" xmlns="http://wadl.dev.java.net/2009/02">
+			<doc title="Bad Request" xml:lang="EN">Non-boolean value for origins:origin:ssl. </doc>			
+		</response>
+		<response status="400" xmlns="http://wadl.dev.java.net/2009/02">
+			<doc title="Bad Request" xml:lang="EN">Value for origins:origin:port is something other than (80,443). </doc>			
+		</response>
+		<response status="400" xmlns="http://wadl.dev.java.net/2009/02">
+			<doc title="Bad Request" xml:lang="EN">Restrictions list present with no name.</doc>			
+		</response>
+		<response status="400" xmlns="http://wadl.dev.java.net/2009/02">
+			<doc title="Bad Request" xml:lang="EN">Attempt to update the service with a flavor_id that is not present in the database.</doc>			
 		</response>
 	</method>
 	<!--*******************************************************-->

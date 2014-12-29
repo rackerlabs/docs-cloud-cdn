@@ -92,10 +92,9 @@
       point of presence (PoP) servers.  Edge nodes are distributed around the globe, and they cache
       content and serve it directly to customers, thus reducing transit time to a customer's
       location. </para>
-    <para>Rackspace CDN gives Rackspace customers the power to accelerate content on any public
-      resource at Rackspace. It provides a simple API (and soon Control Panel) experience for
-      customers to manage their CDN-enabled domains and the origins and assets associated with those
-      domains. </para>
+    <para>Rackspace CDN gives you the power to accelerate content on any public resource at
+      Rackspace. It provides a simple API (and soon Control Panel) experience for you to manage your
+      CDN-enabled domains and the origins and assets associated with those domains. </para>
     <para>The Rackspace CDN architecture includes the following components:</para>
     <itemizedlist>
       <listitem>
@@ -461,7 +460,7 @@ Content-Type: application/json
                     <para>Specifies the format of the response body. The syntax for the
                         <literal>Accept</literal> header is as follows:</para>
                     <screen><computeroutput>Accept: application/<parameter>format</parameter></computeroutput></screen>
-                    <para><parameter>format</parameter> is <literal>json</literal>.  The default is
+                    <para><parameter>format</parameter> is <literal>json</literal>. The default is
                         <code>json</code>.</para>
                   </listitem>
                   <listitem>
@@ -616,8 +615,7 @@ Content-Type: application/json
         API calls.</para>
       <section xml:id="getYourCredentials-d1e01">
         <title>Get your credentials</title>
-      
-      <para>You must replace the names in the authenticate request examples in this book with your
+        <para>You must replace the names in the authenticate request examples in this book with your
             values:<itemizedlist spacing="compact">
             <listitem>
               <para><emphasis role="bold">yourUserName</emphasis> &mdash; Your common Rackspace
@@ -655,7 +653,7 @@ Content-Type: application/json
               </orderedlist>
             </listitem>
           </itemizedlist></para>
-      <para>You also need your cloud account ID. In the documentation, the account ID is often
+        <para>You also need your cloud account ID. In the documentation, the account ID is often
           referred to as your tenant name or tenant ID (technically, the ID is different from the
           name, but at Rackspace, they are the same thing). Together, three components—your
           username, your API key, and your tenant ID or cloud account ID—form the authentication
@@ -670,10 +668,10 @@ Content-Type: application/json
           example, use <code>https://identity.api.rackspacecloud.com/v2.0/tokens</code>, as shown in
           the following authenticate request example. Note that the <code>v2.0</code> component in
           the URL indicates that you are using version 2.0 of the Cloud Identity API.</para>
-      <example>
-        <title>cURL authenticate request: JSON</title>
-        <?dbfo keep-together="always"?>
-        <screen language="bash"><command>curl</command> <option>-i</option> <option>-d</option> \
+        <example>
+          <title>cURL authenticate request: JSON</title>
+          <?dbfo keep-together="always"?>
+          <screen language="bash"><command>curl</command> <option>-i</option> <option>-d</option> \
 '{
     "auth":
     {
@@ -685,63 +683,62 @@ Content-Type: application/json
 }' \
 <option>-H 'Content-Type: application/json'</option> \
 <uri>'https://identity.api.rackspacecloud.com/v2.0/tokens'</uri></screen>
-      </example>
-      <note>
-        <para>For our UK customers, we recommend using
+        </example>
+        <note>
+          <para>For our UK customers, we recommend using
               <code>'https://lon.identity.api.rackspacecloud.com/v2.0/tokens'</code> for better
             regional performance.</para>
-      </note>
+        </note>
       </section>
       <section xml:id="receiveToken-d10e1">
         <title>Receive the token</title>
-      
-      <para>In the following example JSON authentication response, the ellipsis (...) in the example
-          represents other service endpoints, which are not shown.</para>
-      <example xml:id="Authenticate-Response-JSON-d1e001">
-        <title>Authentication response: JSON</title>
-        <programlisting language="json"><xi:include href="../../src/resources/samples/auth-20.json" parse="text"/></programlisting>
-      </example>
-      <para>The authentication token <code>id</code> is returned with an <code>expires</code>
+        <para>In the following example JSON authentication response, the ellipsis (...) in the
+          example represents other service endpoints, which are not shown.</para>
+        <example xml:id="Authenticate-Response-JSON-d1e001">
+          <title>Authentication response: JSON</title>
+          <programlisting language="json"><xi:include href="../../src/resources/samples/auth-20.json" parse="text"/></programlisting>
+        </example>
+        <para>The authentication token <code>id</code> is returned with an <code>expires</code>
           attribute that specifies when the token expires. Authentication tokens are typically valid
           for 24 hours. Applications should be designed to re-authenticate after receiving a 401
           (Unauthorized) response from a service endpoint. </para>
-      <note>
-        <title>Notes</title>
-        <itemizedlist spacing="compact">
-          <listitem>
-            <para>For all response examples in this guide, the field values that you receive in your
-                responses will vary from those shown here because they are specific to your
+        <note>
+          <title>Notes</title>
+          <itemizedlist spacing="compact">
+            <listitem>
+              <para>For all response examples in this guide, the field values that you receive in
+                your responses will vary from those shown here because they are specific to your
                 account.</para>
-          </listitem>
-          <listitem>
-            <para>The information shown in the preceding authentication response example above is
+            </listitem>
+            <listitem>
+              <para>The information shown in the preceding authentication response example above is
                 for US-based accounts. If you authenticate against the UK-endpoint for
                 authentication, you will see the service catalog information for UK-based
                 accounts.</para>
-          </listitem>
-          <listitem>
+            </listitem>
+            <listitem>
               <para>Remember to supply your authentication token wherever you see the field
                   <emphasis role="bold">yourAuthToken</emphasis> in the examples in this
                 guide.</para>
-          </listitem>
-          <listitem>
-            <para> The <code>expires</code> attribute denotes the time after which the token
+            </listitem>
+            <listitem>
+              <para> The <code>expires</code> attribute denotes the time after which the token
                 automatically becomes invalid. A token might be manually revoked before the time
                 identified by the <code>expires</code> attribute; <code>expires</code> predicts a
                 token's maximum possible lifespan but does not guarantee that it will reach that
                 lifespan. Clients are encouraged to cache a token until it expires.</para>
-          </listitem>
-        </itemizedlist>
-      </note>
-      <para>The <code>publicURL</code> endpoints for <code>raxcdn</code> (for example
-          <code>https://global.cdn.api.rackspacecloud.com/v1.0/110011</code>) are also returned in
-        the response. </para>
-      <para>Your account ID number is located after the final backslash (/) in the
+            </listitem>
+          </itemizedlist>
+        </note>
+        <para>The <code>publicURL</code> endpoints for <code>raxcdn</code> (for example
+            <code>https://global.cdn.api.rackspacecloud.com/v1.0/110011</code>) are also returned in
+          the response. </para>
+        <para>Your account ID number is located after the final backslash (/) in the
             <code>publicURL</code> field. In this example, you can see that the account ID is
           110011. You need to specify your account ID on most of the Rackspace CDN API calls,
           wherever you see the field <emphasis role="bold">yourAccountID</emphasis> specified in the
           examples in this guide.</para>
-      <para>After authentication, you can use cURL to perform &GET;, &DELETE;,
+        <para>After authentication, you can use cURL to perform &GET;, &DELETE;,
             <command>PATCH</command>, and &POST; requests for the Rackspace CDN API.</para>
       </section>
     </section>
@@ -751,7 +748,7 @@ Content-Type: application/json
         as a website. To create a service, issue a <command>POST</command> request and provide a
         JSON body with the required attributes for the new service. (Each of these attributes is
         described in the <citetitle>Rackspace CDN Developer Guide</citetitle> in the create service
-        operation description.)  </para>
+        operation description.) </para>
       <para>Following are examples of a create service request and response. </para>
       <example>
         <title>Create a service: Request</title>
@@ -906,7 +903,7 @@ Content-Type: application/json
     "status": "deployed",
     "links": [
         {
-            "href": "https://global.cdn.api.rackspacecloud.com/v1.0/services/mywebsite.com",
+            "href": "https://global.cdn.api.rackspacecloud.com/v1.0/<emphasis role="bold">yourAccountID</emphasis>/services/mywebsite.com",
             "rel": "self"
         },
         {
@@ -1006,7 +1003,7 @@ Content-Type: application/json
         ],
         "links": [
             {
-                "href": "https://global.cdn.api.rackspacecloud.com/v1.0/flavors/cdn",
+                "href": "https://global.cdn.api.rackspacecloud.com/v1.0/<emphasis role="bold">yourAccountID</emphasis>/flavors/cdn",
                 "rel": "self"
             }
         ]

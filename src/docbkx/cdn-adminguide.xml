@@ -34,7 +34,7 @@
 <book xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink"
   xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:svg="http://www.w3.org/2000/svg" version="5.0"
   xml:id="cdn-adminguide" status="DRAFT ">
-  <?rax title.font.size="35px" subtitle.font.size="20px"?> 
+  <?rax title.font.size="35px" subtitle.font.size="20px"?>
   <title>Rackspace CDN Developer Guide for Service Management</title>
   <?rax status.bar.text.font.size="40px"
      status.bar.text="Early Access - Draft"
@@ -47,8 +47,7 @@
     </copyright>
     <releaseinfo>API v1.0 Early Access</releaseinfo>
     <productname>Rackspace CDN</productname>
-    <pubdate xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:html="http://www.w3.org/1999/xhtml"
-      ></pubdate>
+    <pubdate xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:html="http://www.w3.org/1999/xhtml"/>
     <legalnotice role="rs-api" xmlns:m="http://www.w3.org/1998/Math/MathML"
       xmlns:html="http://www.w3.org/1999/xhtml">
       <annotation>
@@ -97,10 +96,9 @@
       points of presence (PoP) servers.  Edge nodes are distributed around the globe, and they cache
       content and serve it directly to customers, thus reducing transit time to a customer's
       location. </para>
-    <para>Rackspace CDN gives Rackspace customers the power to accelerate content on any public
-      resource at Rackspace. It provides a simple API (and soon Control Panel) experience for
-      customers to manage their CDN-enabled domains and the origins and assets associated with those
-      domains. </para>
+    <para>Rackspace CDN gives you the power to accelerate content on any public resource at
+      Rackspace. It provides a simple API (and soon Control Panel) experience for you to manage your
+      CDN-enabled domains and the origins and assets associated with those domains.</para>
     <para>The Rackspace CDN architecture includes the following components:</para>
     <itemizedlist>
       <listitem>
@@ -220,12 +218,6 @@
     <title>Concepts and terminology</title>
     <para>To use the Rackspace CDN API effectively, you should understand several key
       concepts:</para>
-    <section xml:id="cachingRule-d1eo1">
-      <title>Caching rule</title>
-      <para>A caching rule provides you with fine-grained control over the time-to-live (TTL) of an
-        object. When the TTL expires for an object, the edge node pulls the object from the origin
-        again.</para>
-    </section>
     <section xml:id="CDN-d1eo1">
       <title>Content delivery network</title>
       <para>A content delivery network (CDN) is a system of multiple computers that contains copies
@@ -234,15 +226,15 @@
         components, to media such as videos, ads, and interactive experiences.  CDNs decrease the
         load time of these assets by caching them on edge servers, also called points of presence
         (PoPs).  Edge servers are distributed around the globe, meaning requests only travel to a
-        local location to grab assets, rather than to and from a datacenter based far from the end
+        local location to grab assets, rather than to and from a data center based far from the end
         user. </para>
     </section>
-    <section xml:id="domain-d1eo1">
-      <title>Domain</title>
-      <para>A domain represents the domain name through which visitors retrieve content. The
-        underlying site may be served through a CDN. A service can have multiple domains. The CDN
-        provider provides the user with a Canonical Name (CName) to specify their domain name as an
-        alias.  </para>
+    <section xml:id="pointOfPresence-d1eo1">
+      <title>Point of presence</title>
+      <para>A point of presence (PoP) is the point at which two or more different networks or
+        communication devices build a connection with each other. PoP mainly refers to an access
+        point, location, or facility that connects to and helps other devices establish a connection
+        with the Internet. </para>
     </section>
     <section xml:id="edgeNode-d1eo1">
       <title>Edge node</title>
@@ -254,6 +246,18 @@
       <title>Edge server</title>
       <para>An edge server is the same as an edge node. </para>
     </section>
+    <section xml:id="domain-d1eo1">
+      <title>Domain</title>
+      <para>A domain represents the domain name through which visitors retrieve content. The
+        underlying site might be served through a CDN. A service can have multiple domains. The CDN
+        provider provides the user with a Canonical Name (CName) to specify their domain name as an
+        alias.</para>
+    </section>
+    <section xml:id="Origin-d1eo1">
+      <title>Origin</title>
+      <para>An origin is an address (IP or domain) from which the CDN provider pulls content. A
+        service can have multiple origins.</para>
+    </section>
     <section xml:id="flavor-d1eo1">
       <title>Flavor</title>
       <para>A flavor is a configuration option for Rackspace CDN. A flavor enables you to choose
@@ -263,29 +267,6 @@
           <code>flavor_id</code> value is <code>cdn</code>. The <code>cdn</code> flavor enables your
         service content to be delivered across the network using the Rackspace CDN partner, Akamai.
         In the future, Rackspace might offer other flavors.</para>
-    </section>
-    <section xml:id="Origin-d1eo1">
-      <title>Origin</title>
-      <para>An origin is an address (ip or domain) from which the CDN provider pulls content. A
-        service can have multiple origins.</para>
-    </section>
-    <section xml:id="pointOfPresence-d1eo1">
-      <title>Point of presence</title>
-      <para>A point of presence (PoP) is the point at which two or more different networks or
-        communication devices build a connection with each other. PoP mainly refers to an access
-        point, location, or facility that connects to and helps other devices establish a connection
-        with the Internet. </para>
-    </section>
-    <section xml:id="purge-d1eo1">
-      <title>Purge</title>
-      <para>Purging removes content from the edge servers - thus invalidating the content - so that
-        it can be refreshed from your origin servers.</para>
-    </section>
-    <section xml:id="restriction-d1eo1">
-      <title>Restriction</title>
-      <para>A restriction enables you to define rules about who can or cannot access content from
-        the cache. Examples of a restriction are allowing requests only from certain domains,
-        geographies, or IP addresses.</para>
     </section>
     <section xml:id="service-d1eo1">
       <title>Service</title>
@@ -297,13 +278,30 @@
       <para>The status indicates the current state of the service. The time it takes for a service
         configuration to be distributed amongst a CDN provider cache can vary. </para>
     </section>
+    <section xml:id="purge-d1eo1">
+      <title>Purge</title>
+      <para>Purging removes content from the edge servers - thus invalidating the content - so that
+        it can be refreshed from your origin servers.</para>
+    </section>
+    <section xml:id="cachingRule-d1eo1">
+      <title>Caching rule</title>
+      <para>A caching rule provides you with fine-grained control over the time-to-live (TTL) of an
+        object. When the TTL expires for an object, the edge node pulls the object from the origin
+        again.</para>
+    </section>
+    <section xml:id="restriction-d1eo1">
+      <title>Restriction</title>
+      <para>A restriction enables you to define rules about who can or cannot access content from
+        the cache. Examples of a restriction are allowing requests only from certain domains,
+        geographies, or IP addresses.</para>
+    </section>
   </chapter>
   <chapter xml:id="generalAPIInfo-d1eo1">
     <title>General API information</title>
     <para xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:html="http://www.w3.org/1999/xhtml">The
       Rackspace CDN API is implemented using a RESTful web service interface. Like other Rackspace
-      services,  Rackspace CDN shares a common token-based authentication system that allows
-      seamless access between products and services.</para>
+      services, Rackspace CDN shares a common token-based authentication system that allows seamless
+      access between products and services.</para>
     <para xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:html="http://www.w3.org/1999/xhtml">You
       can access the functions of the public Rackspace CDN API on behalf of a customer. The
       Rackspace CDN API includes operations for managing features of the public API. </para>
@@ -1074,7 +1072,7 @@ Content-Type: application/json
         <para>A domain represents the domain name through which visitors retrieve content. The
           underlying site may be served through a CDN. A service can have multiple domains. The CDN
           provider provides the user with a Canonical Name (CName) to specify their domain name as
-          an alias.  </para>
+          an alias. </para>
       </glossdef>
     </glossentry>
     <glossentry xml:id="message-d1e016">

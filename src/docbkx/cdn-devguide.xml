@@ -119,10 +119,9 @@
       point of presence (PoP) servers.  Edge nodes are distributed around the globe, and they cache
       content and serve it directly to customers, thus reducing transit time to a customer's
       location. </para>
-    <para>Rackspace CDN gives Rackspace customers the power to accelerate content on any public
-      resource at Rackspace. It provides a simple API (and soon Control Panel) experience for
-      customers to manage their CDN-enabled domains and the origins and assets associated with those
-      domains. </para>
+    <para>Rackspace CDN gives you the power to accelerate content on any public resource at
+      Rackspace. It provides a simple API (and soon Control Panel) experience for you to manage your
+      CDN-enabled domains and the origins and assets associated with those domains. </para>
     <para>The Rackspace CDN architecture includes the following components:</para>
     <itemizedlist>
       <listitem>
@@ -141,9 +140,9 @@
       </listitem>
     </itemizedlist>
     <para>In addition to this guide, you will find the <citetitle>Rackspace CDN Getting Started
-        Guide</citetitle>, which explains how to start using the API,  at <link
+        Guide</citetitle>, which explains how to start using the API, at <link
         xlink:href="http://docs.rackspace.com/" xmlns:m="http://www.w3.org/1998/Math/MathML"
-        xmlns:html="http://www.w3.org/1999/xhtml">http://docs.rackspace.com/</link>.  </para>
+        xmlns:html="http://www.w3.org/1999/xhtml">http://docs.rackspace.com/</link>. </para>
     <section xml:id="Intended_Audience-d1e166">
       <title>Intended audience</title>
       <para>This document is intended for software developers who want to develop applications that
@@ -220,12 +219,6 @@
     <title>Concepts and terminology</title>
     <para>To use the Rackspace CDN API effectively, you should understand several key
       concepts:</para>
-    <section xml:id="cachingRule-d1eo1">
-      <title>Caching rule</title>
-      <para>A caching rule provides you with fine-grained control over the time-to-live (TTL) of an
-        object. When the TTL expires for an object, the edge node pulls the object from the origin
-        again.</para>
-    </section>
     <section xml:id="CDN-d1eo1">
       <title>Content delivery network</title>
       <para>A content delivery network (CDN) is a system of multiple computers that contains copies
@@ -237,12 +230,12 @@
         local location to grab assets, rather than to and from a data center based far from the end
         user. </para>
     </section>
-    <section xml:id="domain-d1eo1">
-      <title>Domain</title>
-      <para>A domain represents the domain name through which visitors retrieve content. The
-        underlying site might be served through a CDN. A service can have multiple domains. The CDN
-        provider provides the user with a Canonical Name (CName) to specify their domain name as an
-        alias.</para>
+    <section xml:id="pointOfPresence-d1eo1">
+      <title>Point of presence</title>
+      <para>A point of presence (PoP) is the point at which two or more different networks or
+        communication devices build a connection with each other. PoP mainly refers to an access
+        point, location, or facility that connects to and helps other devices establish a connection
+        with the Internet. </para>
     </section>
     <section xml:id="edgeNode-d1eo1">
       <title>Edge node</title>
@@ -254,6 +247,18 @@
       <title>Edge server</title>
       <para>An edge server is the same as an edge node. </para>
     </section>
+    <section xml:id="domain-d1eo1">
+      <title>Domain</title>
+      <para>A domain represents the domain name through which visitors retrieve content. The
+        underlying site might be served through a CDN. A service can have multiple domains. The CDN
+        provider provides the user with a Canonical Name (CName) to specify their domain name as an
+        alias.</para>
+    </section>
+    <section xml:id="Origin-d1eo1">
+      <title>Origin</title>
+      <para>An origin is an address (IP or domain) from which the CDN provider pulls content. A
+        service can have multiple origins.</para>
+    </section>
     <section xml:id="flavor-d1eo1">
       <title>Flavor</title>
       <para>A flavor is a configuration option for Rackspace CDN. A flavor enables you to choose
@@ -264,29 +269,6 @@
         service content to be delivered across the network using the Rackspace CDN partner, Akamai.
         In the future, Rackspace might offer other flavors.</para>
     </section>
-    <section xml:id="Origin-d1eo1">
-      <title>Origin</title>
-      <para>An origin is an address (IP or domain) from which the CDN provider pulls content. A
-        service can have multiple origins.</para>
-    </section>
-    <section xml:id="pointOfPresence-d1eo1">
-      <title>Point of presence</title>
-      <para>A point of presence (PoP) is the point at which two or more different networks or
-        communication devices build a connection with each other. PoP mainly refers to an access
-        point, location, or facility that connects to and helps other devices establish a connection
-        with the Internet. </para>
-    </section>
-    <section xml:id="purge-d1eo1">
-      <title>Purge</title>
-      <para>Purging removes content from the edge servers - thus invalidating the content - so that
-        it can be refreshed from your origin servers.</para>
-    </section>
-    <section xml:id="restriction-d1eo1">
-      <title>Restriction</title>
-      <para>A restriction enables you to define rules about who can or cannot access content from
-        the cache. Examples of a restriction are allowing requests only from certain domains,
-        geographies, or IP addresses.</para>
-    </section>
     <section xml:id="service-d1eo1">
       <title>Service</title>
       <para>A service represents your application that has its content cached to the edge
@@ -296,6 +278,23 @@
       <title>Status</title>
       <para>The status indicates the current state of the service. The time it takes for a service
         configuration to be distributed amongst a CDN provider cache can vary. </para>
+    </section>
+    <section xml:id="purge-d1eo1">
+      <title>Purge</title>
+      <para>Purging removes content from the edge servers - thus invalidating the content - so that
+        it can be refreshed from your origin servers.</para>
+    </section>
+    <section xml:id="cachingRule-d1eo1">
+      <title>Caching rule</title>
+      <para>A caching rule provides you with fine-grained control over the time-to-live (TTL) of an
+        object. When the TTL expires for an object, the edge node pulls the object from the origin
+        again.</para>
+    </section>
+    <section xml:id="restriction-d1eo1">
+      <title>Restriction</title>
+      <para>A restriction enables you to define rules about who can or cannot access content from
+        the cache. Examples of a restriction are allowing requests only from certain domains,
+        geographies, or IP addresses.</para>
     </section>
   </chapter>
   <chapter xml:id="generalAPIInfo-d1eo1">
@@ -700,7 +699,7 @@
         Cloud customers to specify which account users of their Cloud account have access to which
         Rackspace CDN API service capabilities, based on roles defined by Rackspace (see <xref
           linkend="RBAC_product_roles_table"/>). The permissions to perform certain operations in
-        the Rackspace CDN API – create, read, update, delete – are assigned to specific roles.  The
+        the Rackspace CDN API – create, read, update, delete – are assigned to specific roles. The
         Cloud account owner user assigns these roles, either global (multiproduct) or
         product-specific, to account users. </para>
       <para>For more information about RBAC, see the <link
@@ -858,13 +857,13 @@
         returned by the authentication response. For example, in <xref
           linkend="auth-response-example-json"/> the <code>publicURL</code> field for
           <code>rackCDN</code> is <code>https://global.cdn.api.rackspacecloud.com/v1.0/110011</code>
-        and  the account ID is <emphasis role="bold">110011</emphasis>. </para>
+        and the account ID is <emphasis role="bold">110011</emphasis>. </para>
       <note>
         <para>The account ID from Cloud Identity is the same as the project ID given in the
             <code>X-Project-Id</code> header in Rackspace CDN. (You might also see the account ID or
           project ID referred to as the tenant ID.)</para>
       </note>
-<!--      <remark> I am hiding information. It it was the previous version of this info prior to the info above based on how repose handles this in Rackspace CDN. </remark>
+      <!--      <remark> I am hiding information. It it was the previous version of this info prior to the info above based on how repose handles this in Rackspace CDN. </remark>
       <para>The service catalog returned in the authentication response (<xref
           linkend="auth-response-example-json"/>) specifies the correct service access endpoint for
         your account to use to access Rackspace CDN. You can copy the endpoint directly from the
@@ -945,8 +944,7 @@
         </tbody>
       </table>
     </section>
-    
-<!--    <section xml:id="Limits-d1e1397" xmlns:m="http://www.w3.org/1998/Math/MathML"
+    <!--    <section xml:id="Limits-d1e1397" xmlns:m="http://www.w3.org/1998/Math/MathML"
       xmlns:html="http://www.w3.org/1999/xhtml">
       <title>Limits</title>
       <remark>Are there any limits that should be documented?</remark>
@@ -1178,9 +1176,10 @@
           </tr>
         </tbody>
       </informaltable>
-      <para>For an example, see the <link xlink:href="http://docs-internal.rackspace.com/cdn/api/v1.0/cdn-devguide/content/GET_getAllServices__services_servicesOperations.html"
+      <para>For an example, see the <link
+          xlink:href="http://docs-internal.rackspace.com/cdn/api/v1.0/cdn-devguide/content/GET_getAllServices__services_servicesOperations.html"
           xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:html="http://www.w3.org/1999/xhtml"
-        >"Retrieve all services" operation description</link>. </para>
+          >"Retrieve all services" operation description</link>. </para>
     </section>
     <section xml:id="responseCodes-d101e">
       <title>Response codes</title>
@@ -1354,7 +1353,7 @@ Content-Type: application/json
     </section> -->
     <section xml:id="flavorsOperations">
       <title>Flavors</title>
-      <para>A flavor is a mapping configuration to a CDN provider.  The operator can decide the
+      <para>A flavor is a mapping configuration to a CDN provider. The operator can decide the
         flavor names offered and the mapping to the type of service offered. </para>
       <para>The section describes operations related to flavors.</para>
       <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
