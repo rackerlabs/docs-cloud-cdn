@@ -1267,10 +1267,16 @@
               limiting.)</td>
           </tr>
           <tr>
+            <td colspan="2"><code>Internal Server Error</code></td>
+            <td colspan="1">500</td>
+            <td colspan="3">The service encountered an unexpected condition that prevented it from
+              fulfilling the request.</td>
+          </tr>
+          <tr>
             <td colspan="2"><code>Service Unavailable</code></td>
             <td colspan="1">503</td>
-            <td colspan="3">The service is temporarily unavailable (for example, for scheduled
-              platform maintenance). Try again later.</td>
+            <td colspan="3">The service is currently unable to handle the request due to a temporary
+              overloading or maintenance. This is a temporary condition. Try again later.</td>
           </tr>
         </tbody>
       </informaltable>

@@ -355,6 +355,12 @@
               limiting.)</td>
           </tr>
           <tr>
+            <td colspan="2"><code>Internal Server Error</code></td>
+            <td colspan="1">500</td>
+            <td colspan="3">The service encountered an unexpected condition that prevented it from
+              fulfilling the request.</td>
+          </tr>
+          <tr>
             <td colspan="2"><code>Service Unavailable</code></td>
             <td colspan="1">503</td>
             <td colspan="3">The service is temporarily unavailable (for example, for scheduled
@@ -750,6 +756,7 @@ Content-Type: application/json
         described in the <citetitle>Rackspace CDN Developer Guide</citetitle> in the create service
         operation description.) </para>
       <para>Following are examples of a create service request and response. </para>
+      
       <example>
         <title>Create a service: Request</title>
         <programlisting language="bash">curl -i -X POST https://global.cdn.api.rackspacecloud.com/v1.0/<emphasis role="bold">yourAccountID</emphasis>/services \
@@ -815,11 +822,70 @@ Content-Type: application/json
     "flavor_id": "cdn"
 }'   </programlisting>
       </example>
+      
       <example>
         <title>Create a service: Response</title>
         <programlisting language="json">HTTP/1.1 202 Accepted
-Content-Type: application/json 
-Location: https://global.cdn.api.rackspacecloud.com/v1.0/services/mywebsite      </programlisting>
+ {
+    "name": "mywebsite.com",
+    "domains": [
+            {
+                "domain": "www.mywebsite.com",
+                "protocol": "http"
+            },
+            {
+                "domain": "blog.mywebsite.com",
+                "protocol": "http"
+            }
+    ],
+    "origins": [
+            {
+                "origin": "mywebsite.com",
+                "port": 80,
+                "ssl": false,
+                "rules": [
+                
+                ]
+            }
+    ],
+    "restrictions": [
+        {
+                     "name": "website only",
+                     "rules": [
+                               {
+                               "name": "mywebsite.com",
+                               "http_host": "www.mywebsite.com"
+                }
+            ]
+        }
+    ],
+    "caching": [
+                {
+                "name": "default",
+                "ttl": 3600
+                }
+    ],
+    "status": "failed",
+    "flavor_id": "cdn",
+    "errors": [
+               {
+               "message": "An error occurred while connecting to the Akamai API, please try your request again. (Exceeding max number of services: 10)"
+               }
+    ],
+    "links": [
+              "href": "https://global.cdn.api.rackspace.com/v1.0/<emphasis role="bold">yourAccountID</emphasis>/services/mywebsite.com",
+              "rel": "self"
+              },
+              {
+              "href": "https://global.cdn.api.rackspace.com/v1.0/<emphasis role="bold">yourAccountID</emphasis>/flavors/cdn",
+              "rel": "flavor"
+              },
+              {
+              "href": "mywebsite.com.cdn128.cdn.mywebsite.com",
+              "rel": "access_url"
+        }
+    ]
+}    </programlisting>
       </example>
     </section>
     <section xml:id="listService-d1cdn">
@@ -834,21 +900,23 @@ Location: https://global.cdn.api.rackspacecloud.com/v1.0/services/mywebsite     
       </example>
       <example>
         <title>Retrieve a service: Response</title>
-        <programlisting language="json">HTTP/1.1 200 Accepted
+        <programlisting language="json">HTTP/1.1 200 OK
 Content-Type: application/json 
    
 {
     "name": "mywebsite.com",
     "domains": [
         {
-            "domain": "blog.mywebsite.com"
+            "domain": "blog.mywebsite.com",
+            "protocol": "http"                 
         }
     ],
     "origins": [
         {
             "origin": "mywebsite.com",
             "port": 80,
-            "ssl": false
+            "ssl": false,
+             "rules": []                 
         },
         {
             "origin": "77.66.55.44",
@@ -901,11 +969,15 @@ Content-Type: application/json
     ],
     "flavor_id": "cdn",
     "status": "deployed",
+    "errors": [],                 
     "links": [
         {
             "href": "https://global.cdn.api.rackspacecloud.com/v1.0/<emphasis role="bold">yourAccountID</emphasis>/services/mywebsite.com",
             "rel": "self"
         },
+        {   "href": "https://global.cdn.api.rackspacecloud.com/v1.0/<emphasis role="bold">yourAccountID</emphasis>/flavors/cdn",
+            "rel": "flavor"
+        },                                  
         {
             "href": "mywebsite.com",
             "rel": "access_url"
@@ -953,8 +1025,7 @@ Content-Type: application/json
       </example>
       <example>
         <title>Delete a cached asset: Response</title>
-        <programlisting language="json">HTTP/1.1 202 Accepted
-Content-Type: application/json </programlisting>
+        <programlisting language="json">HTTP/1.1 202 Accepted</programlisting>
       </example>
     </section>
     <section xml:id="listFlavors-d1cdn">
@@ -972,24 +1043,10 @@ Content-Type: application/json </programlisting>
         <programlisting language="json">HTTP/1.1 200 OK
 Content-Type: application/json 
 
-[
+{     
+  "flavors": [                 
     {
         "id": "cdn",
-        "limits": {
-            "origins": {
-                "min": 1,
-                "max": 5
-            },
-            "domains": {
-                "min": 1,
-                "max": 5
-            },
-            "caching": {
-                "min": 3600,
-                "max": 604800,
-                "incr": 300
-            }
-        },
         "providers": [
             {
                 "provider": "akamai",

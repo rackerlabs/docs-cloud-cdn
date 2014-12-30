@@ -1,2 +1,2 @@
-HTTP/1.0 503 Service Unavailable
+HTTP/1.1 503 Service Unavailable
 Content-Type: application/json

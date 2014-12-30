@@ -228,7 +228,26 @@
 					<xsdxt:code
 						href="../wadl/samples/cdn-postFlavors_response-json-http.txt"
 					/>
+					<xsdxt:code
+						href="../wadl/samples/cdn-postFlavors_response.json"
+					/>
 				</wadl:doc>
+				<param name="id" style="plain" path="$.id">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN">Specifies the name of the flavor. The name must not exceed 64 bytes in length and is limited to unicode, digits, underscores, and hyphens.</wadl:doc>
+				</param>
+				<param name="providers" style="plain" path="$.providers">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN">Specifies the list of providers mapped to this flavor class.</wadl:doc>
+				</param>
+				<param name="provider" style="plain" path="$.providers.provider">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN">Specifies the name of the provider. The name must not exceed 64 bytes in length and is limited to unicode, digits, underscores, and hyphens.</wadl:doc>
+				</param>
+				<param name="links" style="plain" path="$.providers.links">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN">Specifices a list with a <code>href</code> where <code>rel</code> is <code>provider_url</code>. Rackspace CDN ignores all entries in the list except the <code>provider_url</code>.</wadl:doc>
+				</param>
 			</representation>
 		</response>
 		<response status="400" xmlns="http://wadl.dev.java.net/2009/02">
