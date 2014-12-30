@@ -1,0 +1,14 @@
+{
+    "id": "cdn",
+    "providers": [
+        {
+            "provider": "akamai",
+            "links": [
+                {
+                    "href": "http://www.akamai.com",
+                    "rel": "provider_url"
+                }
+            ]
+        }
+    ]
+}
