@@ -6,7 +6,7 @@
     xmlns:svg="http://www.w3.org/2000/svg"
     version="5.0" 
     xml:id="cdn-releasenotes" 
-    status="DRAFT">
+    status="">
   <title>Rackspace CDN Release Notes</title>
     <?rax status.bar.text.font.size="40px"
      status.bar.text="Early Access - Draft"
@@ -32,7 +32,7 @@
     </abstract>
     <revhistory>
       <revision>
-        <date>2015-01-01</date>
+        <date>2015-01-07</date>
         <revdescription>
           <para>Initial Early Access (EA) release.</para>
         </revdescription>
@@ -52,8 +52,9 @@
   <preface xml:id="preface">
     <title>Preface</title>
     <para>This document describes new features and changes for the Rackspace CDN API. </para>
-    <para>For detailed information about the Rackspace CDN API, see the following documentation at
-        <link xlink:href="http://docs.rackspace.com/">http://docs.rackspace.com/</link>:</para>
+    <para>For detailed information about the Rackspace CDN API during Early Access, see the
+      following documentation at <link xlink:href="http://docs-internal.rackspace.com/"
+        >http://docs-internal.rackspace.com/</link>:</para>
     <itemizedlist spacing="compact">
       <listitem>
         <para><citetitle>Rackspace CDN Getting Started Guide</citetitle></para>
@@ -72,8 +73,8 @@
       recent changes are described in the following table:</para>
     <?rax revhistory?>
   </chapter>
-  <chapter xml:id="Jan01">
-    <title>January 01, 2015</title>
+  <chapter xml:id="Jan07">
+    <title>January 07, 2015</title>
     <para>This release is the initial Early Access (EA) release of the Rackspace CDN API.</para>
   </chapter>
 </book>

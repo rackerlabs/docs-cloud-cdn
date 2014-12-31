@@ -814,11 +814,11 @@
         <tbody>
           <tr>
             <td>yyyy</td>
-            <td>Four-digit for the year</td>
+            <td>Four-digit year</td>
           </tr>
           <tr>
             <td>MM</td>
-            <td>Two-digit for the month</td>
+            <td>Two-digit month</td>
           </tr>
           <tr>
             <td>dd</td>

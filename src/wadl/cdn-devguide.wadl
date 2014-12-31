@@ -660,9 +660,9 @@
 				<wadl:doc xmlns="http://docbook.org/ns/docbook"
 					xml:lang="EN">
 					<xsdxt:code href="../wadl/samples/cdn-createService_response-json-http.txt"/>
-					<xsdxt:code href="../wadl/samples/cdn-createService_response.json"/>
+			<!--		<xsdxt:code href="../wadl/samples/cdn-createService_response.json"/> -->
 				</wadl:doc>
-				<param name="name" style="plain" path="$.name">
+<!--				<param name="name" style="plain" path="$.name">
 					<wadl:doc xmlns="http://docbook.org/ns/docbook"
 						xml:lang="EN">Specifies the name of the service.</wadl:doc>
 				</param>
@@ -752,7 +752,7 @@
 				<param name="referrer" style="plain" path="$.restrictions.rules.referrer">
 					<wadl:doc xmlns="http://docbook.org/ns/docbook"
 						xml:lang="EN">Specifies the http host that requests must come from.</wadl:doc>
-				</param>				
+				</param>	-->			
 				
 				<!--			<param name="request_url" style="plain" path="$.restrictions.rules.request_url">
 					<wadl:doc xmlns="http://docbook.org/ns/docbook"
@@ -771,7 +771,7 @@
 						xml:lang="EN">Specifies the HTTP method (GET, PUT, POST, DELETE, PATCH, and so on) that can be accepted.</wadl:doc>
 				</param>
 -->				
-				<param name="flavor_id" style="plain" path="$.flavor_id">
+<!--				<param name="flavor_id" style="plain" path="$.flavor_id">
 					<wadl:doc xmlns="http://docbook.org/ns/docbook"
 						xml:lang="EN">Specifies the CDN provider flavor ID to use. For a list of flavors, see the operation to list the available flavors.</wadl:doc>
 				</param>
@@ -824,7 +824,7 @@
 				<param name="rel" style="plain" path="$.links.rel">
 					<wadl:doc xmlns="http://docbook.org/ns/docbook"
 						xml:lang="EN">Specifies how the href link provided is related to this resource_url.</wadl:doc>
-				</param>	
+				</param> -->	
 			</representation>
 		</response>
 		<response status="400" xmlns="http://wadl.dev.java.net/2009/02">
