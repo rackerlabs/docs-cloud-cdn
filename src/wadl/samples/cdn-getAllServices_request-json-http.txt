@@ -1,4 +1,4 @@
-GET /v1.0/110011/services{?marker=www.myothersite.com,limit=20} HTTP/1.1
+GET /v1.0/110011/services{?marker=96737ae3-cfc1-4c72-be88-5d0e7cc9a3f0,limit=20} HTTP/1.1
 Host: global.cdn.api.rackspacecloud.com
 X-Auth-Token: 0f6e9f63600142f0a970911583522217
 Accept: application/json

@@ -1,4 +1,5 @@
 {
+    "id": "96737ae3-cfc1-4c72-be88-5d0e7cc9a3f0",
     "name": "mywebsite.com",
     "domains": [
         {
@@ -56,7 +57,7 @@
     "errors": [],
     "links": [
         {
-            "href": "https://global.cdn.api.rackspacecloud.com/v1.0/110011/services/mywebsite.com",
+            "href": "https://global.cdn.api.rackspacecloud.com/v1.0/110011/services/96737ae3-cfc1-4c72-be88-5d0e7cc9a3f0",
             "rel": "self"
         },
         {

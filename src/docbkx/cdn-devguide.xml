@@ -33,7 +33,7 @@
 ]>
 <book xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink"
   xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:svg="http://www.w3.org/2000/svg" version="5.0"
-  xml:id="cdn-devguide" status="DRAFT ">
+  xml:id="cdn-devguide" status="">
   <title>Rackspace CDN Developer Guide</title>
   <?rax status.bar.text.font.size="40px"
      status.bar.text="Early Access - Draft"
@@ -135,7 +135,7 @@
         <para>A single global endpoint to access the API</para>
       </listitem>
       <listitem>
-        <para>Use of the Akamai Technologies's content delivery network, which is one of the world's
+        <para>Use of the Akamai Technologies content delivery network, which is one of the world's
           largest distributed computing platforms </para>
       </listitem>
     </itemizedlist>
@@ -146,7 +146,7 @@
     <section xml:id="Intended_Audience-d1e166">
       <title>Intended audience</title>
       <para>This document is intended for software developers who want to develop applications that
-        use the Rackspace CDN API. You should be familiar with:</para>
+        use the Rackspace CDN API. You should be familiar with the following technologies:</para>
       <itemizedlist>
         <listitem>
           <para>RESTful web services</para>
@@ -161,8 +161,8 @@
     </section>
     <section xml:id="Document_Change_History-d1e166">
       <title>Document change history</title>
-      <para>This version of the Developer Guide replaces and obsoletes all earlier versions. The
-        most recent changes are described in the following table:</para>
+      <para>This version of the guide replaces and obsoletes all earlier versions. The most recent
+        changes are described in the following table:</para>
       <?rax revhistory?>
     </section>
     <section xml:id="Additional_Resources-d1e532">
@@ -183,26 +183,23 @@
         knowledge base articles, forums, phone, chat, and
         email.</para>
         -->
-      <para>Using this API document and your Rackspace Cloud account, you can get started whenever
-        you'd like. </para>
       <!--<para>See the
         <citetitle>Rackspace CDN Getting Started Guide</citetitle> at <link xlink:href="http://docs.rackspace.com/">docs.rackspace.com</link>
         for information about getting started using the API.</para> -->
       <para>During Early Access, email all support questions to <link
           xlink:href="mailto:cdn@rackspacecloud.com">cdn@rackspace.com</link>. </para>
-      <para>Please visit our <link xlink:href="http://feedback.rackspace.com">Product Feedback
-          Forum</link> and let us know what you think about Rackspace CDN.</para>
+      <para>Visit our <link xlink:href="http://feedback.rackspace.com">Product Feedback Forum</link>
+        and tell us what you think about Rackspace CDN.</para>
       <para>You can follow Rackspace updates and announcements via <link
           xlink:href="http://www.twitter.com/rackspace">Twitter</link>. </para>
-      <para>This API uses standard HTTP 1.1 status codes as documented at: <link
+      <para>This API uses standard HTTP 1.1 status codes as documented in <link
           xlink:href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html">HTTP Status Code
-          Definitions</link>. (Also see <xref linkend="responseCodes-d101e"/>.)</para>
+          Definitions</link>. (See also <xref linkend="responseCodes-d101e"/>.)</para>
     </section>
     <section xml:id="API_Contract_Changes-d1e363">
       <title>API contract changes</title>
       <para>The API contract is not locked and might change during the Early Access program.</para>
-      <para>Rackspace will notify customers in Release Notes when and if the contract does
-        change.</para>
+      <para>When and if the contract changes. Rackspace will notify customers in Release Notes. </para>
     </section>
     <section xml:id="Pricing_SLA-d1e1362">
       <title>Pricing and service level</title>
@@ -218,17 +215,17 @@
   <chapter xml:id="concepts-d1eo1">
     <title>Concepts and terminology</title>
     <para>To use the Rackspace CDN API effectively, you should understand several key
-      concepts:</para>
+      concepts.</para>
     <section xml:id="CDN-d1eo1">
       <title>Content delivery network</title>
       <para>A content delivery network (CDN) is a system of multiple computers that contains copies
         of data stored at various network nodes. A CDN is designed to improve performance of
         publicly distributed assets. Assets can be anything from website content, to web application
         components, to media such as videos, ads, and interactive experiences.  CDNs decrease the
-        load time of these assets by caching them on edge servers, also called points of presence
-        (PoPs).  Edge servers are distributed around the globe, meaning requests only travel to a
-        local location to grab assets, rather than to and from a data center based far from the end
-        user. </para>
+        load time of these assets by caching them on edge nodes, also called edge servers or point
+        of presence (PoPs) servers.  Edge nodes are distributed around the globe, so requests travel
+        to a local location to get assets rather than to and from a data center based far from the
+        end user. </para>
     </section>
     <section xml:id="pointOfPresence-d1eo1">
       <title>Point of presence</title>
@@ -241,7 +238,7 @@
       <title>Edge node</title>
       <para>CDN providers have many points of presence (PoP) servers around the world. These servers
         are known as edge nodes. These edge nodes cache the content and serve it directly to
-        customers, thus reducing transit time to a customers location.</para>
+        customers, thus reducing transit time to a customer's location.</para>
     </section>
     <section xml:id="edgeServer-d1eo1">
       <title>Edge server</title>
@@ -251,7 +248,7 @@
       <title>Domain</title>
       <para>A domain represents the domain name through which visitors retrieve content. The
         underlying site might be served through a CDN. A service can have multiple domains. The CDN
-        provider provides the user with a Canonical Name (CName) to specify their domain name as an
+        provider provides users with a Canonical Name (CName) to specify for their domain name as an
         alias.</para>
     </section>
     <section xml:id="Origin-d1eo1">
@@ -261,28 +258,28 @@
     </section>
     <section xml:id="flavor-d1eo1">
       <title>Flavor</title>
-      <para>A flavor is a configuration option for Rackspace CDN. A flavor enables you to choose
-        from a generic setting that is powered by one or more CDN providers. In the request and
-        response examples for Rackspace CDN, the flavor is referred to with the
-          <code>flavor_id</code> parameter. For this release of Rackspace CDN, the
-          <code>flavor_id</code> value is <code>cdn</code>. The <code>cdn</code> flavor enables your
-        service content to be delivered across the network using the Rackspace CDN partner, Akamai.
-        In the future, Rackspace might offer other flavors.</para>
+      <para>A flavor is a mapping configuration to a CDN provider that enables you to decide which
+        CDN features that you want your service to use. In the request and response examples for
+        Rackspace CDN, the flavor is referred to with the <code>flavor_id</code> parameter. For this
+        release of Rackspace CDN, the <code>flavor_id</code> value is <code>cdn</code>. The
+          <code>cdn</code> flavor enables your service content to be delivered across the network
+        using the Rackspace CDN partner, Akamai. In the future, Rackspace might offer other
+        flavors.</para>
     </section>
     <section xml:id="service-d1eo1">
       <title>Service</title>
-      <para>A service represents your application that has its content cached to the edge
+      <para>A service represents an application that has its content cached to the edge
         nodes.</para>
     </section>
     <section xml:id="status-d1eo1">
       <title>Status</title>
-      <para>The status indicates the current state of the service. The time it takes for a service
-        configuration to be distributed amongst a CDN provider cache can vary. </para>
+      <para>The status indicates the current state of a service. The time it takes for a service
+        configuration to be distributed to a CDN provider cache can vary. </para>
     </section>
     <section xml:id="purge-d1eo1">
       <title>Purge</title>
-      <para>Purging removes content from the edge servers - thus invalidating the content - so that
-        it can be refreshed from your origin servers.</para>
+      <para>Purging removes content from the edge nodes thus invalidating the content so that the
+        content can be refreshed from your origin servers.</para>
     </section>
     <section xml:id="cachingRule-d1eo1">
       <title>Caching rule</title>
@@ -311,7 +308,7 @@
       xmlns:html="http://www.w3.org/1999/xhtml">
       <title>Authentication</title>
       <para xmlns:m="http://www.w3.org/1998/Math/MathML"> Every REST request against the Rackspace
-        CDN service requires the inclusion of a specific authorization token, supplied by the
+        CDN service requires the inclusion of a specific authentication token, supplied by the
           <code>X-Auth-Token</code> HTTP header. You obtain this token by using the Rackspace Cloud
         Identity service and supplying a valid username and API access key. </para>
       <section xml:id="Geographic_Endpoints" xmlns:m="http://www.w3.org/1998/Math/MathML">
@@ -319,7 +316,7 @@
         <para> The Rackspace Cloud Identity service serves as the entry point to all Rackspace Cloud
           APIs and is itself a RESTful web service. </para>
         <para> You can use either of the following endpoints to access the Rackspace Cloud Identity
-          service (for authentication), regardless of US or UK identities:</para>
+          service for authentication:</para>
         <itemizedlist spacing="compact">
           <listitem>
             <para>
@@ -332,19 +329,7 @@
             </para>
           </listitem>
         </itemizedlist>
-        <para>Your account can be based in either the US or the UK. This is not determined by your
-          physical location but by the location of the Rackspace retail site that was used to create
-          your account. </para>
-        <itemizedlist spacing="compact">
-          <listitem>
-            <para>If your account was created via <link xlink:href="http://www.rackspacecloud.com"
-                >http://www.rackspacecloud.com</link>, it is a US-based account. </para>
-          </listitem>
-          <listitem>
-            <para>If your account was created via <link xlink:href="http://www.rackspace.co.uk"
-                >http://www.rackspace.co.uk</link>, it is a UK-based account. </para>
-          </listitem>
-        </itemizedlist>
+        <para>For our UK customers, we recommend &ENDPOINT-UK-20; for better regional performance.  </para>
       </section>
       <section xml:id="Retrieving_Auth_Token" xmlns:m="http://www.w3.org/1998/Math/MathML">
         <title>Retrieving the authentication token</title>
@@ -357,10 +342,10 @@
             </tr>
           </tbody>
         </informaltable>
-        <simpara> Normal Status Code(s): <returnvalue>200</returnvalue>,
+        <simpara> Normal response codes: <returnvalue>200</returnvalue>,
             <returnvalue>203</returnvalue>
         </simpara>
-        <simpara> Error Status Code(s): unauthorized (<errorcode>401</errorcode>), userDisabled
+        <simpara> Error status codes: unauthorized (<errorcode>401</errorcode>), userDisabled
             (<errorcode>403</errorcode>), badRequest (<errorcode>400</errorcode>), authFault
             (<errorcode>500</errorcode>), serviceUnavailable (<errorcode>503</errorcode>) </simpara>
         <para> The authenticate operation provides clients with an authentication token and a list
@@ -371,15 +356,15 @@
           response to your authentication request will include a catalog of the services to which
           you have subscribed rather than the example values shown here.</para>
         <note>
-          <para>To see how to use cURL to retrieve the authentication token, see the
-              <citetitle>Rackspace CDN Getting Started Guide</citetitle>.</para>
+          <para>For more information about how to use cURL to retrieve the authentication token, see
+            the <citetitle>Rackspace CDN Getting Started Guide</citetitle>.</para>
         </note>
         <example>
           <title>Authentication with US endpoint: XML request</title>
           <programlistingco>
             <areaspec>
-              <area xml:id="credentials.xml.user" units="linecolumn" coords="13 17"/>
-              <area xml:id="credentials.xml.key" units="linecolumn" coords="14 15"/>
+              <area xml:id="credentials.xml.user" units="linecolumn" coords="12 35"/>
+              <area xml:id="credentials.xml.key" units="linecolumn" coords="13 35"/>
             </areaspec>
             <programlisting language="xml"><xi:include href="samples/credentials-20.xml" parse="text"/></programlisting>
           </programlistingco>
@@ -388,8 +373,8 @@
           <title>Authentication with US endpoint: JSON request</title>
           <programlistingco>
             <areaspec>
-              <area xml:id="credentials.json.user" units="linecolumn" coords="14 22"/>
-              <area xml:id="credentials.json.key" units="linecolumn" coords="15 20"/>
+              <area xml:id="credentials.json.user" units="linecolumn" coords="13 40"/>
+              <area xml:id="credentials.json.key" units="linecolumn" coords="14 38"/>
             </areaspec>
             <programlisting language="json"><xi:include href="samples/credentials-20.json" parse="text"/></programlisting>
           </programlistingco>
@@ -400,7 +385,7 @@
           </callout>
           <callout arearefs="credentials.xml.key">
             <para>The key is your API access key. </para>
-            <para><emphasis role="bold">To find your API key:</emphasis>
+            <para><emphasis role="bold">To find your API key</emphasis>
             </para>
             <orderedlist>
               <listitem>
@@ -417,24 +402,25 @@
               </listitem>
               <listitem>
                 <para>In the Login Details section of the Account Settings page, locate the
-                    <guilabel>API Key</guilabel> field and click <guibutton>Show</guibutton>.</para>
+                    <guilabel>API key</guilabel> field and click <guibutton>Show</guibutton>.</para>
               </listitem>
               <listitem>
-                <para>Copy the value of the API Key and paste it into a text editor of your
+                <para>Copy the value of the API key and paste it into a text editor of your
                   choice.</para>
               </listitem>
               <listitem>
-                <para>Click <guibutton>Hide</guibutton> to hide the value of the API Key.</para>
+                <para>Click <guibutton>Hide</guibutton> to hide the value of the API key.</para>
               </listitem>
             </orderedlist>
-            <para>You also need your cloud account ID. In the documentation, the account ID is often
-              referred to as your tenant name or tenant ID (technically, the ID is different from
-              the name, but at Rackspace, they are the same thing). Together, three components—your
-              username, your API Key, and your tenant ID or cloud account ID—form the authentication
-              credentials that are required to connect to the Rackspace cloud.</para>
-            <para>To find your tenant ID or cloud account number, locate your username on the
+            <para>You also need your cloud account ID number. In the documentation, the account ID
+              is often referred to as your tenant name or tenant ID (technically, the ID is
+              different from the name, but at Rackspace, they are the same thing). Together, three
+              components—your username, your API key, and your tenant ID or cloud account ID—form
+              the authentication credentials that are required to connect to the Rackspace
+              cloud.</para>
+            <para>To find your tenant ID or cloud account number, click your username on the
               upper-right side of the top navigation pane in the Cloud Control Panel. The tenant ID
-              or account number is in parentheses just to the right of your username.</para>
+              or account ID number is listed first in the menu.</para>
           </callout>
         </calloutlist>
         <remark>Update responses to include Rackspace CDN in the service catalog.</remark>
@@ -465,11 +451,11 @@
               <area xml:id="response.json.dfltregion" units="linecolumn" coords="16 45"/>
               <area xml:id="response.json.role" units="linecolumn" coords="17 12"/>
               <area xml:id="response.json.catalog" units="linecolumn" coords="30 8"/>
-              <area xml:id="response.json.servicetype" units="linecolumn" coords="114 16"/>
-              <area xml:id="response.json.servicename" units="linecolumn" coords="113 16"/>
-              <area xml:id="response.json.region" units="linecolumn" coords="104 24"/>
-              <area xml:id="response.json.tenant" units="linecolumn" coords="101 24"/>
-              <area xml:id="response.json.url" units="linecolumn" coords="102 24"/>
+              <area xml:id="response.json.servicetype" units="linecolumn" coords="189 11"/>
+              <area xml:id="response.json.servicename" units="linecolumn" coords="188 11"/>
+              <area xml:id="response.json.region" units="linecolumn" coords="102 24"/>
+              <area xml:id="response.json.tenant" units="linecolumn" coords="103 24"/>
+              <area xml:id="response.json.url" units="linecolumn" coords="101 24"/>
             </areaspec>
             <programlisting language="json"><xi:include href="samples/auth-20.json" parse="text"/></programlisting>
           </programlistingco>
@@ -486,9 +472,9 @@
             <para> </para>
           </callout>
           <callout arearefs="response.xml.token">
-            <para> This token can be presented to a service as evidence of authentication. Tokens
-              are valid for a finite duration. An authentication token's default lifespan is 24
-              hours. Applications should be designed to re-authenticate after receiving a 401
+            <para>The token can be presented to a service as evidence of authentication. Tokens are
+              valid for a finite duration. An authentication token's default lifespan is 24 hours.
+              Applications should be designed to re-authenticate after receiving a 401
               (Unauthorized) response from a service endpoint. </para>
             <para> The token's <code>expires</code> attribute denotes the time after which the token
               automatically becomes invalid. A token can be manually revoked before the time
@@ -497,10 +483,9 @@
               Clients are encouraged to cache a token until it expires. </para>
             <note>
               <para>The token's expiration time is formatted differently in the US and UK. These
-                response examples show the US format. For examples of the UK format please refer to
-                  <link
-                  xlink:href="http://docs.rackspace.com/auth/api/v2.0/auth-client-devguide/content/POST_authenticate_v2.0_tokens_.html"
-                  >http://docs.rackspace.com/auth/api/v2.0/auth-client-devguide/content/POST_authenticate_v2.0_tokens_.html</link>.</para>
+                response examples show the US format. For examples of the UK format, see <link
+                  xlink:href="http://docs.rackspace.com/auth/api/v2.0/auth-client-devguide/content/POST_authenticate_v2.0_tokens_Token_Calls.html#POST_authenticate_v2.0_tokens_Token_Calls-Response"
+                  >the authentication response examples in the Cloud Identity Developer Guide</link>.</para>
             </note>
             <para> </para>
           </callout>
@@ -533,18 +518,17 @@
           </callout>
           <callout arearefs="response.xml.servicetype">
             <para> The service <code>type</code> attribute identifies services that perform similar
-              functions, regardless of service names. In this example, the service named rackCDN is
-              identified as <code>type="rackCDN"</code>, identifying it as a CDN service. </para>
+              functions, regardless of service names. In this example, the service named
+                <code>cloudFiles</code> is identified as <code>type="object-store"</code>. </para>
             <tip>
-              <para>Beginning with Cloud Identity v2.0, the service catalog includes a service
+              <para>Beginning with Cloud Identity v2.0, the service catalog includes the service
                   <code>type</code> attribute to identify services that perform similar functions
                 but have different names. For example, <code>type="compute"</code> identifies
                 compute services such as cloudServers and cloudServersOpenStack. Some developers
                 have found the service <code>type</code> attribute to be useful in parsing the
-                service catalog. For additional information on Auth 2.0 (also known as the Cloud
-                Identity service), see the <citetitle>Cloud Identity Client Developer
-                  Guide</citetitle> at <link xlink:href="http://docs.rackspace.com"
-                  >http://docs.rackspace.com/</link>.</para>
+                service catalog. For additional information about the Cloud Identity service, see
+                the <citetitle>Cloud Identity Client Developer Guide</citetitle> at <link
+                  xlink:href="http://docs.rackspace.com">http://docs.rackspace.com/</link>.</para>
             </tip>
             <important>
               <para>Use the service <code>type</code> attribute as the primary value for locating a
@@ -574,7 +558,7 @@
             <para> A service might expose endpoints in different regions. Regional endpoints enable
               users to provision resources in a manner that provides high availability. </para>
             <para> Some services, such as Rackspace CDN, are not region-specific. These services
-              supply a single non-regional endpoint and do not provide access to internal URLs. </para>
+              supply a single endpoint and do not provide access to internal URIs. </para>
             <para> </para>
           </callout>
           <callout arearefs="response.xml.tenant">
@@ -594,10 +578,8 @@
         </calloutlist>
         <para>Rackspace CDN service endpoints are published in the service catalog in the
           authentication response with the account information, which is a required element of the
-          service endpoints. The examples shown in this document are for authentication for US
-          customers. Customers with UK-based accounts see different values in the service catalog.
-          For more information about service endpoints, see <xref linkend="serviceEndpoints"/>.
-        </para>
+          service endpoints. For more information about service endpoints, see <xref
+            linkend="serviceEndpoints"/>. </para>
       </section>
     </section>
     <!--MFA sections from Identity Guide from Margaret - may not be launched in time for Rackspace CDN launch
@@ -944,39 +926,35 @@
         </tbody>
       </table>
     </section>
-    <!--    <section xml:id="Limits-d1e1397" xmlns:m="http://www.w3.org/1998/Math/MathML"
+    <section xml:id="Limits-d1e1397" xmlns:m="http://www.w3.org/1998/Math/MathML"
       xmlns:html="http://www.w3.org/1999/xhtml">
       <title>Limits</title>
       <remark>Are there any limits that should be documented?</remark>
       <para>All accounts are configured with default thresholds, or limits, that manage capacity and
         prevent abuse of the system. </para>
-      <para>The system recognizes the following types of limits: </para>
+      <para>The system recognizes the following types of limits, which are described in this
+        section: </para>
       <itemizedlist>
         <listitem>
-          <para>rate limits</para>
-          <para>Rate limits are thresholds that are reset after a certain amount of time passes.
-            Rate limits control the frequency at which the user can issue specific API requests. For
-            more information, see <xref linkend="Rate-Limits-d1e003"/>.</para>
+          <para>Rate limits</para>
         </listitem>
         <listitem>
-          <para>absolute limits</para>
-          <para>Absolute limits are fixed. Absolute limits control the total number of specific
-            objects that the user can possess simultaneously. For more information, see <xref
-              linkend="Absolute-Limits-d1e003"/>.</para>
+          <para>Absolute limits</para>
         </listitem>
       </itemizedlist>
       <note>
-        <para>If the default limits are too low for your particular application, please contact
-          Rackspace Cloud support to request an increase. All requests require reasonable
+        <para>If the default limits are too low for your particular application, contact Rackspace
+          Cloud support to request an increase. All requests require reasonable
           justification.</para>
       </note>
       <section xml:id="Rate-Limits-d1e003">
         <title>Rate limits</title>
-        <remark>Are there any rate limits that should be documented?</remark>
+        <remark>Are there any rate limits that should be documented?  (Megan added "invalidation vs
+          delete purges" in her review of this section)</remark>
         <para>Rate limits control the frequency at which the user can issue specific API
           requests.</para>
-        <para>For Rackspace CDN, the rate limit is ???? (Megan added "invalidation vs delete purges"
-          in her review of this section). </para>
+        <para>For Rackspace CDN, the following rate limit apply: </para>
+        <para>?????</para>
         <para>Rate limits are reset after a certain amount of time passes. </para>
       </section>
       <section xml:id="Absolute-Limits-d1e003">
@@ -991,16 +969,17 @@
           <col width="30%"/>
           <thead>
             <tr>
-              <th>Type of limit</th>
+              <th>Name</th>
               <th>Description</th>
               <th>Limit</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td> </td>
-              <td/>
-              <td/>
+              <td>Client maximum body size restriction</td>
+              <td>Maximum size of request body. Exceeding the limit results in a 413 (<code>Request
+                  Entity Too Large</code>) error.</td>
+              <td>8 KB</td>
             </tr>
             <tr>
               <td/>
@@ -1015,7 +994,7 @@
           </tbody>
         </table>
       </section>
-    </section> -->
+    </section> 
     <section xml:id="commonHeaders">
       <title>Common headers</title>
       <para>The following table describes the common headers used by the API.</para>
@@ -1086,10 +1065,10 @@
       <example>
         <title>Service date/time format</title>
         <programlisting>yyyy-MM-dd'T'HH:mm:ss.SSSZ</programlisting>
-        <para>See the table below for a description of the date and time format codes.</para>
         <para>September 19th, 2014 at 8:07:08 AM, GMT-5 would have the following format:</para>
         <programlisting>2014-09-19T08:07:08-05:00</programlisting>
       </example>
+      <para>The following table describes the date and time format codes.</para>
       <table rules="all">
         <caption>Explanation of date/time format codes</caption>
         <thead>
@@ -1101,35 +1080,35 @@
         <tbody>
           <tr>
             <td>yyyy</td>
-            <td>Four digit year</td>
+            <td>Four-digit year</td>
           </tr>
           <tr>
             <td>MM</td>
-            <td>Two digit month</td>
+            <td>Two-digit month</td>
           </tr>
           <tr>
             <td>dd</td>
-            <td>Two digit day of month</td>
+            <td>Two-digit day of the month</td>
           </tr>
           <tr>
             <td>T</td>
-            <td>Separator for date/time</td>
+            <td>Separator for the date and time</td>
           </tr>
           <tr>
             <td>HH</td>
-            <td>Two digit hour of day (00-23)</td>
+            <td>Two-digit hour of the day (00-23)</td>
           </tr>
           <tr>
             <td>mm</td>
-            <td>Two digit minutes of hour</td>
+            <td>Two-digit minutes of hour</td>
           </tr>
           <tr>
             <td>ss</td>
-            <td>Two digit seconds of the minute</td>
+            <td>Two-digit seconds of the minute</td>
           </tr>
           <tr>
             <td>SSS</td>
-            <td>Three digit milliseconds of the second</td>
+            <td>Three-digit milliseconds of the second</td>
           </tr>
           <tr>
             <td>Z</td>
@@ -1142,8 +1121,8 @@
       <title>Pagination</title>
       <remark>???? Do we need a pagination section for Rackspace CDN?</remark>
       <para xmlns:wadl="http://wadl.dev.java.net/2009/02">Pagination provides the ability to limit
-        the size of the returned data in the response body as well as retrieve a specified subset of
-        a large data set. Pagination has two key concepts: <emphasis>limit</emphasis> and
+        the size of the returned data in the response body and to retrieve a specified subset of a
+        large data set. Pagination has two key concepts: <emphasis>limit</emphasis> and
           <emphasis>marker</emphasis>. </para>
       <para xmlns:wadl="http://wadl.dev.java.net/2009/02">
         <itemizedlist>
@@ -1153,13 +1132,13 @@
           </listitem>
           <listitem>
             <para><code>marker</code> is the last item in the previous list returned. </para>
-            <para>For example, a query could request the next 10 services after the service “xyz” as
-              follows: <code>?limit=10&amp;marker=xyz</code>. </para>
+            <para>For example, a query could request the next 10 services after the service
+                <code>xyz</code> as follows: <code>?limit=10&amp;marker=xyz</code>. </para>
           </listitem>
         </itemizedlist>
       </para>
-      <para xmlns:wadl="http://wadl.dev.java.net/2009/02">Pagination applies only to the operations
-        listed in the following table: </para>
+      <para xmlns:wadl="http://wadl.dev.java.net/2009/02">Pagination applies only to the following
+        operation: </para>
       <informaltable rules="all" xmlns:wadl="http://wadl.dev.java.net/2009/02">
         <thead>
           <tr align="center">
@@ -1307,8 +1286,7 @@ Content-Type: application/json
       following table. </para>
     <section xml:id="baseOperations">
       <title>Base operations</title>
-      <para>The section describes base operations for Rackspace CDN, such the operations to get the
-        home document, to get a health check, and to ping.</para>
+      <para>The section describes the following base operations of the Rackspace CDN API.</para>
       <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
         <wadl:resource href="../../src/wadl/cdn-devguide.wadl#version">
           <wadl:method href="#getHomeDocument"/>
@@ -1320,13 +1298,13 @@ Content-Type: application/json
     </section>
     <section xml:id="servicesOperations">
       <title>Services</title>
-      <para>The section describes the services-related resources of the services API.</para>
+      <para>The section describes the following services operations of the Rackspace CDN API.</para>
       <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
         <wadl:resource href="../../src/wadl/cdn-devguide.wadl#services">
           <wadl:method href="#getAllServices"/>
           <wadl:method href="#createService"/>
         </wadl:resource>
-        <wadl:resource href="../../src/wadl/cdn-devguide.wadl#service_name">
+        <wadl:resource href="../../src/wadl/cdn-devguide.wadl#service_id">
           <wadl:method href="#getService"/>
           <wadl:method href="#patchService"/>
           <wadl:method href="#deleteService"/>
@@ -1337,7 +1315,7 @@ Content-Type: application/json
       <title>Services assets</title>
       <para>A service distributes assets across the network. Service assets let you interrogate
         properties about these assets and perform certain actions on them. </para>
-      <para>The section describes operations related to service assets.</para>
+      <para>The section describes the following operation related to service assets.</para>
       <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
         <wadl:resource href="../../src/wadl/cdn-devguide.wadl#assets">
           <!-- <remark>This operation was removed in November 2014 because it wasn't widely supported by CDN vendors (fastly yes, Akamai no). </remark>
@@ -1359,9 +1337,8 @@ Content-Type: application/json
     </section> -->
     <section xml:id="flavorsOperations">
       <title>Flavors</title>
-      <para>A flavor is a mapping configuration to a CDN provider. The operator can decide the
-        flavor names offered and the mapping to the type of service offered. </para>
-      <para>The section describes operations related to flavors.</para>
+      <para>A flavor is a mapping configuration to a CDN provider.</para>
+      <para>The section describes the following operations related to flavors.</para>
       <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
         <wadl:resource href="../../src/wadl/cdn-devguide.wadl#flavors">
           <wadl:method href="#getFlavors"/>
@@ -1416,10 +1393,10 @@ Content-Type: application/json
           copies of data stored at various network nodes. A CDN is designed to improve performance
           of publicly distributed assets. Assets can be anything from website content, to web
           application components, to media such as videos, ads, and interactive experiences.  CDNs
-          decrease the load time of these assets by caching them on edge servers, also called points
-          of presence (PoPs).  Edge servers are distributed around the globe, meaning requests only
-          travel to a local location to grab assets, rather than to and from a data center based far
-          from the end user. </para>
+          decrease the load time of these assets by caching them on edge nodes, also called edge
+          servers or point of presence (PoPs) servers.  Edge nodes are distributed around the globe,
+          so requests travel to a local location to get assets rather than to and from a data center
+          based far from the end user. </para>
       </glossdef>
     </glossentry>
     <glossentry>
@@ -1427,7 +1404,7 @@ Content-Type: application/json
       <glossdef>
         <para>A domain represents the domain name through which visitors retrieve content. The
           underlying site might be served through a CDN. A service can have multiple domains. The
-          CDN provider provides the user with a Canonical Name (CName) to specify their domain name
+          CDN provider provides users with a Canonical Name (CName) to specify for their domain name
           as an alias.</para>
       </glossdef>
     </glossentry>
@@ -1436,7 +1413,7 @@ Content-Type: application/json
       <glossdef>
         <para>CDN providers have many points of presence (PoP) servers around the world. These
           servers are known as edge nodes. These edge nodes cache the content and serve it directly
-          to customers, thus reducing transit time to a customers location.</para>
+          to customers, thus reducing transit time to a customer's location.</para>
       </glossdef>
     </glossentry>
     <glossentry>
@@ -1448,13 +1425,13 @@ Content-Type: application/json
     <glossentry>
       <glossterm>Flavor </glossterm>
       <glossdef>
-        <para>A flavor is a configuration option for Rackspace CDN. A flavor enables you to choose
-          from a generic setting that is powered by one or more CDN providers. In the request and
-          response examples for Rackspace CDN, the flavor is referred to with the
-            <code>flavor_id</code> parameter. For this release of Rackspace CDN, the
-            <code>flavor_id</code> value is <code>cdn</code>. The <code>cdn</code> flavor enables
-          your service content to be delivered across the network using the Rackspace CDN partner,
-          Akamai. In the future, Rackspace might offer other flavors.</para>
+        <para>A flavor is a mapping configuration to a CDN provider that enables you to decide which
+          CDN features that you want your service to use. In the request and response examples for
+          Rackspace CDN, the flavor is referred to with the <code>flavor_id</code> parameter. For
+          this release of Rackspace CDN, the <code>flavor_id</code> value is <code>cdn</code>. The
+            <code>cdn</code> flavor enables your service content to be delivered across the network
+          using the Rackspace CDN partner, Akamai. In the future, Rackspace might offer other
+          flavors.</para>
       </glossdef>
     </glossentry>
     <glossentry>
@@ -1476,8 +1453,8 @@ Content-Type: application/json
     <glossentry>
       <glossterm>Purge</glossterm>
       <glossdef>
-        <para>Purging removes content from the edge servers - thus invalidating the content - so
-          that it can be refreshed from your origin servers.</para>
+        <para>Purging removes content from the edge nodes thus invalidating the content so that the
+          content can be refreshed from your origin servers.</para>
       </glossdef>
     </glossentry>
     <glossentry xml:id="queue-d1e019">
@@ -1491,15 +1468,15 @@ Content-Type: application/json
     <glossentry xml:id="subscriber-d1e018">
       <glossterm>Service</glossterm>
       <glossdef>
-        <para>A service represents your application that has its content cached to the edge
+        <para>A service represents an application that has its content cached to the edge
           nodes.</para>
       </glossdef>
     </glossentry>
     <glossentry>
       <glossterm>Status</glossterm>
       <glossdef>
-        <para>The status indicates the current state of the service. The time it takes for a service
-          configuration to be distributed amongst a CDN provider cache can vary. </para>
+        <para>The status indicates the current state of a service. The time it takes for a service
+          configuration to be distributed to a CDN provider cache can vary. </para>
       </glossdef>
     </glossentry>
   </glossary>

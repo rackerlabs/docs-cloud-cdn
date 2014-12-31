@@ -33,7 +33,7 @@
 ]>
 <book xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink"
   xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:svg="http://www.w3.org/2000/svg" version="5.0"
-  xml:id="cdn-gettingstarted" status="DRAFT">
+  xml:id="cdn-gettingstarted" status="">
   <title>Rackspace CDN Getting Started Guide</title>
   <?rax status.bar.text.font.size="40px"
      status.bar.text="Early Access - Draft"
@@ -826,6 +826,8 @@ Content-Type: application/json
       <example>
         <title>Create a service: Response</title>
         <programlisting language="json">HTTP/1.1 202 Accepted
+Content-TYpe: application/json
+Location:  https://global.cdn.api.rackspacecloud.com/v1.0/<emphasis role="bold">yourAccountID</emphasis>/services/<emphasis role="bold">yourServiceID</emphasis> 
  {
     "name": "mywebsite.com",
     "domains": [
@@ -873,7 +875,7 @@ Content-Type: application/json
                }
     ],
     "links": [
-              "href": "https://global.cdn.api.rackspace.com/v1.0/<emphasis role="bold">yourAccountID</emphasis>/services/mywebsite.com",
+              "href": "https://global.cdn.api.rackspace.com/v1.0/<emphasis role="bold">yourAccountID</emphasis>/services/<emphasis role="bold">yourServiceID</emphasis>",
               "rel": "self"
               },
               {
@@ -894,7 +896,7 @@ Content-Type: application/json
       <para>Following are examples of a retrieve service request and response. </para>
       <example>
         <title>Retrieve a service: Request</title>
-        <programlisting language="bash">curl -i -X GET https://global.cdn.api.rackspacecloud.com/v1.0/<emphasis role="bold">yourAccountID</emphasis>/services/<emphasis role="bold">yourServiceName</emphasis> \
+        <programlisting language="bash">curl -i -X GET https://global.cdn.api.rackspacecloud.com/v1.0/<emphasis role="bold">yourAccountID</emphasis>/services/<emphasis role="bold">yourServiceID</emphasis> \
 -H "X-Auth-Token: <emphasis role="bold">yourAuthToken</emphasis>" \
 -H "Content-type: application/json" </programlisting>
       </example>
@@ -904,6 +906,7 @@ Content-Type: application/json
 Content-Type: application/json 
    
 {
+    "id": "<emphasis role="bold">yourServiceID</emphasis>",  
     "name": "mywebsite.com",
     "domains": [
         {
@@ -972,7 +975,7 @@ Content-Type: application/json
     "errors": [],                 
     "links": [
         {
-            "href": "https://global.cdn.api.rackspacecloud.com/v1.0/<emphasis role="bold">yourAccountID</emphasis>/services/mywebsite.com",
+            "href": "https://global.cdn.api.rackspacecloud.com/v1.0/<emphasis role="bold">yourAccountID</emphasis>/services/<emphasis role="bold">yourServiceID</emphasis>",
             "rel": "self"
         },
         {   "href": "https://global.cdn.api.rackspacecloud.com/v1.0/<emphasis role="bold">yourAccountID</emphasis>/flavors/cdn",
@@ -1019,7 +1022,7 @@ Content-Type: application/json
         node. </para>
       <example>
         <title>Delete a cached asset: Request</title>
-        <programlisting language="bash">curl -i -X DELETE https://global.cdn.api.rackspacecloud.com/v1.0/<emphasis role="bold">yourAccountID</emphasis>/services/<emphasis role="bold">yourServiceName</emphasis>/assets?url=<replaceable>relativeURLofAssettoDelete</replaceable> \
+        <programlisting language="bash">curl -i -X DELETE https://global.cdn.api.rackspacecloud.com/v1.0/<emphasis role="bold">yourAccountID</emphasis>/services/<emphasis role="bold">yourServiceID</emphasis>/assets?url=<replaceable>relativeURLofAssettoDelete</replaceable> \
 -H "X-Auth-Token: <emphasis role="bold">yourAuthToken</emphasis>" \
 -H "Content-type: application/json"</programlisting>
       </example>
@@ -1074,7 +1077,7 @@ Content-Type: application/json
       <para>Following are examples of a delete service request and response:</para>
       <example>
         <title>Delete service: Request</title>
-        <programlisting language="bash">curl -i -X DELETE https://global.cdn.api.rackspacecloud.com/v1.0/<emphasis role="bold">yourAccountID</emphasis>/services/<emphasis role="bold">yourServiceName</emphasis> \ 
+        <programlisting language="bash">curl -i -X DELETE https://global.cdn.api.rackspacecloud.com/v1.0/<emphasis role="bold">yourAccountID</emphasis>/services/<emphasis role="bold">yourServiceID</emphasis> \ 
 -H "Content-type: application/json" \
 -H "X-Auth-Token: <emphasis role="bold">yourAuthToken</emphasis>" \ 
 -H "Accept: application/json" </programlisting>
@@ -1124,19 +1127,19 @@ Content-Type: application/json
           copies of data stored at various network nodes. A CDN is designed to improve performance
           of publicly distributed assets. Assets can be anything from website content, to web
           application components, to media such as videos, ads, and interactive experiences.  CDNs
-          decrease the load time of these assets by caching them on edge servers, also called points
-          of presence (POPs).  Edge servers are distributed around the globe, meaning requests only
-          travel to a local location to grab assets, rather than to and from a datacenter based far
-          from the end user. </para>
+          decrease the load time of these assets by caching them on edge nodes, also called edge
+          servers or point of presence (PoPs) servers.  Edge nodes are distributed around the globe,
+          so requests travel to a local location to get assets rather than to and from a data center
+          based far from the end user. </para>
       </glossdef>
     </glossentry>
     <glossentry>
       <glossterm>Domain</glossterm>
       <glossdef>
         <para>A domain represents the domain name through which visitors retrieve content. The
-          underlying site may be served through a CDN. A service can have multiple domains. The CDN
-          provider provides the user with a Canonical Name (CName) to specify their domain name as
-          an alias.</para>
+          underlying site might be served through a CDN. A service can have multiple domains. The
+          CDN provider provides users with a Canonical Name (CName) to specify for their domain name
+          as an alias.</para>
       </glossdef>
     </glossentry>
     <glossentry xml:id="message-d1e016">
@@ -1144,7 +1147,7 @@ Content-Type: application/json
       <glossdef>
         <para>CDN providers have many points of presence (PoP) servers around the world. These
           servers are known as edge nodes. These edge nodes cache the content and serve it directly
-          to customers, thus reducing transit time to a customers location.</para>
+          to customers, thus reducing transit time to a customer's location.</para>
       </glossdef>
     </glossentry>
     <glossentry>
@@ -1156,19 +1159,19 @@ Content-Type: application/json
     <glossentry>
       <glossterm>Flavor </glossterm>
       <glossdef>
-        <para>A flavor is a configuration option for Rackspace CDN. A flavor enables you to choose
-          from a generic setting that is powered by one or more CDN providers. In the request and
-          response examples for Rackspace CDN, the flavor is referred to with the
-            <code>flavor_id</code> parameter. For this release of Rackspace CDN, the
-            <code>flavor_id</code> value is <code>cdn</code>. The <code>cdn</code> flavor enables
-          your service content to be delivered across the network using the Rackspace CDN partner,
-          Akamai. In the future, Rackspace might offer other flavors.</para>
+        <para>A flavor is a mapping configuration to a CDN provider that enables you to decide which
+          CDN features that you want your service to use. In the request and response examples for
+          Rackspace CDN, the flavor is referred to with the <code>flavor_id</code> parameter. For
+          this release of Rackspace CDN, the <code>flavor_id</code> value is <code>cdn</code>. The
+            <code>cdn</code> flavor enables your service content to be delivered across the network
+          using the Rackspace CDN partner, Akamai. In the future, Rackspace might offer other
+          flavors.</para>
       </glossdef>
     </glossentry>
     <glossentry>
       <glossterm>Origin</glossterm>
       <glossdef>
-        <para>An origin is an address (ip or domain) from which the CDN provider pulls content. A
+        <para>An origin is an address (IP or domain) from which the CDN provider pulls content. A
           service can have multiple origins.</para>
       </glossdef>
     </glossentry>
@@ -1184,8 +1187,8 @@ Content-Type: application/json
     <glossentry>
       <glossterm>Purge</glossterm>
       <glossdef>
-        <para>Purging removes content from the edge servers - thus invalidating the content - so
-          that it can be refreshed from your origin servers.</para>
+        <para>Purging removes content from the edge nodes thus invalidating the content so that the
+          content can be refreshed from your origin servers.</para>
       </glossdef>
     </glossentry>
     <glossentry xml:id="queue-d1e019">
@@ -1199,15 +1202,15 @@ Content-Type: application/json
     <glossentry xml:id="subscriber-d1e018">
       <glossterm>Service</glossterm>
       <glossdef>
-        <para>A service represents your application that has its content cached to the edge
+        <para>A service represents an application that has its content cached to the edge
           nodes.</para>
       </glossdef>
     </glossentry>
     <glossentry>
       <glossterm>Status</glossterm>
       <glossdef>
-        <para>The status indicates the current state of the service. The time it takes for a service
-          configuration to be distributed amongst a CDN provider cache can vary. </para>
+        <para>The status indicates the current state of a service. The time it takes for a service
+          configuration to be distributed to a CDN provider cache can vary. </para>
       </glossdef>
     </glossentry>
   </glossary>

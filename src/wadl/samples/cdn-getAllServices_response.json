@@ -2,11 +2,12 @@
     "links": [
         {
             "rel": "next",
-            "href": "https://global.cdn.api.rackspacecloud.com/v1.0/110011/services?marker=www.myothersite.com&limit=20"
+            "href": "https://global.cdn.api.rackspacecloud.com/v1.0/110011/services?marker=96737ae3-cfc1-4c72-be88-5d0e7cc9a3f0&limit=20"
         }
     ],
     "services": [
         {
+            "id": "96737ae3-cfc1-4c72-be88-5d0e7cc9a3f0",
             "name": "mywebsite.com",
             "domains": [
                 {
@@ -62,7 +63,7 @@
             "errors" : [],
             "links": [
                 {
-                    "href": "https://global.cdn.api.rackspacecloud.com/v1.0/110011/services/mywebsite.com",
+                    "href": "https://global.cdn.api.rackspacecloud.com/v1.0/110011/services/96737ae3-cfc1-4c72-be88-5d0e7cc9a3f0",
                     "rel": "self"
                 },
                 {
@@ -72,6 +73,7 @@
             ]
         },
         {
+            "id": "96737ae3-cfc1-4c72-be88-5d0e7cc9a3f1",
             "name": "myothersite.com",
             "domains": [
                 {
@@ -109,7 +111,7 @@
             "status": "deployed",
             "links": [
                 {
-                    "href": "https://global.cdn.api.rackspacecloud.com/v1.0/110011/services/myothersite.com",
+                    "href": "https://global.cdn.api.rackspacecloud.com/v1.0/110011/services/96737ae3-cfc1-4c72-be88-5d0e7cc9a3f1",
                     "rel": "self"
                 },
                 {
