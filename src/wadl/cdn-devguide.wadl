@@ -486,7 +486,9 @@
 			xmlns="http://docbook.org/ns/docbook">
 			<para role="shortdesc">Creates a service.</para>
 		
-            <para>To create a new service, provide a JSON body for the new service with the required attributes.</para>			
+            <para>To create a new service, provide a JSON body for the new service with the required attributes.</para>
+			<note><para><code>service_id</code>, which is used in several of the services operations, is returned in the response to create a service. Take note this value. You can also retrieve <code>service_id</code> using <link
+				xlink:href="http://docs-internal.rackspace.com/cdn/api/v1.0/cdn-devguide/content/GET_getService__services__service_id__servicesOperations.html">List a service</link>.</para> </note>			
 		</wadl:doc>
 		<request>			
 			<representation mediaType="application/json" >
@@ -659,172 +661,8 @@
 			<representation mediaType="application/json">
 				<wadl:doc xmlns="http://docbook.org/ns/docbook"
 					xml:lang="EN">
-					<xsdxt:code href="../wadl/samples/cdn-createService_response-json-http.txt"/>
-			<!--		<xsdxt:code href="../wadl/samples/cdn-createService_response.json"/> -->
+					<xsdxt:code href="../wadl/samples/cdn-createService_response-json-http.txt"/>			
 				</wadl:doc>
-<!--				<param name="name" style="plain" path="$.name">
-					<wadl:doc xmlns="http://docbook.org/ns/docbook"
-						xml:lang="EN">Specifies the name of the service.</wadl:doc>
-				</param>
-				<param name="domains" style="plain" path="$.domains">
-					<wadl:doc xmlns="http://docbook.org/ns/docbook"
-						xml:lang="EN">Specifies a list of domains used by users to access their website.</wadl:doc>
-				</param>
-				<param name="domain" style="plain" path="$.domains.domain">
-					<wadl:doc xmlns="http://docbook.org/ns/docbook"
-						xml:lang="EN">Specifies the domain used to access the assets on the website, for which a CNAME is given to the CDN provider.</wadl:doc>
-				</param>
-				<param name="protocol" style="plain" path="$.domains.protocol">
-					<wadl:doc xmlns="http://docbook.org/ns/docbook"
-						xml:lang="EN">Specifies the protocol used to access the assets on this domain. Only <code>http</code> or <code>https</code> are currently allowed. <code>protocol</code> defaults to <code>http</code>.</wadl:doc>
-				</param>
-				
-				<param name="origins" style="plain" path="$.origins">
-					<wadl:doc xmlns="http://docbook.org/ns/docbook"
-						xml:lang="EN">Specifies a list of origin domains or IP addresses where the original assets are stored.</wadl:doc>
-				</param>
-				<param name="origin" style="plain" path="$.origins.origin">
-					<wadl:doc xmlns="http://docbook.org/ns/docbook"
-						xml:lang="EN">Specifies the URL or IP address from which to pull origin content.</wadl:doc>
-				</param>
-				<param name="port" style="plain" path="$.origins.port">
-					<wadl:doc xmlns="http://docbook.org/ns/docbook"
-						xml:lang="EN">Specifies the port used to access the origin. The default is to port 80.</wadl:doc>
-				</param>
-				<param name="ssl" style="plain" path="$.origins.ssl">
-					<wadl:doc xmlns="http://docbook.org/ns/docbook"
-						xml:lang="EN">Uses HTTPS to access the origin. The default is false.</wadl:doc>
-				</param>
-				<param name="rules" style="plain" path="$.origins.rules">
-					<wadl:doc xmlns="http://docbook.org/ns/docbook"
-						xml:lang="EN">Specifies a collection of rules that define the conditions when this origin should be accessed. If there is more than one origin, the <code>rules</code> parameter is required.</wadl:doc>
-				</param>
-				<param name="name" style="plain" path="$.origins.rules.name">
-					<wadl:doc xmlns="http://docbook.org/ns/docbook"
-						xml:lang="EN">Specifies the name of this rule. </wadl:doc>
-				</param>
-				<param name="request_url" style="plain" path="$.origins.rules.request_url">
-					<wadl:doc xmlns="http://docbook.org/ns/docbook"
-						xml:lang="EN">Specifies the request URL that this rule should match for this origin to be used. (Regex is supported.)</wadl:doc>
-				</param>
-				
-				<param name="caching" style="plain" path="$.caching">
-					<wadl:doc xmlns="http://docbook.org/ns/docbook"
-						xml:lang="EN">Specifies the TTL rules for the assets under this service. Supports wildcards for fine-grained control.</wadl:doc>
-				</param>
-				<param name="name" style="plain" path="$.caching.name">
-					<wadl:doc xmlns="http://docbook.org/ns/docbook"
-						xml:lang="EN">Specifies the name of this caching rule. Note: 'default' is a reserved name used for the default TTL setting.</wadl:doc>
-				</param>
-				<param name="ttl" style="plain" path="$.caching.ttl">
-					<wadl:doc xmlns="http://docbook.org/ns/docbook"
-						xml:lang="EN">Specifies the TTL to apply.</wadl:doc>
-				</param>
-				<param name="rules" style="plain" path="$.caching.rules">
-					<wadl:doc xmlns="http://docbook.org/ns/docbook"
-						xml:lang="EN">Specifies a collection of rules that determine if this TTL should be applied to an asset.</wadl:doc>
-				</param>
-				<param name="name" style="plain" path="$.caching.rules.name">
-					<wadl:doc xmlns="http://docbook.org/ns/docbook"
-						xml:lang="EN">Specifies the name of this rule.</wadl:doc>
-				</param>
-				<param name="request_url" style="plain" path="$.caching.rules.request_url">
-					<wadl:doc xmlns="http://docbook.org/ns/docbook"
-						xml:lang="EN">Specifies the request URL that this rule should match for this TTL to be used. (Regex is supported.)</wadl:doc>
-				</param>
-				
-				<param name="restrictions" style="plain" path="$.restrictions">
-					<wadl:doc xmlns="http://docbook.org/ns/docbook"
-						xml:lang="EN">Specifies the restrictions that define who can access assets (content from the CDN cache).</wadl:doc>
-				</param>
-				<param name="name" style="plain" path="$.restrictions.name">
-					<wadl:doc xmlns="http://docbook.org/ns/docbook"
-						xml:lang="EN">Specifies the name of this restriction.</wadl:doc>
-				</param>
-				<param name="rules" style="plain" path="$.restrictions.rules">
-					<wadl:doc xmlns="http://docbook.org/ns/docbook"
-						xml:lang="EN">Specifies a collection of rules that determine if this restriction should be applied to an asset.</wadl:doc>
-				</param>
-				<param name="name" style="plain" path="$.restrictions.rules.name">
-					<wadl:doc xmlns="http://docbook.org/ns/docbook"
-						xml:lang="EN">Specifies the name of this rule.</wadl:doc>
-				</param>
-				<param name="referrer" style="plain" path="$.restrictions.rules.referrer">
-					<wadl:doc xmlns="http://docbook.org/ns/docbook"
-						xml:lang="EN">Specifies the http host that requests must come from.</wadl:doc>
-				</param>	-->			
-				
-				<!--			<param name="request_url" style="plain" path="$.restrictions.rules.request_url">
-					<wadl:doc xmlns="http://docbook.org/ns/docbook"
-						xml:lang="EN">Specifies the request URL that this rule should match for this TTL to be used. (Regex is supported.)</wadl:doc>
-				</param>
-				<param name="http_host" style="plain" path="$.restrictions.rules.http_host">
-					<wadl:doc xmlns="http://docbook.org/ns/docbook"
-						xml:lang="EN">Specifies the HTTP host from which requests must come.</wadl:doc>
-				</param>
-				<param name="client_ip" style="plain" path="$.restrictions.rules.client_ip">
-					<wadl:doc xmlns="http://docbook.org/ns/docbook"
-						xml:lang="EN">Specifies the client IP address from which requests can be accepted.</wadl:doc>
-				</param>
-				<param name="http_method" style="plain" path="$.restrictions.rules.http_method">
-					<wadl:doc xmlns="http://docbook.org/ns/docbook"
-						xml:lang="EN">Specifies the HTTP method (GET, PUT, POST, DELETE, PATCH, and so on) that can be accepted.</wadl:doc>
-				</param>
--->				
-<!--				<param name="flavor_id" style="plain" path="$.flavor_id">
-					<wadl:doc xmlns="http://docbook.org/ns/docbook"
-						xml:lang="EN">Specifies the CDN provider flavor ID to use. For a list of flavors, see the operation to list the available flavors.</wadl:doc>
-				</param>
-				
-				<param name="status" style="plain" path="$.status">
-					<wadl:doc xmlns="http://docbook.org/ns/docbook"
-						xml:lang="EN">Specifies the current status of the service.</wadl:doc>
-				</param>
-				<param name="create_in_progress" style="plain" path="$.status.create_in_progress">
-					<wadl:doc xmlns="http://docbook.org/ns/docbook"
-						xml:lang="EN">Specifies that the service is currently being created and deployed.</wadl:doc>
-				</param>
-				<param name="deployed" style="plain" path="$.status.deployed">
-					<wadl:doc xmlns="http://docbook.org/ns/docbook"
-						xml:lang="EN">Specifies that the service has been deployed and is ready to use.</wadl:doc>
-				</param>
-				<param name="update_in_progress" style="plain" path="$.status.update_in_progress">
-					<wadl:doc xmlns="http://docbook.org/ns/docbook"
-						xml:lang="EN">Specifies that the service is currently being updated.</wadl:doc>
-				</param>
-				<param name="delete_in_progress" style="plain" path="$.status.delete_in_progress">
-					<wadl:doc xmlns="http://docbook.org/ns/docbook"
-						xml:lang="EN">Specifies that the service is currently being deleted.</wadl:doc>
-				</param>
-				<param name="failed" style="plain" path="$.status.failed">
-					<wadl:doc xmlns="http://docbook.org/ns/docbook"
-						xml:lang="EN">Specifies that the previous operation on the service failed to create, deploy, update, or delete. Looks for the errors[] for details.</wadl:doc>
-				</param>
-				
-				
-				
-				
-				<param name="errors" style="plain" path="$.errors">
-					<wadl:doc xmlns="http://docbook.org/ns/docbook"
-						xml:lang="EN">Specifies the list of errors that occurred during the previous service action.</wadl:doc>
-				</param>
-				<param name="message" style="plain" path="$.errors.message">
-					<wadl:doc xmlns="http://docbook.org/ns/docbook"
-						xml:lang="EN">Specifies an error message detailing why there is an error. </wadl:doc>
-				</param>
-				
-				<param name="links" style="plain" path="$.links">
-					<wadl:doc xmlns="http://docbook.org/ns/docbook"
-						xml:lang="EN">Specifies the self-navigating JSON document paths.</wadl:doc>
-				</param>
-				<param name="href" style="plain" path="$.links.href">
-					<wadl:doc xmlns="http://docbook.org/ns/docbook"
-						xml:lang="EN">Specifies the location to access this resource. </wadl:doc>
-				</param>
-				<param name="rel" style="plain" path="$.links.rel">
-					<wadl:doc xmlns="http://docbook.org/ns/docbook"
-						xml:lang="EN">Specifies how the href link provided is related to this resource_url.</wadl:doc>
-				</param> -->	
 			</representation>
 		</response>
 		<response status="400" xmlns="http://wadl.dev.java.net/2009/02">
@@ -1063,8 +901,11 @@
 		<wadl:doc xml:lang="EN" title="Update a service"
 			xmlns="http://docbook.org/ns/docbook">
 			<para role="shortdesc">Updates a service.</para>
-			
-			<para>To update a service, send a JSON body with an updated value for one or more of the top-level service resource attributes, which are provided in the create service operation description. All attributes values (states) from the previous version of this service are carried over by default if no changes are specified from them in the body.</para>			
+			<para>You can use the HTTP PATCH method to <code>add</code>, <code>remove</code>, or <code>replace</code> service properties. For more information about the HTTP PATCH method, see <link
+				xlink:href="https://tools.ietf.org/html/rfc5789">RFC5789</link>.</para>
+			<para>To update a service, send a JSON body that conforms to <link
+				xlink:href="https://tools.ietf.org/html/rfc6902">RFC6902</link> using paths and values for one or more of the service parameters, which are described in <link
+					xlink:href="http://docs-internal.rackspace.com/cdn/api/v1.0/cdn-devguide/content/GET_getService__services__service_id__servicesOperations.html">Create a service</link>. If no changes are specified for a parameter in the JSON body, all parameter values from the previous version of the service are carried over by default.</para>							
 		</wadl:doc>
 		<request>
 			<representation mediaType="application/json" >
@@ -1074,30 +915,20 @@
 						href="../wadl/samples/cdn-patchService_request.json"
 					/>
 				</doc>
-				<param name="id" style="plain" path="$.id">
+				<param name="op" style="plain" path="$.op" required="true">
 					<wadl:doc xmlns="http://docbook.org/ns/docbook"
-						xml:lang="EN">Specifies the service ID that represents distributed content. The value is a UUID, such as 96737ae3-cfc1-4c72-be88-5d0e7cc9a3f0, that is generated by the server. </wadl:doc>
+						xml:lang="EN">Specifies the operation,<code>add</code>, <code>remove</code>, or <code>replace</code>, to be executed. </wadl:doc>
 				</param>
-				<param name="origins" style="plain" path="$.origins"
+				<param name="path" style="plain" path="$.path"
 					required="true">
 					<wadl:doc xmlns="http://docbook.org/ns/docbook"
-						xml:lang="EN">Specifies a list of origin domains or IP addresses where the original assets are stored.</wadl:doc>
+						xml:lang="EN">Specifies the JSON Pointer location within the service's JSON representation of the service parameter being added, replaced or removed</wadl:doc>
 				</param>
-				<param name="origin" style="plain" path="$.origins.origin"
-					required="true">
-					<wadl:doc xmlns="http://docbook.org/ns/docbook"
-						xml:lang="EN">Specifies the URL or IP address to pull origin content from.</wadl:doc>
-				</param>
-				<param name="port" style="plain" path="$.origins.port"
+				<param name="value" style="plain" path="$.value"
 					required="false">
 					<wadl:doc xmlns="http://docbook.org/ns/docbook"
-						xml:lang="EN">Specifies the port used to access the origin. The default is port 80.</wadl:doc>
-				</param>
-				<param name="ssl" style="plain" path="$.origins.ssl"
-					required="false">
-					<wadl:doc xmlns="http://docbook.org/ns/docbook"
-						xml:lang="EN">Uses HTTPS to access the origin. The default is false.</wadl:doc>
-				</param>
+						xml:lang="EN">Specifies the actual value to be added or replaced. It is not required for the <code>remove</code> operation.</wadl:doc>
+				</param>				
 			</representation>
 		</request>
 		<response status="202" xmlns="http://wadl.dev.java.net/2009/02">
@@ -1114,36 +945,38 @@
 		<response status="400" xmlns="http://wadl.dev.java.net/2009/02">
 			<doc title="Bad Request" xml:lang="EN">Invalid JSON.</doc>			
 		</response>
-		<response status="400" xmlns="http://wadl.dev.java.net/2009/02">
+<!--	<response status="400" xmlns="http://wadl.dev.java.net/2009/02">
 			<doc title="Bad Request" xml:lang="EN">Missing or empty domains list.</doc>			
 		</response>
-<!--		<response status="400" xmlns="http://wadl.dev.java.net/2009/02">
+		<response status="400" xmlns="http://wadl.dev.java.net/2009/02">
 			<doc title="Bad Request" xml:lang="EN">Maximum length of domains list reached.</doc>			
 		</response>
 		<response status="400" xmlns="http://wadl.dev.java.net/2009/02">
 			<doc title="Bad Request" xml:lang="EN">Invalid entry for domain value (such as [{"domain": "invalid"}]. </doc>			
-		</response> -->
+		</response> 
 		<response status="400" xmlns="http://wadl.dev.java.net/2009/02">
 			<doc title="Bad Request" xml:lang="EN">Missing or empty origins list. </doc>			
 		</response>
-<!--		<response status="400" xmlns="http://wadl.dev.java.net/2009/02">
+		<response status="400" xmlns="http://wadl.dev.java.net/2009/02">
 			<doc title="Bad Request" xml:lang="EN">Maximum length of origins list reached.</doc>			
 		</response>
 		<response status="400" xmlns="http://wadl.dev.java.net/2009/02">
 			<doc title="Bad Request" xml:lang="EN">Invalid entry for origin value (such as [{"origin": "invalid"}]. </doc>			
-		</response> -->
+		</response> 
 		<response status="400" xmlns="http://wadl.dev.java.net/2009/02">
 			<doc title="Bad Request" xml:lang="EN">Non-Boolean value for origins:origin:ssl. </doc>			
 		</response>
 		<response status="400" xmlns="http://wadl.dev.java.net/2009/02">
 			<doc title="Bad Request" xml:lang="EN">Value for origins:origin:port is something other than (80,443). </doc>			
 		</response>
+		
 		<response status="400" xmlns="http://wadl.dev.java.net/2009/02">
 			<doc title="Bad Request" xml:lang="EN">Restrictions list present with no name.</doc>			
-		</response>
+		</response>		
 		<response status="400" xmlns="http://wadl.dev.java.net/2009/02">
 			<doc title="Bad Request" xml:lang="EN">Attempt to update a service with a flavor_id that is not 'cdn'.</doc>			
 		</response>
+-->		
 	</method>
 	<!--*******************************************************-->
 	<!--                   Delete a service                    -->
