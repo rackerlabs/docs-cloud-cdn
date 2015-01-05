@@ -28,13 +28,70 @@
 	<artifactId>clouddocs-maven-plugin</artifactId>
 	<version>2.1.3</version>
 	<executions>
+		
+		<execution>
+			<id>g1</id>          
+			<goals>
+				<goal>generate-webhelp</goal>
+			</goals>
+			<phase>generate-sources</phase>          
+			<configuration>
+				<security>internal</security>
+				<includes>
+					cdn-adminguide.xml
+				</includes>            
+				<enableDisqus>intranet</enableDisqus>            
+				<canonicalUrlBase>http://docs-internal.rackspace.com/cdn/api/v1.0/cdn-adminguide/content</canonicalUrlBase>
+				<feedbackEmail>catherine.richardson@rackspace.com</feedbackEmail>
+			</configuration>
+		</execution>
+
+		<execution>
+			<id>g2</id>
+			<goals>
+				<goal>generate-webhelp</goal>
+			</goals>
+			<phase>generate-sources</phase>
+			<configuration>
+				<includes>cdn-devguide.xml</includes>
+				<security>external</security>
+				<canonicalUrlBase>http://docs.rackspace.com/cdn/api/v1.0/cdn-devguide/content</canonicalUrlBase>
+			</configuration>
+		</execution>
+		<execution>
+			<id>g3</id>
+			<goals>
+				<goal>generate-webhelp</goal>
+			</goals>
+			<phase>generate-sources</phase>
+			<configuration>
+				<includes>cdn-gettingstarted.xml</includes>
+				<security>external</security>
+				<canonicalUrlBase>http://docs.rackspace.com/cdn/api/v1.0/cdn-gettingstarted/content</canonicalUrlBase>
+				<webhelpDefaultTopic>Overview-d1e01.html</webhelpDefaultTopic>
+			</configuration>
+		</execution>
+		<execution>
+			<id>g4</id>
+			<goals>
+				<goal>generate-webhelp</goal>
+			</goals>
+			<phase>generate-sources</phase>
+			<configuration>
+				<includes>cdn-releasenotes.xml</includes>
+				<security>external</security>
+				<chapterAutolabel>0</chapterAutolabel>
+				<canonicalUrlBase>http://docs.rackspace.com/cdn/api/v1.0/cdn-releasenotes/content</canonicalUrlBase>
+			</configuration>
+		</execution>
+
+<!-- execution when all API docs were internal during initial doc development		
 	  <execution>
 	    <goals>
 	      <goal>generate-webhelp</goal> 
 	    </goals>
 	    <phase>generate-sources</phase>
-	    <configuration>
-	    	<security>internal</security>
+	    <configuration>	    	
 	      <includes>
 		cdn-devguide.xml,
 		cdn-adminguide.xml,
@@ -43,13 +100,13 @@
 	      </includes>
 	    </configuration>
 	  </execution>
+-->	  
 	</executions>
 	<configuration>
-	  <!-- Set to Internet or intranet to turn on comments -->
-	  <enableDisqus>internet</enableDisqus>
-	  <socialIcons>0</socialIcons>
-	  <!-- feedbackEmail only applies to the internal comment system -->
-		<feedbackEmail>catherine.richardson@rackspace.com</feedbackEmail>	  
+	  <enableDisqus>1</enableDisqus>
+	  <socialIcons>1</socialIcons>
+	  <enableGoogleAnalytics>1</enableGoogleAnalytics>
+	  <feedbackEmail>catherine.richardson@rackspace.com</feedbackEmail>	  
 	  <branding>rackspace</branding>
 	  <showXslMessages>true</showXslMessages>
 	</configuration>
