@@ -37,7 +37,7 @@
   <?rax title.font.size="35px" subtitle.font.size="20px"?>
   <title>Rackspace CDN Developer Guide for Service Management</title>
   <?rax status.bar.text.font.size="40px"
-     status.bar.text="Early Access - Draft"
+     status.bar.text="Early Access"
       canonical.url.base="http://docs.rackspace.com/cdn/api/v1.0/cdn-adminguide/content"?>
   <titleabbrev>Rackspace CDN Developer Guide for Service Management</titleabbrev>
   <info>
@@ -47,7 +47,8 @@
     </copyright>
     <releaseinfo>API v1.0 Early Access</releaseinfo>
     <productname>Rackspace CDN</productname>
-    <pubdate xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:html="http://www.w3.org/1999/xhtml"/>
+    <pubdate xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:html="http://www.w3.org/1999/xhtml"
+      >2015-01-07</pubdate>
     <legalnotice role="rs-api" xmlns:m="http://www.w3.org/1998/Math/MathML"
       xmlns:html="http://www.w3.org/1999/xhtml">
       <annotation>
@@ -119,8 +120,8 @@
     <para xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:html="http://www.w3.org/1999/xhtml"
       >Interactions with Rackspace CDN occur programmatically via the Rackspace CDN API as described
       in this <citetitle>Rackspace CDN Developer Guide for Service Management</citetitle> and in the
-      following guides that are available on <link xlink:href="http://docs-internal.rackspace.com/"
-        >docs-internal.rackspace.com</link>:<itemizedlist>
+      following guides that are available on <link xlink:href="http://docs.rackspace.com/"
+        >docs.rackspace.com</link>:<itemizedlist>
         <listitem>
           <para>
             <citetitle>Rackspace CDN Getting Started Guide</citetitle>
@@ -655,7 +656,8 @@
         </tbody>
       </table>
     </section>
-    <!--
+ <!-- 
+    <remark>No rate limits for EA - only the 1 absolute limit. </remark>
     <section xml:id="Limits-d1e1397" xmlns:m="http://www.w3.org/1998/Math/MathML"
       xmlns:html="http://www.w3.org/1999/xhtml">
       <title>Limits</title>
@@ -691,44 +693,34 @@
           in her review of this section). </para>
         <para>Rate limits are reset after a certain amount of time passes. </para>
       </section>
+-->      
       <section xml:id="Absolute-Limits-d1e003">
         <title>Absolute limits</title>
-        <remark>Are there any absolute limits that should be documented?</remark>
-        <para>The following table provides details about the absolute limits for the Rackspace CDN
-          API.</para>
-        <table rules="all">
-          <caption>Absolute limits</caption>
-          <col width="30%"/>
-          <col width="40%"/>
-          <col width="30%"/>
-          <thead>
-            <tr>
-              <th>Type of limit</th>
-              <th>Description</th>
-              <th>Limit</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td> </td>
-              <td/>
-              <td/>
-            </tr>
-            <tr>
-              <td/>
-              <td/>
-              <td/>
-            </tr>
-            <tr>
-              <td/>
-              <td/>
-              <td/>
-            </tr>
-          </tbody>
-        </table>
+      <remark>Are there any absolute limits that should be documented?</remark>
+      <para>The following table provides details about the absolute limits for the Rackspace CDN
+        API.</para>
+      <table rules="all">
+        <caption>Absolute limits</caption>
+        <col width="30%"/>
+        <col width="40%"/>
+        <col width="30%"/>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Limit</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Client maximum body size restriction</td>
+            <td>Maximum size of request body. Exceeding the limit results in a 413 (<code>Request
+                Entity Too Large</code>) error.</td>
+            <td>8 KB</td>
+          </tr>
+        </tbody>
+      </table>
       </section>
-    </section>
-    -->
     <section xml:id="commonHeaders">
       <title>Common headers</title>
       <para>The following table describes the common headers used by the API.</para>
@@ -891,7 +883,7 @@
         </tbody>
       </informaltable>
       <para>For an example, see the <link
-          xlink:href="http://docs-internal.rackspace.com/cdn/api/v1.0/cdn-devguide/content/GET_getAllServices__services_servicesOperations.html"
+          xlink:href="http://docs.rackspace.com/cdn/api/v1.0/cdn-devguide/content/GET_getAllServices__services_servicesOperations.html"
           xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:html="http://www.w3.org/1999/xhtml"
           >"List all services" operation description</link> in the <citetitle>Rackspace CDN
           Developer Guide</citetitle>. </para>

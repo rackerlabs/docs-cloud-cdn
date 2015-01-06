@@ -36,7 +36,7 @@
   xml:id="cdn-gettingstarted" status="">
   <title>Rackspace CDN Getting Started Guide</title>
   <?rax status.bar.text.font.size="40px"
-     status.bar.text="Early Access - Draft"
+     status.bar.text="Early Access"
      canonical.url.base="http://docs.rackspace.com/cdn/api/v1.0/cdn-gettingstarted/content"?>
   <info>
     <copyright>
@@ -46,7 +46,7 @@
     <releaseinfo>API v1.0 Early Access</releaseinfo>
     <productname>Rackspace CDN</productname>
     <!--Note that the <productname> text matches the first few words of the title. The build system splits the title into productname + rest of title on the pdf cover.-->
-    <pubdate/>
+    <pubdate>2015-01-07</pubdate>
     <abstract xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:html="http://www.w3.org/1999/xhtml">
       <para>This document is intended for software developers interested in developing applications
         using the Rackspace CDN Application Programming Interface (<abbrev>API</abbrev>). </para>

@@ -9,7 +9,7 @@
     status="">
   <title>Rackspace CDN Release Notes</title>
     <?rax status.bar.text.font.size="40px"
-     status.bar.text="Early Access - Draft"
+     status.bar.text="Early Access"
      canonical.url.base="http://docs.rackspace.com/cdn/api/v1.0/cdn-releasenotes/content"?>
   <info>
     <copyright>
@@ -19,7 +19,7 @@
     <releaseinfo>API v1.0</releaseinfo>
     <productname>Rackspace CDN</productname>
     <!--Note that the <productname> text matches the first few words of the title. The build system splits the title into productname + rest of title on the pdf cover.-->
-    <pubdate></pubdate>
+    <pubdate>2015-01-07</pubdate>
     <legalnotice role="rs-api">
       <annotation>
         <remark>Copyright details are filled in by the template. </remark>
@@ -53,8 +53,8 @@
     <title>Preface</title>
     <para>This document describes new features and changes for the Rackspace CDN API. </para>
     <para>For detailed information about the Rackspace CDN API during Early Access, see the
-      following documentation at <link xlink:href="http://docs-internal.rackspace.com/"
-        >http://docs-internal.rackspace.com/</link>:</para>
+      following documentation at <link xlink:href="http://docs.rackspace.com/"
+        >http://docs.rackspace.com/</link>:</para>
     <itemizedlist spacing="compact">
       <listitem>
         <para><citetitle>Rackspace CDN Getting Started Guide</citetitle></para>

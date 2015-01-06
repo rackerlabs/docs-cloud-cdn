@@ -488,7 +488,7 @@
 		
             <para>To create a new service, provide a JSON body for the new service with the required attributes.</para>
 			<note><para><code>service_id</code>, which is used in several of the services operations, is returned in the response to create a service. Take note this value. You can also retrieve <code>service_id</code> using <link
-				xlink:href="http://docs-internal.rackspace.com/cdn/api/v1.0/cdn-devguide/content/GET_getService__services__service_id__servicesOperations.html">List a service</link>.</para> </note>			
+				xlink:href="http://docs.rackspace.com/cdn/api/v1.0/cdn-devguide/content/GET_getService__services__service_id__servicesOperations.html">List a service</link>.</para> </note>			
 		</wadl:doc>
 		<request>			
 			<representation mediaType="application/json" >
@@ -499,7 +499,7 @@
 				<param name="name" style="plain" path="$.name"
 					required="true">
 					<wadl:doc xmlns="http://docbook.org/ns/docbook"
-						xml:lang="EN">Specifies the name of the service.</wadl:doc>
+						xml:lang="EN">Specifies the name of the service. The minimum length for <code>name</code> is 3. The maximum length is 256.</wadl:doc>
 				</param>
 				<param name="domains" style="plain" path="$.domains"
 					required="true">
@@ -509,12 +509,12 @@
 				<param name="domain" style="plain" path="$.domains.domain"
 					required="true">
 					<wadl:doc xmlns="http://docbook.org/ns/docbook"
-						xml:lang="EN">Specifies the domain used to access the assets on the website, for which a CNAME is given to the CDN provider.</wadl:doc>
+						xml:lang="EN">Specifies the domain used to access the assets on the website, for which a CNAME is given to the CDN provider. The minimum length for <code>domain</code> is 3. The maximum length is 253.</wadl:doc>
 				</param>
 				<param name="protocol" style="plain" path="$.domains.protocol"
 					required="false">
 					<wadl:doc xmlns="http://docbook.org/ns/docbook"
-						xml:lang="EN">Specifies the protocol used to access the assets on this domain. Only <code>http</code> or <code>https</code> are currently allowed. <code>protocol</code> defaults to <code>http</code>.</wadl:doc>
+						xml:lang="EN">Specifies the protocol used to access the assets on this domain. Only <code>http</code> or <code>https</code> are currently allowed. The default <code>protocol</code> is <code>http</code>.</wadl:doc>
 				</param>
 				
 				<param name="origins" style="plain" path="$.origins"
@@ -525,7 +525,7 @@
 				<param name="origin" style="plain" path="$.origins.origin"
 					required="true">
 					<wadl:doc xmlns="http://docbook.org/ns/docbook"
-						xml:lang="EN">Specifies the URL or IP address from which to pull origin content.</wadl:doc>
+						xml:lang="EN">Specifies the URL or IP address from which to pull origin content. The minimum length for <code>origin</code> is 3. The maximum length is 253. </wadl:doc>
 				</param>
 				<param name="port" style="plain" path="$.origins.port"
 					required="false">
@@ -545,12 +545,12 @@
 				<param name="name" style="plain" path="$.origins.rules.name"
 					required="true">
 					<wadl:doc xmlns="http://docbook.org/ns/docbook"
-						xml:lang="EN">Specifies the name of this rule. </wadl:doc>
+						xml:lang="EN">Specifies the name of this rule. The minimum length for <code>name</code> is 3. The maximum length is 256.</wadl:doc>
 				</param>
 				<param name="request_url" style="plain" path="$.origins.rules.request_url"
 					required="true">
 					<wadl:doc xmlns="http://docbook.org/ns/docbook"
-						xml:lang="EN">Specifies the request URL that this rule should match for this origin to be used. (Regex is supported.)</wadl:doc>
+						xml:lang="EN">Specifies the request URL that this rule should match for this origin to be used. The minimum length for <code>request_url</code> is 3. The maximum length is 1024. (Regex is supported.)</wadl:doc>
 				</param>
 				
 				<param name="caching" style="plain" path="$.caching"
@@ -561,12 +561,12 @@
 				<param name="name" style="plain" path="$.caching.name"
 					required="true">
 					<wadl:doc xmlns="http://docbook.org/ns/docbook"
-						xml:lang="EN">Specifies the name of this caching rule. Note: 'default' is a reserved name used for the default TTL setting.</wadl:doc>
+						xml:lang="EN">Specifies the name of this caching rule. The minimum length for <code>name</code> is 3. The maximum length is 256. Note: <code>default</code> is a reserved name used for the default TTL setting.</wadl:doc>
 				</param>
 				<param name="ttl" style="plain" path="$.caching.ttl"
 					required="true">
 					<wadl:doc xmlns="http://docbook.org/ns/docbook"
-						xml:lang="EN">Specifies the TTL to apply.</wadl:doc>
+						xml:lang="EN">Specifies the TTL to apply. The value of <code>ttl</code> must be greater than or equal to 0.</wadl:doc>
 				</param>
 				<param name="rules" style="plain" path="$.caching.rules"
 					required="false">
@@ -576,12 +576,12 @@
 				<param name="name" style="plain" path="$.caching.rules.name"
 					required="true">
 					<wadl:doc xmlns="http://docbook.org/ns/docbook"
-						xml:lang="EN">Specifies the name of this rule.</wadl:doc>
+						xml:lang="EN">Specifies the name of this rule. The minimum length for <code>name</code> is 3. The maximum length is 256. </wadl:doc>
 				</param>
 				<param name="request_url" style="plain" path="$.caching.rules.request_url"
 					required="true">
 					<wadl:doc xmlns="http://docbook.org/ns/docbook"
-						xml:lang="EN">Specifies the request URL that this rule should match for this TTL to be used. (Regex is supported.)</wadl:doc>
+						xml:lang="EN">Specifies the request URL that this rule should match for this TTL to be used. The minimum length for <code>request_url</code> is 3. The maximum length is 1024. (Regex is supported.)</wadl:doc>
 				</param>
 				
 				<param name="restrictions" style="plain" path="$.restrictions"
@@ -592,7 +592,7 @@
 				<param name="name" style="plain" path="$.restrictions.name"
 					required="true">
 					<wadl:doc xmlns="http://docbook.org/ns/docbook"
-						xml:lang="EN">Specifies the name of this restriction.</wadl:doc>
+						xml:lang="EN">Specifies the name of this restriction. The minimum length for <code>name</code> is 3. The maximum length is 256. </wadl:doc>
 				</param>
 				<param name="rules" style="plain" path="$.restrictions.rules"
 					required="false">
@@ -602,23 +602,23 @@
 				<param name="name" style="plain" path="$.restrictions.rules.name"
 					required="true">
 					<wadl:doc xmlns="http://docbook.org/ns/docbook"
-						xml:lang="EN">Specifies the name of this rule.</wadl:doc>
+						xml:lang="EN">Specifies the name of this rule. The minimum length for <code>name</code> is 3. The maximum length is 256.</wadl:doc>
 				</param>
 				<param name="referrer" style="plain" path="$.restrictions.rules.referrer"
 					required="false">
 					<wadl:doc xmlns="http://docbook.org/ns/docbook"
-						xml:lang="EN">Specifies the http host that requests must come from.</wadl:doc>
+						xml:lang="EN">Specifies the http host that requests must come from. The minimum length for <code>referrer</code> is 3. The maximum length is 1024.</wadl:doc>
 				</param>				
 				
 <!--			<param name="request_url" style="plain" path="$.restrictions.rules.request_url"
 					required="false">
 					<wadl:doc xmlns="http://docbook.org/ns/docbook"
-						xml:lang="EN">Specifies the request URL that this rule should match for this TTL to be used. (Regex is supported.)</wadl:doc>
+						xml:lang="EN">Specifies the request URL that this rule should match for this TTL to be used. The minimum length for <code>request_url</code> is 3. The maximum length is 1024. (Regex is supported.)</wadl:doc>
 				</param>
 				<param name="http_host" style="plain" path="$.restrictions.rules.http_host"
 					required="false">
 					<wadl:doc xmlns="http://docbook.org/ns/docbook"
-						xml:lang="EN">Specifies the HTTP host from which requests must come.</wadl:doc>
+						xml:lang="EN">Specifies the HTTP host from which requests must come. The minimum length for <code>http_host</code> is 3. The maximum length is 256.</wadl:doc>
 				</param>
 				<param name="client_ip" style="plain" path="$.restrictions.rules.client_ip"
 					required="false">
@@ -634,7 +634,7 @@
 				<param name="flavor_id" style="plain" path="$.flavor_id"
 					required="true">
 					<wadl:doc xmlns="http://docbook.org/ns/docbook"
-						xml:lang="EN">Specifies the CDN provider flavor ID to use. For a list of flavors, see the operation to list the available flavors.</wadl:doc>
+						xml:lang="EN">Specifies the CDN provider flavor ID to use. For a list of flavors, see the operation to list the available flavors. The minimum length for <code>flavor_id</code> is 1. The maximum length is 256.</wadl:doc>
 				</param>
 <!--								
 				
@@ -905,7 +905,7 @@
 				xlink:href="https://tools.ietf.org/html/rfc5789">RFC5789</link>.</para>
 			<para>To update a service, send a JSON body that conforms to <link
 				xlink:href="https://tools.ietf.org/html/rfc6902">RFC6902</link> using paths and values for one or more of the service parameters, which are described in <link
-					xlink:href="http://docs-internal.rackspace.com/cdn/api/v1.0/cdn-devguide/content/GET_getService__services__service_id__servicesOperations.html">Create a service</link>. If no changes are specified for a parameter in the JSON body, all parameter values from the previous version of the service are carried over by default.</para>							
+					xlink:href="http://docs.rackspace.com/cdn/api/v1.0/cdn-devguide/content/GET_getService__services__service_id__servicesOperations.html">Create a service</link>. If no changes are specified for a parameter in the JSON body, all parameter values from the previous version of the service are carried over by default.</para>							
 		</wadl:doc>
 		<request>
 			<representation mediaType="application/json" >

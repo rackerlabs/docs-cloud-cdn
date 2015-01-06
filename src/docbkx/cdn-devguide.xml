@@ -36,7 +36,7 @@
   xml:id="cdn-devguide" status="">
   <title>Rackspace CDN Developer Guide</title>
   <?rax status.bar.text.font.size="40px"
-     status.bar.text="Early Access - Draft"
+     status.bar.text="Early Access"
       canonical.url.base="http://docs.rackspace.com/cdn/api/v1.0/cdn-devguide/content"?>
   <titleabbrev>CDN Developer Guide</titleabbrev>
   <info>
@@ -47,7 +47,7 @@
     <releaseinfo>API v1.0 Early Access</releaseinfo>
     <productname>Rackspace CDN</productname>
     <!--Note that the <productname> text matches the first few words of the title. The build system splits the title into productname + rest of title on the pdf cover.-->
-    <pubdate><!--If you leave the <pubdate> element empty, the build system inserts today's date automatically. --></pubdate>
+    <pubdate>2015-01-07<!--If you leave the <pubdate> element empty, the build system inserts today's date automatically. --></pubdate>
     <revhistory>
       <revision>
         <date>2015-01-07</date>
@@ -926,6 +926,8 @@
         </tbody>
       </table>
     </section>
+<!--
+    <remark>No rate limits for EA - only the 1 absolute limit. </remark>  
     <section xml:id="Limits-d1e1397" xmlns:m="http://www.w3.org/1998/Math/MathML"
       xmlns:html="http://www.w3.org/1999/xhtml">
       <title>Limits</title>
@@ -957,6 +959,7 @@
         <para>?????</para>
         <para>Rate limits are reset after a certain amount of time passes. </para>
       </section>
+-->      
       <section xml:id="Absolute-Limits-d1e003">
         <title>Absolute limits</title>
         <remark>Are there any absolute limits that should be documented?</remark>
@@ -981,20 +984,9 @@
                   Entity Too Large</code>) error.</td>
               <td>8 KB</td>
             </tr>
-            <tr>
-              <td/>
-              <td/>
-              <td/>
-            </tr>
-            <tr>
-              <td/>
-              <td/>
-              <td/>
-            </tr>
           </tbody>
         </table>
-      </section>
-    </section> 
+      </section> 
     <section xml:id="commonHeaders">
       <title>Common headers</title>
       <para>The following table describes the common headers used by the API.</para>
@@ -1156,7 +1148,7 @@
         </tbody>
       </informaltable>
       <para>For an example, see the <link
-          xlink:href="http://docs-internal.rackspace.com/cdn/api/v1.0/cdn-devguide/content/GET_getAllServices__services_servicesOperations.html"
+          xlink:href="http://docs.rackspace.com/cdn/api/v1.0/cdn-devguide/content/GET_getAllServices__services_servicesOperations.html"
           xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:html="http://www.w3.org/1999/xhtml"
           >"Retrieve all services" operation description</link>. </para>
     </section>
