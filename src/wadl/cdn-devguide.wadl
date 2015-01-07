@@ -900,7 +900,7 @@
 	<method name="PATCH" id="patchService">
 		<wadl:doc xml:lang="EN" title="Update a service"
 			xmlns="http://docbook.org/ns/docbook">
-			<para role="shortdesc">Updates a service.</para>
+			<para role="shortdesc">Updates the specified service.</para>
 			<para>You can use the HTTP PATCH method to <code>add</code>, <code>remove</code>, or <code>replace</code> service properties. For more information about the HTTP PATCH method, see <link
 				xlink:href="https://tools.ietf.org/html/rfc5789">RFC5789</link>.</para>
 			<para>To update a service, send a JSON body that conforms to <link
@@ -917,12 +917,12 @@
 				</doc>
 				<param name="op" style="plain" path="$.op" required="true">
 					<wadl:doc xmlns="http://docbook.org/ns/docbook"
-						xml:lang="EN">Specifies the operation,<code>add</code>, <code>remove</code>, or <code>replace</code>, to be executed. </wadl:doc>
+						xml:lang="EN">Specifies the operation, <code>add</code>, <code>remove</code>, or <code>replace</code>, to be executed. </wadl:doc>
 				</param>
 				<param name="path" style="plain" path="$.path"
 					required="true">
 					<wadl:doc xmlns="http://docbook.org/ns/docbook"
-						xml:lang="EN">Specifies the JSON Pointer location within the service's JSON representation of the service parameter being added, replaced or removed</wadl:doc>
+						xml:lang="EN">Specifies the JSON Pointer location within the service's JSON representation of the service parameter being added, replaced or removed. </wadl:doc>
 				</param>
 				<param name="value" style="plain" path="$.value"
 					required="false">
@@ -943,7 +943,10 @@
 			</representation>
 		</response>
 		<response status="400" xmlns="http://wadl.dev.java.net/2009/02">
-			<doc title="Bad Request" xml:lang="EN">Invalid JSON.</doc>			
+			<doc title="Bad Request" xml:lang="EN">Invalid input JSON or service not deployed.</doc>			
+		</response>
+		<response status="404" xmlns="http://wadl.dev.java.net/2009/02">
+			<doc title="Not Found" xml:lang="EN">Service not found.</doc>			
 		</response>
 <!--	<response status="400" xmlns="http://wadl.dev.java.net/2009/02">
 			<doc title="Bad Request" xml:lang="EN">Missing or empty domains list.</doc>			

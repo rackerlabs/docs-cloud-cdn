@@ -1427,6 +1427,15 @@ Content-Type: application/json
       </glossdef>
     </glossentry>
     <glossentry>
+      <glossterm>JSON Pointer</glossterm>
+      <glossdef>
+        <para>A JSON Pointer defines a syntax for identifying a specific value within a JSON
+          document. A restricted JSON pointer is a Unicode string containing a sequence of exactly
+          one reference token, prefixed by a '/' (%x2F) character. Each reference token is a
+          sequence of unreserved and/or percent-encoded characters.</para>
+      </glossdef>
+    </glossentry>
+    <glossentry>
       <glossterm>Origin</glossterm>
       <glossdef>
         <para>An origin is an address (IP or domain) from which the CDN provider pulls content. A

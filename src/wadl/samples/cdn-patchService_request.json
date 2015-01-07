@@ -1,18 +1,146 @@
-[
-  {
-  "op": "replace",
-  "path": "/origins/0",
-  "value": {
-  "origin": "44.33.22.11",
-  "port": 80,
-  "ssl": false
+  [
+    {
+        "op": "add",
+        "path": "/domains/-",
+        "value": {
+            "domain": "newDomain.com",
+            "protocol": "http"
+        }
+    },
+    {
+        "op": "replace",
+        "path": "/domains/0",
+        "value": {
+            "domain": "replaceDomain.com",
+            "protocol": "http"
+        }
+    },
+    {
+        "op": "add",
+        "path": "/domains/-",
+        "value": {
+            "domain": "addDomain1.com",
+            "protocol": "http"
+        }
+    },
+    {
+        "op": "add",
+        "path": "/domains/-",
+        "value": {
+            "domain": "addDomain2.com",
+            "protocol": "http"
+        }
+    },
+    {
+        "op": "add",
+        "path": "/domains/-",
+        "value": {
+            "domain": "addDomain3.com",
+            "protocol": "http"
+        }
+    },
+    {
+        "op": "remove",
+        "path": "/domains/0"
+    },
+    {
+        "op": "add",
+        "path": "/domains",
+        "value": [
+            {
+                "domain": "addDomainList.com",
+                "protocol": "http"
+            }
+        ]
+    },
+    {
+        "op": "replace",
+        "path": "/name",
+        "value": "newServiceName"
+    },
+    {
+        "op": "replace",
+        "path": "/origins/0",
+        "value": {
+            "origin": "1.2.3.4",
+            "port": 80,
+            "rules": [],
+            "ssl": false
+        }
+    },
+    {
+        "op": "add",
+        "path": "/origins/1",
+        "value": {
+            "origin": "1.2.3.4",
+            "port": 80,
+            "ssl": false,
+            "rules": [
+                {
+                    "name": "origin",
+                    "request_url": "/origin.htm"
+                }
+            ]
+        }
+    },
+    {
+        "op": "add",
+        "path": "/origins/2",
+        "value": {
+            "origin": "4.2.5.4",
+            "port": 80,
+            "ssl": false,
+            "rules": [
+                {
+                    "name": "origin",
+                    "request_url": "/origin.htm"
+                }
+            ]
+        }
+    },
+    {
+        "op": "add",
+        "path": "/origins/-",
+        "value": {
+            "origin": "1.2.3.4",
+            "port": 80,
+            "ssl": false,
+            "rules": [
+                {
+                    "name": "origin",
+                    "request_url": "/origin.htm"
+                }
+            ]
+        }
+    },
+    {
+        "op": "remove",
+        "path": "/origins/0"
+    },
+    {
+        "op": "replace",
+        "path": "/caching/0",
+        "value": {
+            "name": "cache_name",
+            "ttl": 111
+        }
+    },
+    {
+        "op": "remove",
+        "path": "/caching/0"
+    },
+    {
+        "op": "add",
+        "path": "/caching/-",
+        "value": {
+            "name": "cache_name",
+            "ttl": 111,
+            "rules": [
+                {
+                    "name": "index",
+                    "request_url": "/index.htm"
+                }
+            ]
+        }
     }
-  },
-  {
-  "op": "add",
-  "path": "/domains/0",
-  "value": {
-  "domain": "added.newsite.com"
-    }
-  }
 ]
