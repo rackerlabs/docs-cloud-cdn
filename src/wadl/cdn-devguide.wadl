@@ -571,7 +571,7 @@
 				<param name="rules" style="plain" path="$.caching.rules"
 					required="false">
 					<wadl:doc xmlns="http://docbook.org/ns/docbook"
-						xml:lang="EN">Specifies a collection of rules that determine if this TTL should be applied to an asset.</wadl:doc>
+						xml:lang="EN">Specifies a collection of rules that determine if this TTL should be applied to an asset. Note: This is a required property if more than one entry is present for caching. </wadl:doc>
 				</param>
 				<param name="name" style="plain" path="$.caching.rules.name"
 					required="true">
