@@ -67,7 +67,7 @@
                     "rel": "self"
                 },
                 {
-                    "href": "mywebsite.com",
+                    "href": "mywebsite.com.cdn1.raxcdn.com",
                     "rel": "access_url"
                 }
             ]
@@ -115,7 +115,7 @@
                     "rel": "self"
                 },
                 {
-                    "href": "myothersite.com",
+                    "href": "myothersite.com.cdn1.raxcdn.com",
                     "rel": "access_url"
                 }
             ]

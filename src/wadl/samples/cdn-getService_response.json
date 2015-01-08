@@ -65,7 +65,7 @@
               "rel": "flavor"
         },
         {
-            "href": "mywebsite.com",
+            "href": "blog.mywebsite.com.cdn1.raxcdn.com",
             "rel": "access_url"
         }
     ]

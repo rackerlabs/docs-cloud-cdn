@@ -377,14 +377,13 @@
 Content-Type: application/json
 
 {
-  "title": "Unsupported limit",
-  "description": "The given limit cannot be negative, and cannot be greater than 50.",
-  "code": 1092,
-  "link": {
-    "rel": "help",
-    "href": "http://docs.example.com/messages#limit",
-    "text": "API documentation for the limit parameter"
-  }
+    "message": {
+        "errors": [
+            {
+                "message": "['domains']-[] is too short"
+            }
+        ]
+    }
 }</programlisting>
       </example>
     </section>
@@ -605,9 +604,9 @@ Content-Type: application/json
       </tip>
     </section>
   </chapter>
-  <chapter xml:id="additional-resources" xmlns:m="http://www.w3.org/1998/Math/MathML"
+  <chapter xml:id="authenticationToken" xmlns:m="http://www.w3.org/1998/Math/MathML"
     xmlns:html="http://www.w3.org/1999/xhtml">
-    <title>Working with the Rackspace CDN API</title>
+    <title>Using Rackspace Cloud Identity to generate an authentication token</title>
     <para>The following sections describe the basic operations that you perform to work with the
       Rackspace CDN API, including authorization using the Rackspace Cloud Identity service.</para>
     <section xml:id="Generating_Auth_Token" xmlns:m="http://www.w3.org/1998/Math/MathML"
@@ -748,6 +747,12 @@ Content-Type: application/json
             <command>PATCH</command>, and &POST; requests for the Rackspace CDN API.</para>
       </section>
     </section>
+  </chapter>
+  <chapter xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:html="http://www.w3.org/1999/xhtml" xml:id="usingRackspaceCDN">
+    <title>Using Rackspace CDN</title>
+    <para>Rackspace CDN allows you to enable CDN for your website. Rackspace CDN offers features
+      such as pull from origin, caching rules, restrictions, and purge assets.</para>
+    <para>The following sections guide you through setting up a basic CDN service.</para>
     <section xml:id="createService-d1cdn">
       <title>Create a service</title>
       <para>A service represents an application that has its content cached to the edge nodes, such
@@ -755,8 +760,9 @@ Content-Type: application/json
         JSON body with the required attributes for the new service. (Each of these attributes is
         described in the <citetitle>Rackspace CDN Developer Guide</citetitle> in the create service
         operation description.) </para>
+      <para>The service defines the domain used to access the website via CDN, and the origin from
+        which to pull content.</para>
       <para>Following are examples of a create service request and response. </para>
-      
       <example>
         <title>Create a service: Request</title>
         <programlisting language="bash">curl -i -X POST https://global.cdn.api.rackspacecloud.com/v1.0/<emphasis role="bold">yourAccountID</emphasis>/services \
@@ -768,9 +774,6 @@ Content-Type: application/json
     "domains": [
         {
             "domain": "www.mywebsite.com"
-        },
-        {
-            "domain": "blog.mywebsite.com"
         }
     ],
     "origins": [
@@ -822,7 +825,8 @@ Content-Type: application/json
     "flavor_id": "cdn"
 }'   </programlisting>
       </example>
-      
+      <para>When the service is created, you see an HTTP 202 response with the <code>Location</code>
+        header returned.</para>
       <example>
         <title>Create a service: Response</title>
         <programlisting language="json">HTTP/1.1 202 Accepted
@@ -832,15 +836,16 @@ Location:  https://global.cdn.api.rackspacecloud.com/v1.0/services/yourServiceID
       </example>
     </section>
     <section xml:id="listService-d1cdn">
-      <title>Retrieve a service</title>
-      <para>This operation retrieves the details for a specified service. </para>
-      <para>Following are examples of a retrieve service request and response. </para>
+      <title>Retrieve a created service</title>
+      <para>Perform a <command>GET</command> request on the <code>Location</code> header that was
+        returned in <xref linkend="createService-d1cdn"/>.</para>
       <example>
         <title>Retrieve a service: Request</title>
         <programlisting language="bash">curl -i -X GET https://global.cdn.api.rackspacecloud.com/v1.0/<emphasis role="bold">yourAccountID</emphasis>/services/<emphasis role="bold">yourServiceID</emphasis> \
 -H "X-Auth-Token: <emphasis role="bold">yourAuthToken</emphasis>" \
 -H "Content-type: application/json" </programlisting>
       </example>
+      <para>You see a response body similar to the one in the following example.</para>
       <example>
         <title>Retrieve a service: Response</title>
         <programlisting language="json">HTTP/1.1 200 OK
@@ -851,7 +856,7 @@ Content-Type: application/json
     "name": "mywebsite.com",
     "domains": [
         {
-            "domain": "blog.mywebsite.com",
+            "domain": "www.mywebsite.com",
             "protocol": "http"                 
         }
     ],
@@ -861,17 +866,6 @@ Content-Type: application/json
             "port": 80,
             "ssl": false,
              "rules": []                 
-        },
-        {
-            "origin": "77.66.55.44",
-            "port": 80,
-            "ssl": false,
-            "rules": [
-                {
-                    "name": "videos",
-                    "request_url": "^/videos/*.m3u"
-                }
-            ]
         }
     ],
     "caching": [
@@ -923,44 +917,34 @@ Content-Type: application/json
             "rel": "flavor"
         },                                  
         {
-            "href": "mywebsite.com",
+            "href": "www.mywebsite.com.cdn1.raxcdn.com",
             "rel": "access_url"
         }
     ]
 }</programlisting>
       </example>
     </section>
-    <!-- <remark>This operation was removed in November 2014.</remark>
-      <section xml:id="checkCachedAsset-d1cdn">
-      <title>Check a cached asset</title>
-      <para>This operation checks the version of the asset that has been cached at the edge, along
-        with any custom rules for the asset. </para>
-      <para>The examples contain the expanded URL template with values inherited from parameters
-        (for example, https://private-anon-afee1c004-cloudcdn.apiary-mock.com/services/myweb-
-        site/assets). </para>
-      <example>
-        <title>cURL check a cached asset request</title>
-        <programlisting language="bash">curl -i -X GET https://global.cdn.api.rackspacecloud.com/v1.0/<emphasis role="bold">yourAccountID</emphasis>/services/<emphasis role="bold">yourServiceName</emphasis>/assets?urlOfAssetToCheck \
--H "X-Auth-Token: <emphasis role="bold">yourAuthToken</emphasis>" \
--H "Content-type: application/json" </programlisting>
-      </example>
-      <example>
-        <title>Check a cached asset response</title>
-        <programlisting language="json">HTTP/1.1 200 OK
-Content-Type: application/json 
-   
-**** Need to get an
-                example of response **** **** TODO - and consider the asset version across multiple
-                providers and      
-}</programlisting>
-      </example>
-    </section> -->
+    <section xml:id="updateDNS">
+      <title>Update your Domain Name System</title>
+      <para>Look for the <code>access_url</code> in the <code>links[]</code> section in the response
+        in <xref linkend="listService-d1cdn"/> for the service that you created. Make sure that the
+          <code>status</code> is <code>deployed</code>. </para>
+      <para>Go to your DNS (Domain Name System) provider, and create a CNAME record from your domain
+          (<code>www.mywebsite.com</code>) to the <code>access_url</code> returned
+          (<code>www.mywebsite.com.cdn1.raxcdn.com</code>).</para>
+      <para>It may take some time for your DNS change to propagate across the internet. Once this
+        has happened (based on the TTL you have set with your DNS provider), you will be able to
+        access your website via the CDN Edge. </para>
+    </section>
+    <section xml:id="accessWebsite">
+      <title>Access your website</title>
+      <para>Open a browser and request your domain <code>www.mywebsite.com</code>. The content is
+        now served via the CDN Edge Network. </para>
+    </section>
     <section xml:id="purgeAsset-d1cdn">
       <title>Delete a cached asset</title>
-      <para>A service distributes assets across the network. Service assets let you interrogate
-        properties about these assets and perform certain actions on them.</para>
-      <para>This operation deletes the current version of an asset that has been cached at the edge
-        node. </para>
+      <para>After working with the service you created, you might find that you want to delete the
+        current version of an asset that has been cached at the edge node. </para>
       <example>
         <title>Delete a cached asset: Request</title>
         <programlisting language="bash">curl -i -X DELETE https://global.cdn.api.rackspacecloud.com/v1.0/<emphasis role="bold">yourAccountID</emphasis>/services/<emphasis role="bold">yourServiceID</emphasis>/assets?url=<replaceable>relativeURLofAssettoDelete</replaceable> \
@@ -1014,8 +998,8 @@ Content-Type: application/json
     </section>
     <section xml:id="deleteService-d1cdn">
       <title>Delete a service</title>
-      <para>This operation deletes a service.</para>
-      <para>Following are examples of a delete service request and response:</para>
+      <para>This operation deletes a service. Following are examples of a delete service request and
+        response:</para>
       <example>
         <title>Delete service: Request</title>
         <programlisting language="bash">curl -i -X DELETE https://global.cdn.api.rackspacecloud.com/v1.0/<emphasis role="bold">yourAccountID</emphasis>/services/<emphasis role="bold">yourServiceID</emphasis> \ 
