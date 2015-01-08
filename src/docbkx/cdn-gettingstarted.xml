@@ -827,7 +827,7 @@ Content-Type: application/json
         <title>Create a service: Response</title>
         <programlisting language="json">HTTP/1.1 202 Accepted
 Content-TYpe: application/json
-Location:  https://global.cdn.api.rackspacecloud.com/v1.0/services/<emphasis role="bold">yourServiceID</emphasis> 
+Location:  https://global.cdn.api.rackspacecloud.com/v1.0/services/yourServiceID 
 </programlisting>
       </example>
     </section>
@@ -847,7 +847,7 @@ Location:  https://global.cdn.api.rackspacecloud.com/v1.0/services/<emphasis rol
 Content-Type: application/json 
    
 {
-    "id": "<emphasis role="bold">yourServiceID</emphasis>",  
+    "id": "yourServiceID",  
     "name": "mywebsite.com",
     "domains": [
         {
@@ -916,10 +916,10 @@ Content-Type: application/json
     "errors": [],                 
     "links": [
         {
-            "href": "https://global.cdn.api.rackspacecloud.com/v1.0/<emphasis role="bold">yourAccountID</emphasis>/services/<emphasis role="bold">yourServiceID</emphasis>",
+            "href": "https://global.cdn.api.rackspacecloud.com/v1.0/yourAccountID/services/yourServiceID",
             "rel": "self"
         },
-        {   "href": "https://global.cdn.api.rackspacecloud.com/v1.0/<emphasis role="bold">yourAccountID</emphasis>/flavors/cdn",
+        {   "href": "https://global.cdn.api.rackspacecloud.com/v1.0/yourAccountID/flavors/cdn",
             "rel": "flavor"
         },                                  
         {
@@ -1004,7 +1004,7 @@ Content-Type: application/json
         ],
         "links": [
             {
-                "href": "https://global.cdn.api.rackspacecloud.com/v1.0/<emphasis role="bold">yourAccountID</emphasis>/flavors/cdn",
+                "href": "https://global.cdn.api.rackspacecloud.com/v1.0/yourAccountID/flavors/cdn",
                 "rel": "self"
             }
         ]
