@@ -263,6 +263,16 @@
 				</wadl:doc>
 			</representation>
 		</response>
+		<response status="500" xmlns="http://wadl.dev.java.net/2009/02">
+			
+			<doc title="Internal Server Error" xml:lang="EN">The implementation of ping may return a 500 response in cases where the API service is unable to communicate with one or more implementation nodes for the service. Errors in the transport layer between the client and the API node may produce other errors.</doc>			
+			
+		</response>
+		<response status="503" xmlns="http://wadl.dev.java.net/2009/02">
+
+			<doc title="Service Unavailable" xml:lang="EN">The implementation of ping may return a 503 response in cases where the API service is unable to communicate with one or more implementation nodes for the service. Errors in the transport layer between the client and the API node may produce other errors.</doc>			
+			
+		</response>
 	</method>	
 <!--*******************************************************-->
 <!--              Services methods                         -->
