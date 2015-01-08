@@ -827,67 +827,8 @@ Content-Type: application/json
         <title>Create a service: Response</title>
         <programlisting language="json">HTTP/1.1 202 Accepted
 Content-TYpe: application/json
-Location:  https://global.cdn.api.rackspacecloud.com/v1.0/<emphasis role="bold">yourAccountID</emphasis>/services/<emphasis role="bold">yourServiceID</emphasis> 
- {
-    "name": "mywebsite.com",
-    "domains": [
-            {
-                "domain": "www.mywebsite.com",
-                "protocol": "http"
-            },
-            {
-                "domain": "blog.mywebsite.com",
-                "protocol": "http"
-            }
-    ],
-    "origins": [
-            {
-                "origin": "mywebsite.com",
-                "port": 80,
-                "ssl": false,
-                "rules": [
-                
-                ]
-            }
-    ],
-    "restrictions": [
-        {
-                     "name": "website only",
-                     "rules": [
-                               {
-                               "name": "mywebsite.com",
-                               "http_host": "www.mywebsite.com"
-                }
-            ]
-        }
-    ],
-    "caching": [
-                {
-                "name": "default",
-                "ttl": 3600
-                }
-    ],
-    "status": "failed",
-    "flavor_id": "cdn",
-    "errors": [
-               {
-               "message": "An error occurred while connecting to the Akamai API, please try your request again. (Exceeding max number of services: 10)"
-               }
-    ],
-    "links": [
-              "href": "https://global.cdn.api.rackspace.com/v1.0/<emphasis role="bold">yourAccountID</emphasis>/services/<emphasis role="bold">yourServiceID</emphasis>",
-              "rel": "self"
-              },
-              {
-              "href": "https://global.cdn.api.rackspace.com/v1.0/<emphasis role="bold">yourAccountID</emphasis>/flavors/cdn",
-              "rel": "flavor"
-              },
-              {
-              "href": "mywebsite.com.cdn128.cdn.mywebsite.com",
-              "rel": "access_url"
-        }
-    ]
-}    </programlisting>
+Location:  https://global.cdn.api.rackspacecloud.com/v1.0/services/<emphasis role="bold">yourServiceID</emphasis> 
+</programlisting>
       </example>
     </section>
     <section xml:id="listService-d1cdn">
@@ -1084,7 +1025,7 @@ Content-Type: application/json
       </example>
       <example>
         <title>Delete service: Response</title>
-        <programlisting language="json">HTTP/1.1 204 No Content</programlisting>
+        <programlisting language="json">HTTP/1.1 202 Accepted</programlisting>
       </example>
     </section>
   </chapter>

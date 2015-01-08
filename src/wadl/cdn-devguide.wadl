@@ -987,8 +987,8 @@
 	<method name="DELETE" id="deleteService">
 		<wadl:doc xml:lang="EN" title="Delete a service"
 			xmlns="http://docbook.org/ns/docbook">
-			<para role="shortdesc">Deletes a service.</para>
-			<para>This operation deletes a service. </para>			
+			<para role="shortdesc">Deletes the specified service.</para>
+			<para>This operation deletes the specified service. </para>			
 		</wadl:doc>
 		<request>
 			<representation mediaType="application/json" >
@@ -997,7 +997,7 @@
 				</doc>
 			</representation>
 		</request>
-		<response status="204" xmlns="http://wadl.dev.java.net/2009/02">
+		<response status="202" xmlns="http://wadl.dev.java.net/2009/02">
 			<doc title="Accepted" xml:lang="EN">The request has been fulfilled, but does not return a representation
 				(that is, the response is empty).</doc>
 			<representation mediaType="application/json">
