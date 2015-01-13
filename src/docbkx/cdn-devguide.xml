@@ -313,7 +313,7 @@
         Identity service and supplying a valid username and API access key. </para>
       <section xml:id="Geographic_Endpoints" xmlns:m="http://www.w3.org/1998/Math/MathML">
         <title>Geographic endpoints</title>
-        <para> The Rackspace Cloud Identity service serves as the entry point to all Rackspace Cloud
+        <para>The Rackspace Cloud Identity service serves as the entry point to all Rackspace Cloud
           APIs and is itself a RESTful web service. </para>
         <para> You can use either of the following endpoints to access the Rackspace Cloud Identity
           service for authentication:</para>
@@ -355,9 +355,22 @@
           for <code>username</code> and <code>apiKey</code>. When you authenticate successfully, the
           response to your authentication request will include a catalog of the services to which
           you have subscribed rather than the example values shown here.</para>
-        <note>
-          <para>For more information about how to use cURL to retrieve the authentication token, see
-            the <citetitle>Rackspace CDN Getting Started Guide</citetitle>.</para>
+        <note><title>Notes</title>
+          <itemizedlist>
+            <listitem>
+              <para>For more information about how to use cURL to retrieve the authentication token, see
+                the <citetitle>Rackspace CDN Getting Started Guide</citetitle>.</para>
+            </listitem>
+            <listitem>
+              <para>
+                If you authenticate with username and password credentials, you can set up multi-factor authentication 
+                to add an additional level of security to your account. This feature is not available for username and 
+                API credentials. For information about setting up and using multi-factor authentication, see 
+                <link xlink:href="http://docs.rackspace.com/auth/api/v2.0/auth-client-devguide/content/MFA_Ops.html">Multifactor authentication</link> 
+                in the <citetitle>Cloud Identity Client Developer Guide</citetitle>.
+              </para>
+            </listitem>
+          </itemizedlist>
         </note>
         <example>
           <title>Authentication with US endpoint: XML request</title>
