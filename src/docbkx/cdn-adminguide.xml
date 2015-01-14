@@ -334,7 +334,7 @@
               to add an additional level of security to your account. This feature is not available for username and 
               API credentials. For information about setting up and 
               authenticating with multi-factor authentication, see 
-              <link xlink:href="http://docs.rackspace.com/auth/api/v2.0/auth-client-devguide/content/MFA_Ops.html">Multifactor authentication</link> 
+              <link xlink:href="http://docs.rackspace.com/auth/api/v2.0/auth-client-devguide/content/MFA_Ops.html">Multi-factor authentication</link> 
               in the <citetitle>Cloud Identity Client Developer Guide</citetitle>.
             </para>
           </listitem>

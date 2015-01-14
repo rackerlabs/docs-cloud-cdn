@@ -702,8 +702,11 @@ Content-Type: application/json
               <code>'https://lon.identity.api.rackspacecloud.com/v2.0/tokens'</code> for better
             regional performance.</para>
         </note>
-        <para>This guide uses yourUserName and yourApiKey for authentication. For information about
-          other supported authentication methods, see the <link xlink:href="http://docs.rackspace.com/auth/api/v2.0/auth-client-devguide/content/Token_Calls.html">Authentication tokens</link> in the Cloud Identity Client Developer Guide.</para>
+        <para>This guide uses <emphasis role="bold">yourUserName</emphasis> and <emphasis
+            role="bold">yourApiKey</emphasis> for authentication. For information about other
+          supported authentication methods, see the <link
+            xlink:href="http://docs.rackspace.com/auth/api/v2.0/auth-client-devguide/content/Token_Calls.html"
+            >Authentication tokens</link> in the Cloud Identity Client Developer Guide.</para>
       </section>
       <section xml:id="receiveToken-d10e1">
         <title>Receive the token</title>
