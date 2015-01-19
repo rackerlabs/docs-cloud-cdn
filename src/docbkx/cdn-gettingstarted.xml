@@ -813,7 +813,7 @@ Content-Type: application/json
         {
             "name": "default",
             "ttl": 3600
-        }
+        },
         {
             "name": "home",
             "ttl": 17200,
