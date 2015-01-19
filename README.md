@@ -1,4 +1,4 @@
-# Rackspace CDN API documentation (CURRENTLY WIP)
+# Rackspace CDN API documentation
 
 ## Resources
 
