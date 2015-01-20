@@ -47,7 +47,7 @@
             "rules": [
                 {
                     "name": "mywebsite.com",
-                    "http_host": "www.mywebsite.com"
+                    "referrer": "www.mywebsite.com"
                 }
             ]
         }
