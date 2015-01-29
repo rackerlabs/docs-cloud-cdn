@@ -349,7 +349,7 @@
 				</param>
 				<param name="port" style="plain" path="$.origins.port">
 					<wadl:doc xmlns="http://docbook.org/ns/docbook"
-						xml:lang="EN">Specifies the port used to access the origin. The default is port 80.</wadl:doc>
+						xml:lang="EN">Specifies the port used to access the origin. The default is port 80. Note: Rackspace CDN cannot be used with custom ports. Services are required to run on HTTP (80) and HTTPS (443) for the origin servers. </wadl:doc>
 				</param>
 				<param name="ssl" style="plain" path="$.origins.ssl">
 					<wadl:doc xmlns="http://docbook.org/ns/docbook"
@@ -540,7 +540,7 @@
 				<param name="port" style="plain" path="$.origins.port"
 					required="false">
 					<wadl:doc xmlns="http://docbook.org/ns/docbook"
-						xml:lang="EN">Specifies the port used to access the origin. The default is port 80.</wadl:doc>
+						xml:lang="EN">Specifies the port used to access the origin. The default is port 80. Note: Rackspace CDN cannot be used with custom ports. Services are required to run on HTTP (80) and HTTPS (443) for the origin servers.</wadl:doc>
 				</param>
 				<param name="ssl" style="plain" path="$.origins.ssl"
 					required="false">
@@ -700,7 +700,7 @@
 			<doc title="Bad Request" xml:lang="EN">Non-Boolean value for origins:origin:ssl. </doc>			
 		</response>
 		<response status="400" xmlns="http://wadl.dev.java.net/2009/02">
-			<doc title="Bad Request" xml:lang="EN">Value for origins:origin:port is something other than (80,443). </doc>			
+			<doc title="Bad Request" xml:lang="EN">Value for origins:origin:port is something other than 80 or 443. </doc>			
 		</response>
 		<response status="400" xmlns="http://wadl.dev.java.net/2009/02">
 			<doc title="Bad Request" xml:lang="EN">Restrictions list present with no name.</doc>			
@@ -768,7 +768,7 @@
 				</param>
 				<param name="port" style="plain" path="$.origins.port">
 					<wadl:doc xmlns="http://docbook.org/ns/docbook"
-						xml:lang="EN">Specifies the port used to access the origin. The default is port 80.</wadl:doc>
+						xml:lang="EN">Specifies the port used to access the origin. The default is port 80. Note: Rackspace CDN cannot be used with custom ports. Services are required to run on HTTP (80) and HTTPS (443) for the origin servers.</wadl:doc>
 				</param>
 				<param name="ssl" style="plain" path="$.origins.ssl">
 					<wadl:doc xmlns="http://docbook.org/ns/docbook"
@@ -980,7 +980,7 @@
 			<doc title="Bad Request" xml:lang="EN">Non-Boolean value for origins:origin:ssl. </doc>			
 		</response>
 		<response status="400" xmlns="http://wadl.dev.java.net/2009/02">
-			<doc title="Bad Request" xml:lang="EN">Value for origins:origin:port is something other than (80,443). </doc>			
+			<doc title="Bad Request" xml:lang="EN">Value for origins:origin:port is something other than 80 or 443. </doc>			
 		</response>
 		
 		<response status="400" xmlns="http://wadl.dev.java.net/2009/02">
@@ -1173,7 +1173,7 @@
 				</wadl:doc>
 				<param name="id" style="plain" path="$.id">
 					<wadl:doc xmlns="http://docbook.org/ns/docbook"
-						xml:lang="EN">Specifies the name of the flavor. The name must not exceed 64 bytes in length and is limited to unicode, digits, underscores, and hyphens.</wadl:doc>
+						xml:lang="EN">Specifies the name of the flavor. The name must not exceed 64 bytes in length and is limited to Unicode, digits, underscores, and hyphens.</wadl:doc>
 				</param>
 				<param name="providers" style="plain" path="$.providers">
 					<wadl:doc xmlns="http://docbook.org/ns/docbook"
@@ -1181,7 +1181,7 @@
 				</param>
 				<param name="provider" style="plain" path="$.providers.provider">
 					<wadl:doc xmlns="http://docbook.org/ns/docbook"
-						xml:lang="EN">Specifies the name of the provider. The name must not exceed 64 bytes in length and is limited to unicode, digits, underscores, and hyphens.</wadl:doc>
+						xml:lang="EN">Specifies the name of the provider. The name must not exceed 64 bytes in length and is limited to Unicode, digits, underscores, and hyphens.</wadl:doc>
 				</param>
 				<param name="links" style="plain" path="$.providers.links">
 					<wadl:doc xmlns="http://docbook.org/ns/docbook"
@@ -1334,7 +1334,7 @@
 				</wadl:doc>
 				<param name="id" style="plain" path="$.id">
 					<wadl:doc xmlns="http://docbook.org/ns/docbook"
-						xml:lang="EN">Specifies the name of the flavor. The name must not exceed 64 bytes in length and is limited to unicode, digits, underscores, and hyphens.</wadl:doc>
+						xml:lang="EN">Specifies the name of the flavor. The name must not exceed 64 bytes in length and is limited to Unicode, digits, underscores, and hyphens.</wadl:doc>
 				</param>
 				<param name="providers" style="plain" path="$.providers">
 					<wadl:doc xmlns="http://docbook.org/ns/docbook"
@@ -1342,7 +1342,7 @@
 				</param>
 				<param name="provider" style="plain" path="$.providers.provider">
 					<wadl:doc xmlns="http://docbook.org/ns/docbook"
-						xml:lang="EN">Specifies the name of the provider. The name must not exceed 64 bytes in length and is limited to unicode, digits, underscores, and hyphens.</wadl:doc>
+						xml:lang="EN">Specifies the name of the provider. The name must not exceed 64 bytes in length and is limited to Unicode, digits, underscores, and hyphens.</wadl:doc>
 				</param>
 				<param name="links" style="plain" path="$.providers.links">
 					<wadl:doc xmlns="http://docbook.org/ns/docbook"
