@@ -555,12 +555,12 @@
 				<param name="name" style="plain" path="$.origins.rules.name"
 					required="true">
 					<wadl:doc xmlns="http://docbook.org/ns/docbook"
-						xml:lang="EN">Specifies the name of this rule. The minimum length for <code>name</code> is 3. The maximum length is 256.</wadl:doc>
+						xml:lang="EN">Specifies the name of this rule. The minimum length for <code>name</code> is 1. The maximum length is 256.</wadl:doc>
 				</param>
 				<param name="request_url" style="plain" path="$.origins.rules.request_url"
 					required="true">
 					<wadl:doc xmlns="http://docbook.org/ns/docbook"
-						xml:lang="EN">Specifies the request URL that this rule should match for this origin to be used. The minimum length for <code>request_url</code> is 3. The maximum length is 1024. (Regex is supported.)</wadl:doc>
+						xml:lang="EN">Specifies the request URL that this rule should match for this origin to be used. The minimum length for <code>request_url</code> is 1. The maximum length is 1024. (Regex is supported.)</wadl:doc>
 				</param>
 				
 				<param name="caching" style="plain" path="$.caching"
@@ -571,7 +571,7 @@
 				<param name="name" style="plain" path="$.caching.name"
 					required="true">
 					<wadl:doc xmlns="http://docbook.org/ns/docbook"
-						xml:lang="EN">Specifies the name of this caching rule. The minimum length for <code>name</code> is 3. The maximum length is 256. Note: <code>default</code> is a reserved name used for the default TTL setting.</wadl:doc>
+						xml:lang="EN">Specifies the name of this caching rule. The minimum length for <code>name</code> is 1. The maximum length is 256. Note: <code>default</code> is a reserved name used for the default TTL setting.</wadl:doc>
 				</param>
 				<param name="ttl" style="plain" path="$.caching.ttl"
 					required="true">
@@ -586,12 +586,12 @@
 				<param name="name" style="plain" path="$.caching.rules.name"
 					required="true">
 					<wadl:doc xmlns="http://docbook.org/ns/docbook"
-						xml:lang="EN">Specifies the name of this rule. The minimum length for <code>name</code> is 3. The maximum length is 256. </wadl:doc>
+						xml:lang="EN">Specifies the name of this rule. The minimum length for <code>name</code> is 1. The maximum length is 256. </wadl:doc>
 				</param>
 				<param name="request_url" style="plain" path="$.caching.rules.request_url"
 					required="true">
 					<wadl:doc xmlns="http://docbook.org/ns/docbook"
-						xml:lang="EN">Specifies the request URL that this rule should match for this TTL to be used. The minimum length for <code>request_url</code> is 3. The maximum length is 1024. (Regex is supported.)</wadl:doc>
+						xml:lang="EN">Specifies the request URL that this rule should match for this TTL to be used. The minimum length for <code>request_url</code> is 1. The maximum length is 1024. (Regex is supported.)</wadl:doc>
 				</param>
 				
 				<param name="restrictions" style="plain" path="$.restrictions"
@@ -602,7 +602,7 @@
 				<param name="name" style="plain" path="$.restrictions.name"
 					required="true">
 					<wadl:doc xmlns="http://docbook.org/ns/docbook"
-						xml:lang="EN">Specifies the name of this restriction. The minimum length for <code>name</code> is 3. The maximum length is 256. </wadl:doc>
+						xml:lang="EN">Specifies the name of this restriction. The minimum length for <code>name</code> is 1. The maximum length is 256. </wadl:doc>
 				</param>
 				<param name="rules" style="plain" path="$.restrictions.rules"
 					required="false">
@@ -612,7 +612,7 @@
 				<param name="name" style="plain" path="$.restrictions.rules.name"
 					required="true">
 					<wadl:doc xmlns="http://docbook.org/ns/docbook"
-						xml:lang="EN">Specifies the name of this rule. The minimum length for <code>name</code> is 3. The maximum length is 256.</wadl:doc>
+						xml:lang="EN">Specifies the name of this rule. The minimum length for <code>name</code> is 1. The maximum length is 256.</wadl:doc>
 				</param>
 				<param name="referrer" style="plain" path="$.restrictions.rules.referrer"
 					required="false">
@@ -623,7 +623,7 @@
 <!--			<param name="request_url" style="plain" path="$.restrictions.rules.request_url"
 					required="false">
 					<wadl:doc xmlns="http://docbook.org/ns/docbook"
-						xml:lang="EN">Specifies the request URL that this rule should match for this TTL to be used. The minimum length for <code>request_url</code> is 3. The maximum length is 1024. (Regex is supported.)</wadl:doc>
+						xml:lang="EN">Specifies the request URL that this rule should match for this TTL to be used. The minimum length for <code>request_url</code> is 1. The maximum length is 1024. (Regex is supported.)</wadl:doc>
 				</param>
 				<param name="http_host" style="plain" path="$.restrictions.rules.http_host"
 					required="false">
