@@ -644,7 +644,7 @@
 				<param name="flavor_id" style="plain" path="$.flavor_id"
 					required="true">
 					<wadl:doc xmlns="http://docbook.org/ns/docbook"
-						xml:lang="EN">Specifies the CDN provider flavor ID to use. For a list of flavors, see the operation to list the available flavors. The minimum length for <code>flavor_id</code> is 1. The maximum length is 256.</wadl:doc>
+						xml:lang="EN">Specifies the CDN provider flavor ID to use. For a list of flavors, see the operation to list the available flavors. The minimum length for <code>flavor_id</code> is 3. The maximum length is 256.</wadl:doc>
 				</param>
 <!--								
 				
