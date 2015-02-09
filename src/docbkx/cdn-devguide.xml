@@ -1194,6 +1194,49 @@ Content-Type: application/json
 }</programlisting>
       </example>
     </section>
+    <section xml:id="createRules-d101">
+      <title>Creating rules</title>
+      <para>When you create a service with the operation described at <link
+          xlink:href="http://docs.rackspace.com/cdn/api/v1.0/cdn-devguide/content/POST_createService__services_servicesOperations.html"
+          xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:html="http://www.w3.org/1999/xhtml"
+          >Create a service</link>, you define rules for the service within the request. Rules are
+        defined for the following request parameters:  </para>
+      <itemizedlist>
+        <listitem>
+          <para><code>origins</code>: Specifies a collection of rules that define the conditions
+            when the origin should be accessed. If there is more than one origin,the rules parameter
+            is required.  </para>
+          <para>The <code>origin.rules</code> parameter supports the <code>name</code> and
+              <code>request_url</code> parameters.</para>
+        </listitem>
+        <listitem>
+          <para><code>caching</code>: Specifies a collection of rules that determine if the TTL
+            should be applied to an asset. </para>
+          <para>The <code>caching.rules</code> parameter supports the <code>name</code> and
+              <code>request_url</code> parameters. </para>
+        </listitem>
+        <listitem>
+          <para><code>restrictions</code>: Specifies a collection of rules that define the
+            restrictions to impose on the service. Rules can be combined together.  </para>
+          <para>The <code>retrictions.rules</code> parameter supports <code>name</code> and
+              <code>referrer</code> parameters. </para>
+        </listitem>
+      </itemizedlist>
+      <note>
+        <para>Each of the parameters above are described in <link
+            xlink:href="http://docs.rackspace.com/cdn/api/v1.0/cdn-devguide/content/POST_createService__services_servicesOperations.html"
+            xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:html="http://www.w3.org/1999/xhtml"
+            >Create a service</link>. </para>
+      </note>
+      <para>Rules are evaluated from top to bottom. A rule first evaluates its parameter
+        definitions, and then executes based on those definitions. If any parameter definitions are
+        specified more than once in a set of  rules, the last definition overrides those definitions
+        that precede it. In some cases, the ordering of different parameter definitions that perform
+        similar functions for the service might also matter. In other cases,  you can reuse the same
+        parameter definitions to do different things that do not conflict with each other, for
+        example, by modifying one HTTP header and then another.</para>
+      <remark> Perhaps Amit can provide a better example for Rackspace CDN.</remark>
+    </section>
   </chapter>
   <chapter xml:id="apiOperations-d101" xmlns="http://docbook.org/ns/docbook" role="api-reference">
     <title>API operations</title>
