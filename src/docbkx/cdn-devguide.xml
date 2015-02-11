@@ -1199,8 +1199,8 @@ Content-Type: application/json
       <para>When you create a service with the operation described at <link
           xlink:href="http://docs.rackspace.com/cdn/api/v1.0/cdn-devguide/content/POST_createService__services_servicesOperations.html"
           xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:html="http://www.w3.org/1999/xhtml"
-          >Create a service</link>, you define rules for the service within the request. Rules are
-        defined for the following request parameters:  </para>
+          >Create a service</link>, within the request, you can define rules for the service for the
+        following parameters: </para>
       <itemizedlist>
         <listitem>
           <para><code>origins</code>: Specifies a collection of rules that define the conditions
@@ -1228,14 +1228,84 @@ Content-Type: application/json
             xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:html="http://www.w3.org/1999/xhtml"
             >Create a service</link>. </para>
       </note>
-      <para>Rules are evaluated from top to bottom. A rule first evaluates its parameter
-        definitions, and then executes based on those definitions. If any parameter definitions are
-        specified more than once in a set of  rules, the last definition overrides those definitions
-        that precede it. In some cases, the ordering of different parameter definitions that perform
-        similar functions for the service might also matter. In other cases,  you can reuse the same
-        parameter definitions to do different things that do not conflict with each other, for
-        example, by modifying one HTTP header and then another.</para>
-      <remark> Perhaps Amit can provide a better example for Rackspace CDN.</remark>
+      <para>These rules are stored in a policy file at every edge server and are applied to your
+        traffic when a request is issued that matches the path of your rule. For that reason,
+        creating rules for your content always begins by setting a path for which the rule should be
+        applied. Because Rackspace CDN applies rules using a path, you can specify rules as granular
+        as the file level.  Within the Rackspace CDN API, paths are defined using the
+          <code>domain</code> and <code>origin</code> parameters in the request to create a service.
+        Then, for example, with the <code>caching.rules</code>, you might set <code>ttl</code> equal
+        to 3600 seconds (1 hour) for a specific file by making the rule path
+          <code>/videos/marketingspot/abccompany/welcomevideo.mp4</code>. </para>
+      <remark>Add link to the Knowledge Center article on Edge rules when it becomes
+        available.</remark>
+      <section xml:id="ruleOrder-de101">
+        <title>Rule ordering</title>
+        <para>When you specify multiple rules within one rule type, such as <code>origins</code>,
+            <code>caching</code>, or <code>restrictions</code>, the order of these rules is very
+          important.  </para>
+        <para>When content comes into the CDN network for a Rackspace CDN domain, rules in the
+          policy file are evaluated from top to bottom. The last rule matching the requesting URL is
+          applied.    </para>
+        <para>If any parameter definitions are specified more than once in a set of rules, the last
+          definition overrides those definitions that precede it. In some cases, the ordering of
+          different parameter definitions that perform similar functions for the service might also
+          matter. In other cases, you can reuse the same parameter definitions to do different
+          things that do not conflict with each other. </para>
+        <para>For example, a URL
+            of <code>www.mywebsite.com/videos/marketingspot/abccompany/welcomevideo.mp4</code>
+          matches all of the following rule paths:  
+          <programlisting>www.mywebsite.com
+www.mywebsite.com/videos
+www.mywebsite.com/videos/marketingspot
+www.mywebsite.com/videos/marketingspot/abccompany
+www.mywebsite.com/videos/marketingspot/abccompany/welcomevideo.mp4  </programlisting>
+        </para>
+        <para>Because all of the paths match the rule, you must order rules from least specific to
+          most specific, as shown above. </para>
+        <para>In your request, if you define a set of caching rules with the paths in the following
+          order, the last rule matches and assigns the TTL to 3600 (or 1 hour) rather than 259200
+          (or 3
+          days):<programlisting>www.mywebsite.com/videos/marketingspot with "ttl":259200 set in caching.rules
+www.mywebsite.com/videos with "ttl":3600 set in caching.rules </programlisting></para>
+        <remark>Add link to the Knowledge Center article on Edge rules when it becomes
+          available.</remark>
+      </section>
+      <section xml:id="multipleCachRules">
+        <title>Multiple caching rules example</title>
+        <para>You want most of the content on your website to have a TTL of 3 days.  The only
+          exception is your dynamic content, hosted on your origin at <code>/dynamic</code>, which
+          you want to have a TTL of 0 because the experience changes for every user.  </para>
+        <para>In this case, you should order your TTL <code>caching.rules</code> as follows:</para>
+        <programlisting>www.mywebsite.com   with "ttl" : 259200 set in caching.rules
+www.mywebsite.com/dynamic    with "ttl" : 0 set in caching.rules</programlisting>
+      </section>
+      <section xml:id="multipleOriginRules">
+        <title>Multiple origin rules example</title>
+        <para>Most of the content from your website should pull from your Cloud Server origin,
+          hosted at <code>origin.cloudserver.com</code>. However, any requests with the URL
+            <code>website.com/dedicated</code> should be routed to your dedicated server, hosted at
+            <code>origin.dedicatedserver.com</code>. In this case, you should order your
+            <code>origin.rules</code> as follows:
+           <programlisting>origin.cloudserver.com   with origin=origin.cloudserver.com in origin.rules 
+origin.dedicatedserver.com    with origin=origin.dedicatedserver.com in origin.rules</programlisting></para>
+      </section>
+      <section xml:id="referrerRules">
+        <title>Referrer rules example</title>
+        <para>Referrer restrictions are slightly different in that they are always applied to the
+          full site.  In other words, Rackspace CDN always sets your referrer restriction to have a
+          path of <code>/</code>.  </para>
+        <para>When using referrer rules, you want to prevent your content from being hot-linked by
+          other pages on the internet. Without this, someone might copy the link to your images and
+          serve those images on their site while your pay for the bandwidth.  </para>
+        <para>To avoid this, set up a rule that only allows your content to be served to an end user
+          if it is being requested by your domain.  </para>
+        <para>To do this, set up <code>restrictions.rules.referrer</code> similar to the following
+          definition:<programlisting>/   with "referrer":"www.mywebsite.com" set in restrictions.rules</programlisting>
+        </para>
+        <para>Again, in this scenario, Rackspace CDN only asks you for the referring domain, and the
+          rule is always applied to the entire CDN-enabled domain.  </para>
+      </section>
     </section>
   </chapter>
   <chapter xml:id="apiOperations-d101" xmlns="http://docbook.org/ns/docbook" role="api-reference">
