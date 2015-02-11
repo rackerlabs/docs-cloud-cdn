@@ -447,19 +447,19 @@ Content-Type: application/json
         <para>For example, a URL
             of <code>www.mywebsite.com/videos/marketingspot/abccompany/welcomevideo.mp4</code>
           matches all of the following rule paths:  
-          <programlisting>www.mywebsite.com
+          <literallayout><code>www.mywebsite.com
 www.mywebsite.com/videos
 www.mywebsite.com/videos/marketingspot
 www.mywebsite.com/videos/marketingspot/abccompany
-www.mywebsite.com/videos/marketingspot/abccompany/welcomevideo.mp4  </programlisting>
+www.mywebsite.com/videos/marketingspot/abccompany/welcomevideo.mp4</code> </literallayout>
         </para>
         <para>Because all of the paths match the rule, you must order rules from least specific to
           most specific, as shown above. </para>
         <para>In your request, if you define a set of caching rules with the paths in the following
           order, the last rule matches and assigns the TTL to 3600 (or 1 hour) rather than 259200
           (or 3
-          days):<programlisting>www.mywebsite.com/videos/marketingspot with "ttl":259200 set in caching.rules
-www.mywebsite.com/videos with "ttl":3600 set in caching.rules </programlisting></para>
+          days):<literallayout><code>www.mywebsite.com/videos/marketingspot</code>     with <code>"ttl":259200</code> set in <code>caching.rules</code>
+<code>www.mywebsite.com/videos</code>     with <code>"ttl":3600</code> set in <code>caching.rules</code></literallayout></para>
         <remark>Add link to the Knowledge Center article on Edge rules when it becomes
           available.</remark>
       </section>
@@ -470,8 +470,8 @@ www.mywebsite.com/videos with "ttl":3600 set in caching.rules </programlisting>
           you want to have a TTL of 0 because the experience changes for every user.  </para>          
           <para>In this case, you should order your TTL <code>caching.rules</code> as
           follows:</para>
-        <programlisting>www.mywebsite.com   with "ttl" : 259200 set in caching.rules
-www.mywebsite.com/dynamic    with "ttl" : 0 set in caching.rules</programlisting> 
+        <literallayout><code>www.mywebsite.com</code>     with <code>"ttl":259200</code> set in <code>caching.rules</code>
+<code>www.mywebsite.com/dynamic</code>     with <code>"ttl":0</code> set in<code> caching.rules</code></literallayout> 
       </section>
       <section xml:id="multipleOriginRules">
         <title>Multiple origin rules example</title>
@@ -481,8 +481,8 @@ www.mywebsite.com/dynamic    with "ttl" : 0 set in caching.rules</programlis
             <code>website.com/dedicated</code> should be routed to your dedicated server, hosted at
             <code>origin.dedicatedserver.com</code>. In this case, you should order your
             <code>origin.rules</code> as follows:
-           <programlisting>origin.cloudserver.com   with origin=origin.cloudserver.com in origin.rules 
-origin.dedicatedserver.com    with origin=origin.dedicatedserver.com in origin.rules</programlisting></para>
+           <literallayout><code>origin.cloudserver.com</code>     with <code>origin=origin.cloudserver.com</code> in <code>origin.rules</code> 
+<code>origin.dedicatedserver.com</code>     with <code>origin=origin.dedicatedserver.com</code> in <code>origin.rules</code></literallayout></para>
       </section>
       <section xml:id="referrerRules">
         <title>Referrer rules example</title>
@@ -494,10 +494,22 @@ origin.dedicatedserver.com    with origin=origin.dedicatedserver.com in origin.r
           bandwidth.   </para><para>To avoid this, set up a rule that only allows your content to be
           served to an end user if it is being requested by your domain.  </para>
         <para>To do this, set up <code>restrictions.rules.referrer</code> similar to the following
-          definition:<programlisting>/   with "referrer":"www.mywebsite.com" set in restrictions.rules</programlisting>
+          definition:<literallayout><code>/</code>      with <code>"referrer":"www.mywebsite.com"</code> set in <code>restrictions.rules</code></literallayout>
         </para><para>Again, in this scenario, Rackspace CDN only asks you for the referring domain,
           and the rule is always applied to the entire CDN-enabled domain.  </para>
       </section>
+    </section>
+    <section xml:id="testCDN-d101">
+      <title>Testing the CDN</title>
+      <para>Because the Akamai server requires that you use a CNAME for the site to Akamai, we
+        recommend that you use a test domain to validate end-to-end CDN functionality via Akamai.
+        For example, if the goal is to enable <code>www.example.com</code> via Akamai, then you
+        might create a test hostname such as <code>test-www.example.com</code>, CNAME to the same
+        partner endpoint as the <code>www.example.com</code>, and create a copy of the policy via
+        the API so that it uses the same origin. </para>
+      <para>If required, the policy might override the <code>Host</code> header sent to the origin
+        to use the “fixed” value <code>www.example.com</code> as shown here. (Note: All other
+        behaviors such as TTLs should match the <code>www.example.com</code> policy.)</para>
     </section>
   </chapter>
   <chapter xml:id="prerequisites" xmlns:m="http://www.w3.org/1998/Math/MathML"
