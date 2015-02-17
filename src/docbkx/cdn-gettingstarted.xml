@@ -348,6 +348,12 @@
             <td colspan="3">The request method is not supported for this resource.</td>
           </tr>
           <tr>
+            <td colspan="2"><code>Request Entity Too Large</code></td>
+            <td colspan="1">413</td>
+            <td colspan="3">The server is refusing to process a request because the request entity
+              is larger than the server is willing or able to process. </td>
+          </tr>
+          <tr>
             <td colspan="2"><code>Too Many Requests</code></td>
             <td colspan="1">429</td>
             <td colspan="3">Too many requests have been sent in a given amount of time. Pause
@@ -446,20 +452,33 @@ Content-Type: application/json
           things that do not conflict with each other. </para>
         <para>For example, a URL
             of <code>www.mywebsite.com/videos/marketingspot/abccompany/welcomevideo.mp4</code>
-          matches all of the following rule paths:  
-          <literallayout><code>www.mywebsite.com
-www.mywebsite.com/videos
-www.mywebsite.com/videos/marketingspot
-www.mywebsite.com/videos/marketingspot/abccompany
-www.mywebsite.com/videos/marketingspot/abccompany/welcomevideo.mp4</code> </literallayout>
+          matches all of the following rule paths:  <itemizedlist>
+            <listitem>
+              <para><code>www.mywebsite.com</code></para>
+            </listitem>
+            <listitem>
+              <para><code>www.mywebsite.com/videos</code></para>
+            </listitem>
+            <listitem>
+              <para><code>www.mywebsite.com/videos/marketingspot</code></para>
+            </listitem>
+            <listitem>
+              <para><code>www.mywebsite.com/videos/marketingspot/abccompany</code></para>
+            </listitem>
+            <listitem>
+              <para><code>www.mywebsite.com/videos/marketingspot/abccompany/welcomevideo.mp4</code></para>
+            </listitem>
+          </itemizedlist>
         </para>
         <para>Because all of the paths match the rule, you must order rules from least specific to
           most specific, as shown above. </para>
         <para>In your request, if you define a set of caching rules with the paths in the following
-          order, the last rule matches and assigns the TTL to 3600 (or 1 hour) rather than 259200
-          (or 3
-          days):<literallayout><code>www.mywebsite.com/videos/marketingspot</code>     with <code>"ttl":259200</code> set in <code>caching.rules</code>
-<code>www.mywebsite.com/videos</code>     with <code>"ttl":3600</code> set in <code>caching.rules</code></literallayout></para>
+          order, the last rule matches and assigns the TTL to 3600 seconds (or 1 hour) rather than
+          259200 seconds (or 3 days):</para>
+        <para><code>www.mywebsite.com/videos/marketingspot</code> ----->with
+            <code>"ttl":259200</code> set in <code>caching.rules</code>
+          <code>www.mywebsite.com/videos</code> ----->with <code>"ttl":3600</code> set in
+            <code>caching.rules</code></para>
         <remark>Add link to the Knowledge Center article on Edge rules when it becomes
           available.</remark>
       </section>
@@ -470,8 +489,10 @@ www.mywebsite.com/videos/marketingspot/abccompany/welcomevideo.mp4</code> </lit
           you want to have a TTL of 0 because the experience changes for every user.  </para>          
           <para>In this case, you should order your TTL <code>caching.rules</code> as
           follows:</para>
-        <literallayout><code>www.mywebsite.com</code>     with <code>"ttl":259200</code> set in <code>caching.rules</code>
-<code>www.mywebsite.com/dynamic</code>     with <code>"ttl":0</code> set in<code> caching.rules</code></literallayout> 
+        <para><code>www.mywebsite.com</code> -----> with <code>"ttl":259200</code> set in
+            <code>caching.rules</code>
+          <code>www.mywebsite.com/dynamic</code> -----> with <code>"ttl":0</code> set in<code>
+            caching.rules</code></para> 
       </section>
       <section xml:id="multipleOriginRules">
         <title>Multiple origin rules example</title>
@@ -480,9 +501,11 @@ www.mywebsite.com/videos/marketingspot/abccompany/welcomevideo.mp4</code> </lit
           hosted at <code>origin.cloudserver.com</code>. However, any requests with the URL
             <code>website.com/dedicated</code> should be routed to your dedicated server, hosted at
             <code>origin.dedicatedserver.com</code>. In this case, you should order your
-            <code>origin.rules</code> as follows:
-           <literallayout><code>origin.cloudserver.com</code>     with <code>origin=origin.cloudserver.com</code> in <code>origin.rules</code> 
-<code>origin.dedicatedserver.com</code>     with <code>origin=origin.dedicatedserver.com</code> in <code>origin.rules</code></literallayout></para>
+            <code>origin.rules</code> as follows:  </para>
+        <para><code>origin.cloudserver.com</code> -----> with
+            <code>origin=origin.cloudserver.com</code> in <code>origin.rules</code>
+          <code>origin.dedicatedserver.com</code> -----> with
+            <code>origin=origin.dedicatedserver.com</code> in <code>origin.rules</code></para>
       </section>
       <section xml:id="referrerRules">
         <title>Referrer rules example</title>
@@ -494,19 +517,21 @@ www.mywebsite.com/videos/marketingspot/abccompany/welcomevideo.mp4</code> </lit
           bandwidth.   </para><para>To avoid this, set up a rule that only allows your content to be
           served to an end user if it is being requested by your domain.  </para>
         <para>To do this, set up <code>restrictions.rules.referrer</code> similar to the following
-          definition:<literallayout><code>/</code>      with <code>"referrer":"www.mywebsite.com"</code> set in <code>restrictions.rules</code></literallayout>
+          definition: </para>
+        <para><code>/</code> -----> with <code>"referrer":"www.mywebsite.com"</code> set in
+            <code>restrictions.rules</code>
         </para><para>Again, in this scenario, Rackspace CDN only asks you for the referring domain,
           and the rule is always applied to the entire CDN-enabled domain.  </para>
       </section>
     </section>
     <section xml:id="testCDN-d101">
       <title>Testing the CDN</title>
-      <para>Because the Akamai server requires that you use a CNAME for the site to Akamai, we
-        recommend that you use a test domain to validate end-to-end CDN functionality via Akamai.
-        For example, if the goal is to enable <code>www.example.com</code> via Akamai, then you
-        might create a test hostname such as <code>test-www.example.com</code>, CNAME to the same
-        partner endpoint as the <code>www.example.com</code>, and create a copy of the policy via
-        the API so that it uses the same origin. </para>
+      <para>Because the Akamai server requires that you use a CNAME for the site to access Akamai,
+        we recommend that you use a test domain to validate end-to-end CDN functionality with
+        Akamai. For example, if the goal is to enable <code>www.example.com</code> with Akamai, you
+        might create a test hostname such as <code>test-www.example.com</code>, use the CNAME to
+        access the same partner endpoint as the <code>www.example.com</code>, and create a copy of
+        the policy via the API so that it uses the same origin. </para>
       <para>If required, the policy might override the <code>Host</code> header sent to the origin
         to use the “fixed” value <code>www.example.com</code> as shown here. (Note: All other
         behaviors such as TTLs should match the <code>www.example.com</code> policy.)</para>
