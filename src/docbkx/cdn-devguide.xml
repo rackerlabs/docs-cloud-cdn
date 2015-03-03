@@ -315,21 +315,27 @@
         <title>Geographic endpoints</title>
         <para>The Rackspace Cloud Identity service serves as the entry point to all Rackspace Cloud
           APIs and is itself a RESTful web service. </para>
-        <para> You can use either of the following endpoints to access the Rackspace Cloud Identity
-          service for authentication:</para>
-        <itemizedlist spacing="compact">
-          <listitem>
-            <para>
-              <link xlink:href="&ENDPOINT-US-20;">&ENDPOINT-US-20;</link>
-            </para>
-          </listitem>
-          <listitem>
-            <para>
-              <link xlink:href="&ENDPOINT-UK-20;">&ENDPOINT-UK-20;</link>
-            </para>
-          </listitem>
-        </itemizedlist>
-        <para>For our UK customers, we recommend &ENDPOINT-UK-20; for better regional performance.  </para>
+        <para>Use the following endpoint to access the Cloud Identity Service, regardless of US or
+          UK identities:<itemizedlist>
+            <listitem>
+              <para><code>https://identity.api.rackspacecloud.com/v2.0</code></para>
+            </listitem>
+          </itemizedlist>
+        </para>
+        <para>Your account might be based in either the US or the UK. This is not determined by your
+          physical location but by the location of the Rackspace retail site which was used to
+          create your account:<itemizedlist>
+            <listitem>
+              <para>If your account was created via <link xlink:href="http://www.rackspacecloud.com"
+                  >http://www.rackspacecloud.com</link>, it is a US-based account.</para>
+            </listitem>
+            <listitem>
+              <para>If your account was created via <link xlink:href="http://www.rackspace.co.uk"
+                  >http://www.rackspace.co.uk</link>, it is a UK-based account. </para>
+            </listitem>
+          </itemizedlist></para>
+        <para>Note that the <code>v2.0</code> component in the URL indicates that you are using
+          version 2.0 of the Cloud Identity API.</para>
       </section>
       <section xml:id="Retrieving_Auth_Token" xmlns:m="http://www.w3.org/1998/Math/MathML">
         <title>Retrieving the authentication token</title>

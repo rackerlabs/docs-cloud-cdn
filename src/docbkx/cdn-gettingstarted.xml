@@ -844,10 +844,27 @@ Content-Type: application/json
       </section>
       <section xml:id="sendAuthRequest-d10e1">
         <title>Send the authentication request</title>
-        <para>You authenticate using a special endpoint URL for the Cloud Identity service. For
-          example, use <code>https://identity.api.rackspacecloud.com/v2.0/tokens</code>, as shown in
-          the following authenticate request example. Note that the <code>v2.0</code> component in
-          the URL indicates that you are using version 2.0 of the Cloud Identity API.</para>
+        <para>Use the following endpoint to access the Cloud Identity Service, regardless of US or
+          UK identities:<itemizedlist>
+            <listitem>
+              <para><code>https://identity.api.rackspacecloud.com/v2.0/tokens</code></para>
+            </listitem>
+          </itemizedlist>
+        </para>
+        <para>Your account might be based in either the US or the UK. This is not determined by your
+          physical location but by the location of the Rackspace retail site which was used to
+          create your account:<itemizedlist>
+            <listitem>
+              <para>If your account was created via <link xlink:href="http://www.rackspacecloud.com"
+                  >http://www.rackspacecloud.com</link>, it is a US-based account.</para>
+            </listitem>
+            <listitem>
+              <para>If your account was created via <link xlink:href="http://www.rackspace.co.uk"
+                  >http://www.rackspace.co.uk</link>, it is a UK-based account. </para>
+            </listitem>
+          </itemizedlist></para>
+        <para>Note that the <code>v2.0</code> component in the URL indicates that you are using
+          version 2.0 of the Cloud Identity API.</para>
         <example>
           <title>cURL authenticate request: JSON</title>
           <?dbfo keep-together="always"?>
@@ -864,11 +881,6 @@ Content-Type: application/json
 <option>-H 'Content-Type: application/json'</option> \
 <uri>'https://identity.api.rackspacecloud.com/v2.0/tokens'</uri></screen>
         </example>
-        <note>
-          <para>For our UK customers, we recommend using
-              <code>'https://lon.identity.api.rackspacecloud.com/v2.0/tokens'</code> for better
-            regional performance.</para>
-        </note>
         <para>This guide uses <emphasis role="bold">yourUserName</emphasis> and <emphasis
             role="bold">yourApiKey</emphasis> for authentication. For information about other
           supported authentication methods, see the <link
