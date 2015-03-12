@@ -301,74 +301,74 @@
         <tbody>
           <tr>
             <td colspan="2"><code>OK</code></td>
-            <td colspan="1">200</td>
+            <td colspan="1"><code>200</code></td>
             <td colspan="3">The request has succeeded. (Some API calls might return 201
               instead.)</td>
           </tr>
           <tr>
             <td colspan="2"><code>Created</code></td>
-            <td colspan="1">201</td>
+            <td colspan="1"><code>201</code></td>
             <td colspan="3">The request has been fulfilled and a resource was created.</td>
           </tr>
           <tr>
             <td colspan="2"><code>Accepted</code></td>
-            <td colspan="1">202</td>
+            <td colspan="1"><code>202</code></td>
             <td colspan="3">The request has been accepted for processing. </td>
           </tr>
           <tr>
             <td colspan="2"><code>No Content</code></td>
-            <td colspan="1">204</td>
+            <td colspan="1"><code>204</code></td>
             <td colspan="3">The request has been fulfilled but does not return a representation
               (that is, the response is empty).</td>
           </tr>
           <tr>
             <td colspan="2"><code>Bad Request</code></td>
-            <td colspan="1">400</td>
+            <td colspan="1"><code>400</code></td>
             <td colspan="3">The request was not understood or was missing required parameters.</td>
           </tr>
           <tr>
             <td colspan="2"><code>Unauthorized</code></td>
-            <td colspan="1">401</td>
+            <td colspan="1"><code>401</code></td>
             <td colspan="3">Authentication failed, or the user does not have permissions for a
               requested operation.</td>
           </tr>
           <tr>
             <td colspan="2"><code>Forbidden</code></td>
-            <td colspan="1">403</td>
+            <td colspan="1"><code>403</code></td>
             <td colspan="3">The server understood the request but refused to fulfill it.</td>
           </tr>
           <tr>
             <td colspan="2"><code>Not Found</code></td>
-            <td colspan="1">404</td>
+            <td colspan="1"><code>404</code></td>
             <td colspan="3">A requested resource was not found.</td>
           </tr>
           <tr>
             <td colspan="2"><code>Method Not Allowed</code></td>
-            <td colspan="1">405</td>
+            <td colspan="1"><code>405</code></td>
             <td colspan="3">The request method is not supported for this resource.</td>
           </tr>
           <tr>
             <td colspan="2"><code>Request Entity Too Large</code></td>
-            <td colspan="1">413</td>
+            <td colspan="1"><code>413</code></td>
             <td colspan="3">The server is refusing to process a request because the request entity
               is larger than the server is willing or able to process. </td>
           </tr>
           <tr>
             <td colspan="2"><code>Too Many Requests</code></td>
-            <td colspan="1">429</td>
+            <td colspan="1"><code>429</code></td>
             <td colspan="3">Too many requests have been sent in a given amount of time. Pause
               requests, wait up to one minute, and try again. (Intended for use with rate
               limiting.)</td>
           </tr>
           <tr>
             <td colspan="2"><code>Internal Server Error</code></td>
-            <td colspan="1">500</td>
+            <td colspan="1"><code>500</code></td>
             <td colspan="3">The service encountered an unexpected condition that prevented it from
               fulfilling the request.</td>
           </tr>
           <tr>
             <td colspan="2"><code>Service Unavailable</code></td>
-            <td colspan="1">503</td>
+            <td colspan="1"><code>503</code></td>
             <td colspan="3">The service is temporarily unavailable (for example, for scheduled
               platform maintenance). Try again later.</td>
           </tr>
@@ -844,14 +844,14 @@ Content-Type: application/json
       </section>
       <section xml:id="sendAuthRequest-d10e1">
         <title>Send the authentication request</title>
-        <para>Use the following endpoint to access the Cloud Identity Service, regardless of US or
-          UK identities:<itemizedlist>
+        <para>Use the following global endpoint to access the Cloud Identity Service:<itemizedlist>
             <listitem>
-              <para><code>https://identity.api.rackspacecloud.com/v2.0/tokens</code></para>
+              <para><code>https://identity.api.rackspacecloud.com/v2.0/</code></para>
             </listitem>
           </itemizedlist>
         </para>
-        <para>Your account might be based in either the US or the UK. This is not determined by your
+        
+<!--        <para>Your account might be based in either the US or the UK. This is not determined by your
           physical location but by the location of the Rackspace retail site which was used to
           create your account:<itemizedlist>
             <listitem>
@@ -863,8 +863,12 @@ Content-Type: application/json
                   >http://www.rackspace.co.uk</link>, it is a UK-based account. </para>
             </listitem>
           </itemizedlist></para>
-        <para>Note that the <code>v2.0</code> component in the URL indicates that you are using
-          version 2.0 of the Cloud Identity API.</para>
+-->          
+        <para>You authenticate by using the URL
+            <code>https://identity.api.rackspacecloud.com/v2.0/tokens</code> for the Cloud Identity
+          services, as shown in the following authentication request example. Note that the
+            <code>v2.0</code> component in the URL indicates that you are using version 2.0 of the
+          Cloud Identity API.</para>
         <example>
           <title>cURL authenticate request: JSON</title>
           <?dbfo keep-together="always"?>
@@ -906,12 +910,6 @@ Content-Type: application/json
               <para>For all response examples in this guide, the field values that you receive in
                 your responses will vary from those shown here because they are specific to your
                 account.</para>
-            </listitem>
-            <listitem>
-              <para>The information shown in the preceding authentication response example above is
-                for US-based accounts. If you authenticate against the UK-endpoint for
-                authentication, you will see the service catalog information for UK-based
-                accounts.</para>
             </listitem>
             <listitem>
               <para>Remember to supply your authentication token wherever you see the field
@@ -964,14 +962,13 @@ Content-Type: application/json
 '{
     "name": "mywebsite.com",
     "domains": [
-        {
-            "domain": "www.mywebsite.com"
-        }
+        {"domain": "www.mywebsite.com", "protocol": "https"},
+        {"domain": "blog.mywebsite.com", "protocol": "https"}    
     ],
     "origins": [
         {
             "origin": "mywebsite.com",
-            "port": 80,
+            "port": 443,
             "ssl": false,
             "rules": [
             ]
@@ -1049,13 +1046,13 @@ Content-Type: application/json
     "domains": [
         {
             "domain": "www.mywebsite.com",
-            "protocol": "http"                 
+            "protocol": "https"                 
         }
     ],
     "origins": [
         {
             "origin": "mywebsite.com",
-            "port": 80,
+            "port": 443,
             "ssl": false,
              "rules": []                 
         }

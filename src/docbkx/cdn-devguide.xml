@@ -76,37 +76,7 @@
       <raxm:priority>20</raxm:priority>
     </raxm:metadata>
   </info>
-  <!--  <preface xml:id="preface">
-    <title>Preface</title>
-    <para></para>
-    <section xml:id="section_eow_tmw_ad">
-      <title>Intended Audience</title>
-      <para>This document is intended for technical writers and
-        developers who are learning to write DocBook documents. We
-        assume you have the following skills:</para>
-      <itemizedlist spacing="compact">
-        <listitem>
-          <para>Basic technical writing concepts</para>
-        </listitem>
-        <listitem>
-          <para>Basic XML </para>
-        </listitem>
-      </itemizedlist>
-      <para></para>
-      <para> </para>
-    </section>
-    <section xml:id="change_history">
-      <title>Document Change History</title>
-      <para>This section is generated dynamically from the
-          <tag>revhistory</tag> element in <tag>book/info</tag>. The
-        processing instruction <code>&lt;?rax revhistory?></code> is
-        replaced at build-time with a formatted version of the
-          <tag>revhistory</tag> section.</para>
-      <para>
-        <?rax revhistory?>
-      </para>
-    </section>
-  </preface>  -->
+ 
   <chapter xml:id="Overview">
     <title>Overview</title>
     <!--You can use the <?dbhtml stop-chunking?> processing instruction to prevent a chapter or section for chunking further in the html output. -->
@@ -315,13 +285,13 @@
         <title>Geographic endpoints</title>
         <para>The Rackspace Cloud Identity service serves as the entry point to all Rackspace Cloud
           APIs and is itself a RESTful web service. </para>
-        <para>Use the following endpoint to access the Cloud Identity Service, regardless of US or
-          UK identities:<itemizedlist>
+        <para>Use the following global endpoint to access the Cloud Identity Service:<itemizedlist>
             <listitem>
               <para><code>https://identity.api.rackspacecloud.com/v2.0</code></para>
             </listitem>
           </itemizedlist>
         </para>
+<!--        
         <para>Your account might be based in either the US or the UK. This is not determined by your
           physical location but by the location of the Rackspace retail site which was used to
           create your account:<itemizedlist>
@@ -334,6 +304,7 @@
                   >http://www.rackspace.co.uk</link>, it is a UK-based account. </para>
             </listitem>
           </itemizedlist></para>
+ -->                 
         <para>Note that the <code>v2.0</code> component in the URL indicates that you are using
           version 2.0 of the Cloud Identity API.</para>
       </section>
@@ -479,11 +450,6 @@
             <programlisting language="json"><xi:include href="samples/auth-20.json" parse="text"/></programlisting>
           </programlistingco>
         </example>
-        <note>
-          <para>The information shown in the authentication response examples is for US-based
-            accounts. If you authenticate against the UK endpoint, you see the service catalog
-            information for UK-based accounts.</para>
-        </note>
         <calloutlist>
           <callout arearefs="response.xml.namespaces">
             <para> In XML responses only, a list of namespaces identifies API extensions that add
@@ -500,12 +466,6 @@
               identified by the <code>expires</code> attribute. The attribute predicts a token's
               maximum possible lifespan but does not guarantee that it will reach that lifespan.
               Clients are encouraged to cache a token until it expires. </para>
-            <note>
-              <para>The token's expiration time is formatted differently in the US and UK. These
-                response examples show the US format. For examples of the UK format, see <link
-                  xlink:href="http://docs.rackspace.com/auth/api/v2.0/auth-client-devguide/content/POST_authenticate_v2.0_tokens_Token_Calls.html#POST_authenticate_v2.0_tokens_Token_Calls-Response"
-                  >the authentication response examples in the Cloud Identity Developer Guide</link>.</para>
-            </note>
             <para> </para>
           </callout>
           <callout arearefs="response.xml.dfltregion">
@@ -1106,74 +1066,74 @@
         </thead>
         <tbody>
           <tr>
-            <td colspan="2"><code>OK</code></td>
+            <td colspan="2">OK</td>
             <td colspan="1">200</td>
             <td colspan="3">The request has succeeded. (Some API calls might return 201
               instead.)</td>
           </tr>
           <tr>
-            <td colspan="2"><code>Created</code></td>
+            <td colspan="2">Created</td>
             <td colspan="1">201</td>
             <td colspan="3">The request has been fulfilled and a resource was created.</td>
           </tr>
           <tr>
-            <td colspan="2"><code>Accepted</code></td>
+            <td colspan="2">Accepted</td>
             <td colspan="1">202</td>
             <td colspan="3">The request has been accepted for processing.</td>
           </tr>
           <tr>
-            <td colspan="2"><code>No Content</code></td>
+            <td colspan="2">No Content</td>
             <td colspan="1">204</td>
             <td colspan="3">The request has been fulfilled but does not return a representation
               (that is, the response is empty).</td>
           </tr>
           <tr>
-            <td colspan="2"><code>Bad Request</code></td>
+            <td colspan="2">Bad Request</td>
             <td colspan="1">400</td>
             <td colspan="3">The request was not understood or was missing required parameters. </td>
           </tr>
           <tr>
-            <td colspan="2"><code>Unauthorized</code></td>
+            <td colspan="2">Unauthorized</td>
             <td colspan="1">401</td>
             <td colspan="3">Authentication failed, or the user does not have permissions for a
               requested operation.</td>
           </tr>
           <tr>
-            <td colspan="2"><code>Forbidden</code></td>
+            <td colspan="2">Forbidden</td>
             <td colspan="1">403</td>
             <td colspan="3">The server understood the request but refused to fulfill it.</td>
           </tr>
           <tr>
-            <td colspan="2"><code>Not Found</code></td>
+            <td colspan="2">Not Found</td>
             <td colspan="1">404</td>
             <td colspan="3">A requested resource was not found.</td>
           </tr>
           <tr>
-            <td colspan="2"><code>Method Not Allowed</code></td>
+            <td colspan="2">Method Not Allowed</td>
             <td colspan="1">405</td>
             <td colspan="3">The request method is not supported for this resource.</td>
           </tr>
           <tr>
-            <td colspan="2"><code>Request Entity Too Large</code></td>
+            <td colspan="2">Request Entity Too Large</td>
             <td colspan="1">413</td>
             <td colspan="3">The server is refusing to process a request because the request entity
               is larger than the server is willing or able to process. </td>
           </tr>
           <tr>
-            <td colspan="2"><code>Too Many Requests</code></td>
+            <td colspan="2">Too Many Requests</td>
             <td colspan="1">429</td>
             <td colspan="3">Too many requests have been sent in a given amount of time. Pause
               requests, wait up to one minute, and try again. (Intended for use with rate
               limiting.)</td>
           </tr>
           <tr>
-            <td colspan="2"><code>Internal Server Error</code></td>
+            <td colspan="2">Internal Server Error</td>
             <td colspan="1">500</td>
             <td colspan="3">The service encountered an unexpected condition that prevented it from
               fulfilling the request.</td>
           </tr>
           <tr>
-            <td colspan="2"><code>Service Unavailable</code></td>
+            <td colspan="2">Service Unavailable</td>
             <td colspan="1">503</td>
             <td colspan="3">The service is temporarily unavailable (for example, for scheduled
               platform maintenance). Try again later.</td>
@@ -1405,7 +1365,7 @@ Content-Type: application/json
     </section>
     <!-- No yet available
     <section xml:id="serviceAnalyticsOperations">
-      <title>Services analytics (To Do????)</title>
+      <title>Services analytics</title>
       <para>Service analytics report usage data (hits, misses, and so on) about the service. </para>
       <para>The section describes operations related to service analytics.</para>
       <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
@@ -1441,9 +1401,9 @@ Content-Type: application/json
         </wadl:resource>
       </wadl:resources>
     </section> -->
-    <!-- Not available for Early Access  
+    <!-- Not yet available  
     <section xml:id="streamingOperations">
-      <title>Streaming (To Do)</title>
+      <title>Streaming</title>
       <para>Rackspace CDN supports video streaming, with Adaptive Bit Rate, HLS/HDS, and some sort of transcoding of a video.</para>
       <para>The section describes the operations related to streaming.</para>
     

@@ -524,7 +524,7 @@
 				<param name="protocol" style="plain" path="$.domains.protocol"
 					required="false">
 					<wadl:doc xmlns="http://docbook.org/ns/docbook"
-						xml:lang="EN">Specifies the protocol used to access the assets on this domain. Only <code>http</code> or <code>https</code> are currently allowed. The default <code>protocol</code> is <code>http</code>.</wadl:doc>
+						xml:lang="EN">Specifies the protocol used to access the assets on this domain. Only <code>http</code> or <code>https</code> are currently allowed. The default <code>protocol</code> is <code>http</code>. If you specify multiple domains, the domains must use the same protocol - either all http or all https.</wadl:doc>
 				</param>
 				
 				<param name="origins" style="plain" path="$.origins"
@@ -540,7 +540,7 @@
 				<param name="port" style="plain" path="$.origins.port"
 					required="false">
 					<wadl:doc xmlns="http://docbook.org/ns/docbook"
-						xml:lang="EN">Specifies the port used to access the origin. The default is port 80. Note: Rackspace CDN cannot be used with custom ports. Services are required to run on HTTP (80) and HTTPS (443) for the origin servers.</wadl:doc>
+						xml:lang="EN">Specifies the port used to access the origin. The default is port 80. Note: Rackspace CDN cannot be used with custom ports. Services are required to run on HTTP (80) and HTTPS (443) for the origin servers. All origins in the origin specification must define the port so that it that corresponds to the domain's protocol. If the domain's protocol is http, the port should be 80; if the domain's protocol is https, the port should be 443.</wadl:doc>
 				</param>
 				<param name="ssl" style="plain" path="$.origins.ssl"
 					required="false">
