@@ -75,13 +75,7 @@
       <raxm:priority>10</raxm:priority>
     </raxm:metadata>
   </info>
-  <chapter xml:id="doc-change-history" xmlns:m="http://www.w3.org/1998/Math/MathML"
-    xmlns:html="http://www.w3.org/1999/xhtml">
-    <title>Document change history</title>
-    <para>This version of the document replaces and obsoletes all earlier versions. The most recent
-      changes are described in the following table: </para>
-    <?rax revhistory?>
-  </chapter>
+
   <chapter xml:id="Overview">
     <title>Overview</title>
     <!--You can use the <?dbhtml stop-chunking?> processing instruction to prevent a chapter or section for chunking furhter in the html output. -->
@@ -1223,6 +1217,13 @@ Content-Type: application/json
     <para>This API uses standard HTTP 1.1 response codes as documented at <link
         xlink:href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html"
         >www.w3.org/Protocols/rfc2616/rfc2616-sec10.html</link>. </para>
+  </chapter>
+  <chapter xml:id="doc-change-history" xmlns:m="http://www.w3.org/1998/Math/MathML"
+    xmlns:html="http://www.w3.org/1999/xhtml">
+    <title>Document change history</title>
+    <para>This version of the document replaces and obsoletes all earlier versions. The most recent
+      changes are described in the following table: </para>
+    <?rax revhistory?>
   </chapter>
   <glossary xml:id="glossary-d1e018" xmlns:m="http://www.w3.org/1998/Math/MathML"
     xmlns:html="http://www.w3.org/1999/xhtml">
