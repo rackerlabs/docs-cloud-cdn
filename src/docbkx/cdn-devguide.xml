@@ -1241,13 +1241,15 @@ Content-Type: application/json
           <para>Because all of the paths match the rule, you must order rules from least specific to
             most specific, as shown above. </para>
         </note>
-        <para>When defining the path, you can use wildcards. For example, <code>/*</code> to mean
-          the whole site or include <code>*.mp4</code>.</para>
+        <para>When defining the path, you can use wildcards. For example, use <code>/*</code> to
+          mean the whole site or include <code>*.mp4</code> to select all files with the
+            <code>.mp4</code> extension.</para>
         <para>In your request, if you define a set of caching rules with the paths in the following
           order, the last rule matches and assigns the TTL to 3600 seconds (or 1 hour) rather than
           259200 seconds (or 3 days):</para>
         <para><code>www.mywebsite.com/videos/marketingspot</code> ----->with
-            <code>"ttl":259200</code> set in <code>caching.rules</code>
+            <code>"ttl":259200</code> set in <code>caching.rules</code></para>
+        <para>
           <code>www.mywebsite.com/videos</code> ----->with <code>"ttl":3600</code> set in
             <code>caching.rules</code></para>
       </section>
@@ -1256,19 +1258,20 @@ Content-Type: application/json
         <para>Caching rules are designed to determine how long your content should live on the edge
           before checking the origin for an update. If your content changes frequently, you might
           want to set up a Time To Live (TTL) rule that pulls every few minutes. If your content
-          does not change frequently, we suggest that you set a longer TTL of 12 to 24 hours. If
-          creating multiple rules, you must order rules from least specific to most specific. </para>
+          does not change frequently, we suggest that you set a longer TTL of 12 to 24 hours. If you
+          create multiple rules, you must order rules from least specific to most specific. </para>
         <para>For example, you want most of the content on your website to have a TTL of 3 days. The
           only exception is your dynamic content, hosted on your origin at <code>/dynamic</code>,
           which you want to have a TTL of 0 because the experience changes for every user.  </para>
         <para>In this case, you should order your TTL <code>caching.rules</code> as follows:</para>
         <para><code>www.mywebsite.com</code> -----> with <code>"ttl":259200</code> set in
-            <code>caching.rules</code>
-          <code>www.mywebsite.com/dynamic</code> -----> with <code>"ttl":0</code> set in<code>
+            <code>caching.rules</code></para>
+       <para><code>www.mywebsite.com/dynamic</code> -----> with <code>"ttl":0</code> set in<code>
             caching.rules</code></para>
       </section>
       <section xml:id="multipleOriginRules">
         <title>Multiple origin rules example</title>
+        <para>You can have Rackspace CDN point to multiple origin servers. </para>
         <para>If you have multiple infrastructures setup to serve a single domain, you should use
           origin rules. Adding an additional origin always requires that you add a rule for which
           traffic should pull from that origin. If you create multiple rules, you must order rules
@@ -1280,7 +1283,8 @@ Content-Type: application/json
             <code>origin.rules</code> as follows:  </para>
         <para><code>origin.cloudserver.com</code> -----> with
             <code>origin=origin.cloudserver.com</code> in <code>origin.rules</code>
-          <code>origin.dedicatedserver.com</code> -----> with
+        </para>
+        <para><code>origin.dedicatedserver.com</code> -----> with
             <code>origin=origin.dedicatedserver.com</code> in <code>origin.rules</code></para>
       </section>
       <section xml:id="referrerRules">
@@ -1289,21 +1293,19 @@ Content-Type: application/json
           traffic you allow. For example, a <code>referrer</code> value of <code>website.com</code>
           would <emphasis role="italic">allow</emphasis> traffic being requested from
             <code>website.com</code>.</para>
-        <para>Referrer restrictions are slightly different in that they are always applied to the
-          full site.  In other words, Rackspace CDN always sets your referrer restriction to have a
+        <para>Unlike TTL rules, referrer restrictions are always applied to the full CDN-enabled
+          domain.  In other words, Rackspace CDN always sets your referrer restriction to have a
           path of <code>/</code>.  </para>
-        <para>When using referrer rules, you want to prevent your content from being hot-linked by
-          other pages on the internet. Without this, someone might copy the link to your images and
-          serve those images on their site while your pay for the bandwidth.  </para>
-        <para>To avoid this, set up a rule that only allows your content to be served to an end user
-          if it is being requested by your domain.  </para>
+        <para>Using referrer rules prevents other sites from hot-linking to your content. Without
+          this, someone might copy the link to your images and serve those images on their site
+          while your pay for the bandwidth.  </para>
+        <para>To avoid hot-linking, set up a rule that only allows your content to be served to an
+          end user if it is being requested by your domain.  </para>
         <para>To do this, set up <code>restrictions.rules.referrer</code> similar to the following
           definition:</para>
         <para><code>/</code> -----> with <code>"referrer":"www.mywebsite.com"</code> set in
             <code>restrictions.rules</code>
         </para>
-        <para>Again, in this scenario, Rackspace CDN only asks you for the referring domain, and the
-          rule is always applied to the entire CDN-enabled domain.  </para>
       </section>
     </section>
     <section xml:id="testingCDN">

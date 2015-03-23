@@ -23,17 +23,23 @@
 <!--             All resources                             -->
 <!--*******************************************************-->
 	<resources base="https://global.cdn.api.rackspacecloud.com/">
-		<resource id="version" path="/">
-<!--
+		<resource id="version" path="v1.0">
+			
+			<!--		<resource id="version" path="/"> -->
+			<method href="#getHomeDocument"/>
 				<resource id="projectID" path="{project_id}">
 				<param name="project_id" style="template" type="xsd:string"> 
 				<wadl:doc xmlns="http://docbook.org/ns/docbook"
-					xml:lang="EN">The unique identifier for the user. If you do not set the 
+					xml:lang="EN">
+					<para>The unique identifier for the user. If you do not set the 
 					X-Project-Id header, use project_id as the first parameter before the request path. 
-					For example: GET https://global.cdn.api.rackspacecloud.com/{project_id}/v1.0/ </wadl:doc></param> 
--->
-			<method href="#getHomeDocument"/>
-			
+					For example: GET https://global.cdn.api.rackspacecloud.com/{project_id}/v1.0/ 
+					</para>
+				</wadl:doc>
+				</param>
+	
+				<method href="#getHomeDocument"/>
+				
 <!--			<resource id="health" path="health">
 			    <method href="#getHealthCheck"/>
 				<resource id="subsystem" path="{subsystem}">
@@ -44,7 +50,7 @@
 					</param>
 				    <method href="#getHealthDetails"/>				                
 				</resource>	
-			</resource> -->
+			    </resource> -->
 			
 			<resource id="ping" path="ping"> 	
 			    <method href="#getPing"/> 
@@ -104,6 +110,7 @@
 				<method href="#postLogging"/>
 			</resource>		
 			</resource>
+		</resource>
 	</resources>
 <!--*******************************************************-->
 <!--               All methods                             -->
@@ -365,7 +372,8 @@
 				</param>
 				<param name="request_url" style="plain" path="$.origins.rules.request_url">
 					<wadl:doc xmlns="http://docbook.org/ns/docbook"
-						xml:lang="EN">Specifies the request URL this rule should match for this origin to be used. (Regex is supported.)</wadl:doc>
+						xml:lang="EN">Specifies the request URL this rule should match for this origin to be used. Regex is supported. Note: The regex is a Perl Compatible Regex (PCRE). For more information about PRCE, see <link
+							xlink:href="http://php.net/manual/en/book.pcre.php">Regular Expressions (Perl-Compatible)</link>. </wadl:doc>
 				</param>
 				
 				<param name="caching" style="plain" path="$.caching">
@@ -390,7 +398,8 @@
 				</param>
 				<param name="request_url" style="plain" path="$.caching.rules.request_url">
 					<wadl:doc xmlns="http://docbook.org/ns/docbook"
-						xml:lang="EN">Specifies the request URL this rule should match for this TTL to be used. (Regex is supported.)</wadl:doc>
+						xml:lang="EN">Specifies the request URL this rule should match for this TTL to be used. Regex is supported. Note: The regex is a Perl Compatible Regex (PCRE). For more information about PRCE, see <link
+							xlink:href="http://php.net/manual/en/book.pcre.php">Regular Expressions (Perl-Compatible)</link>.</wadl:doc>
 				</param>
 				
 				<param name="restrictions" style="plain" path="$.restrictions">
@@ -416,7 +425,8 @@
 				
 				<!--			<param name="request_url" style="plain" path="$.restrictions.rules.request_url">
 					<wadl:doc xmlns="http://docbook.org/ns/docbook"
-						xml:lang="EN">Specifies the request URL this rule should match for this TTL to be used. (Regex is supported.)</wadl:doc>
+						xml:lang="EN">Specifies the request URL this rule should match for this TTL to be used. Regex is supported. Note: The regex is a Perl Compatible Regex (PCRE). For more information about PRCE, see <link
+							xlink:href="http://php.net/manual/en/book.pcre.php">Regular Expressions (Perl-Compatible)</link>.</wadl:doc>
 				</param>
 				<param name="http_host" style="plain" path="$.restrictions.rules.http_host">
 					<wadl:doc xmlns="http://docbook.org/ns/docbook"
@@ -560,7 +570,8 @@
 				<param name="request_url" style="plain" path="$.origins.rules.request_url"
 					required="true">
 					<wadl:doc xmlns="http://docbook.org/ns/docbook"
-						xml:lang="EN">Specifies the request URL that this rule should match for this origin to be used. The minimum length for <code>request_url</code> is 1. The maximum length is 1024. (Regex is supported.)</wadl:doc>
+						xml:lang="EN">Specifies the request URL that this rule should match for this origin to be used. The minimum length for <code>request_url</code> is 1. The maximum length is 1024. Regex is supported. Note: Use a Perl Compatible Regex (PCRE). For more information about PRCE, see <link
+							xlink:href="http://php.net/manual/en/book.pcre.php">Regular Expressions (Perl-Compatible)</link>.</wadl:doc>
 				</param>
 				
 				<param name="caching" style="plain" path="$.caching"
@@ -591,7 +602,8 @@
 				<param name="request_url" style="plain" path="$.caching.rules.request_url"
 					required="true">
 					<wadl:doc xmlns="http://docbook.org/ns/docbook"
-						xml:lang="EN">Specifies the request URL that this rule should match for this TTL to be used. The minimum length for <code>request_url</code> is 1. The maximum length is 1024. (Regex is supported.)</wadl:doc>
+						xml:lang="EN">Specifies the request URL that this rule should match for this TTL to be used. The minimum length for <code>request_url</code> is 1. The maximum length is 1024. Regex is supported. Note: Use a Perl Compatible Regex (PCRE). For more information about PRCE, see <link
+							xlink:href="http://php.net/manual/en/book.pcre.php">Regular Expressions (Perl-Compatible)</link>.</wadl:doc>
 				</param>
 				
 				<param name="restrictions" style="plain" path="$.restrictions"
@@ -623,7 +635,8 @@
 <!--			<param name="request_url" style="plain" path="$.restrictions.rules.request_url"
 					required="false">
 					<wadl:doc xmlns="http://docbook.org/ns/docbook"
-						xml:lang="EN">Specifies the request URL that this rule should match for this TTL to be used. The minimum length for <code>request_url</code> is 1. The maximum length is 1024. (Regex is supported.)</wadl:doc>
+						xml:lang="EN">Specifies the request URL that this rule should match for this TTL to be used. The minimum length for <code>request_url</code> is 1. The maximum length is 1024. Regex is supported. Note: Use a Perl Compatible Regex (PCRE). For more information about PRCE, see <link
+							xlink:href="http://php.net/manual/en/book.pcre.php">Regular Expressions (Perl-Compatible)</link>.</wadl:doc>
 				</param>
 				<param name="http_host" style="plain" path="$.restrictions.rules.http_host"
 					required="false">
@@ -784,7 +797,8 @@
 				</param>
 				<param name="request_url" style="plain" path="$.origins.rules.request_url">
 					<wadl:doc xmlns="http://docbook.org/ns/docbook"
-						xml:lang="EN">Specifies the request URL that this rule should match for this origin to be used. (Regex is supported.)</wadl:doc>
+						xml:lang="EN">Specifies the request URL that this rule should match for this origin to be used. Regex is supported. Note: The regex is a Perl Compatible Regex (PCRE). For more information about PRCE, see <link
+							xlink:href="http://php.net/manual/en/book.pcre.php">Regular Expressions (Perl-Compatible)</link>.</wadl:doc>
 				</param>
 				
 				<param name="caching" style="plain" path="$.caching">
@@ -809,7 +823,8 @@
 				</param>
 				<param name="request_url" style="plain" path="$.caching.rules.request_url">
 					<wadl:doc xmlns="http://docbook.org/ns/docbook"
-						xml:lang="EN">Specifies the request URL that this rule should match for this TTL to be used. (Regex is supported.)</wadl:doc>
+						xml:lang="EN">Specifies the request URL that this rule should match for this TTL to be used. Regex is supported. Note: The regex is a Perl Compatible Regex (PCRE). For more information about PRCE, see <link
+							xlink:href="http://php.net/manual/en/book.pcre.php">Regular Expressions (Perl-Compatible)</link>.</wadl:doc>
 				</param>
 				
 				<param name="restrictions" style="plain" path="$.restrictions">
@@ -835,7 +850,8 @@
 				
 				<!--			<param name="request_url" style="plain" path="$.restrictions.rules.request_url">
 					<wadl:doc xmlns="http://docbook.org/ns/docbook"
-						xml:lang="EN">Specifies the request URL that this rule should match for this TTL to be used. (Regex is supported.)</wadl:doc>
+						xml:lang="EN">Specifies the request URL that this rule should match for this TTL to be used. Regex is supported. Note: The regex is a Perl Compatible Regex (PCRE). For more information about PRCE, see <link
+							xlink:href="http://php.net/manual/en/book.pcre.php">Regular Expressions (Perl-Compatible)</link>.</wadl:doc>
 				</param>
 				<param name="http_host" style="plain" path="$.restrictions.rules.http_host">
 					<wadl:doc xmlns="http://docbook.org/ns/docbook"
