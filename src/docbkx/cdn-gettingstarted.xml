@@ -469,8 +469,8 @@ Content-Type: application/json
           <para>Because all of the paths match the rule, you must order rules from least specific to
             most specific, as shown above. </para>
         </note>
-        <para>When defining the path, you can use wildcards. For example, use <code>/*</code> to
-          mean the whole site or include <code>*.mp4</code> to select all files with the
+        <para>When defining the path, you can use wildcards. For example, use <code>/*</code> to to
+          include all content, or include <code>*.mp4</code> to select all files with the
             <code>.mp4</code> extension.</para>
         <para>In your request, if you define a set of caching rules with the paths in the following
           order, the last rule matches and assigns the TTL to 3600 seconds (or 1 hour) rather than
