@@ -24,16 +24,13 @@
 <!--*******************************************************-->
 	<resources base="https://global.cdn.api.rackspacecloud.com/">
 		<resource id="version" path="v1.0">
-			
-			<!--		<resource id="version" path="/"> -->
-			<method href="#getHomeDocument"/>
-				<resource id="projectID" path="{project_id}">
+			<resource id="project_id" path="{project_id}">
 				<param name="project_id" style="template" type="xsd:string"> 
 				<wadl:doc xmlns="http://docbook.org/ns/docbook"
 					xml:lang="EN">
-					<para>The unique identifier for the user. If you do not set the 
-					X-Project-Id header, use project_id as the first parameter before the request path. 
-					For example: GET https://global.cdn.api.rackspacecloud.com/{project_id}/v1.0/ 
+					<para>The project ID for the user. If you do not set the 
+						<code>X-Project-Id header</code> in the request, use <code>project_id</code> in the URI. 
+						For example: <code>GET https://global.cdn.api.rackspacecloud.com/v1.0/{project_id}</code> 
 					</para>
 				</wadl:doc>
 				</param>
