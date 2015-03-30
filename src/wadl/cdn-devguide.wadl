@@ -34,8 +34,9 @@
 					</para>
 				</wadl:doc>
 				</param>
-	
-				<method href="#getHomeDocument"/>
+					<resource id="trailSlash" path="">
+						<method href="#getHomeDocument"/>
+					</resource>
 				
 <!--			<resource id="health" path="health">
 			    <method href="#getHealthCheck"/>

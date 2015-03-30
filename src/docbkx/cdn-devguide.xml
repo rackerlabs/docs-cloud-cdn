@@ -1329,7 +1329,7 @@ Content-Type: application/json
       <title>Base operations</title>
       <para>The section describes the following base operations of the Rackspace CDN API.</para>
       <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
-        <wadl:resource href="../../src/wadl/cdn-devguide.wadl#project_id">
+        <wadl:resource href="../../src/wadl/cdn-devguide.wadl#trailSlash">
           <wadl:method href="#getHomeDocument"/>
         </wadl:resource>
         <wadl:resource href="../../src/wadl/cdn-devguide.wadl#ping">
