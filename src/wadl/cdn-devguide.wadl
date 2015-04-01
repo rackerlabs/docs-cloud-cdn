@@ -530,13 +530,36 @@
 				<param name="domain" style="plain" path="$.domains.domain"
 					required="true">
 					<wadl:doc xmlns="http://docbook.org/ns/docbook"
-						xml:lang="EN">Specifies the domain used to access the assets on the website, for which a CNAME is given to the CDN provider. The minimum length for <code>domain</code> is 3. The maximum length is 253.</wadl:doc>
+						xml:lang="EN">Specifies the type of security certificate. Valid values are <code>shared</code>, <code>san</code>, or <code>custom</code>. For <code>certificate</code> to apply, <code>protocol</code> must be set to <code>https</code>.</wadl:doc>
 				</param>
 				<param name="protocol" style="plain" path="$.domains.protocol"
 					required="false">
 					<wadl:doc xmlns="http://docbook.org/ns/docbook"
 						xml:lang="EN">Specifies the protocol used to access the assets on this domain. Only <code>http</code> or <code>https</code> are currently allowed. The default <code>protocol</code> is <code>http</code>. If you specify multiple domains, the domains must use the same protocol - either all http or all https.</wadl:doc>
 				</param>
+<!--				
+				<param name="certificate" style="plain" path="$.domains.certificate"
+					required="false">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN">Specifies the type of security certificate. For the <code>certificate</code> parameter to apply, the <code>protocol</code> parameter must be set to <code>https</code>. Use <code>shared</code>, <code>san</code>, or <code>custom</code>.
+						For all 3 types of security certificates, make sure that your origin (or origins) are SSL-enabled. Your SSL certificate needs to come from a trusted certificate authority (CA). </wadl:doc>
+				</param>
+							<param name="shared" style="plain" path="$.domains.certificate.shared"
+								required="false">
+								<wadl:doc xmlns="http://docbook.org/ns/docbook"
+									xml:lang="EN">Uses a shared https operator domain. The <code>domain</code> parameter must be a single word that is not dot separated.</wadl:doc>
+							</param>
+							<param name="san" style="plain" path="$.domains.certificate.san"
+								required="false">
+								<wadl:doc xmlns="http://docbook.org/ns/docbook"
+									xml:lang="EN">Adds the domain to the operator's SAN certificate as an alternate name. Note that a SAN certificate can take up to a few hours for a service to set up.</wadl:doc>
+							</param>
+							<param name="custom" style="plain" path="$.domains.certificate.custom"
+								required="false">
+								<wadl:doc xmlns="http://docbook.org/ns/docbook"
+									xml:lang="EN">Generates a custom certificate (dedicated) for the domain to be used at the edge. To expedite the certificate provision, a custom (single) certificate requires that you have legitimate Whois information on your domain (or domains). Note that a customer certificate could take a couple days for the service to set up. </wadl:doc>
+							</param>
+-->								
 				
 				<param name="origins" style="plain" path="$.origins"
 					required="true">
