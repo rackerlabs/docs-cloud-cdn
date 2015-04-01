@@ -45,10 +45,10 @@
       <year>2015</year>
       <holder>Rackspace US, Inc.</holder>
     </copyright>
-    <releaseinfo>API v1.0 Early Access</releaseinfo>
+    <releaseinfo>API v1.0</releaseinfo>
     <productname>Rackspace CDN</productname>
     <pubdate xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:html="http://www.w3.org/1999/xhtml"
-      >2015-01-07</pubdate>
+      >2015-04-15</pubdate>
     <legalnotice role="rs-api" xmlns:m="http://www.w3.org/1998/Math/MathML"
       xmlns:html="http://www.w3.org/1999/xhtml">
       <annotation>
@@ -63,9 +63,23 @@
     <!--Note that the <productname> text matches the first few words of the title. The build system splits the title into productname + rest of title on the pdf cover.-->
     <revhistory>
       <revision>
+        <date>2015-04-15</date>
+        <revdescription>
+          <itemizedlist>
+            <listitem>
+              <para>Initial Unlimited Access (UA) release.</para>
+            </listitem>
+          </itemizedlist>
+        </revdescription>
+      </revision>
+      <revision>
         <date>2015-01-07</date>
         <revdescription>
-          <para>Initial Early Access (EA) release.</para>
+          <itemizedlist>
+            <listitem>
+              <para>Initial Early Access (EA) release.</para>
+            </listitem>
+          </itemizedlist>
         </revdescription>
       </revision>
     </revhistory>
@@ -176,9 +190,8 @@
     </section>
     <section xml:id="Additional_Resources-d1e532">
       <title>Additional resources</title>
-      <para>You can download the most current versions of the external Rackspace API-related
-        documents from <link xlink:href="http://docs.rackspace.com/"
-        >docs.rackspace.com</link>.</para>
+      <para>You can download the most current versions of the Rackspace AP documents from <link
+          xlink:href="http://docs.rackspace.com/">docs.rackspace.com</link>.</para>
       <!--
       <para> For more details about Rackspace CDN, refer to ??? (link
         to www.rackspace.com/cloud/cdn???) . This site also offers
@@ -186,8 +199,8 @@
         knowledge base articles, forums, phone, chat, and
         email.</para>
         -->
-      <para>During Early Access, email all support questions to: <link
-          xlink:href="mailto:cdn@rackspacecloud.com">cdn@rackspace.com</link>. </para>
+      <para>Email all support questions to: <link xlink:href="mailto:cdn@rackspacecloud.com"
+          >cdn@rackspace.com</link>. </para>
       <para>Please visit our <link xlink:href="http://feedback.rackspace.com">Product Feedback
           Forum</link> and let us know what you think about Rackspace CDN.</para>
       <para>This API uses standard HTTP 1.1 status codes as documented at: <link
@@ -197,22 +210,14 @@
     <section xml:id="API_Contract_Changes-d1e363">
       <title>API contract changes</title>
       <para xmlns:wadl="http://wadl.dev.java.net/2009/02"
-        xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:html="http://www.w3.org/1999/xhtml">The
-        API contract is not locked and may change during the Early Access program. </para>
-      <para xmlns:wadl="http://wadl.dev.java.net/2009/02"
         xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:html="http://www.w3.org/1999/xhtml"
         >Rackspace will notify customers in Release Notes when and if the contract does
         change.</para>
     </section>
     <section xml:id="Pricing_SLA-d1e1362">
       <title>Pricing and service level</title>
-      <para>During Early Access, there is no charge for Rackspace CDN. </para>
-      <!--      <para>When Rackspace CDN moves to Unlimited Availability, customers will be billed for outbound
-        bandwidth.</para> -->
-      <para>While Rackspace CDN is in Early Access, it is subject to the Rackspace test terms at
-          <link xlink:href="http://www.rackspace.com/information/legal/testterms">Legal Information
-          - Test Terms</link>. When Rackspace CDN moves to Unlimited Availability, the service level
-        agreement (SLA) will be available.</para>
+      <para>For pricing and service level (SLA) information, see (insert linke).
+        bandwidth.</para>
     </section>
   </chapter>
   <chapter xml:id="concepts-d1eo1">
