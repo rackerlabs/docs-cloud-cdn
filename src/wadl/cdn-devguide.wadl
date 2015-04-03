@@ -1101,24 +1101,24 @@
 		</response>
 	</method>
 <!--*******************************************************-->
-<!--               Delete a cached asset                    -->
+<!--               Purge a cached asset                    -->
 <!--*******************************************************-->
 	<method name="DELETE" id="deleteCachedAsset">
-		<wadl:doc xml:lang="EN" title="Delete a cached asset"
+		<wadl:doc xml:lang="EN" title="Purge a cached asset"
 			xmlns="http://docbook.org/ns/docbook">
-			<para role="shortdesc">Deletes a cached asset.</para>
-			<para>This operation deletes the current version of the asset that has been cached at the edge node.</para>			
+			<para role="shortdesc">Purges a cached asset.</para>
+			<para>This operation purges the current version of the asset that has been cached at the edge node.</para>			
 		</wadl:doc>
 		<request>
 			<param name="url" style="query" type="xsd:string"
 				required="false">
 				<wadl:doc xmlns="http://docbook.org/ns/docbook"
-					xml:lang="EN">Specifies the relative <code>URL</code> of the asset to be deleted.</wadl:doc>
+					xml:lang="EN">Specifies the relative <code>URL</code> of the asset to be purged.</wadl:doc>
 			</param>
 			<param name="all" style="query" type="xsd:string"
 				required="false">
 				<wadl:doc xmlns="http://docbook.org/ns/docbook"
-					xml:lang="EN">If <code>all</code> is set to <code>true</code>, specifies that the delete occurs against all of the assets for the service.</wadl:doc>
+					xml:lang="EN">If <code>all</code> is set to <code>true</code>, specifies that the purge occurs against all of the assets for the service.</wadl:doc>
 			</param>
 			<representation mediaType="application/json" >
 				<doc>

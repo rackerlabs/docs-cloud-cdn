@@ -1128,17 +1128,17 @@ Content-Type: application/json
         now served via the CDN Edge Network. </para>
     </section>
     <section xml:id="purgeAsset-d1cdn">
-      <title>Delete a cached asset</title>
-      <para>After working with the service you created, you might find that you want to delete the
+      <title>Purge a cached asset</title>
+      <para>After working with the service you created, you might find that you want to purge the
         current version of an asset that has been cached at the edge node. </para>
       <example>
-        <title>Delete a cached asset: Request</title>
+        <title>Purge a cached asset: Request</title>
         <programlisting language="bash">curl -i -X DELETE https://global.cdn.api.rackspacecloud.com/v1.0/<emphasis role="bold">yourAccountID</emphasis>/services/<emphasis role="bold">yourServiceID</emphasis>/assets?url=<replaceable>relativeURLofAssettoDelete</replaceable> \
 -H "X-Auth-Token: <emphasis role="bold">yourAuthToken</emphasis>" \
 -H "Content-type: application/json"</programlisting>
       </example>
       <example>
-        <title>Delete a cached asset: Response</title>
+        <title>Purge a cached asset: Response</title>
         <programlisting language="json">HTTP/1.1 202 Accepted</programlisting>
       </example>
     </section>
