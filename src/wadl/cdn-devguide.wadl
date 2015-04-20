@@ -530,7 +530,7 @@
 				<param name="domain" style="plain" path="$.domains.domain"
 					required="true">
 					<wadl:doc xmlns="http://docbook.org/ns/docbook"
-						xml:lang="EN">Specifies the domain used to access the assets on your website, for which you use a CNAME to the CDN provider. The minimum length for domain is 3. The maximum length is 253</wadl:doc>
+						xml:lang="EN">Specifies the domain used to access the assets on your website, for which you use a CNAME to the CDN provider. The minimum length for domain is 3. The maximum length is 253.</wadl:doc>
 				</param>
 				<param name="protocol" style="plain" path="$.domains.protocol"
 					required="false">
