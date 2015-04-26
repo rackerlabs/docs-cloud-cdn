@@ -36,7 +36,7 @@
   xml:id="cdn-devguide" status="">
   <title>Rackspace CDN Developer Guide</title>
   <?rax status.bar.text.font.size="40px"
-     status.bar.text="Early Access"
+     status.bar.text=""
       canonical.url.base="http://docs.rackspace.com/cdn/api/v1.0/cdn-devguide/content"?>
   <titleabbrev>CDN Developer Guide</titleabbrev>
   <info>
@@ -47,10 +47,10 @@
     <releaseinfo>API v1.0</releaseinfo>
     <productname>Rackspace CDN</productname>
     <!--Note that the <productname> text matches the first few words of the title. The build system splits the title into productname + rest of title on the pdf cover.-->
-    <pubdate>2015-04-15<!--If you leave the <pubdate> element empty, the build system inserts today's date automatically. --></pubdate>
+    <pubdate>2015-04-27<!--If you leave the <pubdate> element empty, the build system inserts today's date automatically. --></pubdate>
     <revhistory>
       <revision>
-        <date>2015-04-15</date>
+        <date>2015-04-27</date>
         <revdescription>
           <itemizedlist>
             <listitem>
@@ -178,13 +178,12 @@
     </section>
     <section xml:id="Pricing_SLA-d1e1362">
       <title>Pricing and service level</title>
-      <para xmlns:html="http://www.w3.org/1999/xhtml" xmlns:wadl="http://wadl.dev.java.net/2009/02"
-        xmlns:m="http://www.w3.org/1998/Math/MathML">Your use of the Rackspace CDN API will be
-        billed according to the pricing schedule at <link xlink:href="insert link here/">insert link
-          here</link>. </para>
+      <para>Your use of Rackspace CDN is billed according to the pricing schedule on the Rackspace
+        CDN page at <link xlink:href="http://www.rackspace.com/cloud/cdn-content-delivery-network"
+          >www.rackspace.com</link>.</para>
       <para>The Service Level Agreement (SLA) for Rackspace CDN is available at <link
-          xlink:href="insert link here"
-          >insert link here</link>.</para>
+          xlink:href="http://www.rackspace.com/information/legal/cloud/sla">Rackspace CDN
+          SLA</link>.</para>
     </section>
   </chapter>
   <chapter xml:id="concepts-d1eo1">
@@ -223,7 +222,7 @@
       <title>Domain</title>
       <para>A domain represents the domain name through which visitors retrieve content. The
         underlying site might be served through a CDN. A service can have multiple domains. The CDN
-        provider provides users with a Canonical Name (CName) to specify for their domain name as an
+        provider provides users with a Canonical Name (CNAME) to specify for their domain name as an
         alias.</para>
     </section>
     <section xml:id="Origin-d1eo1">
@@ -592,19 +591,25 @@
             Identity Client Developer Guide</citetitle>:</para>
         <itemizedlist spacing="compact">
           <listitem>
-            <para><link
-                xlink:href="http://docs.rackspace.com/auth/api/v2.0/auth-client-devguide/content/POST_addUser__v2.0_users_User_Calls.html"
-                >Create account users</link></para>
+            <para>
+              <link
+                xlink:href="http://docs.rackspace.com/auth/api/v2.0/auth-client-devguide/content/POST_addUser_v2.0_users_.html"
+                >Add account users</link>
+            </para>
           </listitem>
           <listitem>
-            <para><link
-                xlink:href="http://docs.rackspace.com/auth/api/v2.0/auth-client-devguide/content/PUT_addUserRole__v2.0_users__userId__roles_OS-KSADM__roleid__Role_Calls.html"
-                >Assign roles to account users</link></para>
+            <para>
+              <link
+                xlink:href="http://docs.rackspace.com/auth/api/v2.0/auth-client-devguide/content/PUT_addUserRole__v2.0_users__userId__roles__roleid__Role_Calls.html"
+                >Assign roles to account users</link>
+            </para>
           </listitem>
           <listitem>
-            <para><link
-                xlink:href="http://docs.rackspace.com/auth/api/v2.0/auth-client-devguide/content/DELETE_deleteUserRole__v2.0_users__userId__roles_OS-KSADM__roleid__Role_Calls.html"
-                >Delete roles from account users</link></para>
+            <para>
+              <link
+                xlink:href="http://docs.rackspace.com/auth/api/v2.0/auth-client-devguide/content/DELETE_deleteUserRole__v2.0_users__userId__roles__roleid__Role_Calls.html"
+                >Delete roles from account users</link>
+            </para>
           </listitem>
         </itemizedlist>
         <note>
@@ -1204,8 +1209,10 @@ Content-Type: application/json
         the <code>caching.rules</code>, you might set <code>ttl</code> equal to 3600 seconds (1
         hour) for a specific file by making the rule path
           <code>/videos/marketingspot/abccompany/welcomevideo.mp4</code>. </para>
-      <para>For more information, see <link xlink:href="https://www.rackspace.com/knowledge_center/article/rackspace-cdn-edge-rules">Rackspace CDN edge rules</link>.</para>
-
+      <para>For more information about rules, see <link
+          xlink:href="https://www.rackspace.com/knowledge_center/article/rackspace-cdn-edge-rules"
+          >Rackspace CDN edge rules</link>.</para>
+<!-- <remark>4/25/15 - Hidding this text as it is given in the KC artile link above, so there will be only 1 source of truth.</remark>
       <section xml:id="ruleOrder-de101">
         <title>Rule ordering</title>
         <para>When you specify multiple rules within one rule type, such as <code>origins</code>,
@@ -1248,10 +1255,10 @@ Content-Type: application/json
         <para>In your request, if you define a set of caching rules with the paths in the following
           order, the last rule matches and assigns the TTL to 3600 seconds (or 1 hour) rather than
           259200 seconds (or 3 days):</para>
-        <para><code>www.mywebsite.com/videos/marketingspot</code> ----->with
+        <para><code>www.mywebsite.com/videos/marketingspot</code>      with
             <code>"ttl":259200</code> set in <code>caching.rules</code></para>
         <para>
-          <code>www.mywebsite.com/videos</code> ----->with <code>"ttl":3600</code> set in
+          <code>www.mywebsite.com/videos</code>      with <code>"ttl":3600</code> set in
             <code>caching.rules</code></para>
       </section>
       <section xml:id="multipleCachRules">
@@ -1265,9 +1272,9 @@ Content-Type: application/json
           only exception is your dynamic content, hosted on your origin at <code>/dynamic</code>,
           which you want to have a TTL of 0 because the experience changes for every user.  </para>
         <para>In this case, you should order your TTL <code>caching.rules</code> as follows:</para>
-        <para><code>www.mywebsite.com</code> -----> with <code>"ttl":259200</code> set in
+        <para><code>www.mywebsite.com</code>       with <code>"ttl":259200</code> set in
             <code>caching.rules</code></para>
-       <para><code>www.mywebsite.com/dynamic</code> -----> with <code>"ttl":0</code> set in<code>
+       <para><code>www.mywebsite.com/dynamic</code>       with <code>"ttl":0</code> set in<code>
             caching.rules</code></para>
       </section>
       <section xml:id="multipleOriginRules">
@@ -1282,10 +1289,10 @@ Content-Type: application/json
             <code>website.com/dedicated</code> should be routed to your dedicated server, hosted at
             <code>origin.dedicatedserver.com</code>. In this case, you should order your
             <code>origin.rules</code> as follows:  </para>
-        <para><code>origin.cloudserver.com</code> -----> with
+        <para><code>origin.cloudserver.com</code>       with
             <code>origin=origin.cloudserver.com</code> in <code>origin.rules</code>
         </para>
-        <para><code>origin.dedicatedserver.com</code> -----> with
+        <para><code>origin.dedicatedserver.com</code>       with
             <code>origin=origin.dedicatedserver.com</code> in <code>origin.rules</code></para>
       </section>
       <section xml:id="referrerRules">
@@ -1304,10 +1311,11 @@ Content-Type: application/json
           end user if it is being requested by your domain.  </para>
         <para>To do this, set up <code>restrictions.rules.referrer</code> similar to the following
           definition:</para>
-        <para><code>/</code> -----> with <code>"referrer":"www.mywebsite.com"</code> set in
+        <para><code>/</code>       with <code>"referrer":"www.mywebsite.com"</code> set in
             <code>restrictions.rules</code>
         </para>
       </section>
+-->    
     </section>
     <section xml:id="testingCDN">
       <title>Testing the CDN</title>
@@ -1317,9 +1325,6 @@ Content-Type: application/json
         might create a test hostname such as <code>test-www.example.com</code>, use the CNAME to
         access the same partner endpoint as the <code>www.example.com</code>, and create a copy of
         the policy via the API so that it uses the same origin. </para>
-      <para>If required, the policy might override the <code>Host</code> header sent to the origin
-        to use the “fixed” value <code>www.example.com</code> as shown here. (Note: All other
-        behaviors such as TTLs should match the <code>www.example.com</code> policy.)</para>
     </section>
   </chapter>
   <chapter xml:id="apiOperations-d101" xmlns="http://docbook.org/ns/docbook" role="api-reference">
@@ -1446,7 +1451,7 @@ Content-Type: application/json
       <glossdef>
         <para>A domain represents the domain name through which visitors retrieve content. The
           underlying site might be served through a CDN. A service can have multiple domains. The
-          CDN provider provides users with a Canonical Name (CName) to specify for their domain name
+          CDN provider provides users with a Canonical Name (CNAME) to specify for their domain name
           as an alias.</para>
       </glossdef>
     </glossentry>

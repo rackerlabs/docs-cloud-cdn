@@ -37,7 +37,7 @@
   <?rax title.font.size="35px" subtitle.font.size="20px"?>
   <title>Rackspace CDN Developer Guide for Service Management</title>
   <?rax status.bar.text.font.size="40px"
-     status.bar.text="Early Access"
+     status.bar.text=""
       canonical.url.base="http://docs.rackspace.com/cdn/api/v1.0/cdn-adminguide/content"?>
   <titleabbrev>Rackspace CDN Developer Guide for Service Management</titleabbrev>
   <info>
@@ -48,7 +48,7 @@
     <releaseinfo>API v1.0</releaseinfo>
     <productname>Rackspace CDN</productname>
     <pubdate xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:html="http://www.w3.org/1999/xhtml"
-      >2015-04-15</pubdate>
+      >2015-04-27</pubdate>
     <legalnotice role="rs-api" xmlns:m="http://www.w3.org/1998/Math/MathML"
       xmlns:html="http://www.w3.org/1999/xhtml">
       <annotation>
@@ -63,7 +63,7 @@
     <!--Note that the <productname> text matches the first few words of the title. The build system splits the title into productname + rest of title on the pdf cover.-->
     <revhistory>
       <revision>
-        <date>2015-04-15</date>
+        <date>2015-04-27</date>
         <revdescription>
           <itemizedlist>
             <listitem>
@@ -216,8 +216,10 @@
     </section>
     <section xml:id="Pricing_SLA-d1e1362">
       <title>Pricing and service level</title>
-      <para>For pricing and service level (SLA) information, see (insert linke).
-        bandwidth.</para>
+      <para>Your use of Rackspace CDN is billed according to the pricing schedule on the Rackspace CDN page at <link
+        xlink:href="http://www.rackspace.com/cloud/cdn-content-delivery-network">www.rackspace.com</link>.</para>
+      <para>The Service Level Agreement (SLA) for Rackspace CDN is available at <link
+        xlink:href="http://www.rackspace.com/information/legal/cloud/sla">Rackspace CDN SLA</link>.</para>
     </section>
   </chapter>
   <chapter xml:id="concepts-d1eo1">
@@ -256,7 +258,7 @@
       <title>Domain</title>
       <para>A domain represents the domain name through which visitors retrieve content. The
         underlying site might be served through a CDN. A service can have multiple domains. The CDN
-        provider provides users with a Canonical Name (CName) to specify for their domain name as an
+        provider provides users with a Canonical Name (CNAME) to specify for their domain name as an
         alias.</para>
     </section>
     <section xml:id="Origin-d1eo1">
@@ -508,19 +510,21 @@
             Identity Client Developer Guide</citetitle>:</para>
         <itemizedlist spacing="compact">
           <listitem>
-            <para><link
-                xlink:href="http://docs.rackspace.com/auth/api/v2.0/auth-client-devguide/content/POST_addUser__v2.0_users_User_Calls.html"
-                >Create account users</link></para>
+            <para>
+              <link xlink:href="http://docs.rackspace.com/auth/api/v2.0/auth-client-devguide/content/POST_addUser_v2.0_users_.html">Add account users</link>
+            </para>
           </listitem>
           <listitem>
-            <para><link
-                xlink:href="http://docs.rackspace.com/auth/api/v2.0/auth-client-devguide/content/PUT_addUserRole__v2.0_users__userId__roles_OS-KSADM__roleid__Role_Calls.html"
-                >Assign roles to account users</link></para>
+            <para>
+              <link xlink:href="http://docs.rackspace.com/auth/api/v2.0/auth-client-devguide/content/PUT_addUserRole__v2.0_users__userId__roles__roleid__Role_Calls.html">Assign roles to account
+                users</link>
+            </para>
           </listitem>
           <listitem>
-            <para><link
-                xlink:href="http://docs.rackspace.com/auth/api/v2.0/auth-client-devguide/content/DELETE_deleteUserRole__v2.0_users__userId__roles_OS-KSADM__roleid__Role_Calls.html"
-                >Delete roles from account users</link></para>
+            <para>
+              <link xlink:href="http://docs.rackspace.com/auth/api/v2.0/auth-client-devguide/content/DELETE_deleteUserRole__v2.0_users__userId__roles__roleid__Role_Calls.html">Delete roles from account
+                users</link>
+            </para>
           </listitem>
         </itemizedlist>
         <note>
@@ -635,8 +639,6 @@
       </section>
       <section version="5.0" xml:id="RBAC_API_XREF_3">
         <title>RBAC permissions cross-reference to Rackspace CDN API operations</title>
-        <remark>Make sure the Rackspace CDN is added to the KC article. Renee Rendon is the
-          responsible writer for that.</remark>
         <para>API operations for Rackspace CDN may or may not be available to all roles. To see
           which operations are permitted to invoke which calls, see the <link
             xlink:href="http://www.rackspace.com/knowledge_center/article/permissions-matrix-for-role-based-access-control-rbac"
@@ -1124,7 +1126,7 @@ Content-Type: application/json
       <glossdef>
         <para>A domain represents the domain name through which visitors retrieve content. The
           underlying site might be served through a CDN. A service can have multiple domains. The
-          CDN provider provides users with a Canonical Name (CName) to specify for their domain name
+          CDN provider provides users with a Canonical Name (CNAME) to specify for their domain name
           as an alias.</para>
       </glossdef>
     </glossentry>

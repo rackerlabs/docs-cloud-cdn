@@ -53,6 +53,9 @@
         }
     ],
     "flavor_id": "cdn",
+    "log_delivery" : {
+        "enabled": true
+    },
     "status": "deployed",
     "errors": [],
     "links": [
@@ -67,6 +70,10 @@
         {
             "href": "blog.mywebsite.com.cdn1.raxcdn.com",
             "rel": "access_url"
-        }
+        },
+        {
+            "href" : "https://swiftstorageurl.com/v1.0/.CDN_ACCESS_LOGS",
+            "rel" : "log_url"
+        }    
     ]
 }

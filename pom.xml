@@ -35,9 +35,9 @@
 			</goals>
 			<phase>generate-sources</phase>          
 			<configuration>
-				<security>internal</security>
+				<security>internal</security> 
 				<includes>
-					cdn-adminguide.xml
+					cdn-adminguide_UA.xml
 				</includes>            
 				<enableDisqus>intranet</enableDisqus>            
 				<canonicalUrlBase>http://docs-internal.rackspace.com/cdn/api/v1.0/cdn-adminguide/content</canonicalUrlBase>
@@ -52,7 +52,7 @@
 			</goals>
 			<phase>generate-sources</phase>
 			<configuration>
-				<includes>cdn-devguide.xml</includes>
+				<includes>cdn-devguide_UA.xml</includes>
 				<security>external</security>
 				<canonicalUrlBase>http://docs.rackspace.com/cdn/api/v1.0/cdn-devguide/content</canonicalUrlBase>
 			</configuration>
@@ -64,7 +64,7 @@
 			</goals>
 			<phase>generate-sources</phase>
 			<configuration>
-				<includes>cdn-gettingstarted.xml</includes>
+				<includes>cdn-gettingstarted_UA.xml</includes>
 				<security>external</security>
 				<canonicalUrlBase>http://docs.rackspace.com/cdn/api/v1.0/cdn-gettingstarted/content</canonicalUrlBase>
 				<webhelpDefaultTopic>Overview.html</webhelpDefaultTopic>
@@ -77,7 +77,7 @@
 			</goals>
 			<phase>generate-sources</phase>
 			<configuration>
-				<includes>cdn-releasenotes.xml</includes>
+				<includes>cdn-releasenotes_UA.xml</includes>
 				<security>external</security>
 				<chapterAutolabel>0</chapterAutolabel>
 				<canonicalUrlBase>http://docs.rackspace.com/cdn/api/v1.0/cdn-releasenotes/content</canonicalUrlBase>

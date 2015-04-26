@@ -9,7 +9,7 @@
     status="">
   <title>Rackspace CDN Release Notes</title>
     <?rax status.bar.text.font.size="40px"
-     status.bar.text="Early Access"
+     status.bar.text=""
      canonical.url.base="http://docs.rackspace.com/cdn/api/v1.0/cdn-releasenotes/content"?>
   <info>
     <copyright>

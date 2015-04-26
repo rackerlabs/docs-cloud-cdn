@@ -38,17 +38,6 @@
 						<method href="#getHomeDocument"/>
 					</resource>
 				
-<!--			<resource id="health" path="health">
-			    <method href="#getHealthCheck"/>
-				<resource id="subsystem" path="{subsystem}">
-					<param name="subsystem" style="template" type="xsd:string"> 
-						<wadl:doc 
-							xmlns="http://docbook.org/ns/docbook"
-							xml:lang="EN"><para>The unique identifier for the user.</para> </wadl:doc>
-					</param>
-				    <method href="#getHealthDetails"/>				                
-				</resource>	
-			    </resource> -->
 			
 			<resource id="ping" path="ping"> 	
 			    <method href="#getPing"/> 
@@ -89,7 +78,6 @@
 				
 			<resource id="flavors" path="flavors">
 				<method href="#getFlavors"/>
-           <!-- 	<method href="#postFlavors"/> -->
 				<resource id="flavor_id" path="{flavor_id}">
 					<param name="flavor_id" style="template"
 						type="xsd:string" required="true">
@@ -99,14 +87,9 @@
 							</para> </wadl:doc>
 					</param>
 					<method href="#getFlavorDetails"/>
-			<!--		<method href="#deleteFlavor"/>  -->
 			    </resource>
 			</resource>
-			
-			<resource id="logging" path="logging">
-				<method href="#getLogging"/>
-				<method href="#postLogging"/>
-			</resource>		
+							
 			</resource>
 		</resource>
 	</resources>
@@ -154,89 +137,7 @@
 			</representation>
 		</response>
 	</method>
-<!--*******************************************************-->
-<!--      Get health check - moved to Admin WADL           -->
-<!--*******************************************************-->
-<!--	<method name="GET" id="getHealthCheck">
-		<wadl:doc xml:lang="EN" title="Retrieve health check"
-			xmlns="http://docbook.org/ns/docbook">
-			<para role="shortdesc">Retrieves a health check.</para>
-			<para>This operation retrieves a health check. </para>			
-		</wadl:doc>
-		<request>
-			<representation mediaType="application/json" >
-				<doc>
-					<xsdxt:code href="../wadl/samples/cdn-getHealthCheck_request-json-http.txt"/>
-				</doc>
-			</representation>
-		</request>
-		<response status="200" xmlns="http://wadl.dev.java.net/2009/02">
-			<doc title="OK" xml:lang="EN">Success.</doc>
-			<representation mediaType="application/json">
-				<wadl:doc xmlns="http://docbook.org/ns/docbook"
-					xml:lang="EN">
-					<xsdxt:code
-						href="../wadl/samples/cdn-getHealthCheck1_response-json-http.txt"
-					/>
-					<xsdxt:code
-						href="../wadl/samples/cdn-getHealthCheck1_response.json"
-					/>
-					<xsdxt:code
-						href="../wadl/samples/cdn-getHealthCheck2_response-json-http.txt"
-					/>
-					<xsdxt:code
-						href="../wadl/samples/cdn-getHealthCheck2_response.json"
-					/>
-				</wadl:doc>
-			</representation>
-		</response>
-		<response status="503" xmlns="http://wadl.dev.java.net/2009/02">
-			<doc title="Service Unavailable" xml:lang="EN">The service is temporarily unavailable (for example, for scheduled
-				platform maintenance). Try again later.</doc>			
-		</response>
-	</method>	-->
-<!--*******************************************************-->
-<!--     Get health details   - moved to Admin WADL        -->
-<!--*******************************************************-->
-<!--	<method name="GET" id="getHealthDetails">
-		<wadl:doc xml:lang="EN" title="Retrieve health details"
-			xmlns="http://docbook.org/ns/docbook">
-			<para role="shortdesc">Retrieves the health details for a subsystem.</para>
-			<para>This operation shows whether a subsystem is online or offline. </para>
-					
-		</wadl:doc>
-		<request>
-			<representation mediaType="application/json" >
-				<doc>
-					<xsdxt:code href="../wadl/samples/cdn-getHealthDetails_request-json-http.txt"/>
-				</doc>
-			</representation>
-		</request>
-		<response status="200" xmlns="http://wadl.dev.java.net/2009/02">
-			<doc title="OK" xml:lang="EN">Success.</doc>
-			<representation mediaType="application/json">
-				<wadl:doc xmlns="http://docbook.org/ns/docbook"
-					xml:lang="EN">
-					<xsdxt:code
-						href="../wadl/samples/cdn-getHealthDetails1_response-json-http.txt"
-					/>
-					<xsdxt:code
-						href="../wadl/samples/cdn-getHealthDetails1_response.json"
-					/>
-					<xsdxt:code
-					href="../wadl/samples/cdn-getHealthDetails2_response-json-http.txt"
-					/>
-					<xsdxt:code
-						href="../wadl/samples/cdn-getHealthDetails2_response.json"
-					/>
-				</wadl:doc>
-			</representation>
-		</response>
-		<response status="503" xmlns="http://wadl.dev.java.net/2009/02">
-			<doc title="Service Unavailable" xml:lang="EN">The service is temporarily unavailable (for example, for scheduled
-				platform maintenance). Try again later.</doc>			
-		</response>
-	</method> -->
+
 <!--*******************************************************-->
 <!--               Get ping                                -->
 <!--*******************************************************-->
@@ -537,19 +438,20 @@
 					<wadl:doc xmlns="http://docbook.org/ns/docbook"
 						xml:lang="EN">Specifies the protocol used to access the assets on this domain. Only <code>http</code> or <code>https</code> are allowed. The default <code>protocol</code> is <code>http</code>. If you specify multiple domains, the domains must use the same protocol - either all http or all https.</wadl:doc>
 				</param>
-<!--				
+				
 				<param name="certificate" style="plain" path="$.domains.certificate"
 					required="false">
 					<wadl:doc xmlns="http://docbook.org/ns/docbook"
 						xml:lang="EN">Specifies the type of security certificate. For the <code>certificate</code> parameter to apply, the <code>protocol</code> parameter must be set to <code>https</code>. Use <code>shared</code>, <code>san</code>, or <code>custom</code>.
-						For all 3 types of security certificates, make sure that your origin (or origins) are SSL-enabled. Your SSL certificate needs to come from a trusted certificate authority (CA). </wadl:doc>
+						For all 3 types of security certificates, make sure that your origin (or origins) are SSL-enabled. Your SSL certificate needs to come from a trusted certificate authority (CA). For more information about security certificates and Rackspace CDN, see <link
+							xlink:href="https://www.rackspace.com/knowledge_center/article/rackspace-cdn-secure-delivery-options">Rackspace CDN secure delivery options</link>. </wadl:doc>
 				</param>
 							<param name="shared" style="plain" path="$.domains.certificate.shared"
 								required="false">
 								<wadl:doc xmlns="http://docbook.org/ns/docbook"
 									xml:lang="EN">Uses a shared https operator domain. The <code>domain</code> parameter must be a single word that is not dot separated.</wadl:doc>
 							</param>
-							<param name="san" style="plain" path="$.domains.certificate.san"
+<!--							<param name="san" style="plain" path="$.domains.certificate.san"
 								required="false">
 								<wadl:doc xmlns="http://docbook.org/ns/docbook"
 									xml:lang="EN">Adds the domain to the operator's SAN certificate as an alternate name. Note that a SAN certificate can take up to a few hours for a service to set up.</wadl:doc>
@@ -559,7 +461,8 @@
 								<wadl:doc xmlns="http://docbook.org/ns/docbook"
 									xml:lang="EN">Generates a custom certificate (dedicated) for the domain to be used at the edge. To expedite the certificate provision, a custom (single) certificate requires that you have legitimate Whois information on your domain (or domains). Note that a customer certificate could take a couple days for the service to set up. </wadl:doc>
 							</param>
--->								
+-->							
+							
 				
 				<param name="origins" style="plain" path="$.origins"
 					required="true">
@@ -677,12 +580,26 @@
 					<wadl:doc xmlns="http://docbook.org/ns/docbook"
 						xml:lang="EN">Specifies the HTTP method (GET, PUT, POST, DELETE, PATCH, and so on) that can be accepted.</wadl:doc>
 				</param>
--->				
+-->	
+				
+				<param name="log_delivery" style="plain" path="$.log_delivery" required="true">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN">Specifies whether to enable log delivery to a Cloud Files container. You can use access log delivery to analyze the number of requests for each object, the client IP address, and time-based usage patterns (such as monthly or seasonal usage).
+						Log files are named according to the following pattern: service name, log date, log hour, and MD5 hash. For example: www.mywebsite.com/2015/02/01/16/096e6c4473f235db081deb51f42a8d98.log.gz. In this example, www.mywebsite.com is the name of the service, 2015/02/01 is the date (February 1, 2015), and 16 is the hour that the log file was created. There might be multiple files for a given hour because the system splits log files based on both time and log file size. All times in the access logs are UTC time.
+						Within the gzip logs, the format of the entries is similar to National Center for Supercomputing Applications (NCSA) combined log format, but without cookies. The pattern follows. The dashes (-) denote fields that the NCSA combined log format dictates be present but that Rackspace CDN does not capture. For example: client_ip - - [day/month/year:hour:minute:second timezone] “method request HTTP_version” return_code bytes_sent “referrer” “user_agent”. Logs are stored in a Cloud Files container named .CDN_ACCESS_LOGS. If this container does not exist, it is created.</wadl:doc>
+				</param>
+				<param name="enabled" style="plain" path="$.log_delivery.enabled" required="true">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN">Specifies whether to enable or disable log delivery. Valid values are <code>true</code> and <code>false</code>. </wadl:doc>
+				</param>
+				
 				<param name="flavor_id" style="plain" path="$.flavor_id"
 					required="true">
 					<wadl:doc xmlns="http://docbook.org/ns/docbook"
 						xml:lang="EN">Specifies the CDN provider flavor ID to use. For a list of flavors, see the operation to list the available flavors. The minimum length for <code>flavor_id</code> is 3. The maximum length is 256.</wadl:doc>
 				</param>
+				
+				
 <!--								
 				
 				<param name="links" style="plain" path="$.links"
@@ -889,7 +806,17 @@
 					<wadl:doc xmlns="http://docbook.org/ns/docbook"
 						xml:lang="EN">Specifies the HTTP method (GET, PUT, POST, DELETE, PATCH, and so on) that can be accepted.</wadl:doc>
 				</param>
--->				
+-->	
+				<param name="log_delivery" style="plain" path="$.log_delivery">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN">Specifies whether log delivery to a Cloud Files container is enabled or disabled. For more information about logs, see the <code>log_delivery</code> parameter description in <link
+							xlink:href="http://docs.rackspace.com/cdn/api/v1.0/cdn-devguide/content/POST_createService_v1.0__project_id__services_servicesOperations.html">Create service</link>.</wadl:doc>
+				</param>
+				<param name="enabled" style="plain" path="$.log_delivery.enabled">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN">Specifies whether log delivery is enabled (<code>true</code>) or disabled (<code>false</code>). </wadl:doc>
+				</param>
+				
 				<param name="flavor_id" style="plain" path="$.flavor_id">
 					<wadl:doc xmlns="http://docbook.org/ns/docbook"
 						xml:lang="EN">Specifies the CDN provider flavor ID to use. For a list of flavors, see the operation to list the available flavors.</wadl:doc>
@@ -1243,105 +1170,7 @@
 			</representation>
 		</response>
 	</method>
-<!--*******************************************************-->
-<!--       Create flavors - moved to Admin WADL            -->
-<!--*******************************************************-->	
-<!--	<method name="POST" id="postFlavors">
-		<wadl:doc xml:lang="EN" title="Create flavors"
-			xmlns="http://docbook.org/ns/docbook">
-			<para role="shortdesc">Creates flavors.</para>
-			<para>This operation creates flavors.</para>			
-			
-		</wadl:doc>
-		<request>
-			
-			<representation mediaType="application/json" >
-				<doc>
-					<xsdxt:code href="../wadl/samples/cdn-postFlavors_request-json-http.txt"/>
-					<xsdxt:code	href="../wadl/samples/cdn-postFlavors_request.json"/>
-				</doc>
-				<param name="id" style="plain" path="$.id"
-					required="true">
-					<wadl:doc xmlns="http://docbook.org/ns/docbook"
-						xml:lang="EN">Specifies the name of the flavor. The name must not exceed 64 bytes in length and is limited to unicode, digits, underscores, and hyphens.</wadl:doc>
-				</param>
-				<param name="limits" style="plain" path="$.limits"
-					required="true">
-					<wadl:doc xmlns="http://docbook.org/ns/docbook"
-						xml:lang="EN">Specifies the list of limits to apply to origins, domains, and caching configurations to services using this flavor class.</wadl:doc>
-				</param>
-				<param name="origins" style="plain" path="$.limits.origins"
-					required="true">
-					<wadl:doc xmlns="http://docbook.org/ns/docbook"
-						xml:lang="EN">Specifies the minimum and maximum count limits to apply to the list of origins. The minimum defaults to 1.</wadl:doc>
-				</param>
-				<param name="domains" style="plain" path="$.limits.domains"
-					required="true">
-					<wadl:doc xmlns="http://docbook.org/ns/docbook"
-						xml:lang="EN">Specifies the minimum and maximum count limits to apply to the list of domains. The minimum defaults to 1.</wadl:doc>
-				</param>
-				<param name="caching" style="plain" path="$.limits.caching"
-					required="true">
-					<wadl:doc xmlns="http://docbook.org/ns/docbook"
-						xml:lang="EN">Specifies the minimum and maximum minute limits to apply to the list of caching TTLs. An <code>incr</code> can be specified to enforce the TTL to be a factor of. <code>Incr</code> defaults to 1. </wadl:doc>
-				</param>
-				<param name="providers" style="plain" path="$.providers"
-					required="true">
-					<wadl:doc xmlns="http://docbook.org/ns/docbook"
-						xml:lang="EN">Specifies the list of providers mapped to this flavor class.</wadl:doc>
-				</param>
-				<param name="provider" style="plain" path="$.providers.provider"
-					required="true">
-					<wadl:doc xmlns="http://docbook.org/ns/docbook"
-						xml:lang="EN">Specifies the name of the provider. The name must not exceed 64 bytes in length and is limited to unicode, digits, underscores, and hyphens.</wadl:doc>
-				</param>
-				<param name="links" style="plain" path="$.providers.links"
-					required="true">
-					<wadl:doc xmlns="http://docbook.org/ns/docbook"
-						xml:lang="EN">Specifices a list with a <code>href</code> where <code>rel</code> is <code>provider_url</code>. Rackspace CDN ignores all entries in the list except the <code>provider_url</code>.</wadl:doc>
-				</param>
-				
-			</representation>
-		</request>
-		<response status="201" xmlns="http://wadl.dev.java.net/2009/02">
-			<doc title="Created" xml:lang="EN">Following a POST command, this status indicates success. The request has been fulfilled and resulted in a new resource being created.</doc>
-			<representation mediaType="application/json">
-				<wadl:doc xmlns="http://docbook.org/ns/docbook"
-					xml:lang="EN">
-					<xsdxt:code
-						href="../wadl/samples/cdn-postFlavors_response-json-http.txt"
-					/>
-				</wadl:doc>
-			</representation>
-		</response>
-		<response status="400" xmlns="http://wadl.dev.java.net/2009/02">
-			<doc title="Bad Request" xml:lang="EN">Provider ID is greater than 64 bytes.</doc>
-		</response>
-		<response status="400" xmlns="http://wadl.dev.java.net/2009/02">
-			<doc title="Bad Request" xml:lang="EN">Missing provider ID.</doc>
-		</response>
-		<response status="400" xmlns="http://wadl.dev.java.net/2009/02">
-			<doc title="Bad Request" xml:lang="EN">Providers list is empty.</doc>
-		</response>
-		<response status="400" xmlns="http://wadl.dev.java.net/2009/02">
-			<doc title="Bad Request" xml:lang="EN">Providers name is greater than 64 bytes.</doc>
-		</response>
-		<response status="400" xmlns="http://wadl.dev.java.net/2009/02">
-			<doc title="Bad Request" xml:lang="EN">Providers ['links'] list is empty.</doc>
-		</response>
-		<response status="400" xmlns="http://wadl.dev.java.net/2009/02">
-			<doc title="Bad Request" xml:lang="EN">Invalid url format in href.</doc>
-		</response>
-		<response status="400" xmlns="http://wadl.dev.java.net/2009/02">
-			<doc title="Bad Request" xml:lang="EN">Missing provider-url entry.</doc>
-		</response>
-		<response status="400" xmlns="http://wadl.dev.java.net/2009/02">
-			<doc title="Bad Request" xml:lang="EN">Missing rel file.</doc>
-		</response>
-		<response status="400" xmlns="http://wadl.dev.java.net/2009/02">
-			<doc title="Bad Request" xml:lang="EN">Invalid json.</doc>
-		</response>
-	</method> -->
+
 <!--*******************************************************-->
 <!--               List flavor details                     -->
 <!--*******************************************************-->	
@@ -1404,104 +1233,6 @@
 			</representation>
 		</response>
 	</method>
-<!--*******************************************************-->
-<!--           Delete flavor  - moved to Admin WADL        -->
-<!--*******************************************************-->	
-<!--	<method name="DELETE" id="deleteFlavor">
-		<wadl:doc xml:lang="EN" title="Delete flavor"
-			xmlns="http://docbook.org/ns/docbook">
-			<para role="shortdesc">Deletes the flavor specified by flavor_id.</para>
-			<para>This operation deletes the flavor specified by flavor_id.</para>			
-			
-		</wadl:doc>
-		<request>
-			
-			<representation mediaType="application/json" >
-				<doc>
-					<xsdxt:code href="../wadl/samples/cdn-deleteFlavor_request-json-http.txt"/>
-				</doc>
-			</representation>
-		</request>
-		<response status="204" xmlns="http://wadl.dev.java.net/2009/02">
-			<doc title="No Content" xml:lang="EN">The server successfully processed the request, but is not returning any content.</doc>
-			<representation mediaType="application/json">
-				<wadl:doc xmlns="http://docbook.org/ns/docbook"
-					xml:lang="EN">
-					<xsdxt:code
-						href="../wadl/samples/cdn-deleteFlavor_response-json-http.txt"
-					/>
 
-				</wadl:doc>
-			</representation>
-		</response>
-	</method> -->
-<!--*******************************************************-->
-<!--              Logging methods                          -->
-<!--*******************************************************-->	
-<!--*******************************************************-->
-<!--               List logs                             -->
-<!--*******************************************************-->
-	<method name="GET" id="getLogging">
-		<wadl:doc xml:lang="EN" title="Retrieve logs"
-			xmlns="http://docbook.org/ns/docbook">
-			<para role="shortdesc">Retrieves a list of available logs.</para>
-			<para>This operation retrieves a list of available logs.</para>			
-			
-		</wadl:doc>
-		<request>
-			
-			<representation mediaType="application/json" >
-				<doc>
-					<xsdxt:code href="../wadl/samples/cdn-getLogging_request-json-http.txt"/>
-				</doc>
-			</representation>
-		</request>
-		<response status="200" xmlns="http://wadl.dev.java.net/2009/02">
-			<doc title="OK" xml:lang="EN">Success.</doc>
-			<representation mediaType="application/json">
-				<wadl:doc xmlns="http://docbook.org/ns/docbook"
-					xml:lang="EN">
-					<xsdxt:code
-						href="../wadl/samples/cdn-getLogging_response-json-http.txt"
-					/>
-					<xsdxt:code
-						href="../wadl/samples/cdn-getLogging_response.json"
-					/>
-				</wadl:doc>
-			</representation>
-		</response>
-	</method>
-<!--*******************************************************-->
-<!--               Post logs                               -->
-<!--*******************************************************-->
-	<method name="POST" id="postLogging">
-		<wadl:doc xml:lang="EN" title="Create a log location"
-			xmlns="http://docbook.org/ns/docbook">
-			<para role="shortdesc">Creates a log location.</para>
-			<para>This operation creates a log location by providing instructions for where logs should be submitted.</para>			
-			
-		</wadl:doc>
-		<request>
-			
-			<representation mediaType="application/json" >
-				<doc>
-					<xsdxt:code href="../wadl/samples/cdn-postLogging_request-json-http.txt"/>
-				</doc>
-			</representation>
-		</request>
-		<response status="200" xmlns="http://wadl.dev.java.net/2009/02">
-			<doc title="OK" xml:lang="EN">Success.</doc>
-			<representation mediaType="application/json">
-				<wadl:doc xmlns="http://docbook.org/ns/docbook"
-					xml:lang="EN">
-					<xsdxt:code
-						href="../wadl/samples/cdn-postLogging_response-json-http.txt"
-					/>
-					<xsdxt:code
-						href="../wadl/samples/cdn-postLogging_response.json"
-					/>
-				</wadl:doc>
-			</representation>
-		</response>
-	</method>	
+	
 </application>
