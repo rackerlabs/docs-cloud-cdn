@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <book  
+    xmlns="http://docbook.org/ns/docbook" 
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    xmlns:xi="http://www.w3.org/2001/XInclude" 
+    xmlns:svg="http://www.w3.org/2000/svg"
+    version="5.0" 
+    xml:id="cdn-releasenotes" 
+    status="">
+  <title>Rackspace CDN Release Notes</title>
+    <?rax status.bar.text.font.size="40px"
+     status.bar.text=""
+     canonical.url.base="http://docs.rackspace.com/cdn/api/v1.0/cdn-releasenotes/content"?>
+  <info>
+    <copyright>
+      <year>2015</year>
+      <holder>Rackspace US, Inc.</holder>
+    </copyright>
+    <releaseinfo>API v1.0</releaseinfo>
+    <productname>Rackspace CDN</productname>
+    <!--Note that the <productname> text matches the first few words of the title. The build system splits the title into productname + rest of title on the pdf cover.-->
+    <pubdate>2015-04-27</pubdate>
+    <legalnotice role="rs-api">
+      <annotation>
+        <remark>Copyright details are filled in by the template. </remark>
+      </annotation>
+    </legalnotice>
+    <abstract>
+      <para>This document is intended for software developers who are interested in developing
+        applications using the Rackspace CDN Application Programming Interface
+        (<abbrev>API</abbrev>). </para>
+    </abstract>
+    <revhistory>
+      <revision>
+        <date>2015-04-27</date>
+        <revdescription>
+          <itemizedlist>
+            <listitem>
+              <para>Initial Unlimited Access (UA) release.</para>
+            </listitem>
+          </itemizedlist>
+        </revdescription>
+      </revision>
+      <revision>
+        <date>2015-01-07</date>
+        <revdescription>
+          <itemizedlist>
+            <listitem>
+              <para>Initial Early Access (EA) release.</para>
+            </listitem>
+          </itemizedlist>
+        </revdescription>
+      </revision>
+    </revhistory>
+    <!-- 
+       The values in raxm:metadata are used to control where the content appears on the landing page in docs.rackspace.com.
+       Work with the Cloud Doc Tools team to find out what to put here. Once established, you should not change these
+       values without first consulting with the CDT team.
+    -->
+      <raxm:metadata xmlns:raxm="http://docs.rackspace.com/api/metadata">
+        <raxm:displayname>Release Notes</raxm:displayname>
+        <raxm:product version="v1.0">cdn</raxm:product>
+        <raxm:priority>30</raxm:priority>
+      </raxm:metadata>
+  </info>
+  <preface xml:id="preface">
+    <title>Preface</title>
+    <para>This document describes new features and changes for the Rackspace CDN API. </para>
+    <para>For detailed information about the Rackspace CDN API, see the following documentation at
+        <link xlink:href="http://docs.rackspace.com/">http://docs.rackspace.com/</link>:</para>
+    <itemizedlist spacing="compact">
+      <listitem>
+        <para><citetitle>Rackspace CDN Getting Started Guide</citetitle></para>
+      </listitem>
+      <listitem>
+        <para><citetitle>Rackspace CDN Developer Guide</citetitle></para>
+      </listitem>
+    </itemizedlist>
+    <para>Email all support questions to: <link xlink:href="mailto:cdn@rackspacecloud.com"
+        >cdn@rackspace.com</link>. </para>
+    <para>Rackspace welcomes your comments, feedback, and bug reports.</para>
+  </preface>
+  <chapter xml:id="doc_change_history">
+    <title>Document change history</title>
+    <para>This version of the release notes replaces and obsoletes all earlier versions. The most
+      recent changes are described in the following table:</para>
+    <?rax revhistory?>
+  </chapter>
+  <chapter xml:id="Apr15">
+    <title>April 27, 2015</title>
+    <para>This release is the initial Unlimited Access (UA) release of the Rackspace CDN API.</para>
+  </chapter>
+  <chapter xml:id="Jan07">
+    <title>January 07, 2015</title>
+    <para>This release is the initial Early Access (EA) release of the Rackspace CDN API.</para>
+  </chapter>
+</book>
