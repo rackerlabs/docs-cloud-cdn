@@ -1042,11 +1042,15 @@
 				<wadl:doc xmlns="http://docbook.org/ns/docbook"
 					xml:lang="EN">Specifies the relative <code>URL</code> of the asset to be purged.</wadl:doc>
 			</param>
-			<param name="all" style="query" type="xsd:string"
+			
+<!--			5/4/2015 Hiding this parameter as requested by Amit.
+				<param name="all" style="query" type="xsd:string"
 				required="false">
 				<wadl:doc xmlns="http://docbook.org/ns/docbook"
 					xml:lang="EN">If <code>all</code> is set to <code>true</code>, specifies that the purge occurs against all of the assets for the service.</wadl:doc>
-			</param>
+			</param> 
+-->
+			
 			<representation mediaType="application/json" >
 				<doc>
 					<xsdxt:code href="../wadl/samples/cdn-deleteCachedAsset_request-json-http.txt"/>
