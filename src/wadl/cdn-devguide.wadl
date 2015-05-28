@@ -1034,7 +1034,7 @@
 		<wadl:doc xml:lang="EN" title="Purge a cached asset"
 			xmlns="http://docbook.org/ns/docbook">
 			<para role="shortdesc">Purges a cached asset.</para>
-			<para>This operation purges the current version of the asset that has been cached at the edge node.</para>			
+			<para>This operation purges the current version of the asset that has been cached at the edge node. Currently in Rackspace CDN, purges require the URL of the file to purge; use of wildcards is not in effect.</para>			
 		</wadl:doc>
 		<request>
 			<param name="url" style="query" type="xsd:string"

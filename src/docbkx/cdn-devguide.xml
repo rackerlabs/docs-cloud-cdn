@@ -253,7 +253,8 @@
     <section xml:id="purge-d1eo1">
       <title>Purge</title>
       <para>Purging removes content from the edge nodes thus invalidating the content so that the
-        content can be refreshed from your origin servers.</para>
+        content can be refreshed from your origin servers. Currently in Rackspace CDN, purges
+        require the URL of the file to purge; use of wildcards is not in effect.</para>
     </section>
     <section xml:id="cachingRule-d1eo1">
       <title>Caching rule</title>
@@ -264,8 +265,8 @@
     <section xml:id="restriction-d1eo1">
       <title>Restriction</title>
       <para>A restriction enables you to define rules about who can or cannot access content from
-        the cache. Examples of a restriction are allowing requests only from certain domains,
-        geographies, or IP addresses.</para>
+        the cache. An example of a restriction is allowing requests only from certain domains based
+        on HTTP <code>Referrer</code> headers.</para>
     </section>
   </chapter>
   <chapter xml:id="generalAPIInfo-d1eo1">
@@ -1510,15 +1511,16 @@ Content-Type: application/json
       <glossterm>Purge</glossterm>
       <glossdef>
         <para>Purging removes content from the edge nodes thus invalidating the content so that the
-          content can be refreshed from your origin servers.</para>
+          content can be refreshed from your origin servers. Currently in Rackspace CDN, purges
+          require the URL of the file to purge; use of wildcards is not in effect.</para>
       </glossdef>
     </glossentry>
     <glossentry xml:id="queue-d1e019">
       <glossterm>Restriction</glossterm>
       <glossdef>
         <para>A restriction enables you to define rules about who can or cannot access content from
-          the cache. Examples of a restriction are allowing requests only from certain domains,
-          geographies, or IP addresses.</para>
+          the cache. An example of a restriction is allowing requests only from certain domains
+          based on HTTP <code>Referrer</code> headers.</para>
       </glossdef>
     </glossentry>
     <glossentry xml:id="subscriber-d1e018">
