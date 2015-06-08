@@ -202,8 +202,8 @@
 			<param name="limit" style="query" type="xsd:integer"
 				required="false">
 				<wadl:doc xmlns="http://docbook.org/ns/docbook"
-					xml:lang="EN">Specifies the number of resources to list. The default
-					maximum limit is 20, but is configurable by the operator.
+					xml:lang="EN">Specifies the number of resources to list. The 
+					maximum value that you can specify for <code>limit</code> is 20.
 				</wadl:doc>
 			</param>
 			<representation mediaType="application/json" >
