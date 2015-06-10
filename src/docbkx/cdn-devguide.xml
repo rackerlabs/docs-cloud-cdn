@@ -47,8 +47,40 @@
     <releaseinfo>API v1.0</releaseinfo>
     <productname>Rackspace CDN</productname>
     <!--Note that the <productname> text matches the first few words of the title. The build system splits the title into productname + rest of title on the pdf cover.-->
-    <pubdate>2015-06-08<!--If you leave the <pubdate> element empty, the build system inserts today's date automatically. --></pubdate>
+    <pubdate>2015-06-10<!--If you leave the <pubdate> element empty, the build system inserts today's date automatically. --></pubdate>
     <revhistory>
+      <revision>
+        <date>2015-06-10</date>
+        <revdescription>
+          <itemizedlist>
+            <listitem>
+              <para>Rackspace CDN has been updated to allow HTTP traffic on an SSL domain.
+                Consequently, the <code>protocol</code> parameter description for the request in
+                  <link
+                  xlink:href="http://docs.rackspace.com/cdn/api/v1.0/cdn-devguide/content/POST_createService_v1.0__project_id__services_servicesOperations.html"
+                  xmlns:m="http://www.w3.org/1998/Math/MathML"
+                  xmlns:html="http://www.w3.org/1999/xhtml">Create a service</link> has been
+                updated. The statement that indicated that domains must use the same protocol has
+                been deleted.</para>
+            </listitem>
+            <listitem>
+              <para>The <code>ttl</code> parameter description for the request in <link
+                  xlink:href="http://docs.rackspace.com/cdn/api/v1.0/cdn-devguide/content/POST_createService_v1.0__project_id__services_servicesOperations.html"
+                  xmlns:m="http://www.w3.org/1998/Math/MathML"
+                  xmlns:html="http://www.w3.org/1999/xhtml">Create a service</link> has been
+                updated. The maximum value that you can specify for <code>ttl</code> is 365 days.
+              </para>
+            </listitem>
+            <listitem>
+              <para>The table in <link
+                  xlink:href="http://docs.rackspace.com/cdn/api/v1.0/cdn-devguide/content/Absolute-Limits-d1e003.html"
+                  xmlns:m="http://www.w3.org/1998/Math/MathML"
+                  xmlns:html="http://www.w3.org/1999/xhtml">Absolute limits</link> has been updated
+                to include the limits for TTL and the number of domains that can be listed.</para>
+            </listitem>
+          </itemizedlist>
+        </revdescription>
+      </revision>
       <revision>
         <date>2015-06-08</date>
         <revdescription>
@@ -909,6 +941,16 @@
                   Entity Too Large</code>) error.</td>
               <td>8 KB</td>
             </tr>
+          <tr>
+            <td>TTL when creating a service</td>
+            <td>Maximum TTL value.</td>
+            <td>365 days</td>
+          </tr>
+          <tr>
+            <td>Limit on the number of domains that can be listed when retrieving all services</td>
+            <td>Maximum number of domains that can be listed</td>
+            <td>20</td>
+          </tr>
           </tbody>
         </table>
       </section> 
