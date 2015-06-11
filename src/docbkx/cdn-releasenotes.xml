@@ -122,7 +122,7 @@
     <title>June 10, 2015</title>
     <para>This release includes the following changes for the Rackspace CDN API.</para>
     <itemizedlist>
-      <title>Produce enhancement</title>
+      <title>Product enhancement</title>
       <listitem>
         <para>Rackspace CDN has been updated to allow HTTP traffic on an SSL domain. Consequently,
           the <citetitle>Rackspace CDN Developer Guide</citetitle> has been updated. The

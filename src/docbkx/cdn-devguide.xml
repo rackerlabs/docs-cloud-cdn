@@ -948,7 +948,7 @@
           </tr>
           <tr>
             <td>Limit on the number of domains that can be listed when retrieving all services</td>
-            <td>Maximum number of domains that can be listed</td>
+            <td>Maximum number of domains that can be listed.</td>
             <td>20</td>
           </tr>
           </tbody>
