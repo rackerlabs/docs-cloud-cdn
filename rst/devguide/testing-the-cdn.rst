@@ -1,0 +1,19 @@
+===============
+Testing the CDN
+===============
+
+Because the Akamai server requires that you use a CNAME for the site to
+access Akamai, we recommend that you use a test domain to validate
+end-to-end CDN functionality with Akamai. For example, if the goal is to
+enable ``www.example.com`` with Akamai, you might create a test hostname
+such as ``test-www.example.com``, use the CNAME to access the same
+partner endpoint as the ``www.example.com``, and create a copy of the
+policy via the API so that it uses the same origin.
+
+If required, the policy might override the ``Host`` header sent to the
+origin to use the “fixed” value ``www.example.com``.
+
+.. note::
+   All other behaviors such as TTLs should match the
+   ``www.example.com`` policy.)
+
