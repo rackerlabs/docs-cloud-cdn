@@ -147,12 +147,13 @@ connection with the Internet.</dd>
 <dt>Purge</dt>
 <dd>Purging removes content from the edge nodes thus invalidating the
 content so that the content can be refreshed from your origin
-servers.</dd>
+servers. Currently in Rackspace CDN, purges require the URL of the
+file to purge; use of wildcards is not in effect.</dd>
 <dt>Restriction</dt>
 <dd>A restriction enables you to define rules about who can or cannot
-access content from the cache. Examples of a restriction are
-allowing requests only from certain domains, geographies, or IP
-addresses.</dd>
+access content from the cache. An example of a restriction is
+allowing requests only from certain domains based on HTTP
+<code class="docutils literal"><span class="pre">Referrer</span></code> headers.</dd>
 <dt>Service</dt>
 <dd>A service represents an application that has its content cached to
 the edge nodes.</dd>
@@ -195,7 +196,8 @@ provider cache can vary.</dd>
 <li class="toctree-l1"><a class="reference internal" href="concepts-and-terminology.html">Concepts and terminology</a></li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="authenticate-through-the-rackspace-cloud-identity-service.html">Authenticate through the Rackspace Cloud Identity Service</a></li>
+<li class="toctree-l1"><a class="reference internal" href="general-api-info.html">General API Information</a></li>
+<li class="toctree-l1"><a class="reference internal" href="authentication.html">Authentication</a></li>
 <li class="toctree-l1"><a class="reference internal" href="role-based-access-control.html">Role Based Access Control</a></li>
 <li class="toctree-l1"><a class="reference internal" href="service-access-endpoint.html">Service access endpoint</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rackspace-cdn-contract-version.html">Rackspace CDN contract version</a></li>
@@ -207,7 +209,6 @@ provider cache can vary.</dd>
 <li class="toctree-l1"><a class="reference internal" href="response-codes.html">Response codes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="creating-rules.html">Creating rules</a></li>
 <li class="toctree-l1"><a class="reference internal" href="testing-the-cdn.html">Testing the CDN</a></li>
-<li class="toctree-l1"><a class="reference internal" href="additional-resources.html">Additional resources</a></li>
 </ul>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="">Glossary</a></li>

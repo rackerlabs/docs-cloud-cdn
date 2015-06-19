@@ -66,13 +66,14 @@ Point of presence
 Purge
     Purging removes content from the edge nodes thus invalidating the
     content so that the content can be refreshed from your origin
-    servers.
+    servers. Currently in Rackspace CDN, purges require the URL of the 
+    file to purge; use of wildcards is not in effect.
 
 Restriction
     A restriction enables you to define rules about who can or cannot
-    access content from the cache. Examples of a restriction are
-    allowing requests only from certain domains, geographies, or IP
-    addresses.
+    access content from the cache. An example of a restriction is 
+    allowing requests only from certain domains based on HTTP 
+    ``Referrer`` headers.
 
 Service
     A service represents an application that has its content cached to
