@@ -509,7 +509,7 @@
 				<param name="hostheadervalue" style="plain" path="$.origins.hostheadervalue"
 					required="false">
 					<wadl:doc xmlns="http://docbook.org/ns/docbook"
-						xml:lang="EN">Specifies the value for <code>hostheadertype</code>. The default value is <code>domain</code>. You must specify <code>hostheadervalue</code> only when the <code>hostheadertype</code> is specified as <code>custom</code>. If <code>hostheadertype</code> is <code>origin</code>, <code>hostheadervalue</code> takes the value of the origin domain.</wadl:doc>
+						xml:lang="EN">Specifies the value to be contained in the host header. The default value is <code>NULL</code>; this value is assigned only when <code>hostheadertype</code> is <code>domain</code>. You are required to specify <code>hostheadervalue</code> only when <code>hostheadertype</code> is specified as <code>custom</code>. If you specify <code>hostheadertype</code> as <code>origin</code>, <code>hostheadervalue</code> takes the value of the origin domain.</wadl:doc>
 				</param> -->
 				
 				<param name="caching" style="plain" path="$.caching"
