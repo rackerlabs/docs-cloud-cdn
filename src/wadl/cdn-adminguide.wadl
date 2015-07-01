@@ -33,6 +33,32 @@
 					For example: GET https://global.cdn.api.rackspacecloud.com/{project_id}/v1.0/ </wadl:doc></param> 
 -->
 			
+			<resource id="admin" path="admin">
+				<resource id="services" path="services">
+					<resource id= "action" path="action">
+						<method href="#postServiceAction"/>
+					</resource>
+				</resource>
+				
+							<resource id="domains" path="domains">
+								<resource id="domain" path="{domain_name}">
+								<param name="domain_name" style="template" type="xsd:string"> 
+								<wadl:doc 
+								xmlns="http://docbook.org/ns/docbook"
+								xml:lang="EN"><para>The name of the domain. For example, blog.mywebsite.com.</para> </wadl:doc>
+								</param>
+									<method href="#getServiceByDomain"/>
+								</resource>
+							</resource>
+				
+								<resource id="provider" path="provider">
+									<resource id="akamai" path="akamai">
+										<resource id="service" path="service">
+					                      <method href="#postSANDomain"/>
+										</resource>
+									</resource>
+								</resource>
+			</resource>			
 			
 			<resource id="health" path="health">
 			    <method href="#getHealthCheck"/>
@@ -65,7 +91,98 @@
 <!--*******************************************************-->
 <!--               All methods                             -->
 <!--*******************************************************-->
+
+<!--*******************************************************-->
+<!--              Admin methods                             -->
+<!--*******************************************************-->
 	
+<!--*******************************************************-->
+<!--               Service Action                          -->
+<!--*******************************************************-->
+	<method name="POST" id="postServiceAction">
+		<wadl:doc xml:lang="EN" title="Service action"
+			xmlns="http://docbook.org/ns/docbook">
+			<para role="shortdesc">Enables, diables, or deletes services for a user account.</para>
+			<para>To change the operator status of or delete services for a <code>project_id</code>, provide a JSON request body with <code>action</code> set to <code>enable</code> or <code>disable</code> along with the <code>project_id</code> of the user. </para>			
+		</wadl:doc>
+		<request>
+			<representation mediaType="application/json" >
+				<doc>
+					<xsdxt:code href="../wadl/samples/cdn-postServiceAction_request-json-http.txt"/>
+					<xsdxt:code href="../wadl/samples/cdn-postServiceAction_request.json"/>	
+				</doc>
+			</representation>
+		</request>
+		<response status="202" xmlns="http://wadl.dev.java.net/2009/02">
+			<doc title="Accepted" xml:lang="EN">The request has been accepted for processing.</doc>
+			<representation mediaType="application/json">
+				<wadl:doc xmlns="http://docbook.org/ns/docbook"
+					xml:lang="EN">
+					<xsdxt:code
+						href="../wadl/samples/cdn-postServiceAction_response-json-http.txt"/>	 	 			
+				</wadl:doc>
+			</representation>
+		</response>		
+	</method>
+
+	<!--*******************************************************-->
+	<!--               Domain                                  -->
+	<!--*******************************************************-->
+	<method name="GET" id="getServiceByDomain">
+		<wadl:doc xml:lang="EN" title="Retrieve a service by domain name"
+			xmlns="http://docbook.org/ns/docbook">
+			<para role="shortdesc">Retrieves a service by domain name.</para>
+			<para>This operation retrieves a service by domain name. </para>		
+		</wadl:doc>
+		<request>
+			<representation mediaType="application/json" >
+				<doc>
+					<xsdxt:code href="../wadl/samples/cdn-getServiceByDomain_request-json-http.txt"/>
+				</doc>
+			</representation>
+		</request>
+		<response status="200" xmlns="http://wadl.dev.java.net/2009/02">
+			<doc title="OK" xml:lang="EN">Success.</doc>
+			<representation mediaType="application/json">
+				<wadl:doc xmlns="http://docbook.org/ns/docbook"
+					xml:lang="EN">
+					<xsdxt:code href="../wadl/samples/cdn-getServiceByDomain_response-json-http.txt"/>
+					<xsdxt:code href="../wadl/samples/cdn-getServiceByDomain_response.json"/>					
+				</wadl:doc>
+			</representation>
+		</response>		
+	</method>	
+	
+	<!--*******************************************************-->
+	<!--               Migrate SAN Domain                      -->
+	<!--*******************************************************-->
+	<method name="POST" id="postSANDomain">
+		<wadl:doc xml:lang="EN" title="Migrate SAN domain"
+			xmlns="http://docbook.org/ns/docbook">
+			<para role="shortdesc">Updates the domain with a new SAN URL.</para>
+			<para>This operation updates the domain with a new SAN URL.</para>
+		</wadl:doc>
+		<request>
+			<representation mediaType="application/json" >
+				<doc>
+					<xsdxt:code href="../wadl/samples/cdn-postSANDomain_request-json-http.txt"/>
+					<xsdxt:code href="../wadl/samples/cdn-postSANDomain_request.json"/>
+				</doc>
+			</representation>
+		</request>
+		<response status="200" xmlns="http://wadl.dev.java.net/2009/02">
+			<doc title="OK" xml:lang="EN">Success.</doc>
+			<representation mediaType="application/json">
+				<wadl:doc xmlns="http://docbook.org/ns/docbook"
+					xml:lang="EN">
+					<xsdxt:code href="../wadl/samples/cdn-postSANDomain_response-json-http.txt"/>
+										
+				</wadl:doc>
+			</representation>
+		</response>		
+	</method>	
+	
+
 <!--*******************************************************-->
 <!--              Base methods                             -->
 <!--*******************************************************-->

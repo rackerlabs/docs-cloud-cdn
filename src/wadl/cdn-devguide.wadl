@@ -417,6 +417,7 @@
 				<doc>
 					<xsdxt:code href="../wadl/samples/cdn-createService_request-json-http.txt"/>
 					<xsdxt:code href="../wadl/samples/cdn-createService_request.json"/>
+<!--				<xsdxt:code href="../wadl/samples/cdn-createServiceWithHostheader_request.json"/> -->
 				</doc>
 				<param name="name" style="plain" path="$.name"
 					required="true">
@@ -500,6 +501,16 @@
 						xml:lang="EN">Specifies the request URL that this rule should match for this origin to be used. The minimum length for <code>request_url</code> is 1. The maximum length is 1024. Regex is supported. Note: Use a Perl Compatible Regex (PCRE). For more information about PRCE, see <link
 							xlink:href="http://php.net/manual/en/book.pcre.php">Regular Expressions (Perl-Compatible)</link>.</wadl:doc>
 				</param>
+<!--				<param name="hostheadertype" style="plain" path="$.origins.hostheadertype"
+					required="false">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN">Specifies the type for the host header. The default value is <code>domain</code>. Other valid values are <code>origin</code> and <code>custom</code>.</wadl:doc>
+				</param>
+				<param name="hostheadervalue" style="plain" path="$.origins.hostheadervalue"
+					required="false">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN">Specifies the value for <code>hostheadertype</code>. The default value is <code>domain</code>. You must specify <code>hostheadervalue</code> only when the <code>hostheadertype</code> is specified as <code>custom</code>. If <code>hostheadertype</code> is <code>origin</code>, <code>hostheadervalue</code> takes the value of the origin domain.</wadl:doc>
+				</param> -->
 				
 				<param name="caching" style="plain" path="$.caching"
 					required="false">

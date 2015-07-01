@@ -46,8 +46,8 @@ Three roles (admin, creator, and observer) can be used to access the Rackspace C
 |                                      | granted.                             |
 +--------------------------------------+--------------------------------------+
 | cdn:creator                          | This role provides Create, Read and  |
-|                                      | Update permissions in Cloud Big      |
-|                                      | Data, where access is granted.       |
+|                                      | Update permissions in Rackspace      |
+|                                      | CDN, where access is granted.        |
 +--------------------------------------+--------------------------------------+
 | cdn:observer                         | This role provides Read permission   |
 |                                      | in Rackspace CDN, where access is    |
@@ -69,7 +69,6 @@ Additionally, two multiproduct roles apply to all products. Users with multiprod
 |                                      | granted.                             |
 +--------------------------------------+--------------------------------------+
 
-.. _cbd-dgv2-rbac-resolving:
 
 Resolving conflicts between RBAC multiproduct vs. custom (product-specific) roles
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -89,12 +88,10 @@ The following table shows two examples of how potential conflicts between user r
 | and Rackspace CDN  admin | observer role        | rest of the products.   |
 +--------------------------+----------------------+-------------------------+
 | User is assigned the     | Appears that the     | Yes, for all of the     |
-| following roles:         | user has only the    | products. The Cloud Big |
-| multiproduct admin and   | multiproduct admin   | Data observer role is   |
+| following roles:         | user has only the    | products. The Rackspace |
+| multiproduct admin and   | multiproduct admin   | CDN observer role is    |
 | Rackspace CDN  observer  | role                 | ignored.                |
 +--------------------------+----------------------+-------------------------+
-
-.. _cbd-dgv2-rbac-permissions:
 
 RBAC permissions cross-reference to Rackspace CDN API operations
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

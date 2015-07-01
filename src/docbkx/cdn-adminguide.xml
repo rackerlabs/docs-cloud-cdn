@@ -1081,8 +1081,27 @@ Content-Type: application/json
         </wadl:resource>
       </wadl:resources>
     </section>
+    <section xml:id="adminOperations">
+      <title>Admin operations</title>
+      <para>The section describes admin operations for Rackspace CDN. </para>
+      <para>The admin endpoints are a collection of endpoints that allow an operator to perform
+        sensitive operations to which regular users should not have access.</para>
+      <para>Access to these endpoints should be controlled via an RBAC system such as Repose.</para>
+      <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
+        <wadl:resource href="../../src/wadl/cdn-adminguide.wadl#action">
+          <wadl:method href="#postServiceAction"/>
+        </wadl:resource>
+        <wadl:resource href="../../src/wadl/cdn-adminguide.wadl#domain">
+          <wadl:method href="#getServiceByDomain"/>
+        </wadl:resource>
+        <wadl:resource href="../../src/wadl/cdn-adminguide.wadl#service">
+          <wadl:method href="#postSANDomain"/>
+        </wadl:resource>
+       
+      </wadl:resources>
+    </section>
     <section xml:id="flavorsOperations">
-      <title>Flavors</title>
+      <title>Flavor operations</title>
       <para>A flavor is a mapping configuration to a CDN provider. Each flavor may contain a list of
         providers. The operator can decide the flavor names offered and the mapping to each provider
         offered. </para>
