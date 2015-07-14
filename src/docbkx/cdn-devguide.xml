@@ -47,10 +47,10 @@
     <releaseinfo>API v1.0</releaseinfo>
     <productname>Rackspace CDN</productname>
     <!--Note that the <productname> text matches the first few words of the title. The build system splits the title into productname + rest of title on the pdf cover.-->
-    <pubdate>2015-06-10<!--If you leave the <pubdate> element empty, the build system inserts today's date automatically. --></pubdate>
+    <pubdate>2015-07-14<!--If you leave the <pubdate> element empty, the build system inserts today's date automatically. --></pubdate>
     <revhistory>
- <!--     <revision>
-        <date>2015-07-09</date>
+      <revision>
+        <date>2015-07-14</date>
         <revdescription>
           <itemizedlist>
             <listitem>
@@ -62,7 +62,7 @@
             </listitem>
           </itemizedlist>
         </revdescription>
-      </revision> -->
+      </revision> 
       <revision>
         <date>2015-06-10</date>
         <revdescription>
