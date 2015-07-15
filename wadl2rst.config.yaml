@@ -1,0 +1,3 @@
+src/wadl/cdn-devguide.wadl:
+    title: Rackspace CDN Developer Guide
+    output_directory: dist/docs-cloud-cdn
