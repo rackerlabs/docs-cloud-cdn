@@ -1,0 +1,245 @@
+
+.. THIS OUTPUT IS GENERATED FROM THE WADL. DO NOT EDIT.
+
+=============================================================================
+Retrieve All Services -  Rackspace CDN Developer Guide
+=============================================================================
+
+Retrieve All Services
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+`Request <get-retrieve-all-services-v1.0-project-id-services.html#request>`__
+`Response <get-retrieve-all-services-v1.0-project-id-services.html#response>`__
+
+.. code::
+
+    GET /v1.0/{project_id}/services
+
+Retrieves a list of all the services.
+
+This operation retrieves a list of all available services. 
+
+
+
+This table shows the possible response codes for this operation:
+
+
++--------------------------+-------------------------+-------------------------+
+|Response Code             |Name                     |Description              |
++==========================+=========================+=========================+
+|200                       |OK                       |Success or no services   |
+|                          |                         |to return when there is  |
+|                          |                         |an empty list of         |
+|                          |                         |services.                |
++--------------------------+-------------------------+-------------------------+
+|400                       |Bad Request              |Invalid limit value      |
+|                          |                         |(string, less than or    |
+|                          |                         |equal to 0, 1000000000), |
+|                          |                         |or the limit value is    |
+|                          |                         |greater than the maximum |
+|                          |                         |allowed (which defaults  |
+|                          |                         |to 20).                  |
++--------------------------+-------------------------+-------------------------+
+
+
+Request
+^^^^^^^^^^^^^^^^^
+
+This table shows the URI parameters for the request:
+
++-------------+-----------+--------------------------------------------------------------+
+|Name         |Type       |Description                                                   |
++=============+===========+==============================================================+
+|{project_id} |xsd:string |The project ID for the user. If you do not set the ``X-       |
+|             |           |Project-Id header`` in the request, use ``project_id`` in the |
+|             |           |URI. For example: ``GET                                       |
+|             |           |https://global.cdn.api.rackspacecloud.com/v1.0/{project_id}`` |
++-------------+-----------+--------------------------------------------------------------+
+
+
+
+This table shows the query parameters for the request:
+
++--------------------------+-------------------------+-------------------------+
+|Name                      |Type                     |Description              |
++==========================+=========================+=========================+
+|marker                    |xsd:string *(Required)*  |Specifies the            |
+|                          |                         |``service_id`` that      |
+|                          |                         |represents the last      |
+|                          |                         |service listed.          |
++--------------------------+-------------------------+-------------------------+
+|limit                     |xsd:integer *(Required)* |Specifies the number of  |
+|                          |                         |resources to list. The   |
+|                          |                         |maximum value that you   |
+|                          |                         |can specify for          |
+|                          |                         |``limit`` is 20.         |
++--------------------------+-------------------------+-------------------------+
+
+
+
+
+
+
+
+**Example Retrieve All Services: JSON request**
+
+
+.. code::
+
+    GET /v1.0/110011/services{?marker=96737ae3-cfc1-4c72-be88-5d0e7cc9a3f0,limit=20} HTTP/1.1
+    Host: global.cdn.api.rackspacecloud.com
+    X-Auth-Token: 0f6e9f63600142f0a970911583522217
+    Accept: application/json
+    Content-type: application/json
+    
+
+
+Response
+^^^^^^^^^^^^^^^^^^
+
+
+This table shows the body parameters for the response:
+
++-------------------+------------+---------------------------------------------+
+|Name               |Type        |Description                                  |
++===================+============+=============================================+
+|id                 |            |Specifies the service ID that represents     |
+|                   |            |distributed content. The value is a UUID,    |
+|                   |            |such as 96737ae3-cfc1-4c72-be88-             |
+|                   |            |5d0e7cc9a3f0, that is generated by the       |
+|                   |            |server.                                      |
++-------------------+------------+---------------------------------------------+
+|name               |            |Specifies the name of the service.           |
++-------------------+------------+---------------------------------------------+
+|domains            |            |Specifies a list of domains used by users to |
+|                   |            |access their website.                        |
++-------------------+------------+---------------------------------------------+
+|domain             |            |Specifies the domain used to access the      |
+|                   |            |assets on their website, for which a CNAME   |
+|                   |            |is given to the CDN provider.                |
++-------------------+------------+---------------------------------------------+
+|protocol           |            |Specifies the protocol used to access the    |
+|                   |            |assets on this domain. Only ``http`` or      |
+|                   |            |``https`` are currently allowed.             |
+|                   |            |``protocol`` defaults to ``http``.           |
++-------------------+------------+---------------------------------------------+
+|origins            |            |Specifies a list of origin domains or IP     |
+|                   |            |addresses where the original assets are      |
+|                   |            |stored.                                      |
++-------------------+------------+---------------------------------------------+
+|origin             |            |Specifies the URL or IP address to pull      |
+|                   |            |origin content from.                         |
++-------------------+------------+---------------------------------------------+
+|port               |            |Specifies the port used to access the        |
+|                   |            |origin. The default is port 80. Note:        |
+|                   |            |Rackspace CDN cannot be used with custom     |
+|                   |            |ports. Services are required to run on HTTP  |
+|                   |            |(80) and HTTPS (443) for the origin servers. |
++-------------------+------------+---------------------------------------------+
+|ssl                |            |Uses HTTPS to access the origin. The default |
+|                   |            |is false.                                    |
++-------------------+------------+---------------------------------------------+
+|rules              |            |Specifies a collection of rules that define  |
+|                   |            |the conditions when this origin should be    |
+|                   |            |accessed. If there is more than one origin,  |
+|                   |            |the ``rules`` parameter is required.         |
++-------------------+------------+---------------------------------------------+
+|name               |            |Specifies the name of this rule.             |
++-------------------+------------+---------------------------------------------+
+|request_url        |            |Specifies the request URL this rule should   |
+|                   |            |match for this origin to be used. Regex is   |
+|                   |            |supported. Note: The regex is a Perl         |
+|                   |            |Compatible Regex (PCRE). For more            |
+|                   |            |information about PRCE, see `Regular         |
+|                   |            |Expressions (Perl-Compatible)                |
+|                   |            |<http://php.net/manual/en/book.pcre.php>`__. |
++-------------------+------------+---------------------------------------------+
+|caching            |            |Specifies the TTL rules for the assets under |
+|                   |            |this service. Supports wildcards for fine    |
+|                   |            |grained control.                             |
++-------------------+------------+---------------------------------------------+
+|name               |            |Specifies the name of this caching rule.     |
+|                   |            |Note: 'default' is a reserved name used for  |
+|                   |            |the default TTL setting.                     |
++-------------------+------------+---------------------------------------------+
+|ttl                |            |Specifies the TTL to apply.                  |
++-------------------+------------+---------------------------------------------+
+|rules              |            |Specifies a collection of rules that         |
+|                   |            |determine if this TTL should be applied to   |
+|                   |            |an asset.                                    |
++-------------------+------------+---------------------------------------------+
+|name               |            |Specifies the name of this rule.             |
++-------------------+------------+---------------------------------------------+
+|request_url        |            |Specifies the request URL this rule should   |
+|                   |            |match for this TTL to be used. Regex is      |
+|                   |            |supported. Note: The regex is a Perl         |
+|                   |            |Compatible Regex (PCRE). For more            |
+|                   |            |information about PRCE, see `Regular         |
+|                   |            |Expressions (Perl-Compatible)                |
+|                   |            |<http://php.net/manual/en/book.pcre.php>`__. |
++-------------------+------------+---------------------------------------------+
+|restrictions       |            |Specifies the restrictions that define who   |
+|                   |            |can access assets (content from the CDN      |
+|                   |            |cache).                                      |
++-------------------+------------+---------------------------------------------+
+|name               |            |Specifies the name of this restriction.      |
++-------------------+------------+---------------------------------------------+
+|rules              |            |Specifies a collection of rules that         |
+|                   |            |determine if this TTL should be applied to   |
+|                   |            |an asset.                                    |
++-------------------+------------+---------------------------------------------+
+|name               |            |Specifies the name of this rule.             |
++-------------------+------------+---------------------------------------------+
+|referrer           |            |Specifies the http host that requests must   |
+|                   |            |come from.                                   |
++-------------------+------------+---------------------------------------------+
+|flavor_id          |            |Specifies the CDN provider flavor ID to use. |
+|                   |            |For a list of flavors, see the operation to  |
+|                   |            |list the available flavors.                  |
++-------------------+------------+---------------------------------------------+
+|status             |            |Specifies the current status of the service. |
++-------------------+------------+---------------------------------------------+
+|create_in_progress |            |Specifies that the service is currently      |
+|                   |            |being created and deployed.                  |
++-------------------+------------+---------------------------------------------+
+|deployed           |            |Specifies that the service has been deployed |
+|                   |            |and is ready to use.                         |
++-------------------+------------+---------------------------------------------+
+|update_in_progress |            |Specifies that the service is currently      |
+|                   |            |being updated.                               |
++-------------------+------------+---------------------------------------------+
+|delete_in_progress |            |Specifies that the service is currently      |
+|                   |            |being deleted.                               |
++-------------------+------------+---------------------------------------------+
+|failed             |            |Specifies that the previous operation on the |
+|                   |            |service failed to create, deploy, update, or |
+|                   |            |delete. Looks for the errors[] for details.  |
++-------------------+------------+---------------------------------------------+
+|errors             |            |Specifies the list of errors that occurred   |
+|                   |            |during the previous service action.          |
++-------------------+------------+---------------------------------------------+
+|message            |            |Specifies an error message detailing why     |
+|                   |            |there is an error.                           |
++-------------------+------------+---------------------------------------------+
+|links              |            |Specifies the self-navigating JSON document  |
+|                   |            |paths.                                       |
++-------------------+------------+---------------------------------------------+
+|href               |            |Specifies the location to access this        |
+|                   |            |resource.                                    |
++-------------------+------------+---------------------------------------------+
+|rel                |            |Specifies how the href link provided is      |
+|                   |            |related to this resource_url.                |
++-------------------+------------+---------------------------------------------+
+
+
+
+
+
+**Example Retrieve All Services: JSON response**
+
+
+.. code::
+
+    HTTP/1.1 200 OK
+    Content-Type: application/json
+
