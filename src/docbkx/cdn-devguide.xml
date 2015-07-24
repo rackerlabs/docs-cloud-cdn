@@ -47,8 +47,27 @@
     <releaseinfo>API v1.0</releaseinfo>
     <productname>Rackspace CDN</productname>
     <!--Note that the <productname> text matches the first few words of the title. The build system splits the title into productname + rest of title on the pdf cover.-->
-    <pubdate>2015-07-14<!--If you leave the <pubdate> element empty, the build system inserts today's date automatically. --></pubdate>
+    <pubdate>2015-07-24<!--If you leave the <pubdate> element empty, the build system inserts today's date automatically. --></pubdate>
     <revhistory>
+      <revision>
+        <date>2015-07-24</date>
+        <revdescription>
+          <itemizedlist>
+            <listitem>
+              <para>Added URL limit to <link
+                xlink:href="http://docs.rackspace.com/cdn/api/v1.0/cdn-devguide/content/Absolute-Limits-d1e003.html"
+                  xmlns:m="http://www.w3.org/1998/Math/MathML"
+                  xmlns:html="http://www.w3.org/1999/xhtml">Absolute limits</link>.  </para>
+            </listitem>
+            <listitem>
+              <para>Added the response code <code>414</code> to <link
+                xlink:href="http://docs.rackspace.com/cdn/api/v1.0/cdn-devguide/content/responseCodes-d101e.html"
+                  xmlns:m="http://www.w3.org/1998/Math/MathML"
+                  xmlns:html="http://www.w3.org/1999/xhtml">Response codes</link>.</para>
+            </listitem>
+          </itemizedlist>
+        </revdescription>
+      </revision>
       <revision>
         <date>2015-07-14</date>
         <revdescription>
@@ -673,18 +692,14 @@
             </para>
           </listitem>
           <listitem>
-            <para>
-              <link
-                xlink:href="http://docs.rackspace.com/auth/api/v2.0/auth-client-devguide/content/PUT_addUserRole__v2.0_users__userId__roles__roleid__Role_Calls.html"
-                >Assign roles to account users</link>
-            </para>
+            <para><link
+              xlink:href="http://docs.rackspace.com/auth/api/v2.0/auth-client-devguide/content/PUT_addUserRole__v2.0_users__userId__roles_OS-KSADM__roleid__Role_Calls.html"
+              >Assign roles to account users</link></para>
           </listitem>
           <listitem>
-            <para>
-              <link
-                xlink:href="http://docs.rackspace.com/auth/api/v2.0/auth-client-devguide/content/DELETE_deleteUserRole__v2.0_users__userId__roles__roleid__Role_Calls.html"
-                >Delete roles from account users</link>
-            </para>
+            <para><link
+              xlink:href="http://docs.rackspace.com/auth/api/v2.0/auth-client-devguide/content/DELETE_deleteUserRole__v2.0_users__userId__roles_OS-KSADM__roleid__Role_Calls.html"                            
+              >Delete roles from account users</link></para>
           </listitem>
         </itemizedlist>
         <note>
@@ -956,6 +971,12 @@
               <td>8 KB</td>
             </tr>
           <tr>
+            <td>Maximum for the entire length for a domain URI</td>
+            <td>Maximum size of request URI. Exceeding the limit results in a 414 (<code>URI Too
+                Long</code>) error.</td>
+            <td>320 characters</td>
+          </tr>
+          <tr>
             <td>TTL when creating a service</td>
             <td>Maximum TTL value.</td>
             <td>365 days</td>
@@ -1209,6 +1230,11 @@
             <td colspan="1">413</td>
             <td colspan="3">The server is refusing to process a request because the request entity
               is larger than the server is willing or able to process. </td>
+          </tr>
+          <tr>
+            <td colspan="2">URI Too Long</td>
+            <td colspan="1">414</td>
+            <td colspan="3">The request URI provided is too long for the server to process.</td>
           </tr>
           <tr>
             <td colspan="2">Too Many Requests</td>
