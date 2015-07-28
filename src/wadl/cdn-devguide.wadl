@@ -595,9 +595,40 @@
 				
 				<param name="log_delivery" style="plain" path="$.log_delivery" required="true">
 					<wadl:doc xmlns="http://docbook.org/ns/docbook"
-						xml:lang="EN">Specifies whether to enable log delivery to a Cloud Files container. You can use access log delivery to analyze the number of requests for each object, the client IP address, and time-based usage patterns (such as monthly or seasonal usage).
-						Log files are named according to the following pattern: service name, log date, log hour, and MD5 hash. For example: www.mywebsite.com/2015/02/01/16/096e6c4473f235db081deb51f42a8d98.log.gz. In this example, www.mywebsite.com is the name of the service, 2015/02/01 is the date (February 1, 2015), and 16 is the hour that the log file was created. There might be multiple files for a given hour because the system splits log files based on both time and log file size. All times in the access logs are UTC time.
-						Within the gzip logs, the format of the entries is similar to National Center for Supercomputing Applications (NCSA) combined log format, but without cookies. The pattern follows. The dashes (-) denote fields that the NCSA combined log format dictates be present but that Rackspace CDN does not capture. For example: client_ip - - [day/month/year:hour:minute:second timezone] “method request HTTP_version” return_code bytes_sent “referrer” “user_agent”. Logs are stored in a Cloud Files container named .CDN_ACCESS_LOGS. If this container does not exist, it is created.</wadl:doc>
+						xml:lang="EN"><para>Specifies whether to enable log delivery to a Cloud Files container. You can use access log delivery to analyze the number of requests 
+							for each object, the client IP address, and time-based usage patterns (such as monthly or seasonal usage).
+						</para>
+					</wadl:doc>
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN"> <para>  </para>        
+					</wadl:doc>
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN"><para>Log files are named according to the following pattern: service name, log date, log hour, and MD5 hash. For example: 
+							<code>www.mywebsite.com/2015/02/01/16/096e6c4473f235db081deb51f42a8d98.log.gz</code>. In this example, <code>www.mywebsite.com</code> is the name of the service, 
+							<code>2015/02/01</code> is the date (February 1, 2015), and <code>16</code> is the hour that the log file was created. There might be multiple files for a given 
+							hour because the system splits log files based on both time and log file size. 
+							</para>
+						</wadl:doc>
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN"> <para>  </para>        
+					</wadl:doc>
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN"><para> All times in the access logs are UTC time. Within the gzip logs, the format of the entries is similar to National Center 
+							for Supercomputing Applications (NCSA) combined log format, but without cookies. The pattern follows. The dashes (-) denote fields that 
+							the NCSA combined log format dictates be present but that Rackspace CDN does not capture. </para>
+					</wadl:doc>
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN"> <para>  </para>        
+					</wadl:doc>
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN"><para> For example: <code>client_ip - - [day/month/year:hour:minute:second timezone] “method request HTTP_version” return_code bytes_sent “referrer” “user_agent”</code></para>
+					</wadl:doc>
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN"> <para>  </para>        
+					</wadl:doc>
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN"><para>Logs are stored in a Cloud Files container named .CDN_ACCESS_LOGS. If this container does not exist, it is created.</para>
+					</wadl:doc>
 				</param>
 				<param name="enabled" style="plain" path="$.log_delivery.enabled" required="true">
 					<wadl:doc xmlns="http://docbook.org/ns/docbook"
