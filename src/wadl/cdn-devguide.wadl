@@ -144,9 +144,7 @@
 	<method name="GET" id="getPing">
 		<wadl:doc xml:lang="EN" title="Ping the server"
 			xmlns="http://docbook.org/ns/docbook">
-			<para role="shortdesc">Pings the server.</para>
-			<para>This operation retrieves a ping to the server. </para>
-			
+			<para role="shortdesc">Pings the server.</para>			
 		</wadl:doc>
 		<request>
 			<representation mediaType="application/json" >
@@ -189,8 +187,7 @@
 	<method name="GET" id="getAllServices">
 		<wadl:doc xml:lang="EN" title="Retrieve all services"
 			xmlns="http://docbook.org/ns/docbook">
-			<para role="shortdesc">Retrieves a list of all the services.</para>
-			<para>This operation retrieves a list of all available services. </para>			
+			<para role="shortdesc">Retrieves a list of all the services.</para>		
 		</wadl:doc>
 		<request>
 			<param name="marker" style="query" type="xsd:string"
@@ -403,7 +400,6 @@
 	<method name="POST" id="createService">
 		<wadl:doc xml:lang="EN" title="Create a service"
 			xmlns="http://docbook.org/ns/docbook">
-			<para role="shortdesc">Creates a service.</para>
 		
             <para>To create a new service, provide a JSON body for the new service with the required attributes.</para>
 			<para>For more information about rules ordering, caching rules, origin rules, and referrer rules, see <link
@@ -711,8 +707,7 @@
 	<method name="GET" id="getService">
 		<wadl:doc xml:lang="EN" title="Retrieve a service"
 			xmlns="http://docbook.org/ns/docbook">
-			<para role="shortdesc">Retrieves a service.</para>
-			<para>This operation retrieves a service. </para>			
+			<para role="shortdesc">Retrieves a service.</para>			
 		</wadl:doc>
 		<request>
 			<representation mediaType="application/json" >
@@ -1006,8 +1001,7 @@
 	<method name="DELETE" id="deleteService">
 		<wadl:doc xml:lang="EN" title="Delete a service"
 			xmlns="http://docbook.org/ns/docbook">
-			<para role="shortdesc">Deletes the specified service.</para>
-			<para>This operation deletes the specified service. </para>			
+			<para role="shortdesc">Deletes the specified service.</para>					
 		</wadl:doc>
 		<request>
 			<representation mediaType="application/json" >
@@ -1038,8 +1032,7 @@
 	<method name="GET" id="getCachedAsset">
 		<wadl:doc xml:lang="EN" title="Retrieve a cached asset"
 			xmlns="http://docbook.org/ns/docbook">
-			<para role="shortdesc">Retrieves a cached asset.</para>
-			<para>This operation retrieves the version of the asset that has been cached at the edge, along with any custom rules for the asset.</para>
+			<para role="shortdesc">Retrieves the version of the asset that has been cached at the edge, along with any custom rules for the asset.</para>
 			<para>The examples contain the expanded URL template with values inherited from parameters (for example,  https://private-anon-afee1c004-cdn.apiary-mock.com/services/mywebsite/assets).</para>			
 		</wadl:doc>
 		<request>
@@ -1075,8 +1068,7 @@
 	<method name="DELETE" id="deleteCachedAsset">
 		<wadl:doc xml:lang="EN" title="Purge a cached asset"
 			xmlns="http://docbook.org/ns/docbook">
-			<para role="shortdesc">Purges a cached asset.</para>
-			<para>This operation purges the current version of the asset that has been cached at the edge node. Currently in Rackspace CDN, purges require the URL of the file to purge; use of wildcards is not in effect.</para>			
+			<para role="shortdesc">Purges the current version of the asset that has been cached at the edge node. Currently in Rackspace CDN, purges require the URL of the file to purge; use of wildcards is not in effect.</para>		
 		</wadl:doc>
 		<request>
 			<param name="url" style="query" type="xsd:string"
@@ -1120,8 +1112,7 @@
 	<method name="GET" id="getAssetAnalytics">
 		<wadl:doc xml:lang="EN" title="Retrieve asset analytics"
 			xmlns="http://docbook.org/ns/docbook">
-			<para role="shortdesc">Retrieves asset analytics.</para>
-			<para>This operation retrieves usage data (such as hits or misses) about the service.</para>			
+			<para role="shortdesc">Retrieves asset analytics - usage data (such as hits or misses) about the service.</para>		
 			<para>The examples contain the expanded URL template with values inherited from parameters (for example,  https://private-anon-afee1c004-cloudcdn.apiary-mock.com/services/mywebsite/analytics).</para>
 		</wadl:doc>
 		<request>
@@ -1161,8 +1152,6 @@
 		<wadl:doc xml:lang="EN" title="Retrieve flavors"
 			xmlns="http://docbook.org/ns/docbook">
 			<para role="shortdesc">Retrieves a list of all available flavors.</para>
-			<para>This operation retrieves a list of all available flavors.</para>			
-			
 		</wadl:doc>
 		<request>
 						
@@ -1223,8 +1212,7 @@
 	<method name="GET" id="getFlavorDetails">
 		<wadl:doc xml:lang="EN" title="Retrieve flavor details"
 			xmlns="http://docbook.org/ns/docbook">
-			<para role="shortdesc">Retrieves details for the specified flavor.</para>
-			<para>This operation retrieves details for the flavor specified by flavor_id.</para>			
+			<para role="shortdesc">Retrieves details for the flavor specified by flavor_id.</para>	
 			
 		</wadl:doc>
 		<request>

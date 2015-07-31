@@ -1,0 +1,79 @@
+
+.. THIS OUTPUT IS GENERATED FROM THE WADL. DO NOT EDIT.
+
+Delete Flavor
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. code::
+
+    DELETE //flavors/{flavor_id}
+
+Deletes the flavor specified by flavor_id.
+
+This operation deletes the flavor specified by flavor_id.
+
+
+
+This table shows the possible response codes for this operation:
+
+
++--------------------------+-------------------------+-------------------------+
+|Response Code             |Name                     |Description              |
++==========================+=========================+=========================+
+|204                       |No Content               |The server successfully  |
+|                          |                         |processed the request,   |
+|                          |                         |but is not returning any |
+|                          |                         |content.                 |
++--------------------------+-------------------------+-------------------------+
+
+
+Request
+""""""""""""""""
+
+This table shows the URI parameters for the request:
+
++--------------------------+-------------------------+-------------------------+
+|Name                      |Type                     |Description              |
++==========================+=========================+=========================+
+|{flavor_id}               |xsd:string *(Required)*  |Specifies the flavor ID. |
+|                          |                         |For example: asia        |
++--------------------------+-------------------------+-------------------------+
+
+
+
+
+
+This operation does not accept a request body.
+
+
+
+
+**Example Delete Flavor: JSON request**
+
+
+.. code::
+
+    DELETE /v1.0/110011/flavors/cdn HTTP/1.1
+    Host: global.cdn.api.rackspacecloud.com
+    X-Auth-Token: 0f6e9f63600142f0a970911583522217
+    Accept: application/json
+    Content-type: application/json
+    
+
+
+Response
+""""""""""""""""
+
+
+This operation does not accept a response body.
+
+
+
+
+**Example Delete Flavor: JSON response**
+
+
+.. code::
+
+    HTTP/1.1 204 No Content
+

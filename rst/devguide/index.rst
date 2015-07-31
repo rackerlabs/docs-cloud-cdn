@@ -37,6 +37,15 @@ General API Information
    response-codes
    creating-rules
    testing-the-cdn
+   
+API Operations
+-------------------
+
+.. toctree::
+    :maxdepth: 1
+    :glob:
+
+    api-operations/*        
 
 Glossary
 --------

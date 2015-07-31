@@ -129,8 +129,8 @@ granted.</td>
 </tr>
 <tr class="row-odd"><td>cdn:creator</td>
 <td>This role provides Create, Read and
-Update permissions in Cloud Big
-Data, where access is granted.</td>
+Update permissions in Rackspace
+CDN, where access is granted.</td>
 </tr>
 <tr class="row-even"><td>cdn:observer</td>
 <td>This role provides Read permission
@@ -166,7 +166,7 @@ granted.</td>
 </table>
 </div>
 <div class="section" id="resolving-conflicts-between-rbac-multiproduct-vs-custom-product-specific-roles">
-<span id="cbd-dgv2-rbac-resolving"></span><h2>Resolving conflicts between RBAC multiproduct vs. custom (product-specific) roles<a class="headerlink" href="#resolving-conflicts-between-rbac-multiproduct-vs-custom-product-specific-roles" title="Permalink to this headline">¶</a></h2>
+<h2>Resolving conflicts between RBAC multiproduct vs. custom (product-specific) roles<a class="headerlink" href="#resolving-conflicts-between-rbac-multiproduct-vs-custom-product-specific-roles" title="Permalink to this headline">¶</a></h2>
 <p>The account owner can set roles for both multiproduct and Rackspace CDN scope, and it is important to understand how any potential conflicts among these roles are resolved. When two roles appear to conflict, the role that provides the more extensive permissions takes precedence. Therefore, admin roles take precedence over observer and creator roles, because admin roles provide more permissions.</p>
 <p>The following table shows two examples of how potential conflicts between user roles in the Control Panel are resolved:</p>
 <table border="1" class="docutils">
@@ -207,15 +207,15 @@ user has only the
 multiproduct admin
 role</td>
 <td>Yes, for all of the
-products. The Cloud Big
-Data observer role is
+products. The Rackspace
+CDN observer role is
 ignored.</td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="section" id="rbac-permissions-cross-reference-to-rackspace-cdn-api-operations">
-<span id="cbd-dgv2-rbac-permissions"></span><h2>RBAC permissions cross-reference to Rackspace CDN API operations<a class="headerlink" href="#rbac-permissions-cross-reference-to-rackspace-cdn-api-operations" title="Permalink to this headline">¶</a></h2>
+<h2>RBAC permissions cross-reference to Rackspace CDN API operations<a class="headerlink" href="#rbac-permissions-cross-reference-to-rackspace-cdn-api-operations" title="Permalink to this headline">¶</a></h2>
 <p>API operations for Rackspace CDN may or may not be available to all roles. To see which operations are permitted to invoke which calls, please review the <a class="reference external" href="http://www.rackspace.com/knowledge_center/article/permissions-matrix-for-role-based-access-control-rbac">Permissions Matrix for Role-Based Access Control</a>.</p>
 </div>
 </div>
@@ -273,6 +273,20 @@ ignored.</td>
 <li class="toctree-l1"><a class="reference internal" href="response-codes.html">Response codes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="creating-rules.html">Creating rules</a></li>
 <li class="toctree-l1"><a class="reference internal" href="testing-the-cdn.html">Testing the CDN</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api-operations/delete-delete-a-service-v1.0-project-id-services-service-id.html">Delete A Service</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-operations/delete-purge-a-cached-asset-v1.0-project-id-services-service-id-assets.html">Purge A Cached Asset</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-operations/get-ping-the-server-v1.0-project-id-ping.html">Ping The Server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-operations/get-retrieve-a-cached-asset-v1.0-project-id-services-service-id-assets.html">Retrieve A Cached Asset</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-operations/get-retrieve-a-service-v1.0-project-id-services-service-id.html">Retrieve A Service</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-operations/get-retrieve-all-services-v1.0-project-id-services.html">Retrieve All Services</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-operations/get-retrieve-asset-analytics-v1.0-project-id-services-service-id-analytics.html">Retrieve Asset Analytics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-operations/get-retrieve-flavor-details-v1.0-project-id-flavors-flavor-id.html">Retrieve Flavor Details</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-operations/get-retrieve-flavors-v1.0-project-id-flavors.html">Retrieve Flavors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-operations/get-retrieve-the-home-document-v1.0-project-id.html">Retrieve The Home Document</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-operations/patch-update-a-service-v1.0-project-id-services-service-id.html">Update A Service</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-operations/post-create-a-service-v1.0-project-id-services.html">Create A Service</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="glossary.html">Glossary</a></li>
