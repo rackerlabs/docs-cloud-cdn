@@ -1,7 +1,7 @@
 
 .. THIS OUTPUT IS GENERATED FROM THE WADL. DO NOT EDIT.
 
-Retrieve Health Check
+Retrieve health check
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code::
@@ -44,7 +44,7 @@ This operation does not accept a request body.
 
 
 
-**Example Retrieve Health Check: JSON request**
+**Example Retrieve health check: JSON request**
 
 
 .. code::
@@ -61,16 +61,15 @@ Response
 """"""""""""""""
 
 
-This operation does not accept a response body.
 
 
 
-
-**Example Retrieve Health Check: JSON response**
+**Example Retrieve health check: JSON response**
 
 
 .. code::
 
     HTTP/1.1 200 OK
     Content-Type: application/json
+
 

@@ -90,7 +90,7 @@ f=false,d=document;return{use_existing_jquery:function(){return use_existing_jqu
       <div class="body" role="main">
 
   <div class="section" id="retrieve-flavor-details">
-<h1>Retrieve Flavor Details<a class="headerlink" href="#retrieve-flavor-details" title="Permalink to this headline">¶</a></h1>
+<h1>Retrieve flavor details<a class="headerlink" href="#retrieve-flavor-details" title="Permalink to this headline">¶</a></h1>
 <div class="code highlight-python"><div class="highlight"><pre>GET /v1.0/{project_id}/flavors/{flavor_id}
 </pre></div>
 </div>
@@ -132,21 +132,22 @@ f=false,d=document;return{use_existing_jquery:function(){return use_existing_jqu
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td>{project_id}</td>
-<td>xsd:string</td>
+<td>String
+<em>(Required)</em></td>
 <td>The project ID for the user. If you do not set the <code class="docutils literal"><span class="pre">X-</span>
 <span class="pre">Project-Id</span> <span class="pre">header</span></code> in the request, use <code class="docutils literal"><span class="pre">project_id</span></code> in the
 URI. For example: <code class="docutils literal"><span class="pre">GET</span>
 <span class="pre">https://global.cdn.api.rackspacecloud.com/v1.0/{project_id}</span></code></td>
 </tr>
 <tr class="row-odd"><td>{flavor_id}</td>
-<td>xsd:string
+<td>String
 <em>(Required)</em></td>
 <td>Specifies the flavor ID. For example: cdn</td>
 </tr>
 </tbody>
 </table>
 <p>This operation does not accept a request body.</p>
-<p><strong>Example Retrieve Flavor Details: JSON request</strong></p>
+<p><strong>Example Retrieve flavor details: JSON request</strong></p>
 <div class="code highlight-python"><div class="highlight"><pre>GET /v1.0/110011/flavors/cdn HTTP/1.1
 Host: global.cdn.api.rackspacecloud.com
 X-Auth-Token: 0f6e9f63600142f0a970911583522217
@@ -220,9 +221,32 @@ to this resource_url.</td>
 </tr>
 </tbody>
 </table>
-<p><strong>Example Retrieve Flavor Details: JSON response</strong></p>
+<p><strong>Example Retrieve flavor details: JSON response</strong></p>
 <div class="code highlight-python"><div class="highlight"><pre>HTTP/1.1 200 OK
 Content-Type: application/json
+</pre></div>
+</div>
+<p><strong>Example Retrieve flavor details: JSON response</strong></p>
+<div class="code highlight-python"><div class="highlight"><pre><span class="p">{</span>
+    <span class="s">&quot;id&quot;</span><span class="p">:</span> <span class="s">&quot;cdn&quot;</span><span class="p">,</span>
+    <span class="s">&quot;providers&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s">&quot;provider&quot;</span><span class="p">:</span> <span class="s">&quot;akamai&quot;</span><span class="p">,</span>
+            <span class="s">&quot;links&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="p">{</span>
+                    <span class="s">&quot;href&quot;</span><span class="p">:</span> <span class="s">&quot;http://www.akamai.com&quot;</span><span class="p">,</span>
+                    <span class="s">&quot;rel&quot;</span><span class="p">:</span> <span class="s">&quot;provider_url&quot;</span>
+                <span class="p">}</span>
+            <span class="p">]</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="s">&quot;links&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s">&quot;href&quot;</span><span class="p">:</span> <span class="s">&quot;https://global.cdn.api.rackspacecloud.com/v1.0/110011/flavors/cdn&quot;</span><span class="p">,</span>
+            <span class="s">&quot;rel&quot;</span><span class="p">:</span> <span class="s">&quot;self&quot;</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 </div>
@@ -277,18 +301,18 @@ Content-Type: application/json
 <li class="toctree-l1"><a class="reference internal" href="../testing-the-cdn.html">Testing the CDN</a></li>
 </ul>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="delete-delete-a-service-v1.0-project-id-services-service-id.html">Delete A Service</a></li>
-<li class="toctree-l1"><a class="reference internal" href="delete-purge-a-cached-asset-v1.0-project-id-services-service-id-assets.html">Purge A Cached Asset</a></li>
-<li class="toctree-l1"><a class="reference internal" href="get-ping-the-server-v1.0-project-id-ping.html">Ping The Server</a></li>
-<li class="toctree-l1"><a class="reference internal" href="get-retrieve-a-cached-asset-v1.0-project-id-services-service-id-assets.html">Retrieve A Cached Asset</a></li>
-<li class="toctree-l1"><a class="reference internal" href="get-retrieve-a-service-v1.0-project-id-services-service-id.html">Retrieve A Service</a></li>
-<li class="toctree-l1"><a class="reference internal" href="get-retrieve-all-services-v1.0-project-id-services.html">Retrieve All Services</a></li>
-<li class="toctree-l1"><a class="reference internal" href="get-retrieve-asset-analytics-v1.0-project-id-services-service-id-analytics.html">Retrieve Asset Analytics</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="">Retrieve Flavor Details</a></li>
-<li class="toctree-l1"><a class="reference internal" href="get-retrieve-flavors-v1.0-project-id-flavors.html">Retrieve Flavors</a></li>
-<li class="toctree-l1"><a class="reference internal" href="get-retrieve-the-home-document-v1.0-project-id.html">Retrieve The Home Document</a></li>
-<li class="toctree-l1"><a class="reference internal" href="patch-update-a-service-v1.0-project-id-services-service-id.html">Update A Service</a></li>
-<li class="toctree-l1"><a class="reference internal" href="post-create-a-service-v1.0-project-id-services.html">Create A Service</a></li>
+<li class="toctree-l1"><a class="reference internal" href="delete-delete-a-service-v1.0-project-id-services-service-id.html">Delete a service</a></li>
+<li class="toctree-l1"><a class="reference internal" href="delete-purge-a-cached-asset-v1.0-project-id-services-service-id-assets.html">Purge a cached asset</a></li>
+<li class="toctree-l1"><a class="reference internal" href="get-ping-the-server-v1.0-project-id-ping.html">Ping the server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="get-retrieve-a-cached-asset-v1.0-project-id-services-service-id-assets.html">Retrieve a cached asset</a></li>
+<li class="toctree-l1"><a class="reference internal" href="get-retrieve-a-service-v1.0-project-id-services-service-id.html">Retrieve a service</a></li>
+<li class="toctree-l1"><a class="reference internal" href="get-retrieve-all-services-v1.0-project-id-services.html">Retrieve all services</a></li>
+<li class="toctree-l1"><a class="reference internal" href="get-retrieve-asset-analytics-v1.0-project-id-services-service-id-analytics.html">Retrieve asset analytics</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Retrieve flavor details</a></li>
+<li class="toctree-l1"><a class="reference internal" href="get-retrieve-flavors-v1.0-project-id-flavors.html">Retrieve flavors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="get-retrieve-the-home-document-v1.0-project-id.html">Retrieve the home document</a></li>
+<li class="toctree-l1"><a class="reference internal" href="patch-update-a-service-v1.0-project-id-services-service-id.html">Update a service</a></li>
+<li class="toctree-l1"><a class="reference internal" href="post-create-a-service-v1.0-project-id-services.html">Create a service</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>

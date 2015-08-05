@@ -1,7 +1,7 @@
 
 .. THIS OUTPUT IS GENERATED FROM THE WADL. DO NOT EDIT.
 
-Migrate San Domain
+Migrate san domain
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code::
@@ -37,7 +37,7 @@ This operation does not accept a request body.
 
 
 
-**Example Migrate San Domain: JSON request**
+**Example Migrate san domain: JSON request**
 
 
 .. code::
@@ -54,16 +54,15 @@ Response
 """"""""""""""""
 
 
-This operation does not accept a response body.
 
 
 
-
-**Example Migrate San Domain: JSON response**
+**Example Migrate san domain: JSON response**
 
 
 .. code::
 
     HTP/1.1 202 (Accepted)
     Location: https://global.cdn.api.rackspacecloud.com/v1.0/admin/provider/akamai/service
+
 

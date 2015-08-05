@@ -1,7 +1,7 @@
 
 .. THIS OUTPUT IS GENERATED FROM THE WADL. DO NOT EDIT.
 
-Retrieve Flavors
+Retrieve flavors
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code::
@@ -27,14 +27,14 @@ Request
 
 This table shows the URI parameters for the request:
 
-+-------------+-----------+--------------------------------------------------------------+
-|Name         |Type       |Description                                                   |
-+=============+===========+==============================================================+
-|{project_id} |xsd:string |The project ID for the user. If you do not set the ``X-       |
-|             |           |Project-Id header`` in the request, use ``project_id`` in the |
-|             |           |URI. For example: ``GET                                       |
-|             |           |https://global.cdn.api.rackspacecloud.com/v1.0/{project_id}`` |
-+-------------+-----------+--------------------------------------------------------------+
++-------------+-------------+--------------------------------------------------------------+
+|Name         |Type         |Description                                                   |
++=============+=============+==============================================================+
+|{project_id} |String       |The project ID for the user. If you do not set the ``X-       |
+|             |*(Required)* |Project-Id header`` in the request, use ``project_id`` in the |
+|             |             |URI. For example: ``GET                                       |
+|             |             |https://global.cdn.api.rackspacecloud.com/v1.0/{project_id}`` |
++-------------+-------------+--------------------------------------------------------------+
 
 
 
@@ -45,7 +45,7 @@ This operation does not accept a request body.
 
 
 
-**Example Retrieve Flavors: JSON request**
+**Example Retrieve flavors: JSON request**
 
 
 .. code::
@@ -107,11 +107,44 @@ This table shows the body parameters for the response:
 
 
 
-**Example Retrieve Flavors: JSON response**
+**Example Retrieve flavors: JSON response**
 
 
 .. code::
 
     HTTP/1.1 200 OK
     Content-Type: application/json
+
+
+**Example Retrieve flavors: JSON response**
+
+
+.. code::
+
+    {
+        "flavors": [
+            {
+                "id": "cdn",
+                "providers": [
+                    {
+                        "provider": "akamai",
+                        "links": [
+                            {
+                                "href": "http: //www.akamai.com",
+                                "rel": "provider_url"
+                            }
+                        ]
+                    }
+                ],
+                "links": [
+                    {
+                        "href": "https: //global.cdn.api.rackspacecloud.com/v1.0/110011/flavors/cdn",
+                        "rel": "self"
+                    }
+                ]
+            }
+        ]
+    }
+    
+
 

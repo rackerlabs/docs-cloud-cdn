@@ -1,7 +1,7 @@
 
 .. THIS OUTPUT IS GENERATED FROM THE WADL. DO NOT EDIT.
 
-Create A Service
+Create a service
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code::
@@ -60,14 +60,14 @@ Request
 
 This table shows the URI parameters for the request:
 
-+-------------+-----------+--------------------------------------------------------------+
-|Name         |Type       |Description                                                   |
-+=============+===========+==============================================================+
-|{project_id} |xsd:string |The project ID for the user. If you do not set the ``X-       |
-|             |           |Project-Id header`` in the request, use ``project_id`` in the |
-|             |           |URI. For example: ``GET                                       |
-|             |           |https://global.cdn.api.rackspacecloud.com/v1.0/{project_id}`` |
-+-------------+-----------+--------------------------------------------------------------+
++-------------+-------------+--------------------------------------------------------------+
+|Name         |Type         |Description                                                   |
++=============+=============+==============================================================+
+|{project_id} |String       |The project ID for the user. If you do not set the ``X-       |
+|             |*(Required)* |Project-Id header`` in the request, use ``project_id`` in the |
+|             |             |URI. For example: ``GET                                       |
+|             |             |https://global.cdn.api.rackspacecloud.com/v1.0/{project_id}`` |
++-------------+-------------+--------------------------------------------------------------+
 
 
 
@@ -210,7 +210,7 @@ This table shows the body parameters for the request:
 
 
 
-**Example Create A Service: JSON request**
+**Example Create a service: JSON request**
 
 
 .. code::
@@ -223,16 +223,63 @@ This table shows the body parameters for the request:
     
 
 
+**Example Create a service: JSON request**
+
+
+.. code::
+
+    {
+        "name": "mywebsite.com",
+        "domains": [
+            {
+                "domain": "www.mywebsite.com"
+            },
+            {
+                "domain": "blog.mywebsite.com"
+            }
+        ],
+        "origins": [
+            {
+                "origin": "mywebsite.com",
+                "port": 80,
+                "ssl": false,
+                "hostheadertype": "origin",
+                "rules": [
+                ]
+            }
+        ],
+        "restrictions": [
+                         {
+                         "name": "website only",
+                         "rules": [
+                                   {
+                                   "name": "mywebsite.com",
+                                   "referrer": "www.mywebsite.com"
+                    }
+                ]
+            }
+        ],
+        "caching": [
+            {
+                "name": "default",
+                "ttl": 3600
+            }
+        ],
+        "log_delivery": {
+            "enabled": true
+        },   
+        "flavor_id": "cdn"
+       }
+
+
 Response
 """"""""""""""""
 
 
-This operation does not accept a response body.
 
 
 
-
-**Example Create A Service: JSON response**
+**Example Create a service: JSON response**
 
 
 .. code::
@@ -240,4 +287,5 @@ This operation does not accept a response body.
     HTTP/1.1 202 Accepted
     Content-Type: application/json
     Location: https://global.cdn.api.rackspacecloud.com/v1.0/services/96737ae3-cfc1-4c72-be88-5d0e7cc9a3f0
+
 

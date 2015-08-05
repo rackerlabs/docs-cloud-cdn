@@ -1,7 +1,7 @@
 
 .. THIS OUTPUT IS GENERATED FROM THE WADL. DO NOT EDIT.
 
-Retrieve The Home Document
+Retrieve the home document
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code::
@@ -31,14 +31,14 @@ Request
 
 This table shows the URI parameters for the request:
 
-+-------------+-----------+--------------------------------------------------------------+
-|Name         |Type       |Description                                                   |
-+=============+===========+==============================================================+
-|{project_id} |xsd:string |The project ID for the user. If you do not set the ``X-       |
-|             |           |Project-Id header`` in the request, use ``project_id`` in the |
-|             |           |URI. For example: ``GET                                       |
-|             |           |https://global.cdn.api.rackspacecloud.com/v1.0/{project_id}`` |
-+-------------+-----------+--------------------------------------------------------------+
++-------------+-------------+--------------------------------------------------------------+
+|Name         |Type         |Description                                                   |
++=============+=============+==============================================================+
+|{project_id} |String       |The project ID for the user. If you do not set the ``X-       |
+|             |*(Required)* |Project-Id header`` in the request, use ``project_id`` in the |
+|             |             |URI. For example: ``GET                                       |
+|             |             |https://global.cdn.api.rackspacecloud.com/v1.0/{project_id}`` |
++-------------+-------------+--------------------------------------------------------------+
 
 
 
@@ -49,7 +49,7 @@ This operation does not accept a request body.
 
 
 
-**Example Retrieve The Home Document: JSON request**
+**Example Retrieve the home document: JSON request**
 
 
 .. code::
@@ -66,16 +66,83 @@ Response
 """"""""""""""""
 
 
-This operation does not accept a response body.
 
 
 
-
-**Example Retrieve The Home Document: JSON response**
+**Example Retrieve the home document: JSON response**
 
 
 .. code::
 
     HTTP/1.1 200 OK
     Content-Type: application/json
+
+
+**Example Retrieve the home document: JSON response**
+
+
+.. code::
+
+    {
+      "resources": {
+        "rel/health": {
+          "href-template": "/health",
+          "href-vars": {
+            "subsystem": "param/subsystem"
+          },
+          "hints": {
+            "allow": [
+              "GET"
+            ],
+            "formats": {
+              "application/json": {}
+            }
+          }
+        },
+        "rel/flavors": {
+          "href-template": "/flavors/{flavor_id}",
+          "href-vars": {
+            "marker": "param/flavor_id"
+          },
+          "hints": {
+            "allow": [
+              "GET",
+              "POST",
+              "DELETE"
+            ],
+            "formats": {
+              "application/json": {}
+            }
+          }
+        },
+        "rel/ping": {
+          "href-template": "/ping",
+          "hints": {
+            "allow": [
+              "GET"
+            ],
+            "formats": {
+              "application/json": {}
+            }
+          }
+        },
+        "rel/services": {
+          "href-template": "/services{?marker,limit}",
+          "href-vars": {
+            "marker": "param/marker",
+            "limit": "param/limit"
+          },
+          "hints": {
+            "allow": [
+              "GET",
+              "POST"
+            ],
+            "formats": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    }
+
 

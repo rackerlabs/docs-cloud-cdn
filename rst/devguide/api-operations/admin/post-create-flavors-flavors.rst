@@ -1,7 +1,7 @@
 
 .. THIS OUTPUT IS GENERATED FROM THE WADL. DO NOT EDIT.
 
-Create Flavors
+Create flavors
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code::
@@ -97,7 +97,7 @@ This table shows the body parameters for the request:
 
 
 
-**Example Create Flavors: JSON request**
+**Example Create flavors: JSON request**
 
 
 .. code::
@@ -150,11 +150,12 @@ This table shows the body parameters for the response:
 
 
 
-**Example Create Flavors: JSON response**
+**Example Create flavors: JSON response**
 
 
 .. code::
 
     HTP/1.1 201 (Created)
     Location: https://global.cdn.api.rackspacecloud.com/v1.0/flavors/cdn
+
 

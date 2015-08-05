@@ -1,7 +1,7 @@
 
 .. THIS OUTPUT IS GENERATED FROM THE WADL. DO NOT EDIT.
 
-Retrieve Health Details
+Retrieve health details
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code::
@@ -39,7 +39,7 @@ This table shows the URI parameters for the request:
 +--------------------------+-------------------------+-------------------------+
 |Name                      |Type                     |Description              |
 +==========================+=========================+=========================+
-|{subsystem}               |xsd:string               |The unique identifier    |
+|{subsystem}               |String                   |The unique identifier    |
 |                          |                         |for the user.            |
 +--------------------------+-------------------------+-------------------------+
 
@@ -52,7 +52,7 @@ This operation does not accept a request body.
 
 
 
-**Example Retrieve Health Details: JSON request**
+**Example Retrieve health details: JSON request**
 
 
 .. code::
@@ -69,16 +69,15 @@ Response
 """"""""""""""""
 
 
-This operation does not accept a response body.
 
 
 
-
-**Example Retrieve Health Details: JSON response**
+**Example Retrieve health details: JSON response**
 
 
 .. code::
 
     HTTP/1.1 200 OK
     Content-Type: application/json
+
 

@@ -1,7 +1,7 @@
 
 .. THIS OUTPUT IS GENERATED FROM THE WADL. DO NOT EDIT.
 
-Delete Flavor
+Delete flavor
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code::
@@ -35,7 +35,7 @@ This table shows the URI parameters for the request:
 +--------------------------+-------------------------+-------------------------+
 |Name                      |Type                     |Description              |
 +==========================+=========================+=========================+
-|{flavor_id}               |xsd:string *(Required)*  |Specifies the flavor ID. |
+|{flavor_id}               |String *(Required)*      |Specifies the flavor ID. |
 |                          |                         |For example: asia        |
 +--------------------------+-------------------------+-------------------------+
 
@@ -48,7 +48,7 @@ This operation does not accept a request body.
 
 
 
-**Example Delete Flavor: JSON request**
+**Example Delete flavor: JSON request**
 
 
 .. code::
@@ -65,15 +65,14 @@ Response
 """"""""""""""""
 
 
-This operation does not accept a response body.
 
 
 
-
-**Example Delete Flavor: JSON response**
+**Example Delete flavor: JSON response**
 
 
 .. code::
 
     HTTP/1.1 204 No Content
+
 

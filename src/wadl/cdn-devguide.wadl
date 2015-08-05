@@ -25,7 +25,7 @@
 	<resources base="https://global.cdn.api.rackspacecloud.com/">
 		<resource id="version" path="v1.0">
 			<resource id="project_id" path="{project_id}">
-				<param name="project_id" style="template" type="xsd:string"> 
+				<param name="project_id" style="template" type="xsd:string" required="true"> 
 				<wadl:doc xmlns="http://docbook.org/ns/docbook"
 					xml:lang="EN">
 					<para>The project ID for the user. If you do not set the 
@@ -130,6 +130,12 @@
 					<xsdxt:code
 						href="../wadl/samples/cdn-getHomeDocument_response-json-http.txt"
 					/>
+					
+				</wadl:doc>
+			</representation>
+			<representation mediaType="application/json">
+				<wadl:doc xmlns="http://docbook.org/ns/docbook"
+					xml:lang="EN">					
 					<xsdxt:code
 						href="../wadl/samples/cdn-getHomeDocument_response.json"
 					/>
@@ -160,10 +166,7 @@
 					xml:lang="EN">
 					<xsdxt:code
 						href="../wadl/samples/cdn-getPing_response-json-http.txt"
-					/>
-					<!--<xsdxt:code
-						href="../wadl/samples/cdn-getPing_response.json"
-					/> -->
+					/>					
 				</wadl:doc>
 			</representation>
 		</response>
@@ -216,10 +219,7 @@
 					xml:lang="EN">
 					<xsdxt:code
 						href="../wadl/samples/cdn-getAllServices_response-json-http.txt"
-					/>
-					<xsdxt:code
-						href="../wadl/samples/cdn-getAllServices_response.json"
-					/>
+					/>					
 				</wadl:doc>
 				<param name="id" style="plain" path="$.id">
 					<wadl:doc xmlns="http://docbook.org/ns/docbook"
@@ -389,6 +389,15 @@
 						xml:lang="EN">Specifies how the href link provided is related to this resource_url.</wadl:doc>
 				</param>
 			</representation>
+			<representation mediaType="application/json">
+				<wadl:doc xmlns="http://docbook.org/ns/docbook"
+					xml:lang="EN">
+					
+					<xsdxt:code
+						href="../wadl/samples/cdn-getAllServices_response.json"
+					/>
+				</wadl:doc>
+			</representation>
 		</response>
 		<response status="400" xmlns="http://wadl.dev.java.net/2009/02">
 			<doc title="Bad Request" xml:lang="EN">Invalid limit value (string, less than or equal to 0, 1000000000), or the limit value is greater than the maximum allowed (which defaults to 20).</doc>			
@@ -412,8 +421,7 @@
 			<representation mediaType="application/json" >
 				<doc>
 					<xsdxt:code href="../wadl/samples/cdn-createService_request-json-http.txt"/>
-<!--					<xsdxt:code href="../wadl/samples/cdn-createService_request.json"/> -->
-				<xsdxt:code href="../wadl/samples/cdn-createServiceWithHostheader_request.json"/>
+				
 				</doc>
 				<param name="name" style="plain" path="$.name"
 					required="true">
@@ -657,6 +665,13 @@
 				</param>				
 -->				
 			</representation>
+			<representation mediaType="application/json">
+				<wadl:doc xmlns="http://docbook.org/ns/docbook"
+					xml:lang="EN">
+					
+					<xsdxt:code href="../wadl/samples/cdn-createServiceWithHostheader_request.json"/>
+				</wadl:doc>
+			</representation>
 		</request>
 		<response status="202" xmlns="http://wadl.dev.java.net/2009/02">
 			<doc title="Accepted" xml:lang="EN">The request has been accepted for processing.</doc>
@@ -724,9 +739,7 @@
 					<xsdxt:code
 						href="../wadl/samples/cdn-getService_response-json-http.txt"
 					/>
-					<xsdxt:code
-						href="../wadl/samples/cdn-getService_response.json"
-					/>
+					
 				</wadl:doc>
 				<param name="id" style="plain" path="$.id">
 					<wadl:doc xmlns="http://docbook.org/ns/docbook"
@@ -906,6 +919,15 @@
 						xml:lang="EN">Specifies how the href link provided is related to this resource_url.</wadl:doc>
 				</param>
 			</representation>
+			<representation mediaType="application/json">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN">
+						
+						<xsdxt:code
+							href="../wadl/samples/cdn-getService_response.json"
+						/>
+					</wadl:doc>
+			</representation>			
 		</response>
 	</method>
 <!--*******************************************************-->
@@ -925,9 +947,7 @@
 			<representation mediaType="application/json" >
 				<doc>
 					<xsdxt:code href="../wadl/samples/cdn-patchService_request-json-http.txt"/>
-					<xsdxt:code
-						href="../wadl/samples/cdn-patchService_request.json"
-					/>
+					
 				</doc>
 				<param name="op" style="plain" path="$.op" required="true">
 					<wadl:doc xmlns="http://docbook.org/ns/docbook"
@@ -944,6 +964,15 @@
 						xml:lang="EN">Specifies the actual value to be added or replaced. It is not required for the <code>remove</code> operation.</wadl:doc>
 				</param>				
 			</representation>
+			<representation mediaType="application/json">
+				<wadl:doc xmlns="http://docbook.org/ns/docbook"
+					xml:lang="EN">
+					
+					<xsdxt:code
+						href="../wadl/samples/cdn-patchService_request.json"
+					/>
+				</wadl:doc>
+			</representation>	
 		</request>
 		<response status="202" xmlns="http://wadl.dev.java.net/2009/02">
 			<doc title="Accepted" xml:lang="EN">The request has been accepted for processing.</doc>
@@ -1054,7 +1083,12 @@
 					xml:lang="EN">
 					<xsdxt:code
 						href="../wadl/samples/cdn-getCachedAsset_response-json-http.txt"
-					/>
+					/>					
+				</wadl:doc>
+			</representation>
+			<representation mediaType="application/json">
+				<wadl:doc xmlns="http://docbook.org/ns/docbook"
+					xml:lang="EN">					
 					<xsdxt:code
 						href="../wadl/samples/cdn-getCachedAsset_response.json"
 					/>
@@ -1135,6 +1169,12 @@
 					<xsdxt:code
 						href="../wadl/samples/cdn-getAssetAnalytics_response-json-http.txt"
 					/>
+					
+				</wadl:doc>
+			</representation>
+			<representation mediaType="application/json">
+				<wadl:doc xmlns="http://docbook.org/ns/docbook"
+					xml:lang="EN">					
 					<xsdxt:code
 						href="../wadl/samples/cdn-getAssetAnalytics_response.json"
 					/>
@@ -1169,9 +1209,7 @@
 					<xsdxt:code
 						href="../wadl/samples/cdn-getFlavors_response-json-http.txt"
 					/>
-					<xsdxt:code
-						href="../wadl/samples/cdn-getFlavors_response.json"
-					/>
+					
 				</wadl:doc>
 				<param name="id" style="plain" path="$.id">
 					<wadl:doc xmlns="http://docbook.org/ns/docbook"
@@ -1203,6 +1241,14 @@
 						xml:lang="EN">Specifies how the <code>href</code> link provided is related to the resource_url.</wadl:doc>
 				</param>
 			</representation>
+			<representation mediaType="application/json">
+				<wadl:doc xmlns="http://docbook.org/ns/docbook"
+					xml:lang="EN">					
+					<xsdxt:code
+						href="../wadl/samples/cdn-getFlavors_response.json"
+					/>
+				</wadl:doc>
+			</representation>
 		</response>
 	</method>
 
@@ -1231,9 +1277,7 @@
 					<xsdxt:code
 						href="../wadl/samples/cdn-getFlavorDetails_response-json-http.txt"
 					/>
-					<xsdxt:code
-						href="../wadl/samples/cdn-getFlavorDetails_response.json"
-					/>
+					
 				</wadl:doc>
 				<param name="id" style="plain" path="$.id">
 					<wadl:doc xmlns="http://docbook.org/ns/docbook"
@@ -1264,6 +1308,14 @@
 					<wadl:doc xmlns="http://docbook.org/ns/docbook"
 						xml:lang="EN">Specifies how the href link provided is related to this resource_url.</wadl:doc>
 				</param>
+			</representation>
+			<representation mediaType="application/json">
+				<wadl:doc xmlns="http://docbook.org/ns/docbook"
+					xml:lang="EN">					
+					<xsdxt:code
+						href="../wadl/samples/cdn-getFlavorDetails_response.json"
+					/>
+				</wadl:doc>
 			</representation>
 		</response>
 	</method>

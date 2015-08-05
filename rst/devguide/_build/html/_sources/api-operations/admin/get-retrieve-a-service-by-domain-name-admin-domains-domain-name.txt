@@ -1,7 +1,7 @@
 
 .. THIS OUTPUT IS GENERATED FROM THE WADL. DO NOT EDIT.
 
-Retrieve A Service By Domain Name
+Retrieve a service by domain name
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code::
@@ -32,7 +32,7 @@ This table shows the URI parameters for the request:
 +--------------------------+-------------------------+-------------------------+
 |Name                      |Type                     |Description              |
 +==========================+=========================+=========================+
-|{domain_name}             |xsd:string               |The name of the domain.  |
+|{domain_name}             |String                   |The name of the domain.  |
 |                          |                         |For example,             |
 |                          |                         |blog.mywebsite.com.      |
 +--------------------------+-------------------------+-------------------------+
@@ -46,7 +46,7 @@ This operation does not accept a request body.
 
 
 
-**Example Retrieve A Service By Domain Name: JSON request**
+**Example Retrieve a service by domain name: JSON request**
 
 
 .. code::
@@ -63,16 +63,15 @@ Response
 """"""""""""""""
 
 
-This operation does not accept a response body.
 
 
 
-
-**Example Retrieve A Service By Domain Name: JSON response**
+**Example Retrieve a service by domain name: JSON response**
 
 
 .. code::
 
     HTTP/1.1 200 OK
     Content-Type: application/json
+
 

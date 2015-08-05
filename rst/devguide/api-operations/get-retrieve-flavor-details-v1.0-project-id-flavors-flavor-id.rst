@@ -1,7 +1,7 @@
 
 .. THIS OUTPUT IS GENERATED FROM THE WADL. DO NOT EDIT.
 
-Retrieve Flavor Details
+Retrieve flavor details
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code::
@@ -30,12 +30,12 @@ This table shows the URI parameters for the request:
 +-------------+-------------+--------------------------------------------------------------+
 |Name         |Type         |Description                                                   |
 +=============+=============+==============================================================+
-|{project_id} |xsd:string   |The project ID for the user. If you do not set the ``X-       |
-|             |             |Project-Id header`` in the request, use ``project_id`` in the |
+|{project_id} |String       |The project ID for the user. If you do not set the ``X-       |
+|             |*(Required)* |Project-Id header`` in the request, use ``project_id`` in the |
 |             |             |URI. For example: ``GET                                       |
 |             |             |https://global.cdn.api.rackspacecloud.com/v1.0/{project_id}`` |
 +-------------+-------------+--------------------------------------------------------------+
-|{flavor_id}  |xsd:string   |Specifies the flavor ID. For example: cdn                     |
+|{flavor_id}  |String       |Specifies the flavor ID. For example: cdn                     |
 |             |*(Required)* |                                                              |
 +-------------+-------------+--------------------------------------------------------------+
 
@@ -48,7 +48,7 @@ This operation does not accept a request body.
 
 
 
-**Example Retrieve Flavor Details: JSON request**
+**Example Retrieve flavor details: JSON request**
 
 
 .. code::
@@ -109,11 +109,40 @@ This table shows the body parameters for the response:
 
 
 
-**Example Retrieve Flavor Details: JSON response**
+**Example Retrieve flavor details: JSON response**
 
 
 .. code::
 
     HTTP/1.1 200 OK
     Content-Type: application/json
+
+
+**Example Retrieve flavor details: JSON response**
+
+
+.. code::
+
+    {
+        "id": "cdn",
+        "providers": [
+            {
+                "provider": "akamai",
+                "links": [
+                    {
+                        "href": "http://www.akamai.com",
+                        "rel": "provider_url"
+                    }
+                ]
+            }
+        ],
+        "links": [
+            {
+                "href": "https://global.cdn.api.rackspacecloud.com/v1.0/110011/flavors/cdn",
+                "rel": "self"
+            }
+        ]
+    }
+    
+
 
