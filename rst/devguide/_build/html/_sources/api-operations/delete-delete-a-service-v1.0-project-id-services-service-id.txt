@@ -29,6 +29,9 @@ This table shows the possible response codes for this operation:
 Request
 """"""""""""""""
 
+
+
+
 This table shows the URI parameters for the request:
 
 +-------------+-------------+--------------------------------------------------------------+
@@ -66,6 +69,8 @@ This operation does not accept a request body.
 
 Response
 """"""""""""""""
+
+
 
 
 

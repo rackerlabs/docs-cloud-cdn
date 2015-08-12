@@ -1,7 +1,7 @@
 
 .. THIS OUTPUT IS GENERATED FROM THE WADL. DO NOT EDIT.
 
-Migrate san domain
+Migrate SAN domain
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code::
@@ -32,12 +32,14 @@ Request
 
 
 
+
+
 This operation does not accept a request body.
 
 
 
 
-**Example Migrate san domain: JSON request**
+**Example Migrate SAN domain: JSON request**
 
 
 .. code::
@@ -57,7 +59,9 @@ Response
 
 
 
-**Example Migrate san domain: JSON response**
+
+
+**Example Migrate SAN domain: JSON response**
 
 
 .. code::
