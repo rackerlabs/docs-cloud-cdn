@@ -116,7 +116,7 @@
 				>Home Documents for HTTP APIs</link> on the IEFT website.</para>			
 		</wadl:doc>
 		<request>
-			<representation mediaType="application/json" >
+			<representation mediaType="application/http" >
 				<doc>
 					<xsdxt:code href="../wadl/samples/cdn-getHomeDocument_request-json-http.txt"/>
 				</doc>
@@ -124,7 +124,7 @@
 		</request>
 		<response status="200" xmlns="http://wadl.dev.java.net/2009/02">
 			<doc title="OK" xml:lang="EN">Success.</doc>
-			<representation mediaType="application/json">
+			<representation mediaType="application/http">
 				<wadl:doc xmlns="http://docbook.org/ns/docbook"
 					xml:lang="EN">
 					<xsdxt:code
@@ -153,7 +153,7 @@
 			<para role="shortdesc">Pings the server.</para>			
 		</wadl:doc>
 		<request>
-			<representation mediaType="application/json" >
+			<representation mediaType="application/http" >
 				<doc>
 					<xsdxt:code href="../wadl/samples/cdn-getPing_request-json-http.txt"/>
 				</doc>
@@ -161,7 +161,7 @@
 		</request>
 		<response status="204" xmlns="http://wadl.dev.java.net/2009/02">
 			<doc title="No Content" xml:lang="EN">The server successfully processed the request, but is not returning any content.</doc>
-			<representation mediaType="application/json">
+			<representation mediaType="application/http">
 				<wadl:doc xmlns="http://docbook.org/ns/docbook"
 					xml:lang="EN">
 					<xsdxt:code
@@ -206,7 +206,7 @@
 					maximum value that you can specify for <code>limit</code> is 20.
 				</wadl:doc>
 			</param>
-			<representation mediaType="application/json" >
+			<representation mediaType="application/http" >
 				<doc>
 					<xsdxt:code href="../wadl/samples/cdn-getAllServices_request-json-http.txt"/>
 				</doc>
@@ -214,7 +214,7 @@
 		</request>
 		<response status="200" xmlns="http://wadl.dev.java.net/2009/02">
 			<doc title="OK" xml:lang="EN">Success or no services to return when there is an empty list of services.</doc>
-			<representation mediaType="application/json">
+			<representation mediaType="application/http">
 				<wadl:doc xmlns="http://docbook.org/ns/docbook"
 					xml:lang="EN">
 					<xsdxt:code
@@ -418,7 +418,7 @@
 				xlink:href="http://docs.rackspace.com/cdn/api/v1.0/cdn-devguide/content/GET_getService__services__service_id__servicesOperations.html">List a service</link>.</para> </note>			
 		</wadl:doc>
 		<request>			
-			<representation mediaType="application/json" >
+			<representation mediaType="application/http" >
 				<doc>
 					<xsdxt:code href="../wadl/samples/cdn-createService_request-json-http.txt"/>
 				
@@ -675,7 +675,7 @@
 		</request>
 		<response status="202" xmlns="http://wadl.dev.java.net/2009/02">
 			<doc title="Accepted" xml:lang="EN">The request has been accepted for processing.</doc>
-			<representation mediaType="application/json">
+			<representation mediaType="application/http">
 				<wadl:doc xmlns="http://docbook.org/ns/docbook"
 					xml:lang="EN">
 					<xsdxt:code href="../wadl/samples/cdn-createService_response-json-http.txt"/>			
@@ -725,7 +725,7 @@
 			<para role="shortdesc">Retrieves a service.</para>			
 		</wadl:doc>
 		<request>
-			<representation mediaType="application/json" >
+			<representation mediaType="application/http" >
 				<doc>
 					<xsdxt:code href="../wadl/samples/cdn-getService_request-json-http.txt"/>
 				</doc>
@@ -733,7 +733,7 @@
 		</request>
 		<response status="200" xmlns="http://wadl.dev.java.net/2009/02">
 			<doc title="OK" xml:lang="EN">Success.</doc>
-			<representation mediaType="application/json">
+			<representation mediaType="application/http">
 				<wadl:doc xmlns="http://docbook.org/ns/docbook"
 					xml:lang="EN">
 					<xsdxt:code
@@ -947,7 +947,7 @@
 			
 			
 			
-			<representation mediaType="application/json">
+			<representation mediaType="application/http">
 				<doc>
 				<xsdxt:code href="../wadl/samples/cdn-patchService_request-json-http.txt"/>
 				
@@ -981,7 +981,7 @@
 		</request>
 		<response status="202" xmlns="http://wadl.dev.java.net/2009/02">
 			<doc title="Accepted" xml:lang="EN">The request has been accepted for processing.</doc>
-			<representation mediaType="application/json">
+			<representation mediaType="application/http">
 				<wadl:doc xmlns="http://docbook.org/ns/docbook"
 					xml:lang="EN">
 					<xsdxt:code
@@ -1038,7 +1038,7 @@
 			<para role="shortdesc">Deletes the specified service.</para>					
 		</wadl:doc>
 		<request>
-			<representation mediaType="application/json" >
+			<representation mediaType="application/http" >
 				<doc>
 					<xsdxt:code href="../wadl/samples/cdn-deleteService_request-json-http.txt"/>
 				</doc>
@@ -1047,7 +1047,7 @@
 		<response status="202" xmlns="http://wadl.dev.java.net/2009/02">
 			<doc title="Accepted" xml:lang="EN">The request has been fulfilled, but does not return a representation
 				(that is, the response is empty).</doc>
-			<representation mediaType="application/json">
+			<representation mediaType="application/http">
 				<wadl:doc xmlns="http://docbook.org/ns/docbook"
 					xml:lang="EN">
 					<xsdxt:code
@@ -1075,7 +1075,7 @@
 				<wadl:doc xmlns="http://docbook.org/ns/docbook"
 					xml:lang="EN">Specifies the <code>url</code> of the asset that is checked.</wadl:doc>
 			</param>			
-			<representation mediaType="application/json" >
+			<representation mediaType="application/http" >
 				<doc>
 					<xsdxt:code href="../wadl/samples/cdn-getCachedAsset_request-json-http.txt"/>
 				</doc>
@@ -1083,7 +1083,7 @@
 		</request>
 		<response status="200" xmlns="http://wadl.dev.java.net/2009/02">
 			<doc title="OK" xml:lang="EN">Success.</doc>
-			<representation mediaType="application/json">
+			<representation mediaType="application/http">
 				<wadl:doc xmlns="http://docbook.org/ns/docbook"
 					xml:lang="EN">
 					<xsdxt:code
@@ -1124,7 +1124,7 @@
 			</param> 
 -->
 			
-			<representation mediaType="application/json" >
+			<representation mediaType="application/http" >
 				<doc>
 					<xsdxt:code href="../wadl/samples/cdn-deleteCachedAsset_request-json-http.txt"/>
 				</doc>
@@ -1132,7 +1132,7 @@
 		</request>
 		<response status="202" xmlns="http://wadl.dev.java.net/2009/02">
 			<doc title="Accepted" xml:lang="EN">Success.</doc>
-			<representation mediaType="application/json">
+			<representation mediaType="application/http">
 				<wadl:doc xmlns="http://docbook.org/ns/docbook"
 					xml:lang="EN">
 					<xsdxt:code
@@ -1160,7 +1160,7 @@
 				<wadl:doc xmlns="http://docbook.org/ns/docbook"
 					xml:lang="EN">Specifies the <code>url</code> of the asset on which to get analytics. If left blank, analytics are reported against all the assets of the service.</wadl:doc>
 			</param>			
-			<representation mediaType="application/json" >
+			<representation mediaType="application/http" >
 				<doc>
 					<xsdxt:code href="../wadl/samples/cdn-getAssetAnalytics_request-json-http.txt"/>
 				</doc>
@@ -1168,7 +1168,7 @@
 		</request>
 		<response status="200" xmlns="http://wadl.dev.java.net/2009/02">
 			<doc title="OK" xml:lang="EN">Success.</doc>
-			<representation mediaType="application/json">
+			<representation mediaType="application/http">
 				<wadl:doc xmlns="http://docbook.org/ns/docbook"
 					xml:lang="EN">
 					<xsdxt:code
@@ -1200,7 +1200,7 @@
 		</wadl:doc>
 		<request>
 						
-			<representation mediaType="application/json" >
+			<representation mediaType="application/http" >
 				<doc>
 					<xsdxt:code href="../wadl/samples/cdn-getFlavors_request-json-http.txt"/>
 				</doc>
@@ -1208,7 +1208,7 @@
 		</request>
 		<response status="200" xmlns="http://wadl.dev.java.net/2009/02">
 			<doc title="OK" xml:lang="EN">Success.</doc>
-			<representation mediaType="application/json">
+			<representation mediaType="application/http">
 				<wadl:doc xmlns="http://docbook.org/ns/docbook"
 					xml:lang="EN">
 					<xsdxt:code
@@ -1268,7 +1268,7 @@
 		</wadl:doc>
 		<request>
 			
-			<representation mediaType="application/json" >
+			<representation mediaType="application/http" >
 				<doc>
 					<xsdxt:code href="../wadl/samples/cdn-getFlavorDetails_request-json-http.txt"/>
 				</doc>
@@ -1276,7 +1276,7 @@
 		</request>
 		<response status="200" xmlns="http://wadl.dev.java.net/2009/02">
 			<doc title="OK" xml:lang="EN">Success.</doc>
-			<representation mediaType="application/json">
+			<representation mediaType="application/http">
 				<wadl:doc xmlns="http://docbook.org/ns/docbook"
 					xml:lang="EN">
 					<xsdxt:code

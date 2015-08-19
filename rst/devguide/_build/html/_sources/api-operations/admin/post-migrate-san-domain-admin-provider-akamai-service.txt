@@ -61,6 +61,9 @@ Response
 
 
 
+
+
+
 **Example Migrate SAN domain: JSON response**
 
 
@@ -68,5 +71,4 @@ Response
 
     HTP/1.1 202 (Accepted)
     Location: https://global.cdn.api.rackspacecloud.com/v1.0/admin/provider/akamai/service
-
 

@@ -86,7 +86,7 @@ This table shows the body parameters for the request:
 
 
 
-**Example Update a service: JSON request**
+**Example Update a service: HTTP request**
 
 
 .. code::
@@ -263,13 +263,17 @@ Response
 
 
 
+This operation does not return a response body.
 
-**Example Update a service: JSON response**
+
+
+
+
+**Example Update a service: HTTP response**
 
 
 .. code::
 
     HTTP/1.1 202 Accepted
     Location: https://global.cdn.api.rackspacecloud.com/v1.0/services/96737ae3-cfc1-4c72-be88-5d0e7cc9a3f0
-
 

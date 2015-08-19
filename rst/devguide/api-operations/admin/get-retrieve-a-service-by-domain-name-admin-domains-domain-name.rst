@@ -71,6 +71,9 @@ Response
 
 
 
+
+
+
 **Example Retrieve a service by domain name: JSON response**
 
 
@@ -78,5 +81,4 @@ Response
 
     HTTP/1.1 200 OK
     Content-Type: application/json
-
 

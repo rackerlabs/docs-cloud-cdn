@@ -122,29 +122,28 @@ accepted for processing.</td>
 </tr>
 <tr class="row-odd"><td>400</td>
 <td>Bad Request</td>
-<td>Invalid JSON.</td>
+<td>Attempt to create a
+service with a flavor_id
+that is not &#8216;cdn&#8217;.</td>
 </tr>
 <tr class="row-even"><td>400</td>
+<td>Bad Request</td>
+<td>Invalid JSON.</td>
+</tr>
+<tr class="row-odd"><td>400</td>
 <td>Bad Request</td>
 <td>Missing or empty domains
 list.</td>
 </tr>
-<tr class="row-odd"><td>400</td>
+<tr class="row-even"><td>400</td>
 <td>Bad Request</td>
 <td>Missing or empty origins
 list.</td>
 </tr>
-<tr class="row-even"><td>400</td>
+<tr class="row-odd"><td>400</td>
 <td>Bad Request</td>
 <td>Non-Boolean value for
 origins:origin:ssl.</td>
-</tr>
-<tr class="row-odd"><td>400</td>
-<td>Bad Request</td>
-<td>Value for
-origins:origin:port is
-something other than 80
-or 443.</td>
 </tr>
 <tr class="row-even"><td>400</td>
 <td>Bad Request</td>
@@ -153,9 +152,10 @@ present with no name.</td>
 </tr>
 <tr class="row-odd"><td>400</td>
 <td>Bad Request</td>
-<td>Attempt to create a
-service with a flavor_id
-that is not &#8216;cdn&#8217;.</td>
+<td>Value for
+origins:origin:port is
+something other than 80
+or 443.</td>
 </tr>
 </tbody>
 </table>
@@ -382,7 +382,7 @@ is 3. The maximum length is 256.</td>
 </tr>
 </tbody>
 </table>
-<p><strong>Example Create a service: JSON request</strong></p>
+<p><strong>Example Create a service: HTTP request</strong></p>
 <div class="code highlight-python"><div class="highlight"><pre>POST /v1.0/110011/services HTTP/1.1
 Host: global.cdn.api.rackspacecloud.com
 X-Auth-Token: 0f6e9f63600142f0a970911583522217
@@ -438,7 +438,8 @@ Content-type: application/json
 </div>
 <div class="section" id="response">
 <h2>Response<a class="headerlink" href="#response" title="Permalink to this headline">¶</a></h2>
-<p><strong>Example Create a service: JSON response</strong></p>
+<p>This operation does not return a response body.</p>
+<p><strong>Example Create a service: HTTP response</strong></p>
 <div class="code highlight-python"><div class="highlight"><pre>HTTP/1.1 202 Accepted
 Content-Type: application/json
 Location: https://global.cdn.api.rackspacecloud.com/v1.0/services/96737ae3-cfc1-4c72-be88-5d0e7cc9a3f0

@@ -28,28 +28,28 @@ This table shows the possible response codes for this operation:
 |                          |                         |in a new resource being  |
 |                          |                         |created.                 |
 +--------------------------+-------------------------+-------------------------+
-|400                       |Bad Request              |Provider ID is greater   |
-|                          |                         |than 64 bytes.           |
-+--------------------------+-------------------------+-------------------------+
-|400                       |Bad Request              |Missing provider ID.     |
-+--------------------------+-------------------------+-------------------------+
-|400                       |Bad Request              |Providers list is empty. |
-+--------------------------+-------------------------+-------------------------+
-|400                       |Bad Request              |Providers name is        |
-|                          |                         |greater than 64 bytes.   |
-+--------------------------+-------------------------+-------------------------+
-|400                       |Bad Request              |Providers ['links'] list |
-|                          |                         |is empty.                |
+|400                       |Bad Request              |Invalid json.            |
 +--------------------------+-------------------------+-------------------------+
 |400                       |Bad Request              |Invalid url format in    |
 |                          |                         |href.                    |
++--------------------------+-------------------------+-------------------------+
+|400                       |Bad Request              |Missing provider ID.     |
 +--------------------------+-------------------------+-------------------------+
 |400                       |Bad Request              |Missing provider-url     |
 |                          |                         |entry.                   |
 +--------------------------+-------------------------+-------------------------+
 |400                       |Bad Request              |Missing rel parameter.   |
 +--------------------------+-------------------------+-------------------------+
-|400                       |Bad Request              |Invalid json.            |
+|400                       |Bad Request              |Provider ID is greater   |
+|                          |                         |than 64 bytes.           |
++--------------------------+-------------------------+-------------------------+
+|400                       |Bad Request              |Providers ['links'] list |
+|                          |                         |is empty.                |
++--------------------------+-------------------------+-------------------------+
+|400                       |Bad Request              |Providers list is empty. |
++--------------------------+-------------------------+-------------------------+
+|400                       |Bad Request              |Providers name is        |
+|                          |                         |greater than 64 bytes.   |
 +--------------------------+-------------------------+-------------------------+
 
 
@@ -118,6 +118,7 @@ Response
 
 
 
+
 This table shows the body parameters for the response:
 
 +--------------------------+-------------------------+-------------------------+
@@ -154,6 +155,8 @@ This table shows the body parameters for the response:
 
 
 
+
+
 **Example Create flavors: JSON response**
 
 
@@ -161,5 +164,4 @@ This table shows the body parameters for the response:
 
     HTP/1.1 201 (Created)
     Location: https://global.cdn.api.rackspacecloud.com/v1.0/flavors/cdn
-
 

@@ -68,7 +68,7 @@ This operation does not accept a request body.
 
 
 
-**Example Retrieve asset analytics: JSON request**
+**Example Retrieve asset analytics: HTTP request**
 
 
 .. code::
@@ -89,7 +89,10 @@ Response
 
 
 
-**Example Retrieve asset analytics: JSON response**
+
+
+
+**Example Retrieve asset analytics: HTTP response**
 
 
 .. code::
@@ -105,5 +108,4 @@ Response
 
     **** Need to get an example of response ****
     **** TODO ****
-
 

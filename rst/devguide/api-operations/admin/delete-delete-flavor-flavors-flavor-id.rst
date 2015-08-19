@@ -73,11 +73,13 @@ Response
 
 
 
+
+
+
 **Example Delete flavor: JSON response**
 
 
 .. code::
 
     HTTP/1.1 204 No Content
-
 

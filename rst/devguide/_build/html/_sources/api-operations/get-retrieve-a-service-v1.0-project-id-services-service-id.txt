@@ -52,7 +52,7 @@ This operation does not accept a request body.
 
 
 
-**Example Retrieve a service: JSON request**
+**Example Retrieve a service: HTTP request**
 
 
 .. code::
@@ -66,6 +66,7 @@ This operation does not accept a request body.
 
 Response
 """"""""""""""""
+
 
 
 
@@ -174,7 +175,9 @@ This table shows the body parameters for the response:
 
 
 
-**Example Retrieve a service: JSON response**
+
+
+**Example Retrieve a service: HTTP response**
 
 
 .. code::
@@ -267,5 +270,4 @@ This table shows the body parameters for the response:
             }    
         ]
     }
-
 

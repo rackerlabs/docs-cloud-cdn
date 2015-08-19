@@ -51,7 +51,7 @@ This operation does not accept a request body.
 
 
 
-**Example Retrieve flavor details: JSON request**
+**Example Retrieve flavor details: HTTP request**
 
 
 .. code::
@@ -67,6 +67,7 @@ This operation does not accept a request body.
 
 Response
 """"""""""""""""
+
 
 
 
@@ -114,7 +115,9 @@ This table shows the body parameters for the response:
 
 
 
-**Example Retrieve flavor details: JSON response**
+
+
+**Example Retrieve flavor details: HTTP response**
 
 
 .. code::
@@ -149,5 +152,4 @@ This table shows the body parameters for the response:
         ]
     }
     
-
 

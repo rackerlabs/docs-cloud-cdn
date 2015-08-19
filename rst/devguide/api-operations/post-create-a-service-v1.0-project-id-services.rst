@@ -30,6 +30,10 @@ This table shows the possible response codes for this operation:
 |202                       |Accepted                 |The request has been     |
 |                          |                         |accepted for processing. |
 +--------------------------+-------------------------+-------------------------+
+|400                       |Bad Request              |Attempt to create a      |
+|                          |                         |service with a flavor_id |
+|                          |                         |that is not 'cdn'.       |
++--------------------------+-------------------------+-------------------------+
 |400                       |Bad Request              |Invalid JSON.            |
 +--------------------------+-------------------------+-------------------------+
 |400                       |Bad Request              |Missing or empty domains |
@@ -41,17 +45,13 @@ This table shows the possible response codes for this operation:
 |400                       |Bad Request              |Non-Boolean value for    |
 |                          |                         |origins:origin:ssl.      |
 +--------------------------+-------------------------+-------------------------+
+|400                       |Bad Request              |Restrictions list        |
+|                          |                         |present with no name.    |
++--------------------------+-------------------------+-------------------------+
 |400                       |Bad Request              |Value for                |
 |                          |                         |origins:origin:port is   |
 |                          |                         |something other than 80  |
 |                          |                         |or 443.                  |
-+--------------------------+-------------------------+-------------------------+
-|400                       |Bad Request              |Restrictions list        |
-|                          |                         |present with no name.    |
-+--------------------------+-------------------------+-------------------------+
-|400                       |Bad Request              |Attempt to create a      |
-|                          |                         |service with a flavor_id |
-|                          |                         |that is not 'cdn'.       |
 +--------------------------+-------------------------+-------------------------+
 
 
@@ -213,7 +213,7 @@ This table shows the body parameters for the request:
 
 
 
-**Example Create a service: JSON request**
+**Example Create a service: HTTP request**
 
 
 .. code::
@@ -283,8 +283,13 @@ Response
 
 
 
+This operation does not return a response body.
 
-**Example Create a service: JSON response**
+
+
+
+
+**Example Create a service: HTTP response**
 
 
 .. code::
@@ -292,5 +297,4 @@ Response
     HTTP/1.1 202 Accepted
     Content-Type: application/json
     Location: https://global.cdn.api.rackspacecloud.com/v1.0/services/96737ae3-cfc1-4c72-be88-5d0e7cc9a3f0
-
 

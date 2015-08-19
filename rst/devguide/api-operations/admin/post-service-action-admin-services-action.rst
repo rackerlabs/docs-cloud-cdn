@@ -62,6 +62,9 @@ Response
 
 
 
+
+
+
 **Example Service action: JSON response**
 
 
@@ -69,5 +72,4 @@ Response
 
     HTP/1.1 202 (Accepted)
     Location: https://global.cdn.api.rackspacecloud.com/v1.0/admin/services/action
-
 

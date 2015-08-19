@@ -68,6 +68,9 @@ Response
 
 
 
+
+
+
 **Example Retrieve health check: JSON response**
 
 
@@ -75,5 +78,4 @@ Response
 
     HTTP/1.1 200 OK
     Content-Type: application/json
-
 

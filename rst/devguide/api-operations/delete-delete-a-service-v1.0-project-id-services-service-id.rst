@@ -56,7 +56,7 @@ This operation does not accept a request body.
 
 
 
-**Example Delete a service: JSON request**
+**Example Delete a service: HTTP request**
 
 
 .. code::
@@ -75,12 +75,16 @@ Response
 
 
 
+This operation does not return a response body.
 
-**Example Delete a service: JSON response**
+
+
+
+
+**Example Delete a service: HTTP response**
 
 
 .. code::
 
     HTTP/1.1 202 Accepted
-
 

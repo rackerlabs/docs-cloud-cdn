@@ -52,7 +52,7 @@ This operation does not accept a request body.
 
 
 
-**Example Retrieve the home document: JSON request**
+**Example Retrieve the home document: HTTP request**
 
 
 .. code::
@@ -74,7 +74,10 @@ Response
 
 
 
-**Example Retrieve the home document: JSON response**
+
+
+
+**Example Retrieve the home document: HTTP response**
 
 
 .. code::
@@ -149,5 +152,4 @@ Response
         }
       }
     }
-
 

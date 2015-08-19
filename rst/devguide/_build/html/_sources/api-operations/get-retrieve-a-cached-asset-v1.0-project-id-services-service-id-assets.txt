@@ -65,7 +65,7 @@ This operation does not accept a request body.
 
 
 
-**Example Retrieve a cached asset: JSON request**
+**Example Retrieve a cached asset: HTTP request**
 
 
 .. code::
@@ -86,7 +86,10 @@ Response
 
 
 
-**Example Retrieve a cached asset: JSON response**
+
+
+
+**Example Retrieve a cached asset: HTTP response**
 
 
 .. code::
@@ -102,5 +105,4 @@ Response
 
     **** Need to get an example of response ****
     **** TODO - and consider the asset version across multiple providers and multiple cache nodes! ****
-
 
