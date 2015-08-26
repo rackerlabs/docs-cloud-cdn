@@ -554,6 +554,11 @@
 					<wadl:doc xmlns="http://docbook.org/ns/docbook"
 						xml:lang="EN">Specifies the name of this restriction. The minimum length for <code>name</code> is 1. The maximum length is 256. </wadl:doc>
 				</param>
+				<param name="access" style="plain" path="$.restrictions.access"
+					required="false">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN">Specifies the type of this restriction. Valid values are <code>whitelist</code>, which is the default value and allows access, or <code>blacklist</code>, which does not allow access. </wadl:doc>
+				</param>
 				<param name="rules" style="plain" path="$.restrictions.rules"
 					required="false">
 					<wadl:doc xmlns="http://docbook.org/ns/docbook"
@@ -567,16 +572,25 @@
 				<param name="referrer" style="plain" path="$.restrictions.rules.referrer"
 					required="false">
 					<wadl:doc xmlns="http://docbook.org/ns/docbook"
-						xml:lang="EN">Specifies the http host that requests must come from. The minimum length for <code>referrer</code> is 3. The maximum length is 1024.</wadl:doc>
-				</param>				
-				
-<!--			<param name="request_url" style="plain" path="$.restrictions.rules.request_url"
+						xml:lang="EN">Specifies the HTTP host that requests must come from. The minimum length for <code>referrer</code> is 3. The maximum length is 1024.</wadl:doc>
+				</param>								
+ 		    	<param name="request_url" style="plain" path="$.restrictions.rules.request_url"
 					required="false">
 					<wadl:doc xmlns="http://docbook.org/ns/docbook"
-						xml:lang="EN">Specifies the request URL that this rule should match for this TTL to be used. The minimum length for <code>request_url</code> is 1. The maximum length is 1024. Regex is supported. Note: Use a Perl Compatible Regex (PCRE). For more information about PRCE, see <link
-							xlink:href="http://php.net/manual/en/book.pcre.php">Regular Expressions (Perl-Compatible)</link>.</wadl:doc>
+						xml:lang="EN">Specifies the request URL to which the rule applies. The default value is <code>/*</code>, which indicates all content at the request URL.</wadl:doc>
 				</param>
-				<param name="http_host" style="plain" path="$.restrictions.rules.http_host"
+<!--				<param name="geography" style="plain" path="$.restrictions.rules.geography"
+					required="false">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN">Specifies the geography from which to restrict requests.</wadl:doc>
+				</param>  -->
+				<param name="client_ip" style="plain" path="$.restrictions.rules.client_ip"
+					required="false">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN">Specifies the client IP address to which the rule applies.</wadl:doc>
+				</param>
+				
+<!--			<param name="http_host" style="plain" path="$.restrictions.rules.http_host"
 					required="false">
 					<wadl:doc xmlns="http://docbook.org/ns/docbook"
 						xml:lang="EN">Specifies the HTTP host from which requests must come. The minimum length for <code>http_host</code> is 3. The maximum length is 256.</wadl:doc>
@@ -1077,13 +1091,19 @@
 		<wadl:doc xml:lang="EN" title="Purge a cached asset"
 			xmlns="http://docbook.org/ns/docbook">
 			<para role="shortdesc">Purges a cached asset.</para>
-			<para>This operation purges the current version of the asset that has been cached at the edge node. Currently in Rackspace CDN, purges require the URL of the file to purge; use of wildcards is not in effect.</para>			
+			<para>This operation purges the current version of the asset that has been cached at the edge node. Currently in Rackspace CDN, purges require the URL of the file to purge; use of wildcards is not in effect.</para>
+			<note><para>By default, the <code>hard</code> query parameter is set to <code>false</code> to invalidate the cache rather than purge the assets. Invalidating the cache is a faster process than purging. </para></note>			
 		</wadl:doc>
 		<request>
 			<param name="url" style="query" type="xsd:string"
 				required="false">
 				<wadl:doc xmlns="http://docbook.org/ns/docbook"
 					xml:lang="EN">Specifies the relative <code>URL</code> of the asset to be purged.</wadl:doc>
+			</param>
+			<param name="hard" style="query" type="xsd:boolean"
+				required="false">
+				<wadl:doc xmlns="http://docbook.org/ns/docbook"
+					xml:lang="EN">Specifies a purge when set to <code>true</code> or a cache invalidation when set to <code>false</code>, which is the default value.</wadl:doc>		
 			</param>
 			
 <!--			5/4/2015 Hiding this parameter as requested by Amit.
