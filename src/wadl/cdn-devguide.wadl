@@ -1091,8 +1091,10 @@
 		<wadl:doc xml:lang="EN" title="Purge a cached asset"
 			xmlns="http://docbook.org/ns/docbook">
 			<para role="shortdesc">Purges a cached asset.</para>
-			<para>This operation purges the current version of the asset that has been cached at the edge node. Currently in Rackspace CDN, purges require the URL of the file to purge; use of wildcards is not in effect.</para>
-			<note><para>By default, the <code>hard</code> query parameter is set to <code>false</code> to invalidate the cache rather than purge the assets. Invalidating the cache is a faster process than purging. </para></note>			
+			<para>This operation purges the current version of the asset that has been cached at the edge node. Currently in Rackspace CDN, purges require the URL of the file to purge. Use of wildcards is not in effect.</para>
+			<note><para>By default, the <code>hard</code> query parameter is set to <code>false</code> to invalidate the cache rather than purge the assets. Invalidating the cache is a faster process than purging. </para></note>
+<!--        <para>Akamai's SLA for cache invalidation, which is the time when the policy change takes effect until the actual invalidation, is approximately 60 seconds. For Rackspace CDN, 
+            additional time must be added to that SLA to account for the time taken to deploy the service.</para> -->			
 		</wadl:doc>
 		<request>
 			<param name="url" style="query" type="xsd:string"

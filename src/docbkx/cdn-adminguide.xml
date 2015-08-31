@@ -48,7 +48,7 @@
     <releaseinfo>API v1.0</releaseinfo>
     <productname>Rackspace CDN</productname>
     <pubdate xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:html="http://www.w3.org/1999/xhtml"
-      >2015-04-27</pubdate>
+      >2015-08-28</pubdate>
     <legalnotice role="rs-api" xmlns:m="http://www.w3.org/1998/Math/MathML"
       xmlns:html="http://www.w3.org/1999/xhtml">
       <annotation>
@@ -62,6 +62,28 @@
     </abstract>
     <!--Note that the <productname> text matches the first few words of the title. The build system splits the title into productname + rest of title on the pdf cover.-->
     <revhistory>
+      <revision>
+        <date>2015-08-28</date>
+        <revdescription>
+          <itemizedlist>
+            <listitem>
+              <para>Added the <xref linkend="adminOperations"/>, which include the following
+                operations:</para>
+              <itemizedlist>
+                <listitem>
+                  <para>Post service action</para>
+                </listitem>
+                <listitem>
+                  <para>Retrieve a service by domain name</para>
+                </listitem>
+                <listitem>
+                  <para>Migrate SAN domain</para>
+                </listitem>
+              </itemizedlist>
+            </listitem>
+          </itemizedlist>
+        </revdescription>
+      </revision>
       <revision>
         <date>2015-04-27</date>
         <revdescription>
