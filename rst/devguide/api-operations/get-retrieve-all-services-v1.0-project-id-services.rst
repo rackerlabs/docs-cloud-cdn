@@ -1,6 +1,8 @@
 
 .. THIS OUTPUT IS GENERATED FROM THE WADL. DO NOT EDIT.
 
+.. _get-retrieve-all-services-v1.0-project-id-services:
+
 Retrieve all services
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -9,6 +11,8 @@ Retrieve all services
     GET /v1.0/{project_id}/services
 
 Retrieves a list of all the services.
+
+This operation retrieves a list of all available services. 
 
 
 
@@ -41,14 +45,14 @@ Request
 
 This table shows the URI parameters for the request:
 
-+-------------+-------------+--------------------------------------------------------------+
-|Name         |Type         |Description                                                   |
-+=============+=============+==============================================================+
-|{project_id} |String       |The project ID for the user. If you do not set the ``X-       |
-|             |*(Required)* |Project-Id header`` in the request, use ``project_id`` in the |
-|             |             |URI. For example: ``GET                                       |
-|             |             |https://global.cdn.api.rackspacecloud.com/v1.0/{project_id}`` |
-+-------------+-------------+--------------------------------------------------------------+
++-------------+-------+--------------------------------------------------------------+
+|Name         |Type   |Description                                                   |
++=============+=======+==============================================================+
+|{project_id} |String |The project ID for the user. If you do not set the ``X-       |
+|             |       |Project-Id header`` in the request, use ``project_id`` in the |
+|             |       |URI. For example: ``GET                                       |
+|             |       |https://global.cdn.api.rackspacecloud.com/v1.0/{project_id}`` |
++-------------+-------+--------------------------------------------------------------+
 
 
 
@@ -77,17 +81,20 @@ This operation does not accept a request body.
 
 
 
-**Example Retrieve all services: HTTP request**
+**Example Retrieve all services: JSON request**
 
 
 .. code::
 
-    GET /v1.0/110011/services{?marker=96737ae3-cfc1-4c72-be88-5d0e7cc9a3f0,limit=20} HTTP/1.1
-    Host: global.cdn.api.rackspacecloud.com
-    X-Auth-Token: 0f6e9f63600142f0a970911583522217
-    Accept: application/json
-    Content-type: application/json
-    
+   GET /v1.0/110011/services{?marker=96737ae3-cfc1-4c72-be88-5d0e7cc9a3f0,limit=20} HTTP/1.1
+   Host: global.cdn.api.rackspacecloud.com
+   X-Auth-Token: 0f6e9f63600142f0a970911583522217
+   Accept: application/json
+   Content-type: application/json
+   
+
+
+
 
 
 Response
@@ -236,142 +243,142 @@ This table shows the body parameters for the response:
 
 
 
-**Example Retrieve all services: HTTP response**
-
-
-.. code::
-
-    HTTP/1.1 200 OK
-    Content-Type: application/json
-
-
 **Example Retrieve all services: JSON response**
 
 
 .. code::
 
-    {
-        "links": [
-            {
-                "rel": "next",
-                "href": "https://global.cdn.api.rackspacecloud.com/v1.0/110011/services?marker=96737ae3-cfc1-4c72-be88-5d0e7cc9a3f0&limit=20"
-            }
-        ],
-        "services": [
-            {
-                "id": "96737ae3-cfc1-4c72-be88-5d0e7cc9a3f0",
-                "name": "mywebsite.com",
-                "domains": [
-                    {
-                        "domain": "www.mywebsite.com"
-                    }
-                ],
-                "origins": [
-                    {
-                        "origin": "mywebsite.com",
-                        "port": 80,
-                        "ssl": false
-                    }
-                ],
-                "caching": [
-                    {
-                        "name": "default",
-                        "ttl": 3600
-                    },
-                    {
-                        "name": "home",
-                        "ttl": 17200,
-                        "rules": [
-                            {
-                                "name": "index",
-                                "request_url": "/index.htm"
-                            }
-                        ]
-                    },
-                    {
-                        "name": "images",
-                        "ttl": 12800,
-                        "rules": [
-                            {
-                                "name": "images",
-                                "request_url": "*.png"
-                            }
-                        ]
-                    }
-                ],
-                "restrictions": [
-                    {
-                        "name": "website only",
-                        "rules": [
-                            {
-                                "name": "mywebsite.com",
-                                "referrer": "www.mywebsite.com"
-                            }
-                        ]
-                    }
-                ],
-                "flavor_id": "cdn",
-                "status": "deployed",
-                "errors" : [],
-                "links": [
-                    {
-                        "href": "https://global.cdn.api.rackspacecloud.com/v1.0/110011/services/96737ae3-cfc1-4c72-be88-5d0e7cc9a3f0",
-                        "rel": "self"
-                    },
-                    {
-                        "href": "mywebsite.com.cdn1.raxcdn.com",
-                        "rel": "access_url"
-                    }
-                ]
-            },
-            {
-                "id": "96737ae3-cfc1-4c72-be88-5d0e7cc9a3f1",
-                "name": "myothersite.com",
-                "domains": [
-                    {
-                        "domain": "www.myothersite.com"
-                    }
-                ],
-                "origins": [
-                    {
-                        "origin": "44.33.22.11",
-                        "port": 80,
-                        "ssl": false
-                    },
-                    {
-                        "origin": "77.66.55.44",
-                        "port": 80,
-                        "ssl": false,
-                        "rules": [
-                            {
-                                "name": "videos",
-                                "request_url": "^/videos/*.m3u"
-                            }
-                        ]
-                    }
-                ],
-                "caching": [
-                    {
-                        "name": "default",
-                        "ttl": 3600
-                    }
-                ],
-                "restrictions": [
-                    {}
-                ],
-                "flavor_id": "cdn",
-                "status": "deployed",
-                "links": [
-                    {
-                        "href": "https://global.cdn.api.rackspacecloud.com/v1.0/110011/services/96737ae3-cfc1-4c72-be88-5d0e7cc9a3f1",
-                        "rel": "self"
-                    },
-                    {
-                        "href": "myothersite.com.cdn1.raxcdn.com",
-                        "rel": "access_url"
-                    }
-                ]
-            }
-        ]
-    }
+   HTTP/1.1 200 OK
+   Content-Type: application/json
+
+
+.. code::
+
+   {
+       "links": [
+           {
+               "rel": "next",
+               "href": "https://global.cdn.api.rackspacecloud.com/v1.0/110011/services?marker=96737ae3-cfc1-4c72-be88-5d0e7cc9a3f0&limit=20"
+           }
+       ],
+       "services": [
+           {
+               "id": "96737ae3-cfc1-4c72-be88-5d0e7cc9a3f0",
+               "name": "mywebsite.com",
+               "domains": [
+                   {
+                       "domain": "www.mywebsite.com"
+                   }
+               ],
+               "origins": [
+                   {
+                       "origin": "mywebsite.com",
+                       "port": 80,
+                       "ssl": false
+                   }
+               ],
+               "caching": [
+                   {
+                       "name": "default",
+                       "ttl": 3600
+                   },
+                   {
+                       "name": "home",
+                       "ttl": 17200,
+                       "rules": [
+                           {
+                               "name": "index",
+                               "request_url": "/index.htm"
+                           }
+                       ]
+                   },
+                   {
+                       "name": "images",
+                       "ttl": 12800,
+                       "rules": [
+                           {
+                               "name": "images",
+                               "request_url": "*.png"
+                           }
+                       ]
+                   }
+               ],
+               "restrictions": [
+                   {
+                       "name": "website only",
+                       "rules": [
+                           {
+                               "name": "mywebsite.com",
+                               "referrer": "www.mywebsite.com"
+                           }
+                       ]
+                   }
+               ],
+               "flavor_id": "cdn",
+               "status": "deployed",
+               "errors" : [],
+               "links": [
+                   {
+                       "href": "https://global.cdn.api.rackspacecloud.com/v1.0/110011/services/96737ae3-cfc1-4c72-be88-5d0e7cc9a3f0",
+                       "rel": "self"
+                   },
+                   {
+                       "href": "mywebsite.com.cdn1.raxcdn.com",
+                       "rel": "access_url"
+                   }
+               ]
+           },
+           {
+               "id": "96737ae3-cfc1-4c72-be88-5d0e7cc9a3f1",
+               "name": "myothersite.com",
+               "domains": [
+                   {
+                       "domain": "www.myothersite.com"
+                   }
+               ],
+               "origins": [
+                   {
+                       "origin": "44.33.22.11",
+                       "port": 80,
+                       "ssl": false
+                   },
+                   {
+                       "origin": "77.66.55.44",
+                       "port": 80,
+                       "ssl": false,
+                       "rules": [
+                           {
+                               "name": "videos",
+                               "request_url": "^/videos/*.m3u"
+                           }
+                       ]
+                   }
+               ],
+               "caching": [
+                   {
+                       "name": "default",
+                       "ttl": 3600
+                   }
+               ],
+               "restrictions": [
+                   {}
+               ],
+               "flavor_id": "cdn",
+               "status": "deployed",
+               "links": [
+                   {
+                       "href": "https://global.cdn.api.rackspacecloud.com/v1.0/110011/services/96737ae3-cfc1-4c72-be88-5d0e7cc9a3f1",
+                       "rel": "self"
+                   },
+                   {
+                       "href": "myothersite.com.cdn1.raxcdn.com",
+                       "rel": "access_url"
+                   }
+               ]
+           }
+       ]
+   }
+
+
+
 

@@ -90,11 +90,12 @@ f=false,d=document;return{use_existing_jquery:function(){return use_existing_jqu
       <div class="body" role="main">
 
   <div class="section" id="retrieve-asset-analytics">
-<h1>Retrieve asset analytics<a class="headerlink" href="#retrieve-asset-analytics" title="Permalink to this headline">¶</a></h1>
+<span id="get-retrieve-asset-analytics-v1-0-project-id-services-service-id-analytics"></span><h1>Retrieve asset analytics<a class="headerlink" href="#retrieve-asset-analytics" title="Permalink to this headline">¶</a></h1>
 <div class="code highlight-python"><div class="highlight"><pre>GET /v1.0/{project_id}/services/{service_id}/analytics
 </pre></div>
 </div>
-<p>Retrieves asset analytics - usage data (such as hits or misses) about the service.</p>
+<p>Retrieves asset analytics.</p>
+<p>This operation retrieves usage data (such as hits or misses) about the service.</p>
 <p>The examples contain the expanded URL template with values inherited from parameters (for example, <a class="reference external" href="https://private-anon-afee1c004-cloudcdn.apiary-mock.com/services/mywebsite/analytics">https://private-anon-afee1c004-cloudcdn.apiary-mock.com/services/mywebsite/analytics</a>).</p>
 <p>This table shows the possible response codes for this operation:</p>
 <table border="1" class="docutils">
@@ -133,8 +134,7 @@ f=false,d=document;return{use_existing_jquery:function(){return use_existing_jqu
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td>{project_id}</td>
-<td>String
-<em>(Required)</em></td>
+<td>String</td>
 <td>The project ID for the user. If you do not set the <code class="docutils literal"><span class="pre">X-</span>
 <span class="pre">Project-Id</span> <span class="pre">header</span></code> in the request, use <code class="docutils literal"><span class="pre">project_id</span></code> in the
 URI. For example: <code class="docutils literal"><span class="pre">GET</span>
@@ -175,7 +175,7 @@ assets of the service.</td>
 </tbody>
 </table>
 <p>This operation does not accept a request body.</p>
-<p><strong>Example Retrieve asset analytics: HTTP request</strong></p>
+<p><strong>Example Retrieve asset analytics: JSON request</strong></p>
 <div class="code highlight-python"><div class="highlight"><pre>GET /v1.0/110011/services/serviceName/analytics?urlOfAssetToCheck HTTP/1.1
 Host: global.cdn.api.rackspacecloud.com
 X-Auth-Token: 0f6e9f63600142f0a970911583522217
@@ -186,12 +186,11 @@ Content-type: application/json
 </div>
 <div class="section" id="response">
 <h2>Response<a class="headerlink" href="#response" title="Permalink to this headline">¶</a></h2>
-<p><strong>Example Retrieve asset analytics: HTTP response</strong></p>
+<p><strong>Example Retrieve asset analytics: JSON response</strong></p>
 <div class="code highlight-python"><div class="highlight"><pre>200 OK
 Content-Type: application/json
 </pre></div>
 </div>
-<p><strong>Example Retrieve asset analytics: JSON response</strong></p>
 <div class="code highlight-python"><div class="highlight"><pre>**** Need to get an example of response ****
 **** TODO ****
 </pre></div>

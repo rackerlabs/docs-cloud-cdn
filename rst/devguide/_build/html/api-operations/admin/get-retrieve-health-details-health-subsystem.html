@@ -90,7 +90,7 @@ f=false,d=document;return{use_existing_jquery:function(){return use_existing_jqu
       <div class="body" role="main">
 
   <div class="section" id="retrieve-health-details">
-<h1>Retrieve health details<a class="headerlink" href="#retrieve-health-details" title="Permalink to this headline">¶</a></h1>
+<span id="get-retrieve-health-details-health-subsystem"></span><h1>Retrieve health details<a class="headerlink" href="#retrieve-health-details" title="Permalink to this headline">¶</a></h1>
 <div class="code highlight-python"><div class="highlight"><pre><span class="n">GET</span> <span class="o">//</span><span class="n">health</span><span class="o">/</span><span class="p">{</span><span class="n">subsystem</span><span class="p">}</span>
 </pre></div>
 </div>
@@ -163,6 +163,20 @@ Content-type: application/json
 <p><strong>Example Retrieve health details: JSON response</strong></p>
 <div class="code highlight-python"><div class="highlight"><pre>HTTP/1.1 200 OK
 Content-Type: application/json
+</pre></div>
+</div>
+<div class="code highlight-python"><div class="highlight"><pre><span class="p">{</span>
+    <span class="s">&quot;online&quot;</span><span class="p">:</span> <span class="n">true</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="code highlight-python"><div class="highlight"><pre>HTTP/1.0 503 Service Unavailable
+Content-Type: application/json
+</pre></div>
+</div>
+<div class="code highlight-python"><div class="highlight"><pre><span class="p">{</span>
+    <span class="s">&quot;online&quot;</span><span class="p">:</span> <span class="n">false</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 </div>

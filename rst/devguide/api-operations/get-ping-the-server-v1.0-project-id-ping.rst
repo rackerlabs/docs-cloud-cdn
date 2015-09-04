@@ -1,6 +1,8 @@
 
 .. THIS OUTPUT IS GENERATED FROM THE WADL. DO NOT EDIT.
 
+.. _get-ping-the-server-v1.0-project-id-ping:
+
 Ping the server
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -9,6 +11,8 @@ Ping the server
     GET /v1.0/{project_id}/ping
 
 Pings the server.
+
+This operation retrieves a ping to the server. 
 
 
 
@@ -59,14 +63,14 @@ Request
 
 This table shows the URI parameters for the request:
 
-+-------------+-------------+--------------------------------------------------------------+
-|Name         |Type         |Description                                                   |
-+=============+=============+==============================================================+
-|{project_id} |String       |The project ID for the user. If you do not set the ``X-       |
-|             |*(Required)* |Project-Id header`` in the request, use ``project_id`` in the |
-|             |             |URI. For example: ``GET                                       |
-|             |             |https://global.cdn.api.rackspacecloud.com/v1.0/{project_id}`` |
-+-------------+-------------+--------------------------------------------------------------+
++-------------+-------+--------------------------------------------------------------+
+|Name         |Type   |Description                                                   |
++=============+=======+==============================================================+
+|{project_id} |String |The project ID for the user. If you do not set the ``X-       |
+|             |       |Project-Id header`` in the request, use ``project_id`` in the |
+|             |       |URI. For example: ``GET                                       |
+|             |       |https://global.cdn.api.rackspacecloud.com/v1.0/{project_id}`` |
++-------------+-------+--------------------------------------------------------------+
 
 
 
@@ -77,14 +81,17 @@ This operation does not accept a request body.
 
 
 
-**Example Ping the server: HTTP request**
+**Example Ping the server: JSON request**
 
 
 .. code::
 
-    GET /v1.0/110011/ping HTTP/1.1
-    Host: global.cdn.api.rackspacecloud.com
-    X-Auth-Token: 0f6e9f63600142f0a970911583522217
+   GET /v1.0/110011/ping HTTP/1.1
+   Host: global.cdn.api.rackspacecloud.com
+   X-Auth-Token: 0f6e9f63600142f0a970911583522217
+
+
+
 
 
 Response
@@ -95,16 +102,17 @@ Response
 
 
 
-This operation does not return a response body.
 
 
 
 
-
-**Example Ping the server: HTTP response**
+**Example Ping the server: JSON response**
 
 
 .. code::
 
-    HTTP/1.1 204 No Content
+   HTTP/1.1 204 No Content
+
+
+
 

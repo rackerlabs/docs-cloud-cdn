@@ -1,12 +1,16 @@
 
 .. THIS OUTPUT IS GENERATED FROM THE WADL. DO NOT EDIT.
 
+.. _post-create-a-service-v1.0-project-id-services:
+
 Create a service
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code::
 
     POST /v1.0/{project_id}/services
+
+Creates a service.
 
 To create a new service, provide a JSON body for the new service with the required attributes.
 
@@ -63,14 +67,14 @@ Request
 
 This table shows the URI parameters for the request:
 
-+-------------+-------------+--------------------------------------------------------------+
-|Name         |Type         |Description                                                   |
-+=============+=============+==============================================================+
-|{project_id} |String       |The project ID for the user. If you do not set the ``X-       |
-|             |*(Required)* |Project-Id header`` in the request, use ``project_id`` in the |
-|             |             |URI. For example: ``GET                                       |
-|             |             |https://global.cdn.api.rackspacecloud.com/v1.0/{project_id}`` |
-+-------------+-------------+--------------------------------------------------------------+
++-------------+-------+--------------------------------------------------------------+
+|Name         |Type   |Description                                                   |
++=============+=======+==============================================================+
+|{project_id} |String |The project ID for the user. If you do not set the ``X-       |
+|             |       |Project-Id header`` in the request, use ``project_id`` in the |
+|             |       |URI. For example: ``GET                                       |
+|             |       |https://global.cdn.api.rackspacecloud.com/v1.0/{project_id}`` |
++-------------+-------+--------------------------------------------------------------+
 
 
 
@@ -172,14 +176,23 @@ This table shows the body parameters for the request:
 |name           |*(Required)* |Specifies the name of this restriction. The minimum length for ``name`` is 1. |
 |               |             |The maximum length is 256.                                                    |
 +---------------+-------------+------------------------------------------------------------------------------+
+|access         |*(Optional)* |Specifies the type of this restriction. Valid values are ``whitelist``, which |
+|               |             |is the default value and allows access, or ``blacklist``, which does not      |
+|               |             |allow access.                                                                 |
++---------------+-------------+------------------------------------------------------------------------------+
 |rules          |*(Optional)* |Specifies a collection of rules that determine if this restriction should be  |
 |               |             |applied to an asset.                                                          |
 +---------------+-------------+------------------------------------------------------------------------------+
 |name           |*(Required)* |Specifies the name of this rule. The minimum length for ``name`` is 1. The    |
 |               |             |maximum length is 256.                                                        |
 +---------------+-------------+------------------------------------------------------------------------------+
-|referrer       |*(Optional)* |Specifies the http host that requests must come from. The minimum length for  |
+|referrer       |*(Optional)* |Specifies the HTTP host that requests must come from. The minimum length for  |
 |               |             |``referrer`` is 3. The maximum length is 1024.                                |
++---------------+-------------+------------------------------------------------------------------------------+
+|request_url    |*(Optional)* |Specifies the request URL to which the rule applies. The default value is     |
+|               |             |``/*``, which indicates all content at the request URL.                       |
++---------------+-------------+------------------------------------------------------------------------------+
+|client_ip      |*(Optional)* |Specifies the client IP address to which the rule applies.                    |
 +---------------+-------------+------------------------------------------------------------------------------+
 |log_delivery   |*(Required)* |Specifies whether to enable log delivery to a Cloud Files container. You can  |
 |               |             |use access log delivery to analyze the number of requests for each object,    |
@@ -213,66 +226,66 @@ This table shows the body parameters for the request:
 
 
 
-**Example Create a service: HTTP request**
-
-
-.. code::
-
-    POST /v1.0/110011/services HTTP/1.1
-    Host: global.cdn.api.rackspacecloud.com
-    X-Auth-Token: 0f6e9f63600142f0a970911583522217
-    Accept: application/json
-    Content-type: application/json
-    
-
-
 **Example Create a service: JSON request**
 
 
 .. code::
 
-    {
-        "name": "mywebsite.com",
-        "domains": [
-            {
-                "domain": "www.mywebsite.com"
-            },
-            {
-                "domain": "blog.mywebsite.com"
-            }
-        ],
-        "origins": [
-            {
-                "origin": "mywebsite.com",
-                "port": 80,
-                "ssl": false,
-                "hostheadertype": "origin",
-                "rules": [
-                ]
-            }
-        ],
-        "restrictions": [
-                         {
-                         "name": "website only",
-                         "rules": [
-                                   {
-                                   "name": "mywebsite.com",
-                                   "referrer": "www.mywebsite.com"
-                    }
-                ]
-            }
-        ],
-        "caching": [
-            {
-                "name": "default",
-                "ttl": 3600
-            }
-        ],
-        "log_delivery": {
-            "enabled": true
-        },   
-        "flavor_id": "cdn"
-       }
+   POST /v1.0/110011/services HTTP/1.1
+   Host: global.cdn.api.rackspacecloud.com
+   X-Auth-Token: 0f6e9f63600142f0a970911583522217
+   Accept: application/json
+   Content-type: application/json
+   
+
+
+.. code::
+
+   {
+       "name": "mywebsite.com",
+       "domains": [
+           {
+               "domain": "www.mywebsite.com"
+           },
+           {
+               "domain": "blog.mywebsite.com"
+           }
+       ],
+       "origins": [
+           {
+               "origin": "mywebsite.com",
+               "port": 80,
+               "ssl": false,
+               "hostheadertype": "origin",
+               "rules": [
+               ]
+           }
+       ],
+       "restrictions": [
+                        {
+                        "name": "website only",
+                        "rules": [
+                                  {
+                                  "name": "mywebsite.com",
+                                  "referrer": "www.mywebsite.com"
+                   }
+               ]
+           }
+       ],
+       "caching": [
+           {
+               "name": "default",
+               "ttl": 3600
+           }
+       ],
+       "log_delivery": {
+           "enabled": true
+       },   
+       "flavor_id": "cdn"
+      }
+
+
+
 
 
 Response
@@ -283,18 +296,19 @@ Response
 
 
 
-This operation does not return a response body.
 
 
 
 
-
-**Example Create a service: HTTP response**
+**Example Create a service: JSON response**
 
 
 .. code::
 
-    HTTP/1.1 202 Accepted
-    Content-Type: application/json
-    Location: https://global.cdn.api.rackspacecloud.com/v1.0/services/96737ae3-cfc1-4c72-be88-5d0e7cc9a3f0
+   HTTP/1.1 202 Accepted
+   Content-Type: application/json
+   Location: https://global.cdn.api.rackspacecloud.com/v1.0/services/96737ae3-cfc1-4c72-be88-5d0e7cc9a3f0
+
+
+
 

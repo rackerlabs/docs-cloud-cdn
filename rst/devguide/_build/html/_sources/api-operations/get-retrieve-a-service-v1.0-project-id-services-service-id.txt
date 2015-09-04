@@ -1,6 +1,8 @@
 
 .. THIS OUTPUT IS GENERATED FROM THE WADL. DO NOT EDIT.
 
+.. _get-retrieve-a-service-v1.0-project-id-services-service-id:
+
 Retrieve a service
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -9,6 +11,8 @@ Retrieve a service
     GET /v1.0/{project_id}/services/{service_id}
 
 Retrieves a service.
+
+This operation retrieves a service. 
 
 
 
@@ -34,7 +38,7 @@ This table shows the URI parameters for the request:
 |Name         |Type         |Description                                                   |
 +=============+=============+==============================================================+
 |{project_id} |String       |The project ID for the user. If you do not set the ``X-       |
-|             |*(Required)* |Project-Id header`` in the request, use ``project_id`` in the |
+|             |             |Project-Id header`` in the request, use ``project_id`` in the |
 |             |             |URI. For example: ``GET                                       |
 |             |             |https://global.cdn.api.rackspacecloud.com/v1.0/{project_id}`` |
 +-------------+-------------+--------------------------------------------------------------+
@@ -52,16 +56,19 @@ This operation does not accept a request body.
 
 
 
-**Example Retrieve a service: HTTP request**
+**Example Retrieve a service: JSON request**
 
 
 .. code::
 
-    GET /v1.0/110011/services/96737ae3-cfc1-4c72-be88-5d0e7cc9a3f0 HTTP/1.1
-    Host: global.cdn.api.rackspacecloud.com
-    X-Auth-Token: 0f6e9f63600142f0a970911583522217
-    Accept: application/json
-    Content-type: application/json
+   GET /v1.0/110011/services/96737ae3-cfc1-4c72-be88-5d0e7cc9a3f0 HTTP/1.1
+   Host: global.cdn.api.rackspacecloud.com
+   X-Auth-Token: 0f6e9f63600142f0a970911583522217
+   Accept: application/json
+   Content-type: application/json
+
+
+
 
 
 Response
@@ -177,97 +184,97 @@ This table shows the body parameters for the response:
 
 
 
-**Example Retrieve a service: HTTP response**
-
-
-.. code::
-
-    HTTP/1.1 200 OK
-    Content-Type: application/json
-
-
 **Example Retrieve a service: JSON response**
 
 
 .. code::
 
-    {
-        "id": "96737ae3-cfc1-4c72-be88-5d0e7cc9a3f0",
-        "name": "mywebsite.com",
-        "domains": [
-            {
-                "domain": "blog.mywebsite.com",
-                "protocol": "http"
-            }
-        ],
-        "origins": [
-            {
-                "origin": "mywebsite.com",
-                "port": 80,
-                    "ssl": false,
-                    "rules": []
-            }
-        ],
-        "caching": [
-            {
-                "name": "default",
-                "ttl": 3600
-            },
-            {
-                "name": "home",
-                "ttl": 17200,
-                "rules": [
-                    {
-                        "name": "index",
-                        "request_url": "/index.htm"
-                    }
-                ]
-            },
-            {
-                "name": "images",
-                "ttl": 12800,
-                "rules": [
-                    {
-                        "name": "images",
-                        "request_url": "*.png"
-                    }
-                ]
-            }
-        ],
-        "restrictions": [
-            {
-                "name": "website only",
-                "rules": [
-                    {
-                        "name": "mywebsite.com",
-                        "referrer": "www.mywebsite.com"
-                    }
-                ]
-            }
-        ],
-        "flavor_id": "cdn",
-        "log_delivery" : {
-            "enabled": true
-        },
-        "status": "deployed",
-        "errors": [],
-        "links": [
-            {
-                "href": "https://global.cdn.api.rackspacecloud.com/v1.0/110011/services/96737ae3-cfc1-4c72-be88-5d0e7cc9a3f0",
-                "rel": "self"
-            },
-            {
-                  "href": "https://global.cdn.api.rackspacecloud.com/v1.0/110011/flavors/cdn",
-                  "rel": "flavor"
-            },
-            {
-                "href": "blog.mywebsite.com.cdn1.raxcdn.com",
-                "rel": "access_url"
-            },
-            {
-                "href" : "https://swiftstorageurl.com/v1.0/.CDN_ACCESS_LOGS",
-                "rel" : "log_url"
-            }    
-        ]
-    }
+   HTTP/1.1 200 OK
+   Content-Type: application/json
+
+
+.. code::
+
+   {
+       "id": "96737ae3-cfc1-4c72-be88-5d0e7cc9a3f0",
+       "name": "mywebsite.com",
+       "domains": [
+           {
+               "domain": "blog.mywebsite.com",
+               "protocol": "http"
+           }
+       ],
+       "origins": [
+           {
+               "origin": "mywebsite.com",
+               "port": 80,
+                   "ssl": false,
+                   "rules": []
+           }
+       ],
+       "caching": [
+           {
+               "name": "default",
+               "ttl": 3600
+           },
+           {
+               "name": "home",
+               "ttl": 17200,
+               "rules": [
+                   {
+                       "name": "index",
+                       "request_url": "/index.htm"
+                   }
+               ]
+           },
+           {
+               "name": "images",
+               "ttl": 12800,
+               "rules": [
+                   {
+                       "name": "images",
+                       "request_url": "*.png"
+                   }
+               ]
+           }
+       ],
+       "restrictions": [
+           {
+               "name": "website only",
+               "rules": [
+                   {
+                       "name": "mywebsite.com",
+                       "referrer": "www.mywebsite.com"
+                   }
+               ]
+           }
+       ],
+       "flavor_id": "cdn",
+       "log_delivery" : {
+           "enabled": true
+       },
+       "status": "deployed",
+       "errors": [],
+       "links": [
+           {
+               "href": "https://global.cdn.api.rackspacecloud.com/v1.0/110011/services/96737ae3-cfc1-4c72-be88-5d0e7cc9a3f0",
+               "rel": "self"
+           },
+           {
+                 "href": "https://global.cdn.api.rackspacecloud.com/v1.0/110011/flavors/cdn",
+                 "rel": "flavor"
+           },
+           {
+               "href": "blog.mywebsite.com.cdn1.raxcdn.com",
+               "rel": "access_url"
+           },
+           {
+               "href" : "https://swiftstorageurl.com/v1.0/.CDN_ACCESS_LOGS",
+               "rel" : "log_url"
+           }    
+       ]
+   }
+
+
+
 

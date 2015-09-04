@@ -90,11 +90,16 @@ f=false,d=document;return{use_existing_jquery:function(){return use_existing_jqu
       <div class="body" role="main">
 
   <div class="section" id="purge-a-cached-asset">
-<h1>Purge a cached asset<a class="headerlink" href="#purge-a-cached-asset" title="Permalink to this headline">¶</a></h1>
+<span id="delete-purge-a-cached-asset-v1-0-project-id-services-service-id-assets"></span><h1>Purge a cached asset<a class="headerlink" href="#purge-a-cached-asset" title="Permalink to this headline">¶</a></h1>
 <div class="code highlight-python"><div class="highlight"><pre>DELETE /v1.0/{project_id}/services/{service_id}/assets
 </pre></div>
 </div>
-<p>Purges the current version of the asset that has been cached at the edge node. Currently in Rackspace CDN, purges require the URL of the file to purge; use of wildcards is not in effect.</p>
+<p>Purges a cached asset.</p>
+<p>This operation purges the current version of the asset that has been cached at the edge node. Currently in Rackspace CDN, purges require the URL of the file to purge. Use of wildcards is not in effect.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">By default, the <code class="docutils literal"><span class="pre">hard</span></code> query parameter is set to <code class="docutils literal"><span class="pre">false</span></code> to invalidate the cache rather than purge the assets. Invalidating the cache is a faster process than purging.</p>
+</div>
 <p>This table shows the possible response codes for this operation:</p>
 <table border="1" class="docutils">
 <colgroup>
@@ -132,8 +137,7 @@ f=false,d=document;return{use_existing_jquery:function(){return use_existing_jqu
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td>{project_id}</td>
-<td>String
-<em>(Required)</em></td>
+<td>String</td>
 <td>The project ID for the user. If you do not set the <code class="docutils literal"><span class="pre">X-</span>
 <span class="pre">Project-Id</span> <span class="pre">header</span></code> in the request, use <code class="docutils literal"><span class="pre">project_id</span></code> in the
 URI. For example: <code class="docutils literal"><span class="pre">GET</span>
@@ -168,10 +172,18 @@ The value is a UUID, such as 96737ae3-cfc1-4c72-be88-
 <code class="docutils literal"><span class="pre">URL</span></code> of the asset to
 be purged.</td>
 </tr>
+<tr class="row-odd"><td>hard</td>
+<td>Boolean <em>(Optional)</em></td>
+<td>Specifies a purge when
+set to <code class="docutils literal"><span class="pre">true</span></code> or a
+cache invalidation when
+set to <code class="docutils literal"><span class="pre">false</span></code>, which
+is the default value.</td>
+</tr>
 </tbody>
 </table>
 <p>This operation does not accept a request body.</p>
-<p><strong>Example Purge a cached asset: HTTP request</strong></p>
+<p><strong>Example Purge a cached asset: JSON request</strong></p>
 <div class="code highlight-python"><div class="highlight"><pre>DELETE /v1.0/110011/services/96737ae3-cfc1-4c72-be88-5d0e7cc9a3f0/assets?url=/images/logo.png HTTP/1.1
 Host: global.cdn.api.rackspacecloud.com
 X-Auth-Token: 0f6e9f63600142f0a970911583522217
@@ -180,9 +192,9 @@ X-Auth-Token: 0f6e9f63600142f0a970911583522217
 </div>
 <div class="section" id="response">
 <h2>Response<a class="headerlink" href="#response" title="Permalink to this headline">¶</a></h2>
-<p>This operation does not return a response body.</p>
-<p><strong>Example Purge a cached asset: HTTP response</strong></p>
+<p><strong>Example Purge a cached asset: JSON response</strong></p>
 <div class="code highlight-python"><div class="highlight"><pre>HTTP/1.1 202 Accepted
+Location: https://global.cdn.api.rackspacecloud.com/v1.0/services/96737ae3-cfc1-4c72-be88-5d0e7cc9a3f0
 </pre></div>
 </div>
 </div>

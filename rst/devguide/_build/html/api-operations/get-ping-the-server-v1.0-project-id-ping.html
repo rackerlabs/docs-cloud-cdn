@@ -90,11 +90,12 @@ f=false,d=document;return{use_existing_jquery:function(){return use_existing_jqu
       <div class="body" role="main">
 
   <div class="section" id="ping-the-server">
-<h1>Ping the server<a class="headerlink" href="#ping-the-server" title="Permalink to this headline">¶</a></h1>
+<span id="get-ping-the-server-v1-0-project-id-ping"></span><h1>Ping the server<a class="headerlink" href="#ping-the-server" title="Permalink to this headline">¶</a></h1>
 <div class="code highlight-python"><div class="highlight"><pre>GET /v1.0/{project_id}/ping
 </pre></div>
 </div>
 <p>Pings the server.</p>
+<p>This operation retrieves a ping to the server.</p>
 <p>This table shows the possible response codes for this operation:</p>
 <table border="1" class="docutils">
 <colgroup>
@@ -153,9 +154,9 @@ other errors.</td>
 <p>This table shows the URI parameters for the request:</p>
 <table border="1" class="docutils">
 <colgroup>
-<col width="15%" />
-<col width="15%" />
-<col width="70%" />
+<col width="16%" />
+<col width="9%" />
+<col width="76%" />
 </colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">Name</th>
@@ -165,8 +166,7 @@ other errors.</td>
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td>{project_id}</td>
-<td>String
-<em>(Required)</em></td>
+<td>String</td>
 <td>The project ID for the user. If you do not set the <code class="docutils literal"><span class="pre">X-</span>
 <span class="pre">Project-Id</span> <span class="pre">header</span></code> in the request, use <code class="docutils literal"><span class="pre">project_id</span></code> in the
 URI. For example: <code class="docutils literal"><span class="pre">GET</span>
@@ -175,7 +175,7 @@ URI. For example: <code class="docutils literal"><span class="pre">GET</span>
 </tbody>
 </table>
 <p>This operation does not accept a request body.</p>
-<p><strong>Example Ping the server: HTTP request</strong></p>
+<p><strong>Example Ping the server: JSON request</strong></p>
 <div class="code highlight-python"><div class="highlight"><pre>GET /v1.0/110011/ping HTTP/1.1
 Host: global.cdn.api.rackspacecloud.com
 X-Auth-Token: 0f6e9f63600142f0a970911583522217
@@ -184,8 +184,7 @@ X-Auth-Token: 0f6e9f63600142f0a970911583522217
 </div>
 <div class="section" id="response">
 <h2>Response<a class="headerlink" href="#response" title="Permalink to this headline">¶</a></h2>
-<p>This operation does not return a response body.</p>
-<p><strong>Example Ping the server: HTTP response</strong></p>
+<p><strong>Example Ping the server: JSON response</strong></p>
 <div class="code highlight-python"><div class="highlight"><pre>HTTP/1.1 204 No Content
 </pre></div>
 </div>

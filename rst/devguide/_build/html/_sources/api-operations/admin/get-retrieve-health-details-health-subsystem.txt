@@ -1,6 +1,8 @@
 
 .. THIS OUTPUT IS GENERATED FROM THE WADL. DO NOT EDIT.
 
+.. _get-retrieve-health-details-health-subsystem:
+
 Retrieve health details
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -60,12 +62,15 @@ This operation does not accept a request body.
 
 .. code::
 
-    GET /v1.0/110011/health/{subsystem} HTTP1.1
-    Host: global.cdn.api.rackspacecloud.com
-    X-Auth-Token: 0f6e9f63600142f0a970911583522217
-    Accept: application/json
-    Content-type: application/json
-    
+   GET /v1.0/110011/health/{subsystem} HTTP1.1
+   Host: global.cdn.api.rackspacecloud.com
+   X-Auth-Token: 0f6e9f63600142f0a970911583522217
+   Accept: application/json
+   Content-type: application/json
+   
+
+
+
 
 
 Response
@@ -85,6 +90,29 @@ Response
 
 .. code::
 
-    HTTP/1.1 200 OK
-    Content-Type: application/json
+   HTTP/1.1 200 OK
+   Content-Type: application/json
+
+
+.. code::
+
+   {
+       "online": true
+   }
+
+
+.. code::
+
+   HTTP/1.0 503 Service Unavailable
+   Content-Type: application/json
+
+
+.. code::
+
+   {
+       "online": false
+   }
+
+
+
 

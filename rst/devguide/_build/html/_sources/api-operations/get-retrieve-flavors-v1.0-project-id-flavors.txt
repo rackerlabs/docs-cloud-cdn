@@ -1,6 +1,8 @@
 
 .. THIS OUTPUT IS GENERATED FROM THE WADL. DO NOT EDIT.
 
+.. _get-retrieve-flavors-v1.0-project-id-flavors:
+
 Retrieve flavors
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -9,6 +11,8 @@ Retrieve flavors
     GET /v1.0/{project_id}/flavors
 
 Retrieves a list of all available flavors.
+
+This operation retrieves a list of all available flavors.
 
 
 
@@ -30,14 +34,14 @@ Request
 
 This table shows the URI parameters for the request:
 
-+-------------+-------------+--------------------------------------------------------------+
-|Name         |Type         |Description                                                   |
-+=============+=============+==============================================================+
-|{project_id} |String       |The project ID for the user. If you do not set the ``X-       |
-|             |*(Required)* |Project-Id header`` in the request, use ``project_id`` in the |
-|             |             |URI. For example: ``GET                                       |
-|             |             |https://global.cdn.api.rackspacecloud.com/v1.0/{project_id}`` |
-+-------------+-------------+--------------------------------------------------------------+
++-------------+-------+--------------------------------------------------------------+
+|Name         |Type   |Description                                                   |
++=============+=======+==============================================================+
+|{project_id} |String |The project ID for the user. If you do not set the ``X-       |
+|             |       |Project-Id header`` in the request, use ``project_id`` in the |
+|             |       |URI. For example: ``GET                                       |
+|             |       |https://global.cdn.api.rackspacecloud.com/v1.0/{project_id}`` |
++-------------+-------+--------------------------------------------------------------+
 
 
 
@@ -48,17 +52,20 @@ This operation does not accept a request body.
 
 
 
-**Example Retrieve flavors: HTTP request**
+**Example Retrieve flavors: JSON request**
 
 
 .. code::
 
-    GET /v1.0/110011/flavors HTTP/1.1
-    Host: global.cdn.api.rackspacecloud.com
-    X-Auth-Token: 0f6e9f63600142f0a970911583522217
-    Accept: application/json
-    Content-type: application/json
-    
+   GET /v1.0/110011/flavors HTTP/1.1
+   Host: global.cdn.api.rackspacecloud.com
+   X-Auth-Token: 0f6e9f63600142f0a970911583522217
+   Accept: application/json
+   Content-type: application/json
+   
+
+
+
 
 
 Response
@@ -115,43 +122,43 @@ This table shows the body parameters for the response:
 
 
 
-**Example Retrieve flavors: HTTP response**
-
-
-.. code::
-
-    HTTP/1.1 200 OK
-    Content-Type: application/json
-
-
 **Example Retrieve flavors: JSON response**
 
 
 .. code::
 
-    {
-        "flavors": [
-            {
-                "id": "cdn",
-                "providers": [
-                    {
-                        "provider": "akamai",
-                        "links": [
-                            {
-                                "href": "http: //www.akamai.com",
-                                "rel": "provider_url"
-                            }
-                        ]
-                    }
-                ],
-                "links": [
-                    {
-                        "href": "https: //global.cdn.api.rackspacecloud.com/v1.0/110011/flavors/cdn",
-                        "rel": "self"
-                    }
-                ]
-            }
-        ]
-    }
-    
+   HTTP/1.1 200 OK
+   Content-Type: application/json
+
+
+.. code::
+
+   {
+       "flavors": [
+           {
+               "id": "cdn",
+               "providers": [
+                   {
+                       "provider": "akamai",
+                       "links": [
+                           {
+                               "href": "http: //www.akamai.com",
+                               "rel": "provider_url"
+                           }
+                       ]
+                   }
+               ],
+               "links": [
+                   {
+                       "href": "https: //global.cdn.api.rackspacecloud.com/v1.0/110011/flavors/cdn",
+                       "rel": "self"
+                   }
+               ]
+           }
+       ]
+   }
+   
+
+
+
 

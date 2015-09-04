@@ -90,10 +90,11 @@ f=false,d=document;return{use_existing_jquery:function(){return use_existing_jqu
       <div class="body" role="main">
 
   <div class="section" id="create-a-service">
-<h1>Create a service<a class="headerlink" href="#create-a-service" title="Permalink to this headline">¶</a></h1>
+<span id="post-create-a-service-v1-0-project-id-services"></span><h1>Create a service<a class="headerlink" href="#create-a-service" title="Permalink to this headline">¶</a></h1>
 <div class="code highlight-python"><div class="highlight"><pre>POST /v1.0/{project_id}/services
 </pre></div>
 </div>
+<p>Creates a service.</p>
 <p>To create a new service, provide a JSON body for the new service with the required attributes.</p>
 <p>For more information about rules ordering, caching rules, origin rules, and referrer rules, see <a class="reference external" href="http://docs.rackspace.com/cdn/api/v1.0/cdn-devguide/content/createRules-d101.html">Creating rules</a>.</p>
 <p>For origin rules, use the path /* to include all content for the site.</p>
@@ -164,9 +165,9 @@ or 443.</td>
 <p>This table shows the URI parameters for the request:</p>
 <table border="1" class="docutils">
 <colgroup>
-<col width="15%" />
-<col width="15%" />
-<col width="70%" />
+<col width="16%" />
+<col width="9%" />
+<col width="76%" />
 </colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">Name</th>
@@ -176,8 +177,7 @@ or 443.</td>
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td>{project_id}</td>
-<td>String
-<em>(Required)</em></td>
+<td>String</td>
 <td>The project ID for the user. If you do not set the <code class="docutils literal"><span class="pre">X-</span>
 <span class="pre">Project-Id</span> <span class="pre">header</span></code> in the request, use <code class="docutils literal"><span class="pre">project_id</span></code> in the
 URI. For example: <code class="docutils literal"><span class="pre">GET</span>
@@ -332,22 +332,37 @@ the CDN cache).</td>
 <td>Specifies the name of this restriction. The minimum length for <code class="docutils literal"><span class="pre">name</span></code> is 1.
 The maximum length is 256.</td>
 </tr>
-<tr class="row-odd"><td>rules</td>
+<tr class="row-odd"><td>access</td>
+<td><em>(Optional)</em></td>
+<td>Specifies the type of this restriction. Valid values are <code class="docutils literal"><span class="pre">whitelist</span></code>, which
+is the default value and allows access, or <code class="docutils literal"><span class="pre">blacklist</span></code>, which does not
+allow access.</td>
+</tr>
+<tr class="row-even"><td>rules</td>
 <td><em>(Optional)</em></td>
 <td>Specifies a collection of rules that determine if this restriction should be
 applied to an asset.</td>
 </tr>
-<tr class="row-even"><td>name</td>
+<tr class="row-odd"><td>name</td>
 <td><em>(Required)</em></td>
 <td>Specifies the name of this rule. The minimum length for <code class="docutils literal"><span class="pre">name</span></code> is 1. The
 maximum length is 256.</td>
 </tr>
-<tr class="row-odd"><td>referrer</td>
+<tr class="row-even"><td>referrer</td>
 <td><em>(Optional)</em></td>
-<td>Specifies the http host that requests must come from. The minimum length for
+<td>Specifies the HTTP host that requests must come from. The minimum length for
 <code class="docutils literal"><span class="pre">referrer</span></code> is 3. The maximum length is 1024.</td>
 </tr>
-<tr class="row-even"><td>log_delivery</td>
+<tr class="row-odd"><td>request_url</td>
+<td><em>(Optional)</em></td>
+<td>Specifies the request URL to which the rule applies. The default value is
+<code class="docutils literal"><span class="pre">/*</span></code>, which indicates all content at the request URL.</td>
+</tr>
+<tr class="row-even"><td>client_ip</td>
+<td><em>(Optional)</em></td>
+<td>Specifies the client IP address to which the rule applies.</td>
+</tr>
+<tr class="row-odd"><td>log_delivery</td>
 <td><em>(Required)</em></td>
 <td>Specifies whether to enable log delivery to a Cloud Files container. You can
 use access log delivery to analyze the number of requests for each object,
@@ -369,12 +384,12 @@ present but that Rackspace CDN does not capture. For example: <code class="docut
 Files container named.CDN_ACCESS_LOGS. If this container does not exist, it
 is created.</td>
 </tr>
-<tr class="row-odd"><td>enabled</td>
+<tr class="row-even"><td>enabled</td>
 <td><em>(Required)</em></td>
 <td>Specifies whether to enable or disable log delivery. Valid values are
 <code class="docutils literal"><span class="pre">true</span></code> and <code class="docutils literal"><span class="pre">false</span></code>.</td>
 </tr>
-<tr class="row-even"><td>flavor_id</td>
+<tr class="row-odd"><td>flavor_id</td>
 <td><em>(Required)</em></td>
 <td>Specifies the CDN provider flavor ID to use. For a list of flavors, see the
 operation to list the available flavors. The minimum length for <code class="docutils literal"><span class="pre">flavor_id</span></code>
@@ -382,7 +397,7 @@ is 3. The maximum length is 256.</td>
 </tr>
 </tbody>
 </table>
-<p><strong>Example Create a service: HTTP request</strong></p>
+<p><strong>Example Create a service: JSON request</strong></p>
 <div class="code highlight-python"><div class="highlight"><pre>POST /v1.0/110011/services HTTP/1.1
 Host: global.cdn.api.rackspacecloud.com
 X-Auth-Token: 0f6e9f63600142f0a970911583522217
@@ -390,7 +405,6 @@ Accept: application/json
 Content-type: application/json
 </pre></div>
 </div>
-<p><strong>Example Create a service: JSON request</strong></p>
 <div class="code highlight-python"><div class="highlight"><pre><span class="p">{</span>
     <span class="s">&quot;name&quot;</span><span class="p">:</span> <span class="s">&quot;mywebsite.com&quot;</span><span class="p">,</span>
     <span class="s">&quot;domains&quot;</span><span class="p">:</span> <span class="p">[</span>
@@ -438,8 +452,7 @@ Content-type: application/json
 </div>
 <div class="section" id="response">
 <h2>Response<a class="headerlink" href="#response" title="Permalink to this headline">¶</a></h2>
-<p>This operation does not return a response body.</p>
-<p><strong>Example Create a service: HTTP response</strong></p>
+<p><strong>Example Create a service: JSON response</strong></p>
 <div class="code highlight-python"><div class="highlight"><pre>HTTP/1.1 202 Accepted
 Content-Type: application/json
 Location: https://global.cdn.api.rackspacecloud.com/v1.0/services/96737ae3-cfc1-4c72-be88-5d0e7cc9a3f0

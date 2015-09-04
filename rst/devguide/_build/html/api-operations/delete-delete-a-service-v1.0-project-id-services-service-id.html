@@ -90,11 +90,12 @@ f=false,d=document;return{use_existing_jquery:function(){return use_existing_jqu
       <div class="body" role="main">
 
   <div class="section" id="delete-a-service">
-<h1>Delete a service<a class="headerlink" href="#delete-a-service" title="Permalink to this headline">¶</a></h1>
+<span id="delete-delete-a-service-v1-0-project-id-services-service-id"></span><h1>Delete a service<a class="headerlink" href="#delete-a-service" title="Permalink to this headline">¶</a></h1>
 <div class="code highlight-python"><div class="highlight"><pre>DELETE /v1.0/{project_id}/services/{service_id}
 </pre></div>
 </div>
 <p>Deletes the specified service.</p>
+<p>This operation deletes the specified service.</p>
 <p>This table shows the possible response codes for this operation:</p>
 <table border="1" class="docutils">
 <colgroup>
@@ -136,8 +137,7 @@ is empty).</td>
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td>{project_id}</td>
-<td>String
-<em>(Required)</em></td>
+<td>String</td>
 <td>The project ID for the user. If you do not set the <code class="docutils literal"><span class="pre">X-</span>
 <span class="pre">Project-Id</span> <span class="pre">header</span></code> in the request, use <code class="docutils literal"><span class="pre">project_id</span></code> in the
 URI. For example: <code class="docutils literal"><span class="pre">GET</span>
@@ -153,7 +153,7 @@ The value is a UUID, such as 96737ae3-cfc1-4c72-be88-
 </tbody>
 </table>
 <p>This operation does not accept a request body.</p>
-<p><strong>Example Delete a service: HTTP request</strong></p>
+<p><strong>Example Delete a service: JSON request</strong></p>
 <div class="code highlight-python"><div class="highlight"><pre>DELETE /v1.0/110011/services/96737ae3-cfc1-4c72-be88-5d0e7cc9a3f0 HTTP/1.1
 Host: global.cdn.api.rackspacecloud.com
 X-Auth-Token: 0f6e9f63600142f0a970911583522217
@@ -163,8 +163,7 @@ Content-Type: application/json
 </div>
 <div class="section" id="response">
 <h2>Response<a class="headerlink" href="#response" title="Permalink to this headline">¶</a></h2>
-<p>This operation does not return a response body.</p>
-<p><strong>Example Delete a service: HTTP response</strong></p>
+<p><strong>Example Delete a service: JSON response</strong></p>
 <div class="code highlight-python"><div class="highlight"><pre>HTTP/1.1 202 Accepted
 </pre></div>
 </div>

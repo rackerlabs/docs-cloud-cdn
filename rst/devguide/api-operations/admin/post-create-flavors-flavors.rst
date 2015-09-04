@@ -1,6 +1,8 @@
 
 .. THIS OUTPUT IS GENERATED FROM THE WADL. DO NOT EDIT.
 
+.. _post-create-flavors-flavors:
+
 Create flavors
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -104,12 +106,33 @@ This table shows the body parameters for the request:
 
 .. code::
 
-    POST /v1.0/110011/flavors HTTP/1.1
-    Host: global.cdn.api.rackspacecloud.com
-    X-Auth-Token: 0f6e9f63600142f0a970911583522217
-    Accept: application/json
-    Content-type: application/json
-    
+   POST /v1.0/110011/flavors HTTP/1.1
+   Host: global.cdn.api.rackspacecloud.com
+   X-Auth-Token: 0f6e9f63600142f0a970911583522217
+   Accept: application/json
+   Content-type: application/json
+   
+
+
+.. code::
+
+   {
+       "id": "cdn",
+       "providers": [
+           {
+               "provider": "akamai",
+               "links": [
+                   {
+                       "href": "http://www.akamai.com",
+                       "rel": "provider_url"
+                   }
+               ]
+           }
+       ]
+   }
+
+
+
 
 
 Response
@@ -162,6 +185,27 @@ This table shows the body parameters for the response:
 
 .. code::
 
-    HTP/1.1 201 (Created)
-    Location: https://global.cdn.api.rackspacecloud.com/v1.0/flavors/cdn
+   HTP/1.1 201 (Created)
+   Location: https://global.cdn.api.rackspacecloud.com/v1.0/flavors/cdn
+
+
+.. code::
+
+   {
+       "id": "cdn",
+       "providers": [
+           {
+               "provider": "akamai",
+               "links": [
+                   {
+                       "href": "http://www.akamai.com",
+                       "rel": "provider_url"
+                   }
+               ]
+           }
+       ]
+   }
+
+
+
 

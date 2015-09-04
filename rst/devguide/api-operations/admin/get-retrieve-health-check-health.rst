@@ -1,6 +1,8 @@
 
 .. THIS OUTPUT IS GENERATED FROM THE WADL. DO NOT EDIT.
 
+.. _get-retrieve-health-check-health:
+
 Retrieve health check
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -51,12 +53,15 @@ This operation does not accept a request body.
 
 .. code::
 
-    GET /v1.0/110011/health HTTP/1.1
-    Host: global.cdn.api.rackspacecloud.com
-    X-Auth-Token: 0f6e9f63600142f0a970911583522217
-    Accept:application/json
-    Content-type: application/json
-    
+   GET /v1.0/110011/health HTTP/1.1
+   Host: global.cdn.api.rackspacecloud.com
+   X-Auth-Token: 0f6e9f63600142f0a970911583522217
+   Accept:application/json
+   Content-type: application/json
+   
+
+
+
 
 
 Response
@@ -76,6 +81,73 @@ Response
 
 .. code::
 
-    HTTP/1.1 200 OK
-    Content-Type: application/json
+   HTTP/1.1 200 OK
+   Content-Type: application/json
+
+
+.. code::
+
+   {
+       "storage": {
+           "cassandra": {
+               "online": true,
+               "links": [
+                   {
+                       "href": "https://global.cdn.api.rackspacecloud.com/v1.0/110011/health/storage/cassandra",
+                       "rel": "self"
+                   }
+               ]
+           }
+       },
+       "transport": {
+           "pecan": {
+               "online": true,
+               "node": "ppy-web-01",
+               "links": [
+                   {
+                       "href": "https://global.cdn.api.rackspacecloud.com/v1.0/110011/health/transport/pecan",
+                       "rel": "self"
+                   }
+               ]
+           }
+       }
+   }
+
+
+.. code::
+
+   HTTP/1.1 503 Service Unavailable
+   Content-Type: application/json
+
+
+.. code::
+
+   {
+       "storage": {
+           "cassandra": {
+               "online": false,
+               "links": [
+                   {
+                       "href": "https://global.cdn.api.rackspacecloud.com/v1.0/110011/health/storage/cassandra",
+                       "rel": "self"
+                   }
+               ]
+           }
+       },
+       "transport": {
+           "pecan": {
+               "online": true,
+               "node": "phx-web-01",
+               "links": [
+                   {
+                       "href": "https://global.cdn.api.rackspacecloud.com/v1.0/110011/health/transport/pecan",
+                       "rel": "self"
+                   }
+               ]
+           }
+       }
+   }
+
+
+
 

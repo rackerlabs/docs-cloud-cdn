@@ -90,11 +90,12 @@ f=false,d=document;return{use_existing_jquery:function(){return use_existing_jqu
       <div class="body" role="main">
 
   <div class="section" id="retrieve-flavor-details">
-<h1>Retrieve flavor details<a class="headerlink" href="#retrieve-flavor-details" title="Permalink to this headline">¶</a></h1>
+<span id="get-retrieve-flavor-details-v1-0-project-id-flavors-flavor-id"></span><h1>Retrieve flavor details<a class="headerlink" href="#retrieve-flavor-details" title="Permalink to this headline">¶</a></h1>
 <div class="code highlight-python"><div class="highlight"><pre>GET /v1.0/{project_id}/flavors/{flavor_id}
 </pre></div>
 </div>
-<p>Retrieves details for the flavor specified by flavor_id.</p>
+<p>Retrieves details for the specified flavor.</p>
+<p>This operation retrieves details for the flavor specified by flavor_id.</p>
 <p>This table shows the possible response codes for this operation:</p>
 <table border="1" class="docutils">
 <colgroup>
@@ -132,8 +133,7 @@ f=false,d=document;return{use_existing_jquery:function(){return use_existing_jqu
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td>{project_id}</td>
-<td>String
-<em>(Required)</em></td>
+<td>String</td>
 <td>The project ID for the user. If you do not set the <code class="docutils literal"><span class="pre">X-</span>
 <span class="pre">Project-Id</span> <span class="pre">header</span></code> in the request, use <code class="docutils literal"><span class="pre">project_id</span></code> in the
 URI. For example: <code class="docutils literal"><span class="pre">GET</span>
@@ -147,7 +147,7 @@ URI. For example: <code class="docutils literal"><span class="pre">GET</span>
 </tbody>
 </table>
 <p>This operation does not accept a request body.</p>
-<p><strong>Example Retrieve flavor details: HTTP request</strong></p>
+<p><strong>Example Retrieve flavor details: JSON request</strong></p>
 <div class="code highlight-python"><div class="highlight"><pre>GET /v1.0/110011/flavors/cdn HTTP/1.1
 Host: global.cdn.api.rackspacecloud.com
 X-Auth-Token: 0f6e9f63600142f0a970911583522217
@@ -221,12 +221,11 @@ to this resource_url.</td>
 </tr>
 </tbody>
 </table>
-<p><strong>Example Retrieve flavor details: HTTP response</strong></p>
+<p><strong>Example Retrieve flavor details: JSON response</strong></p>
 <div class="code highlight-python"><div class="highlight"><pre>HTTP/1.1 200 OK
 Content-Type: application/json
 </pre></div>
 </div>
-<p><strong>Example Retrieve flavor details: JSON response</strong></p>
 <div class="code highlight-python"><div class="highlight"><pre><span class="p">{</span>
     <span class="s">&quot;id&quot;</span><span class="p">:</span> <span class="s">&quot;cdn&quot;</span><span class="p">,</span>
     <span class="s">&quot;providers&quot;</span><span class="p">:</span> <span class="p">[</span>

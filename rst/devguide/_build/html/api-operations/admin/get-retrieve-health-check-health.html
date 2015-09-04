@@ -90,7 +90,7 @@ f=false,d=document;return{use_existing_jquery:function(){return use_existing_jqu
       <div class="body" role="main">
 
   <div class="section" id="retrieve-health-check">
-<h1>Retrieve health check<a class="headerlink" href="#retrieve-health-check" title="Permalink to this headline">¶</a></h1>
+<span id="get-retrieve-health-check-health"></span><h1>Retrieve health check<a class="headerlink" href="#retrieve-health-check" title="Permalink to this headline">¶</a></h1>
 <div class="code highlight-python"><div class="highlight"><pre><span class="n">GET</span> <span class="o">//</span><span class="n">health</span>
 </pre></div>
 </div>
@@ -142,6 +142,64 @@ Content-type: application/json
 <p><strong>Example Retrieve health check: JSON response</strong></p>
 <div class="code highlight-python"><div class="highlight"><pre>HTTP/1.1 200 OK
 Content-Type: application/json
+</pre></div>
+</div>
+<div class="code highlight-python"><div class="highlight"><pre><span class="p">{</span>
+    <span class="s">&quot;storage&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">&quot;cassandra&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s">&quot;online&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+            <span class="s">&quot;links&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="p">{</span>
+                    <span class="s">&quot;href&quot;</span><span class="p">:</span> <span class="s">&quot;https://global.cdn.api.rackspacecloud.com/v1.0/110011/health/storage/cassandra&quot;</span><span class="p">,</span>
+                    <span class="s">&quot;rel&quot;</span><span class="p">:</span> <span class="s">&quot;self&quot;</span>
+                <span class="p">}</span>
+            <span class="p">]</span>
+        <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="s">&quot;transport&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">&quot;pecan&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s">&quot;online&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+            <span class="s">&quot;node&quot;</span><span class="p">:</span> <span class="s">&quot;ppy-web-01&quot;</span><span class="p">,</span>
+            <span class="s">&quot;links&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="p">{</span>
+                    <span class="s">&quot;href&quot;</span><span class="p">:</span> <span class="s">&quot;https://global.cdn.api.rackspacecloud.com/v1.0/110011/health/transport/pecan&quot;</span><span class="p">,</span>
+                    <span class="s">&quot;rel&quot;</span><span class="p">:</span> <span class="s">&quot;self&quot;</span>
+                <span class="p">}</span>
+            <span class="p">]</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="code highlight-python"><div class="highlight"><pre>HTTP/1.1 503 Service Unavailable
+Content-Type: application/json
+</pre></div>
+</div>
+<div class="code highlight-python"><div class="highlight"><pre><span class="p">{</span>
+    <span class="s">&quot;storage&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">&quot;cassandra&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s">&quot;online&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+            <span class="s">&quot;links&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="p">{</span>
+                    <span class="s">&quot;href&quot;</span><span class="p">:</span> <span class="s">&quot;https://global.cdn.api.rackspacecloud.com/v1.0/110011/health/storage/cassandra&quot;</span><span class="p">,</span>
+                    <span class="s">&quot;rel&quot;</span><span class="p">:</span> <span class="s">&quot;self&quot;</span>
+                <span class="p">}</span>
+            <span class="p">]</span>
+        <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="s">&quot;transport&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">&quot;pecan&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s">&quot;online&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+            <span class="s">&quot;node&quot;</span><span class="p">:</span> <span class="s">&quot;phx-web-01&quot;</span><span class="p">,</span>
+            <span class="s">&quot;links&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="p">{</span>
+                    <span class="s">&quot;href&quot;</span><span class="p">:</span> <span class="s">&quot;https://global.cdn.api.rackspacecloud.com/v1.0/110011/health/transport/pecan&quot;</span><span class="p">,</span>
+                    <span class="s">&quot;rel&quot;</span><span class="p">:</span> <span class="s">&quot;self&quot;</span>
+                <span class="p">}</span>
+            <span class="p">]</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 </div>

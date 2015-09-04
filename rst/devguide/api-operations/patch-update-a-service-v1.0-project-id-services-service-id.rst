@@ -1,6 +1,8 @@
 
 .. THIS OUTPUT IS GENERATED FROM THE WADL. DO NOT EDIT.
 
+.. _patch-update-a-service-v1.0-project-id-services-service-id:
+
 Update a service
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -44,7 +46,7 @@ This table shows the URI parameters for the request:
 |Name         |Type         |Description                                                   |
 +=============+=============+==============================================================+
 |{project_id} |String       |The project ID for the user. If you do not set the ``X-       |
-|             |*(Required)* |Project-Id header`` in the request, use ``project_id`` in the |
+|             |             |Project-Id header`` in the request, use ``project_id`` in the |
 |             |             |URI. For example: ``GET                                       |
 |             |             |https://global.cdn.api.rackspacecloud.com/v1.0/{project_id}`` |
 +-------------+-------------+--------------------------------------------------------------+
@@ -86,173 +88,173 @@ This table shows the body parameters for the request:
 
 
 
-**Example Update a service: HTTP request**
-
-
-.. code::
-
-    PATCH /v1.0/110011/services/96737ae3-cfc1-4c72-be88-5d0e7cc9a3f0 HTTP/1.1
-    Host: global.cdn.api.rackspacecloud.com
-    X-Auth-Token: 0f6e9f63600142f0a970911583522217
-    Content-type: application/json-patch+json
-
-
 **Example Update a service: JSON request**
 
 
 .. code::
 
-      [
-        {
-            "op": "add",
-            "path": "/domains/-",
-            "value": {
-                "domain": "newDomain.com",
-                "protocol": "http"
-            }
-        },
-        {
-            "op": "replace",
-            "path": "/domains/0",
-            "value": {
-                "domain": "replaceDomain.com",
-                "protocol": "http"
-            }
-        },
-        {
-            "op": "add",
-            "path": "/domains/-",
-            "value": {
-                "domain": "addDomain1.com",
-                "protocol": "http"
-            }
-        },
-        {
-            "op": "add",
-            "path": "/domains/-",
-            "value": {
-                "domain": "addDomain2.com",
-                "protocol": "http"
-            }
-        },
-        {
-            "op": "add",
-            "path": "/domains/-",
-            "value": {
-                "domain": "addDomain3.com",
-                "protocol": "http"
-            }
-        },
-        {
-            "op": "remove",
-            "path": "/domains/0"
-        },
-        {
-            "op": "add",
-            "path": "/domains",
-            "value": [
-                {
-                    "domain": "addDomainList.com",
-                    "protocol": "http"
-                }
-            ]
-        },
-        {
-            "op": "replace",
-            "path": "/name",
-            "value": "newServiceName"
-        },
-        {
-            "op": "replace",
-            "path": "/origins/0",
-            "value": {
-                "origin": "1.2.3.4",
-                "port": 80,
-                "rules": [],
-                "ssl": false
-            }
-        },
-        {
-            "op": "add",
-            "path": "/origins/1",
-            "value": {
-                "origin": "1.2.3.4",
-                "port": 80,
-                "ssl": false,
-                "rules": [
-                    {
-                        "name": "origin",
-                        "request_url": "/origin.htm"
-                    }
-                ]
-            }
-        },
-        {
-            "op": "add",
-            "path": "/origins/2",
-            "value": {
-                "origin": "4.2.5.4",
-                "port": 80,
-                "ssl": false,
-                "rules": [
-                    {
-                        "name": "origin",
-                        "request_url": "/origin.htm"
-                    }
-                ]
-            }
-        },
-        {
-            "op": "add",
-            "path": "/origins/-",
-            "value": {
-                "origin": "1.2.3.4",
-                "port": 80,
-                "ssl": false,
-                "rules": [
-                    {
-                        "name": "origin",
-                        "request_url": "/origin.htm"
-                    }
-                ]
-            }
-        },
-        {
-            "op": "remove",
-            "path": "/origins/0"
-        },
-        {
-            "op": "replace",
-            "path": "/caching/0",
-            "value": {
-                "name": "cache_name",
-                "ttl": 111
-            }
-        },
-        {
-            "op": "remove",
-            "path": "/caching/0"
-        },
-        {
-            "op": "add",
-            "path": "/caching/-",
-            "value": {
-                "name": "cache_name",
-                "ttl": 111,
-                "rules": [
-                    {
-                        "name": "index",
-                        "request_url": "/index.htm"
-                    }
-                ]
-            }
-        },
-        {
-            "op": "replace",
-            "path": "/log_delivery/enabled",
-            "value": true
-        } 
-    ]
+   PATCH /v1.0/110011/services/96737ae3-cfc1-4c72-be88-5d0e7cc9a3f0 HTTP/1.1
+   Host: global.cdn.api.rackspacecloud.com
+   X-Auth-Token: 0f6e9f63600142f0a970911583522217
+   Content-type: application/json-patch+json
+
+
+.. code::
+
+     [
+       {
+           "op": "add",
+           "path": "/domains/-",
+           "value": {
+               "domain": "newDomain.com",
+               "protocol": "http"
+           }
+       },
+       {
+           "op": "replace",
+           "path": "/domains/0",
+           "value": {
+               "domain": "replaceDomain.com",
+               "protocol": "http"
+           }
+       },
+       {
+           "op": "add",
+           "path": "/domains/-",
+           "value": {
+               "domain": "addDomain1.com",
+               "protocol": "http"
+           }
+       },
+       {
+           "op": "add",
+           "path": "/domains/-",
+           "value": {
+               "domain": "addDomain2.com",
+               "protocol": "http"
+           }
+       },
+       {
+           "op": "add",
+           "path": "/domains/-",
+           "value": {
+               "domain": "addDomain3.com",
+               "protocol": "http"
+           }
+       },
+       {
+           "op": "remove",
+           "path": "/domains/0"
+       },
+       {
+           "op": "add",
+           "path": "/domains",
+           "value": [
+               {
+                   "domain": "addDomainList.com",
+                   "protocol": "http"
+               }
+           ]
+       },
+       {
+           "op": "replace",
+           "path": "/name",
+           "value": "newServiceName"
+       },
+       {
+           "op": "replace",
+           "path": "/origins/0",
+           "value": {
+               "origin": "1.2.3.4",
+               "port": 80,
+               "rules": [],
+               "ssl": false
+           }
+       },
+       {
+           "op": "add",
+           "path": "/origins/1",
+           "value": {
+               "origin": "1.2.3.4",
+               "port": 80,
+               "ssl": false,
+               "rules": [
+                   {
+                       "name": "origin",
+                       "request_url": "/origin.htm"
+                   }
+               ]
+           }
+       },
+       {
+           "op": "add",
+           "path": "/origins/2",
+           "value": {
+               "origin": "4.2.5.4",
+               "port": 80,
+               "ssl": false,
+               "rules": [
+                   {
+                       "name": "origin",
+                       "request_url": "/origin.htm"
+                   }
+               ]
+           }
+       },
+       {
+           "op": "add",
+           "path": "/origins/-",
+           "value": {
+               "origin": "1.2.3.4",
+               "port": 80,
+               "ssl": false,
+               "rules": [
+                   {
+                       "name": "origin",
+                       "request_url": "/origin.htm"
+                   }
+               ]
+           }
+       },
+       {
+           "op": "remove",
+           "path": "/origins/0"
+       },
+       {
+           "op": "replace",
+           "path": "/caching/0",
+           "value": {
+               "name": "cache_name",
+               "ttl": 111
+           }
+       },
+       {
+           "op": "remove",
+           "path": "/caching/0"
+       },
+       {
+           "op": "add",
+           "path": "/caching/-",
+           "value": {
+               "name": "cache_name",
+               "ttl": 111,
+               "rules": [
+                   {
+                       "name": "index",
+                       "request_url": "/index.htm"
+                   }
+               ]
+           }
+       },
+       {
+           "op": "replace",
+           "path": "/log_delivery/enabled",
+           "value": true
+       } 
+   ]
+
+
+
 
 
 Response
@@ -263,17 +265,18 @@ Response
 
 
 
-This operation does not return a response body.
 
 
 
 
-
-**Example Update a service: HTTP response**
+**Example Update a service: JSON response**
 
 
 .. code::
 
-    HTTP/1.1 202 Accepted
-    Location: https://global.cdn.api.rackspacecloud.com/v1.0/services/96737ae3-cfc1-4c72-be88-5d0e7cc9a3f0
+   HTTP/1.1 202 Accepted
+   Location: https://global.cdn.api.rackspacecloud.com/v1.0/services/96737ae3-cfc1-4c72-be88-5d0e7cc9a3f0
+
+
+
 

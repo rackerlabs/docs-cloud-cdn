@@ -1,6 +1,8 @@
 
 .. THIS OUTPUT IS GENERATED FROM THE WADL. DO NOT EDIT.
 
+.. _delete-delete-flavor-flavors-flavor-id:
+
 Delete flavor
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -56,12 +58,15 @@ This operation does not accept a request body.
 
 .. code::
 
-    DELETE /v1.0/110011/flavors/cdn HTTP/1.1
-    Host: global.cdn.api.rackspacecloud.com
-    X-Auth-Token: 0f6e9f63600142f0a970911583522217
-    Accept: application/json
-    Content-type: application/json
-    
+   DELETE /v1.0/110011/flavors/cdn HTTP/1.1
+   Host: global.cdn.api.rackspacecloud.com
+   X-Auth-Token: 0f6e9f63600142f0a970911583522217
+   Accept: application/json
+   Content-type: application/json
+   
+
+
+
 
 
 Response
@@ -81,5 +86,8 @@ Response
 
 .. code::
 
-    HTTP/1.1 204 No Content
+   HTTP/1.1 204 No Content
+
+
+
 

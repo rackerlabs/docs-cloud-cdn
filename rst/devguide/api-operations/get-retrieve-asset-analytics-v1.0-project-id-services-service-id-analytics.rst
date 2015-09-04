@@ -1,6 +1,8 @@
 
 .. THIS OUTPUT IS GENERATED FROM THE WADL. DO NOT EDIT.
 
+.. _get-retrieve-asset-analytics-v1.0-project-id-services-service-id-analytics:
+
 Retrieve asset analytics
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -8,7 +10,9 @@ Retrieve asset analytics
 
     GET /v1.0/{project_id}/services/{service_id}/analytics
 
-Retrieves asset analytics - usage data (such as hits or misses) about the service.
+Retrieves asset analytics.
+
+This operation retrieves usage data (such as hits or misses) about the service.
 
 The examples contain the expanded URL template with values inherited from parameters (for example, https://private-anon-afee1c004-cloudcdn.apiary-mock.com/services/mywebsite/analytics).
 
@@ -36,7 +40,7 @@ This table shows the URI parameters for the request:
 |Name         |Type         |Description                                                   |
 +=============+=============+==============================================================+
 |{project_id} |String       |The project ID for the user. If you do not set the ``X-       |
-|             |*(Required)* |Project-Id header`` in the request, use ``project_id`` in the |
+|             |             |Project-Id header`` in the request, use ``project_id`` in the |
 |             |             |URI. For example: ``GET                                       |
 |             |             |https://global.cdn.api.rackspacecloud.com/v1.0/{project_id}`` |
 +-------------+-------------+--------------------------------------------------------------+
@@ -68,16 +72,19 @@ This operation does not accept a request body.
 
 
 
-**Example Retrieve asset analytics: HTTP request**
+**Example Retrieve asset analytics: JSON request**
 
 
 .. code::
 
-    GET /v1.0/110011/services/serviceName/analytics?urlOfAssetToCheck HTTP/1.1
-    Host: global.cdn.api.rackspacecloud.com
-    X-Auth-Token: 0f6e9f63600142f0a970911583522217
-    Accept: application/json
-    Content-type: application/json
+   GET /v1.0/110011/services/serviceName/analytics?urlOfAssetToCheck HTTP/1.1
+   Host: global.cdn.api.rackspacecloud.com
+   X-Auth-Token: 0f6e9f63600142f0a970911583522217
+   Accept: application/json
+   Content-type: application/json
+
+
+
 
 
 Response
@@ -92,20 +99,20 @@ Response
 
 
 
-**Example Retrieve asset analytics: HTTP response**
-
-
-.. code::
-
-    200 OK
-    Content-Type: application/json
-
-
 **Example Retrieve asset analytics: JSON response**
 
 
 .. code::
 
-    **** Need to get an example of response ****
-    **** TODO ****
+   200 OK
+   Content-Type: application/json
+
+
+.. code::
+
+   **** Need to get an example of response ****
+   **** TODO ****
+
+
+
 

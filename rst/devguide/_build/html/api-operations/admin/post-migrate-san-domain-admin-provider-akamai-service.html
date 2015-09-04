@@ -90,12 +90,16 @@ f=false,d=document;return{use_existing_jquery:function(){return use_existing_jqu
       <div class="body" role="main">
 
   <div class="section" id="migrate-san-domain">
-<h1>Migrate SAN domain<a class="headerlink" href="#migrate-san-domain" title="Permalink to this headline">¶</a></h1>
+<span id="post-migrate-san-domain-admin-provider-akamai-service"></span><h1>Migrate SAN domain<a class="headerlink" href="#migrate-san-domain" title="Permalink to this headline">¶</a></h1>
 <div class="code highlight-python"><div class="highlight"><pre><span class="n">POST</span> <span class="o">//</span><span class="n">admin</span><span class="o">/</span><span class="n">provider</span><span class="o">/</span><span class="n">akamai</span><span class="o">/</span><span class="n">service</span>
 </pre></div>
 </div>
 <p>Updates the domain with a new SAN URL.</p>
 <p>This operation updates the domain with a new SAN URL.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This endpoint is accessible only by users with the <code class="docutils literal"><span class="pre">support</span></code> role in their Cloud Identity service catalog.</p>
+</div>
 <p>This table shows the possible response codes for this operation:</p>
 <table border="1" class="docutils">
 <colgroup>
@@ -125,6 +129,14 @@ Host: global.cdn.api.rackspacecloud.com
 X-Auth-Token: 0f6e9f63600142f0a970911583522217
 Accept: application/json
 Content-type: application/json
+</pre></div>
+</div>
+<div class="code highlight-python"><div class="highlight"><pre><span class="p">{</span>
+    <span class="s">&quot;project_id&quot;</span><span class="p">:</span> <span class="s">&quot;12345&quot;</span><span class="p">,</span>
+    <span class="s">&quot;service_id&quot;</span><span class="p">:</span> <span class="s">&quot;abcdef&quot;</span><span class="p">,</span>
+    <span class="s">&quot;domain_name&quot;</span><span class="p">:</span> <span class="s">&quot;www.mywebsite.com&quot;</span><span class="p">,</span>
+    <span class="s">&quot;new_cert&quot;</span><span class="p">:</span> <span class="s">&quot;scdn1.secure6.raxcdn.com.edgekey.net&quot;</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 </div>

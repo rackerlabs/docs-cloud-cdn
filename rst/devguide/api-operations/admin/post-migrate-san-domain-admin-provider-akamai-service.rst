@@ -1,6 +1,8 @@
 
 .. THIS OUTPUT IS GENERATED FROM THE WADL. DO NOT EDIT.
 
+.. _post-migrate-san-domain-admin-provider-akamai-service:
+
 Migrate SAN domain
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -11,6 +13,11 @@ Migrate SAN domain
 Updates the domain with a new SAN URL.
 
 This operation updates the domain with a new SAN URL.
+
+.. note::
+   This endpoint is accessible only by users with the ``support`` role in their Cloud Identity service catalog.
+   
+   
 
 
 
@@ -44,12 +51,25 @@ This operation does not accept a request body.
 
 .. code::
 
-    POST /v1.0/110011/admin/provider/akamai/service HTTP1.1
-    Host: global.cdn.api.rackspacecloud.com
-    X-Auth-Token: 0f6e9f63600142f0a970911583522217
-    Accept: application/json
-    Content-type: application/json
-    
+   POST /v1.0/110011/admin/provider/akamai/service HTTP1.1
+   Host: global.cdn.api.rackspacecloud.com
+   X-Auth-Token: 0f6e9f63600142f0a970911583522217
+   Accept: application/json
+   Content-type: application/json
+   
+
+
+.. code::
+
+   {
+       "project_id": "12345",
+       "service_id": "abcdef",
+       "domain_name": "www.mywebsite.com",
+       "new_cert": "scdn1.secure6.raxcdn.com.edgekey.net"
+   }
+
+
+
 
 
 Response
@@ -69,6 +89,9 @@ Response
 
 .. code::
 
-    HTP/1.1 202 (Accepted)
-    Location: https://global.cdn.api.rackspacecloud.com/v1.0/admin/provider/akamai/service
+   HTP/1.1 202 (Accepted)
+   Location: https://global.cdn.api.rackspacecloud.com/v1.0/admin/provider/akamai/service
+
+
+
 

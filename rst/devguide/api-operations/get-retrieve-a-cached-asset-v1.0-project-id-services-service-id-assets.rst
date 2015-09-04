@@ -1,6 +1,8 @@
 
 .. THIS OUTPUT IS GENERATED FROM THE WADL. DO NOT EDIT.
 
+.. _get-retrieve-a-cached-asset-v1.0-project-id-services-service-id-assets:
+
 Retrieve a cached asset
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -8,7 +10,9 @@ Retrieve a cached asset
 
     GET /v1.0/{project_id}/services/{service_id}/assets
 
-Retrieves the version of the asset that has been cached at the edge, along with any custom rules for the asset.
+Retrieves a cached asset.
+
+This operation retrieves the version of the asset that has been cached at the edge, along with any custom rules for the asset.
 
 The examples contain the expanded URL template with values inherited from parameters (for example, https://private-anon-afee1c004-cdn.apiary-mock.com/services/mywebsite/assets).
 
@@ -36,7 +40,7 @@ This table shows the URI parameters for the request:
 |Name         |Type         |Description                                                   |
 +=============+=============+==============================================================+
 |{project_id} |String       |The project ID for the user. If you do not set the ``X-       |
-|             |*(Required)* |Project-Id header`` in the request, use ``project_id`` in the |
+|             |             |Project-Id header`` in the request, use ``project_id`` in the |
 |             |             |URI. For example: ``GET                                       |
 |             |             |https://global.cdn.api.rackspacecloud.com/v1.0/{project_id}`` |
 +-------------+-------------+--------------------------------------------------------------+
@@ -65,16 +69,19 @@ This operation does not accept a request body.
 
 
 
-**Example Retrieve a cached asset: HTTP request**
+**Example Retrieve a cached asset: JSON request**
 
 
 .. code::
 
-    GET /v1.0/services/serviceName/assets?urlOfAssetToCheck HTTP/1.1
-    Host: global.cdn.api.rackspacecloud.com
-    Content-type: application/json
-    X-Auth-Token: 0f6e9f63600142f0a970911583522217
-    X-Project-Id: 101010
+   GET /v1.0/services/serviceName/assets?urlOfAssetToCheck HTTP/1.1
+   Host: global.cdn.api.rackspacecloud.com
+   Content-type: application/json
+   X-Auth-Token: 0f6e9f63600142f0a970911583522217
+   X-Project-Id: 101010
+
+
+
 
 
 Response
@@ -89,20 +96,20 @@ Response
 
 
 
-**Example Retrieve a cached asset: HTTP response**
-
-
-.. code::
-
-    200 OK
-    Content-Type: application/json
-
-
 **Example Retrieve a cached asset: JSON response**
 
 
 .. code::
 
-    **** Need to get an example of response ****
-    **** TODO - and consider the asset version across multiple providers and multiple cache nodes! ****
+   200 OK
+   Content-Type: application/json
+
+
+.. code::
+
+   **** Need to get an example of response ****
+   **** TODO - and consider the asset version across multiple providers and multiple cache nodes! ****
+
+
+
 

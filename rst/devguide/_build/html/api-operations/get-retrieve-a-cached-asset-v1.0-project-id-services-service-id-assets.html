@@ -90,11 +90,12 @@ f=false,d=document;return{use_existing_jquery:function(){return use_existing_jqu
       <div class="body" role="main">
 
   <div class="section" id="retrieve-a-cached-asset">
-<h1>Retrieve a cached asset<a class="headerlink" href="#retrieve-a-cached-asset" title="Permalink to this headline">¶</a></h1>
+<span id="get-retrieve-a-cached-asset-v1-0-project-id-services-service-id-assets"></span><h1>Retrieve a cached asset<a class="headerlink" href="#retrieve-a-cached-asset" title="Permalink to this headline">¶</a></h1>
 <div class="code highlight-python"><div class="highlight"><pre>GET /v1.0/{project_id}/services/{service_id}/assets
 </pre></div>
 </div>
-<p>Retrieves the version of the asset that has been cached at the edge, along with any custom rules for the asset.</p>
+<p>Retrieves a cached asset.</p>
+<p>This operation retrieves the version of the asset that has been cached at the edge, along with any custom rules for the asset.</p>
 <p>The examples contain the expanded URL template with values inherited from parameters (for example, <a class="reference external" href="https://private-anon-afee1c004-cdn.apiary-mock.com/services/mywebsite/assets">https://private-anon-afee1c004-cdn.apiary-mock.com/services/mywebsite/assets</a>).</p>
 <p>This table shows the possible response codes for this operation:</p>
 <table border="1" class="docutils">
@@ -133,8 +134,7 @@ f=false,d=document;return{use_existing_jquery:function(){return use_existing_jqu
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td>{project_id}</td>
-<td>String
-<em>(Required)</em></td>
+<td>String</td>
 <td>The project ID for the user. If you do not set the <code class="docutils literal"><span class="pre">X-</span>
 <span class="pre">Project-Id</span> <span class="pre">header</span></code> in the request, use <code class="docutils literal"><span class="pre">project_id</span></code> in the
 URI. For example: <code class="docutils literal"><span class="pre">GET</span>
@@ -172,7 +172,7 @@ checked.</td>
 </tbody>
 </table>
 <p>This operation does not accept a request body.</p>
-<p><strong>Example Retrieve a cached asset: HTTP request</strong></p>
+<p><strong>Example Retrieve a cached asset: JSON request</strong></p>
 <div class="code highlight-python"><div class="highlight"><pre>GET /v1.0/services/serviceName/assets?urlOfAssetToCheck HTTP/1.1
 Host: global.cdn.api.rackspacecloud.com
 Content-type: application/json
@@ -183,12 +183,11 @@ X-Project-Id: 101010
 </div>
 <div class="section" id="response">
 <h2>Response<a class="headerlink" href="#response" title="Permalink to this headline">¶</a></h2>
-<p><strong>Example Retrieve a cached asset: HTTP response</strong></p>
+<p><strong>Example Retrieve a cached asset: JSON response</strong></p>
 <div class="code highlight-python"><div class="highlight"><pre>200 OK
 Content-Type: application/json
 </pre></div>
 </div>
-<p><strong>Example Retrieve a cached asset: JSON response</strong></p>
 <div class="code highlight-python"><div class="highlight"><pre>**** Need to get an example of response ****
 **** TODO - and consider the asset version across multiple providers and multiple cache nodes! ****
 </pre></div>

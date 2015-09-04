@@ -1,6 +1,8 @@
 
 .. THIS OUTPUT IS GENERATED FROM THE WADL. DO NOT EDIT.
 
+.. _delete-purge-a-cached-asset-v1.0-project-id-services-service-id-assets:
+
 Purge a cached asset
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -8,7 +10,14 @@ Purge a cached asset
 
     DELETE /v1.0/{project_id}/services/{service_id}/assets
 
-Purges the current version of the asset that has been cached at the edge node. Currently in Rackspace CDN, purges require the URL of the file to purge; use of wildcards is not in effect.
+Purges a cached asset.
+
+This operation purges the current version of the asset that has been cached at the edge node. Currently in Rackspace CDN, purges require the URL of the file to purge. Use of wildcards is not in effect.
+
+.. note::
+   By default, the ``hard`` query parameter is set to ``false`` to invalidate the cache rather than purge the assets. Invalidating the cache is a faster process than purging. 
+   
+   
 
 
 
@@ -34,7 +43,7 @@ This table shows the URI parameters for the request:
 |Name         |Type         |Description                                                   |
 +=============+=============+==============================================================+
 |{project_id} |String       |The project ID for the user. If you do not set the ``X-       |
-|             |*(Required)* |Project-Id header`` in the request, use ``project_id`` in the |
+|             |             |Project-Id header`` in the request, use ``project_id`` in the |
 |             |             |URI. For example: ``GET                                       |
 |             |             |https://global.cdn.api.rackspacecloud.com/v1.0/{project_id}`` |
 +-------------+-------------+--------------------------------------------------------------+
@@ -54,6 +63,12 @@ This table shows the query parameters for the request:
 |                          |                         |``URL`` of the asset to  |
 |                          |                         |be purged.               |
 +--------------------------+-------------------------+-------------------------+
+|hard                      |Boolean *(Optional)*     |Specifies a purge when   |
+|                          |                         |set to ``true`` or a     |
+|                          |                         |cache invalidation when  |
+|                          |                         |set to ``false``, which  |
+|                          |                         |is the default value.    |
++--------------------------+-------------------------+-------------------------+
 
 
 
@@ -63,15 +78,18 @@ This operation does not accept a request body.
 
 
 
-**Example Purge a cached asset: HTTP request**
+**Example Purge a cached asset: JSON request**
 
 
 .. code::
 
-    DELETE /v1.0/110011/services/96737ae3-cfc1-4c72-be88-5d0e7cc9a3f0/assets?url=/images/logo.png HTTP/1.1
-    Host: global.cdn.api.rackspacecloud.com
-    X-Auth-Token: 0f6e9f63600142f0a970911583522217
-    
+   DELETE /v1.0/110011/services/96737ae3-cfc1-4c72-be88-5d0e7cc9a3f0/assets?url=/images/logo.png HTTP/1.1
+   Host: global.cdn.api.rackspacecloud.com
+   X-Auth-Token: 0f6e9f63600142f0a970911583522217
+   
+
+
+
 
 
 Response
@@ -82,16 +100,18 @@ Response
 
 
 
-This operation does not return a response body.
 
 
 
 
-
-**Example Purge a cached asset: HTTP response**
+**Example Purge a cached asset: JSON response**
 
 
 .. code::
 
-    HTTP/1.1 202 Accepted
+   HTTP/1.1 202 Accepted
+   Location: https://global.cdn.api.rackspacecloud.com/v1.0/services/96737ae3-cfc1-4c72-be88-5d0e7cc9a3f0
+
+
+
 
