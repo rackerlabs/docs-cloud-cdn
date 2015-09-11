@@ -76,6 +76,14 @@
                   services</link> operations.</para>
             </listitem>
             <listitem>
+              <para>Added the ability for IP restrictions to support
+                IPv6 addresses for the <link
+                  xlink:href="http://docs.rackspace.com/cdn/api/v1.0/cdn-devguide/content/POST_createService_v1.0__project_id__services_servicesOperations.html"
+                  xmlns:m="http://www.w3.org/1998/Math/MathML"
+                  xmlns:html="http://www.w3.org/1999/xhtml">Create a
+                  service</link> operation.</para>
+            </listitem>
+            <listitem>
               <para>Added SLA information to the <link
                   xlink:href="http://docs.rackspace.com/cdn/api/v1.0/cdn-devguide/content/DELETE_deleteCachedAsset_v1.0__project_id__services__service_id__assets_serviceAssetsOperations.html"
                   xmlns:m="http://www.w3.org/1998/Math/MathML"
