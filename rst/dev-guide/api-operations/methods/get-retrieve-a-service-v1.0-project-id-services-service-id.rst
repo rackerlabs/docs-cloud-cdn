@@ -1,7 +1,7 @@
 
 .. THIS OUTPUT IS GENERATED FROM THE WADL. DO NOT EDIT.
 
-.. _get-retrieve-a-service-v1.0-project-id-services-service-id:
+.. _cdn-get-a-service:
 
 Retrieve a service
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -10,7 +10,6 @@ Retrieve a service
 
     GET /v1.0/{project_id}/services/{service_id}
 
-Retrieves a service.
 
 This operation retrieves a service. 
 

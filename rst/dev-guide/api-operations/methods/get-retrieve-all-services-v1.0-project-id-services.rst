@@ -1,7 +1,7 @@
 
 .. THIS OUTPUT IS GENERATED FROM THE WADL. DO NOT EDIT.
 
-.. _get-retrieve-all-services-v1.0-project-id-services:
+.. _cdn-get-all-services:
 
 Retrieve all services
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -9,8 +9,6 @@ Retrieve all services
 .. code::
 
     GET /v1.0/{project_id}/services
-
-Retrieves a list of all the services.
 
 This operation retrieves a list of all available services. 
 

@@ -1,7 +1,7 @@
 
 .. THIS OUTPUT IS GENERATED FROM THE WADL. DO NOT EDIT.
 
-.. _get-retrieve-the-home-document-v1.0-project-id:
+.. _cdn-get-the-home-document:
 
 Retrieve the home document
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -10,7 +10,7 @@ Retrieve the home document
 
     GET /v1.0/{project_id}/
 
-Retrieves the home document.
+This operation retrieves the home document.
 
 The entire API is discoverable from a single 				starting point, the home document. To explore the 				entire API, you need to know only this one URI. 
 

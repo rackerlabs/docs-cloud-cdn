@@ -1,7 +1,7 @@
 
 .. THIS OUTPUT IS GENERATED FROM THE WADL. DO NOT EDIT.
 
-.. _get-retrieve-flavors-v1.0-project-id-flavors:
+.. _cdn-get-flavors:
 
 Retrieve flavors
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -10,7 +10,7 @@ Retrieve flavors
 
     GET /v1.0/{project_id}/flavors
 
-Retrieves a list of all available flavors.
+This operation retrieves a list of all available flavors.
 
 
 

@@ -3,20 +3,23 @@
 Additional resources
 ~~~~~~~~~~~~~~~~~~~~
 
-You can download the most current versions of the `Rackspace API-related documents`_.
+We welcome feedback, comments, and bug reports. Visit the Rackspace customer portal 
+at https://feedback.rackspace.com/.
 
-Email all support questions to cdn@rackspace.com.
+Use the links below to learn more about the Rackspace CDN service and API.
 
-Visit our `Product Feedback Forum`_ and tell us what you think about Rackspace CDN.
+- For general information about Rackspace CDN, see the `Rackspace CDN FAQ`_ 
+  in the Rackspace Knowledge Center.
+  
+- To learn about using Rackspace Cloud SDKs, see `Software Development Kits & Tools`_. 
+    
+- To get information about other Rackspace Cloud services APIs, see the
+  `Rackspace API Documentation`_.
 
-Follow Rackspace updates and announcements `on Twitter`_.
+- Email support questions to cdn@rackspace.com.
 
-This API uses `standard HTTP 1.1 response codes`_.
 
-.. _Rackspace API-related documents: http://docs.rackspace.com/api/
+.. _Rackspace CDN FAQ: https://www.rackspace.com/knowledge_center/article/rackspace-cdn-faq
+.. _Rackspace API Documentation: https://developer.rackspace.com/docs/
+.. _Software Development Kits & Tools: https://developer.rackspace.com/docs/#sdks
 
-.. _Product Feedback Forum: https://feedback.rackspace.com/forums/298161-storage/category/107829-rackspace-cdn
-
-.. _on Twitter: http://www.twitter.com/rackspace
-
-.. _standard HTTP 1.1 response codes: http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html

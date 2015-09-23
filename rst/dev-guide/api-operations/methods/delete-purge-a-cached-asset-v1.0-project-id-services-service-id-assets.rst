@@ -1,7 +1,7 @@
 
 .. THIS OUTPUT IS GENERATED FROM THE WADL. DO NOT EDIT.
 
-.. _delete-purge-a-cached-asset-v1.0-project-id-services-service-id-assets:
+.. _cdn-purge-a-cached-asset:
 
 Purge a cached asset
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -10,12 +10,12 @@ Purge a cached asset
 
     DELETE /v1.0/{project_id}/services/{service_id}/assets
 
-Purges a cached asset.
+This operation purges a cached asset or invalidates the cache.
 
 This operation purges the current version of the asset that has been cached at the edge node. Currently in Rackspace CDN, purges require the URL of the file to purge. Use of wildcards is not in effect.
 
 .. note::
-   By default, the ``hard`` query parameter is set to ``false`` to invalidate the cache rather than purge the assets. Invalidating the cache is a faster process than purging. 
+   By default, the ``hard`` query parameter is set to ``true`` to purge the assets. You can set ``hard`` to ``false`` to invalidate the cache, which might be faster than purging. 
    
    
 
@@ -68,8 +68,8 @@ This table shows the query parameters for the request:
 |hard                      |Boolean *(Optional)*     |Specifies a purge when   |
 |                          |                         |set to ``true`` or a     |
 |                          |                         |cache invalidation when  |
-|                          |                         |set to ``false``, which  |
-|                          |                         |is the default value.    |
+|                          |                         |set to ``false``. The    |
+|                          |                         |default is ``true``.     |
 +--------------------------+-------------------------+-------------------------+
 
 

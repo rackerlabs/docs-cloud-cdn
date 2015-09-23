@@ -11,6 +11,8 @@ Rackspace CDN returns an HTTP code that denotes the type of response.
 -  Error response codes are accompanied by an ``application/json``
    response body that contains the error messages.
 
+This API uses `standard HTTP 1.1 response codes`_.
+
 The following table lists possible responses with their associated codes
 and descriptions.
 
@@ -114,4 +116,4 @@ An example of an error message follows.
         }
     }
 
-
+.. _standard HTTP 1.1 response codes: http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html

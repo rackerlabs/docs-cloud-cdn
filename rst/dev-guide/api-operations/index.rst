@@ -1,12 +1,10 @@
-.. _api-methods:
 
-API operations
---------------
 
-This section describes each of the Rackspace CDN operations.
+.. meta::
+   :description: Rackspace CDN API Reference
+   :keywords: Rackspace, Rackspace CDN ReST API, API resources, API methods
        
 .. toctree:: 
-   :caption: API Reference
    :maxdepth: 2
 
    cdn-base-operations

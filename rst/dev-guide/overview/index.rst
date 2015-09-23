@@ -1,7 +1,7 @@
 .. _overview:
 
-Overview
-----------
+About the API
+-------------
 
 A content delivery network (CDN) is designed to improve the performance
 of publicly distributed assets.  Assets can be anything from website
@@ -38,7 +38,6 @@ Started Guide`_, which explains how to start using the API.
 .. toctree:: :hidden:
    :maxdepth: 3
    
-   intended-audience
    additional-resources
    api-contract-changes
    pricing-service-level

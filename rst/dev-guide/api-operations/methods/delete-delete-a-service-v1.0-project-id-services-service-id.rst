@@ -1,7 +1,7 @@
 
 .. THIS OUTPUT IS GENERATED FROM THE WADL. DO NOT EDIT.
 
-.. _delete-delete-a-service-v1.0-project-id-services-service-id:
+.. _cdn-delete-a-service:
 
 Delete a service
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -10,7 +10,7 @@ Delete a service
 
     DELETE /v1.0/{project_id}/services/{service_id}
 
-Deletes the specified service.
+This operation deletes the specified service.
 
 
 

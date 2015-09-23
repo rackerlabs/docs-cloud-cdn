@@ -1,7 +1,7 @@
 
 .. THIS OUTPUT IS GENERATED FROM THE WADL. DO NOT EDIT.
 
-.. _post-create-a-service-v1.0-project-id-services:
+.. _cdn-create-a-service:
 
 Create a service
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -10,7 +10,7 @@ Create a service
 
     POST /v1.0/{project_id}/services
 
-Creates a service.
+This operation creates a service.
 
 To create a new service, provide a JSON body for the new service with the required attributes.
 
@@ -91,8 +91,8 @@ This table shows the body parameters for the request:
 |\ **domains**          |String       |Specifies a list of domains used by users to access their website.            |
 |                       |*(Required)* |                                                                              |
 +-----------------------+-------------+------------------------------------------------------------------------------+
-|\ domains.\ **domain** |String       |Specifies the domain used to access the assets on your website, for which you |
-|                       |*(Required)* |use a CNAME to the CDN provider. The minimum length for domain is 3. The      |
+|\ domains.\            |String       |Specifies the domain used to access the assets on your website, for which you |
+|**domain**             |*(Required)* |use a CNAME to the CDN provider. The minimum length for domain is 3. The      |
 |                       |             |maximum length is 253.                                                        |
 +-----------------------+-------------+------------------------------------------------------------------------------+
 |domains.\ **protocol** |String       |Specifies the protocol used to access the assets on this domain. Only         |
@@ -114,8 +114,8 @@ This table shows the body parameters for the request:
 |\ **origins**          |String       |Specifies a list of origin domains or IP addresses where the original assets  |
 |                       |*(Required)* |are stored.                                                                   |
 +-----------------------+-------------+------------------------------------------------------------------------------+
-|\origins.\ **origin**  |String       |Specifies the URL or IP address from which to pull origin content. The        |
-|                       |*(Required)* |minimum length for ``origin`` is 3. The maximum length is 253.                |
+|\ origins.\            |String       |Specifies the URL or IP address from which to pull origin content. The        |
+|**origin**             |*(Required)* |minimum length for ``origin`` is 3. The maximum length is 253.                |
 +-----------------------+-------------+------------------------------------------------------------------------------+
 |origins.\ **port**     |String       |Specifies the port used to access the origin. The default is port 80. Note:   |
 |                       |*(Optional)* |Rackspace CDN cannot be used with custom ports. Services are required to run  |
@@ -203,28 +203,22 @@ This table shows the body parameters for the request:
 |\ **log_delivery**     |String       |Specifies whether to enable log delivery to a Cloud Files container. You can  |
 |                       |*(Required)* |use access log delivery to analyze the number of requests for each object,    |
 |                       |             |the client IP address, and time-based usage patterns (such as monthly or      |
-|                       |             |seasonal usage).                                                              | 
-|                       |             |                                                                              |
-|                       |             |Log files are named according to the following pattern:                       |
+|                       |             |seasonal usage). Log files are named according to the following pattern:      |
 |                       |             |service name, log date, log hour, and MD5 hash. For example:                  |
 |                       |             |``www.mywebsite.com/2015/02/01/16/096e6c4473f235db081deb51f42a8d98.log.gz``.  |
 |                       |             |In this example, ``www.mywebsite.com`` is the name of the service,            |
 |                       |             |``2015/02/01`` is the date (February 1, 2015), and ``16`` is the hour that    |
 |                       |             |the log file was created. There might be multiple files for a given hour      |
-|                       |             |because the system splits log files based on both time and log file size.     | 
-|                       |             |                                                                              |
-|                       |             |All times in the access logs are UTC time. Within the gzip logs, the format of|
+|                       |             |because the system splits log files based on both time and log file size. All |
+|                       |             |times in the access logs are UTC time. Within the gzip logs, the format of    |
 |                       |             |the entries is similar to National Center for Supercomputing Applications     |
 |                       |             |(NCSA) combined log format, but without cookies. The pattern follows. The     |
 |                       |             |dashes (-) denote fields that the NCSA combined log format dictates be        |
-|                       |             |present but that Rackspace CDN does not capture.                              |
-|                       |             |                                                                              |
-|                       |             |For example: ``client_ip - - [day/month/year:hour:minute:second timezone]``   |
-|                       |             | ``“method request HTTP_version” return_code bytes_sent “referrer”``          |
-|                       |             | “user_agent”                                                                 |
-|                       |             |                                                                              |
-|                       |             |Logs are stored in a CloudFiles container named.CDN_ACCESS_LOGS. If this      |
-|                       |             |container does not exist, it is created.                                      |
+|                       |             |present but that Rackspace CDN does not capture. For example: ``client_ip - - |
+|                       |             |[day/month/year:hour:minute:second timezone] “method request HTTP_version”    |
+|                       |             |return_code bytes_sent “referrer” “user_agent”`` Logs are stored in a Cloud   |
+|                       |             |Files container named.CDN_ACCESS_LOGS. If this container does not exist, it   |
+|                       |             |is created.                                                                   |
 +-----------------------+-------------+------------------------------------------------------------------------------+
 |log_delivery.\         |String       |Specifies whether to enable or disable log delivery. Valid values are         |
 |**enabled**            |*(Required)* |``true`` and ``false``.                                                       |

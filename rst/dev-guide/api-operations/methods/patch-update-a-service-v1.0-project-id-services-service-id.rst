@@ -1,7 +1,7 @@
 
 .. THIS OUTPUT IS GENERATED FROM THE WADL. DO NOT EDIT.
 
-.. _patch-update-a-service-v1.0-project-id-services-service-id:
+.. _cdn-update-a-service:
 
 Update a service
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -10,7 +10,7 @@ Update a service
 
     PATCH /v1.0/{project_id}/services/{service_id}
 
-Updates the specified service.
+This operation updates the specified service.
 
 You can use the HTTP PATCH method to ``add``, ``remove``, or ``replace`` service properties. For more information about the HTTP PATCH method, see `RFC5789 <https://tools.ietf.org/html/rfc5789>`__.
 

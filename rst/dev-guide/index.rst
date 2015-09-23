@@ -1,19 +1,22 @@
 .. _index:
 
 =========================================================
-Rackspace CDN Version 1.0 API Developer Guide
+Rackspace CDN API 1.0
 =========================================================
 
-The Rackspace CDN service gives you the power to accelerate content on any public resource at Rackspace. It provides a simple API and Control Panel experience for you to manage your CDN-enabled domains and the origins and assets associated with those domains. The API uses  a simple Representational State Transfer (REST) web service interface.
+Learn how to use the Rackspace CDN service by using the REST API. 
 
-The Rackspace CDN FAQ in the Knowledge Center provides more information about the Rackspace CDN service.
+- For details about using the API, see the :ref:`Developer Guide <developer-guide>`.
+- For details about API resources, operations, requests and responses, see the 
+  :ref:`API reference <api-reference>`.
 
 .. toctree:: :hidden:
-   :caption: Developer Guide
    :maxdepth: 2
 
-   overview/index
+   About the API <overview/index>
+   developer-guide   
    concepts
    general-api-info/index
+   api-reference
    api-operations/index
    glossary

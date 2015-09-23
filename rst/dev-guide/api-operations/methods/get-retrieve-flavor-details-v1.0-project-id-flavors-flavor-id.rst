@@ -1,7 +1,7 @@
 
 .. THIS OUTPUT IS GENERATED FROM THE WADL. DO NOT EDIT.
 
-.. _get-retrieve-flavor-details-v1.0-project-id-flavors-flavor-id:
+.. _cdn-get-flavor-details:
 
 Retrieve flavor details
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -9,8 +9,6 @@ Retrieve flavor details
 .. code::
 
     GET /v1.0/{project_id}/flavors/{flavor_id}
-
-Retrieves details for the specified flavor.
 
 This operation retrieves details for the flavor specified by flavor_id.
 

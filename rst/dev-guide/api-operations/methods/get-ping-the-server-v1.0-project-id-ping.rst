@@ -1,7 +1,7 @@
 
 .. THIS OUTPUT IS GENERATED FROM THE WADL. DO NOT EDIT.
 
-.. _get-ping-the-server-v1.0-project-id-ping:
+.. _cdn-ping-the-server:
 
 Ping the server
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -10,7 +10,7 @@ Ping the server
 
     GET /v1.0/{project_id}/ping
 
-Pings the server.
+This operation pings the server.
 
 This operation retrieves a ping to the server. 
 
