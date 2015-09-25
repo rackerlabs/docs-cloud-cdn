@@ -14,7 +14,7 @@ This operation updates the specified service.
 
 You can use the HTTP PATCH method to ``add``, ``remove``, or ``replace`` service properties. For more information about the HTTP PATCH method, see `RFC5789 <https://tools.ietf.org/html/rfc5789>`__.
 
-To update a service, send a JSON body that conforms to `RFC6902 <https://tools.ietf.org/html/rfc6902>`__ using paths and values for one or more of the service parameters, which are described in `Create a service <http://docs.rackspace.com/cdn/api/v1.0/cdn-devguide/content/GET_getService__services__service_id__servicesOperations.html>`__. If no changes are specified for a parameter in the JSON body, all parameter values from the previous version of the service are carried over by default.
+To update a service, send a JSON body that conforms to `RFC6902 <https://tools.ietf.org/html/rfc6902>`__ using paths and values for one or more of the service parameters, which are described in :ref:`Create a service <cdn-create-a-service>`. If no changes are specified for a parameter in the JSON body, all parameter values from the previous version of the service are carried over by default.
 
 
 

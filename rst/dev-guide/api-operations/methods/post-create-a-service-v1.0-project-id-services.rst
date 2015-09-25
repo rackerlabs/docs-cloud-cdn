@@ -14,12 +14,12 @@ This operation creates a service.
 
 To create a new service, provide a JSON body for the new service with the required attributes.
 
-For more information about rules ordering, caching rules, origin rules, and referrer rules, see `Creating rules <http://docs.rackspace.com/cdn/api/v1.0/cdn-devguide/content/createRules-d101.html>`__.
+For more information about rules ordering, caching rules, origin rules, and referrer rules, see `Rackspace CDN edge rules <http://www.rackspace.com/knowledge_center/article/rackspace-cdn-edge-rules>`__.
 
 For origin rules, use the path /* to include all content for the site.
 
 .. note::
-   ``service_id``, which is used in several of the services operations, is returned in the response to create a service. Take note this value. You can also retrieve ``service_id`` using `List a service <http://docs.rackspace.com/cdn/api/v1.0/cdn-devguide/content/GET_getService__services__service_id__servicesOperations.html>`__.
+   ``service_id``, which is used in several of the services operations, is returned in the response to create a service. Take note this value. You can also retrieve ``service_id`` using :ref:`List a service <cdn-get-a-service>`.
    
    
 

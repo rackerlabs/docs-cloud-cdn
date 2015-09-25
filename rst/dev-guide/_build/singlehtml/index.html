@@ -1795,11 +1795,11 @@ Content-Type: application/json
 </div>
 <p>This operation creates a service.</p>
 <p>To create a new service, provide a JSON body for the new service with the required attributes.</p>
-<p>For more information about rules ordering, caching rules, origin rules, and referrer rules, see <a class="reference external" href="http://docs.rackspace.com/cdn/api/v1.0/cdn-devguide/content/createRules-d101.html">Creating rules</a>.</p>
+<p>For more information about rules ordering, caching rules, origin rules, and referrer rules, see <a class="reference external" href="http://www.rackspace.com/knowledge_center/article/rackspace-cdn-edge-rules">Rackspace CDN edge rules</a>.</p>
 <p>For origin rules, use the path /* to include all content for the site.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last"><code class="docutils literal"><span class="pre">service_id</span></code>, which is used in several of the services operations, is returned in the response to create a service. Take note this value. You can also retrieve <code class="docutils literal"><span class="pre">service_id</span></code> using <a class="reference external" href="http://docs.rackspace.com/cdn/api/v1.0/cdn-devguide/content/GET_getService__services__service_id__servicesOperations.html">List a service</a>.</p>
+<p class="last"><code class="docutils literal"><span class="pre">service_id</span></code>, which is used in several of the services operations, is returned in the response to create a service. Take note this value. You can also retrieve <code class="docutils literal"><span class="pre">service_id</span></code> using <a class="reference internal" href="#cdn-get-a-service"><span>List a service</span></a>.</p>
 </div>
 <p>This table shows the possible response codes for this operation:</p>
 <table border="1" class="docutils">
@@ -2547,7 +2547,7 @@ Content-Type: application/json
 </div>
 <p>This operation updates the specified service.</p>
 <p>You can use the HTTP PATCH method to <code class="docutils literal"><span class="pre">add</span></code>, <code class="docutils literal"><span class="pre">remove</span></code>, or <code class="docutils literal"><span class="pre">replace</span></code> service properties. For more information about the HTTP PATCH method, see <a class="reference external" href="https://tools.ietf.org/html/rfc5789">RFC5789</a>.</p>
-<p>To update a service, send a JSON body that conforms to <a class="reference external" href="https://tools.ietf.org/html/rfc6902">RFC6902</a> using paths and values for one or more of the service parameters, which are described in <a class="reference external" href="http://docs.rackspace.com/cdn/api/v1.0/cdn-devguide/content/GET_getService__services__service_id__servicesOperations.html">Create a service</a>. If no changes are specified for a parameter in the JSON body, all parameter values from the previous version of the service are carried over by default.</p>
+<p>To update a service, send a JSON body that conforms to <a class="reference external" href="https://tools.ietf.org/html/rfc6902">RFC6902</a> using paths and values for one or more of the service parameters, which are described in <a class="reference internal" href="#cdn-create-a-service"><span>Create a service</span></a>. If no changes are specified for a parameter in the JSON body, all parameter values from the previous version of the service are carried over by default.</p>
 <p>This table shows the possible response codes for this operation:</p>
 <table border="1" class="docutils">
 <colgroup>
