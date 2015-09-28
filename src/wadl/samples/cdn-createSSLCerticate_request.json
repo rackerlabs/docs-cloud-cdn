@@ -1,0 +1,5 @@
+{
+    "cert_type": "san",
+    "domain_name": "www.example.com",
+    "flavor_id": "premium"
+}
