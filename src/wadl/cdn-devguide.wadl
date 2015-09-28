@@ -89,6 +89,10 @@
 					<method href="#getFlavorDetails"/>
 			    </resource>
 			</resource>
+				
+				<resource id="ssl_certificate" path="ssl_certificate">
+					<method href="#postSSLCertificate"/>												
+				</resource>
 							
 			</resource>
 		</resource>
@@ -1100,7 +1104,7 @@
 			xmlns="http://docbook.org/ns/docbook">
 			<para role="shortdesc">Purges a cached asset.</para>
 			<para>This operation purges the current version of the asset that has been cached at the edge node. Currently in Rackspace CDN, purges require the URL of the file to purge. Use of wildcards is not in effect.</para>
-			<note><para>By default, the <code>hard</code> query parameter is set to <code>false</code> to invalidate the cache rather than purge the assets. Invalidating the cache is a faster process than purging. </para></note>
+			<note><para>By default, the <code>hard</code> query parameter is set to <code>true</code> to purge the assets. You can set <code>hard</code> to <code>false</code> to invalidate the cache, which might be faster than purging. </para></note>
         <para>Akamai's SLA for cache invalidation, which is the time when the policy change takes effect until the actual invalidation, is approximately 60 seconds. For Rackspace CDN, 
             additional time must be added to that SLA to account for the time taken to deploy the service.</para> 			
 		</wadl:doc>
@@ -1113,7 +1117,7 @@
 			<param name="hard" style="query" type="xsd:boolean"
 				required="false">
 				<wadl:doc xmlns="http://docbook.org/ns/docbook"
-					xml:lang="EN">Specifies a purge when set to <code>true</code> or a cache invalidation when set to <code>false</code>, which is the default value.</wadl:doc>		
+					xml:lang="EN">Specifies a purge when set to <code>true</code> or a cache invalidation when set to <code>false</code>. The default is <code>true</code>.</wadl:doc>		
 			</param>
 			
 <!--			5/4/2015 Hiding this parameter as requested by Amit.
@@ -1182,6 +1186,55 @@
 			</representation>
 		</response>
 	</method>
+
+	<!--*******************************************************-->
+	<!--              SSL certificate method                   -->
+	<!--*******************************************************-->	
+	<!--*******************************************************-->
+	<!--               Post SSL certificate                    -->
+	<!--*******************************************************-->
+	<method name="POST" id="postSSLCertificate">
+		<wadl:doc xml:lang="EN" title="Create an SSL certificate"
+			xmlns="http://docbook.org/ns/docbook">
+			<para role="shortdesc">Creates an SSL certificate.</para>
+			<para>This operation creates an SSL certificate. </para>						
+		</wadl:doc>
+		<request>			
+			<representation mediaType="application/json" >
+				<doc>
+					<xsdxt:code href="../wadl/samples/cdn-createSSLCertificate_request-json-http.txt"/>
+					<xsdxt:code href="../wadl/samples/cdn-createSSLCerticate_request.json"/>
+				
+				</doc>
+				<param name="cert_type" style="plain" required="true" path="$.cert_type">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN">Specifies a string representing the type of the SSL certificate.</wadl:doc>
+				</param>
+				<param name="domain_name" style="plain" required="true" path="$.domain_name">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN">Specifies a string representing the type of the SSL certificate, such as <code>www.example.com</code>.</wadl:doc>
+				</param>
+				<param name="flavor_id" style="plain" required="true" path="$.flavor_id">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN">Specifies the CDN-provider flavor id to use. See <link
+							xlink:href="http://docs.rackspace.com/cdn/api/v1.0/cdn-devguide/content/flavorsOperations.html">Flavors</link>.</wadl:doc>
+				</param>				
+			</representation>
+		</request>
+		<response status="202" xmlns="http://wadl.dev.java.net/2009/02">
+			<doc title="Accepted" xml:lang="EN">The request has been accepted for processing.</doc>
+			<representation mediaType="application/json">
+				<wadl:doc xmlns="http://docbook.org/ns/docbook"
+					xml:lang="EN">
+					<xsdxt:code
+						href="../wadl/samples/cdn-createSSLCertificate_response-json-http.txt"
+					/>
+				</wadl:doc>
+				
+			</representation>
+		</response>
+	</method>	
+	
 <!--*******************************************************-->
 <!--              Flavors methods                          -->
 <!--*******************************************************-->	

@@ -47,8 +47,30 @@
     <releaseinfo>API v1.0</releaseinfo>
     <productname>Rackspace CDN</productname>
     <!--Note that the <productname> text matches the first few words of the title. The build system splits the title into productname + rest of title on the pdf cover.-->
-    <pubdate>2015-09-11<!--If you leave the <pubdate> element empty, the build system inserts today's date automatically. --></pubdate>
+    <pubdate>2015-09-30<!--If you leave the <pubdate> element empty, the build system inserts today's date automatically. --></pubdate>
     <revhistory>
+      <revision>
+        <date>2015-09-30</date>
+        <revdescription>
+          <itemizedlist>
+            <listitem>
+              <para>Added the "SSL certificate" section to the "API
+                operations" chapter and included the new endpoint
+                description for "Create an SSL certificate". </para>
+            </listitem>
+            <listitem>
+              <para>Updated  the <link
+                  xlink:href="http://docs.rackspace.com/cdn/api/v1.0/cdn-devguide/content/DELETE_deleteCachedAsset_v1.0__project_id__services__service_id__assets_serviceAssetsOperations.html"
+                  xmlns:m="http://www.w3.org/1998/Math/MathML"
+                  xmlns:html="http://www.w3.org/1999/xhtml">Purge a
+                  cached asset</link> operation to indicate that the
+                default value for the <code>hard</code> query
+                parameter is <code>true</code>, which indicates a
+                purge. </para>
+            </listitem>
+          </itemizedlist>
+        </revdescription>
+      </revision>
       <revision>
         <date>2015-09-11</date>
         <revdescription>
@@ -70,10 +92,10 @@
                   xmlns:m="http://www.w3.org/1998/Math/MathML"
                   xmlns:html="http://www.w3.org/1999/xhtml">Retrieve a
                   service</link> and <link
-                    xlink:href="http://docs.rackspace.com/cdn/api/v1.0/cdn-devguide/content/GET_getAllServices_v1.0__project_id__services_servicesOperations.html"
+                  xlink:href="http://docs.rackspace.com/cdn/api/v1.0/cdn-devguide/content/GET_getAllServices_v1.0__project_id__services_servicesOperations.html"
                   xmlns:m="http://www.w3.org/1998/Math/MathML"
-                  xmlns:html="http://www.w3.org/1999/xhtml">Retrieve all
-                  services</link> operations.</para>
+                  xmlns:html="http://www.w3.org/1999/xhtml">Retrieve
+                  all services</link> operations.</para>
             </listitem>
             <listitem>
               <para>Added the ability for IP restrictions to support
@@ -1569,6 +1591,21 @@ Content-Type: application/json
         </wadl:resource>
       </wadl:resources>
     </section> -->
+    <section xml:id="SSLCertificateOperations">
+      <title>SSL certificate</title>
+      <para>SSL uses certificates between a server and a client, such
+        as a Web server and an Internet browser, to secure and protect
+        the transmitted data.</para>
+      <para>The section describes the following operation to create an
+        SSL certificate by using the SSL certificate-related resources
+        of the <emphasis role="bold">SSL Certificate API</emphasis>
+        .</para>
+      <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
+        <wadl:resource href="../../src/wadl/cdn-devguide.wadl#ssl_certificate">
+          <wadl:method href="#postSSLCertificate"/>
+        </wadl:resource>
+      </wadl:resources>
+    </section>
     <section xml:id="flavorsOperations">
       <title>Flavors</title>
       <para>A flavor is a mapping configuration to a CDN provider.</para>
