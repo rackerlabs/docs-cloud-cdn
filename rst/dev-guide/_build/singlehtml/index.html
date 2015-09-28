@@ -3358,80 +3358,6 @@ Content-Type: application/json
 </div>
 </div>
 </div>
-<span id="document-glossary"></span><div class="section" id="glossary">
-<span id="id1"></span><h2>Glossary<a class="headerlink" href="#glossary" title="Permalink to this headline">#</a></h2>
-<dl class="docutils">
-<dt>Caching rule</dt>
-<dd>A caching rule provides you with fine-grained control over the
-time-to-live (TTL) of an object. When the TTL expires for an object,
-the edge node pulls the object from the origin again.</dd>
-<dt>Content delivery network</dt>
-<dd>A content delivery network (CDN) is a system of multiple computers
-that contains copies of data stored at various network nodes. A CDN
-is designed to improve performance of publicly distributed
-assets.&nbsp;Assets can be anything from website content, to web
-application components, to media such as videos, ads, and
-interactive experiences.&nbsp;&nbsp;CDNs decrease the load time of these
-assets by caching them on edge nodes, also called edge servers or
-point of presence (PoPs) servers.&nbsp; Edge nodes are distributed around
-the globe, so requests travel to a local location to get assets
-rather than to and from a data center based far from the end user.</dd>
-<dt>Domain</dt>
-<dd>A domain represents the domain name through which visitors retrieve
-content. The underlying site might be served through a CDN. A
-service can have multiple domains. The CDN provider provides users
-with a Canonical Name (CName) to specify for their domain name as an
-alias.</dd>
-<dt>Edge node</dt>
-<dd>CDN providers have many points of presence (PoP) servers around the
-world. These servers are known as edge nodes. These edge nodes cache
-the content and serve it directly to customers, thus reducing
-transit time to a customer&#8217;s location.</dd>
-<dt>Edge server</dt>
-<dd>An edge server is the same as an edge node.</dd>
-<dt>Flavor</dt>
-<dd>A flavor is a mapping configuration to a CDN provider that enables
-you to decide which CDN features that you want your service to use.
-In the request and response examples for Rackspace CDN, the flavor
-is referred to with the <code class="docutils literal"><span class="pre">flavor_id</span></code> parameter. For this release of
-Rackspace CDN, the <code class="docutils literal"><span class="pre">flavor_id</span></code> value is <code class="docutils literal"><span class="pre">cdn</span></code>. The <code class="docutils literal"><span class="pre">cdn</span></code>
-flavor enables your service content to be delivered across the
-network using the Rackspace CDN partner, Akamai. In the future,
-Rackspace might offer other flavors.</dd>
-<dt>JSON Pointer</dt>
-<dd>A JSON Pointer defines a syntax for identifying a specific value
-within a JSON document. A restricted JSON pointer is a Unicode
-string containing a sequence of exactly one reference token,
-prefixed by a &#8216;/&#8217; (%x2F) character. Each reference token is a
-sequence of unreserved and/or percent-encoded characters.</dd>
-<dt>Origin</dt>
-<dd>An origin is an address (IP or domain) from which the CDN provider
-pulls content. A service can have multiple origins.</dd>
-<dt>Point of presence</dt>
-<dd>A point of presence (PoP) is the point at which two or more
-different networks or communication devices build a connection with
-each other. PoP mainly refers to an access point, location, or
-facility that connects to and helps other devices establish a
-connection with the Internet.</dd>
-<dt>Purge</dt>
-<dd>Purging removes content from the edge nodes thus invalidating the
-content so that the content can be refreshed from your origin
-servers. Currently in Rackspace CDN, purges require the URL of the
-file to purge; use of wildcards is not in effect.</dd>
-<dt>Restriction</dt>
-<dd>A restriction enables you to define rules about who can or cannot
-access content from the cache. An example of a restriction is
-allowing requests only from certain domains based on HTTP
-<code class="docutils literal"><span class="pre">Referrer</span></code> headers.</dd>
-<dt>Service</dt>
-<dd>A service represents an application that has its content cached to
-the edge nodes.</dd>
-<dt>Status</dt>
-<dd>The status indicates the current state of a service. The time it
-takes for a service configuration to be distributed to a CDN
-provider cache can vary.</dd>
-</dl>
-</div>
 </div>
 </div>
 
@@ -3503,7 +3429,6 @@ provider cache can vary.</dd>
 <li class="toctree-l2"><a class="reference internal" href="index.html#retrieve-flavor-details">Retrieve flavor details</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="index.html#document-glossary">Glossary</a></li>
 </ul>
 <div class="relations">
 <h3>Related Topics</h3>
