@@ -1221,7 +1221,6 @@ Content-Type: application/json
 </pre></div>
 </div>
 <p>This operation pings the server.</p>
-<p>This operation retrieves a ping to the server.</p>
 <p>This table shows the possible response codes for this operation:</p>
 <table border="1" class="docutils">
 <colgroup>
@@ -1310,6 +1309,7 @@ X-Auth-Token: 0f6e9f63600142f0a970911583522217
 </div>
 <div class="section" id="id2">
 <h4>Response<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h4>
+<p>This operation does not return a response body.</p>
 <p><strong>Example Ping the server: JSON response</strong></p>
 <div class="code highlight-python"><div class="highlight"><pre>HTTP/1.1 204 No Content
 </pre></div>
@@ -1800,7 +1800,7 @@ Content-Type: application/json
 <p>For origin rules, use the path /* to include all content for the site.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last"><code class="docutils literal"><span class="pre">service_id</span></code>, which is used in several of the services operations, is returned in the response to create a service. Take note this value. You can also retrieve <code class="docutils literal"><span class="pre">service_id</span></code> using <a class="reference internal" href="#cdn-get-a-service"><span>List a service</span></a>.</p>
+<p class="last"><code class="docutils literal"><span class="pre">service_id</span></code>, which is used in several of the services operations, is returned in the response to create a service. Take note this value. You can also retrieve <code class="docutils literal"><span class="pre">service_id</span></code> using <a class="reference internal" href="#cdn-get-a-service"><span>Retrieve a service</span></a>.</p>
 </div>
 <p>This table shows the possible response codes for this operation:</p>
 <table border="1" class="docutils">
@@ -2099,25 +2099,27 @@ maximum length is 256.</td>
 <tr class="row-even"><td><strong>log_delivery</strong></td>
 <td>String
 <em>(Required)</em></td>
-<td>Specifies whether to enable log delivery to a Cloud Files container. You can
+<td><p class="first">Specifies whether to enable log delivery to a Cloud Files container. You can
 use access log delivery to analyze the number of requests for each object,
 the client IP address, and time-based usage patterns (such as monthly or
-seasonal usage). Log files are named according to the following pattern:
+seasonal usage).</p>
+<p>Log files are named according to the following pattern:
 service name, log date, log hour, and MD5 hash. For example:
 <code class="docutils literal"><span class="pre">www.mywebsite.com/2015/02/01/16/096e6c4473f235db081deb51f42a8d98.log.gz</span></code>.
 In this example, <code class="docutils literal"><span class="pre">www.mywebsite.com</span></code> is the name of the service,
 <code class="docutils literal"><span class="pre">2015/02/01</span></code> is the date (February 1, 2015), and <code class="docutils literal"><span class="pre">16</span></code> is the hour that
 the log file was created. There might be multiple files for a given hour
-because the system splits log files based on both time and log file size. All
-times in the access logs are UTC time. Within the gzip logs, the format of
+because the system splits log files based on both time and log file size.</p>
+<p>All times in the access logs are UTC time. Within the gzip logs, the format of
 the entries is similar to National Center for Supercomputing Applications
 (NCSA) combined log format, but without cookies. The pattern follows. The
 dashes (-) denote fields that the NCSA combined log format dictates be
-present but that Rackspace CDN does not capture. For example: <code class="docutils literal"><span class="pre">client_ip</span> <span class="pre">-</span> <span class="pre">-</span>
-<span class="pre">[day/month/year:hour:minute:second</span> <span class="pre">timezone]</span> <span class="pre">“method</span> <span class="pre">request</span> <span class="pre">HTTP_version”</span>
-<span class="pre">return_code</span> <span class="pre">bytes_sent</span> <span class="pre">“referrer”</span> <span class="pre">“user_agent”</span></code> Logs are stored in a Cloud
-Files container named.CDN_ACCESS_LOGS. If this container does not exist, it
-is created.</td>
+present but that Rackspace CDN does not capture.</p>
+<p>For example: <code class="docutils literal"><span class="pre">client_ip</span> <span class="pre">-</span> <span class="pre">-</span> <span class="pre">[day/month/year:hour:minute:second</span> <span class="pre">timezone]</span>
+<span class="pre">“method</span> <span class="pre">request</span> <span class="pre">HTTP_version”</span> <span class="pre">return_code</span> <span class="pre">bytes_sent</span> <span class="pre">“referrer”</span> <span class="pre">“user_agent”</span></code></p>
+<p class="last">Logs are stored in a Cloud Files container named.CDN_ACCESS_LOGS. If this
+container does not exist, itis created.</p>
+</td>
 </tr>
 <tr class="row-odd"><td>log_delivery.<strong>enabled</strong></td>
 <td>String
@@ -2189,6 +2191,7 @@ Content-type: application/json
 </div>
 <div class="section" id="id2">
 <h4>Response<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h4>
+<p>This operation does not return a response body.</p>
 <p><strong>Example Create a service: JSON response</strong></p>
 <div class="code highlight-python"><div class="highlight"><pre>HTTP/1.1 202 Accepted
 Content-Type: application/json
@@ -2394,7 +2397,8 @@ asset.</td>
 <tr class="row-even"><td><strong>log_delivery</strong></td>
 <td>String</td>
 <td>Specifies whether log delivery to a Cloud Files container is enabled or disabled. For more
-information about logs, see the <code class="docutils literal"><span class="pre">log_delivery</span></code> parameter description in <a class="reference external" href="http://docs.rackspace.com/cdn/api/v1.0/cdn-devguide/content/POST_createService_v1.0__project_id__services_servicesOperations.html">Create service</a>.</td>
+information about logs, see the <code class="docutils literal"><span class="pre">log_delivery</span></code> parameter description in <a class="reference internal" href="#cdn-create-a-service"><span>Create  a
+service</span></a>.</td>
 </tr>
 <tr class="row-odd"><td>log_delivery.<strong>enabled</strong></td>
 <td>String</td>

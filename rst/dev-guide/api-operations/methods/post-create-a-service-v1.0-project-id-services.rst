@@ -19,7 +19,7 @@ For more information about rules ordering, caching rules, origin rules, and refe
 For origin rules, use the path /* to include all content for the site.
 
 .. note::
-   ``service_id``, which is used in several of the services operations, is returned in the response to create a service. Take note this value. You can also retrieve ``service_id`` using :ref:`List a service <cdn-get-a-service>`.
+   ``service_id``, which is used in several of the services operations, is returned in the response to create a service. Take note this value. You can also retrieve ``service_id`` using :ref:`Retrieve a service <cdn-get-a-service>`.
    
    
 
@@ -203,22 +203,27 @@ This table shows the body parameters for the request:
 |\ **log_delivery**     |String       |Specifies whether to enable log delivery to a Cloud Files container. You can  |
 |                       |*(Required)* |use access log delivery to analyze the number of requests for each object,    |
 |                       |             |the client IP address, and time-based usage patterns (such as monthly or      |
-|                       |             |seasonal usage). Log files are named according to the following pattern:      |
+|                       |             |seasonal usage).                                                              |
+|                       |             |                                                                              |
+|                       |             |Log files are named according to the following pattern:                       |
 |                       |             |service name, log date, log hour, and MD5 hash. For example:                  |
 |                       |             |``www.mywebsite.com/2015/02/01/16/096e6c4473f235db081deb51f42a8d98.log.gz``.  |
 |                       |             |In this example, ``www.mywebsite.com`` is the name of the service,            |
 |                       |             |``2015/02/01`` is the date (February 1, 2015), and ``16`` is the hour that    |
 |                       |             |the log file was created. There might be multiple files for a given hour      |
-|                       |             |because the system splits log files based on both time and log file size. All |
-|                       |             |times in the access logs are UTC time. Within the gzip logs, the format of    |
+|                       |             |because the system splits log files based on both time and log file size.     |
+|                       |             |                                                                              |
+|                       |             |All times in the access logs are UTC time. Within the gzip logs, the format of|
 |                       |             |the entries is similar to National Center for Supercomputing Applications     |
 |                       |             |(NCSA) combined log format, but without cookies. The pattern follows. The     |
 |                       |             |dashes (-) denote fields that the NCSA combined log format dictates be        |
-|                       |             |present but that Rackspace CDN does not capture. For example: ``client_ip - - |
-|                       |             |[day/month/year:hour:minute:second timezone] “method request HTTP_version”    |
-|                       |             |return_code bytes_sent “referrer” “user_agent”`` Logs are stored in a Cloud   |
-|                       |             |Files container named.CDN_ACCESS_LOGS. If this container does not exist, it   |
-|                       |             |is created.                                                                   |
+|                       |             |present but that Rackspace CDN does not capture.                              |
+|                       |             |                                                                              |
+|                       |             |For example: ``client_ip - - [day/month/year:hour:minute:second timezone]     |
+|                       |             |“method request HTTP_version” return_code bytes_sent “referrer” “user_agent”``|
+|                       |             |                                                                              |
+|                       |             |Logs are stored in a Cloud Files container named.CDN_ACCESS_LOGS. If this     |
+|                       |             |container does not exist, itis created.                                       |
 +-----------------------+-------------+------------------------------------------------------------------------------+
 |log_delivery.\         |String       |Specifies whether to enable or disable log delivery. Valid values are         |
 |**enabled**            |*(Required)* |``true`` and ``false``.                                                       |
@@ -300,7 +305,7 @@ Response
 
 
 
-
+This operation does not return a response body.
 
 
 

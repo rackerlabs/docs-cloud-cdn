@@ -153,9 +153,8 @@ This table shows the body parameters for the response:
 |**referrer**          |       |                                                                                            |
 +----------------------+-------+--------------------------------------------------------------------------------------------+
 |\ **log_delivery**    |String |Specifies whether log delivery to a Cloud Files container is enabled or disabled. For more  |
-|                      |       |information about logs, see the ``log_delivery`` parameter description in `Create service   |
-|                      |       |<http://docs.rackspace.com/cdn/api/v1.0/cdn-                                                |
-|                      |       |devguide/content/POST_createService_v1.0__project_id__services_servicesOperations.html>`__. |
+|                      |       |information about logs, see the ``log_delivery`` parameter description in :ref:`Create  a   |
+|                      |       |service <cdn-create-a-service>`.                                                            |
 +----------------------+-------+--------------------------------------------------------------------------------------------+
 |log_delivery.\        |String |Specifies whether log delivery is enabled (``true``) or disabled (``false``).               |
 |**enabled**           |       |                                                                                            |

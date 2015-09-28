@@ -12,9 +12,6 @@ Ping the server
 
 This operation pings the server.
 
-This operation retrieves a ping to the server. 
-
-
 
 This table shows the possible response codes for this operation:
 
@@ -100,7 +97,7 @@ Response
 
 
 
-
+This operation does not return a response body.
 
 
 
