@@ -1,4 +1,4 @@
-.. _cdn-services-operations:
+.. _services-operations:
 
 Services operations
 ~~~~~~~~~~~~~~~~~~~

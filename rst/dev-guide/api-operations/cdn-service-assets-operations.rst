@@ -1,4 +1,4 @@
-.. _cdn-service-assets-operations:
+.. _service-assets-operations:
 
 Service assets operations
 ~~~~~~~~~~~~~~~~~~~~~~~~~

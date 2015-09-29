@@ -40,7 +40,7 @@
             
   <div class="section" id="rackspace-cdn-api-1-0">
 <span id="index"></span><h1>Rackspace CDN API 1.0<a class="headerlink" href="#rackspace-cdn-api-1-0" title="Permalink to this headline">#</a></h1>
-<p><em>Last updated:</em> September 28, 2015</p>
+<p><em>Last updated:</em> September 29, 2015</p>
 <p>Learn how to use the Rackspace CDN service by using the REST API.</p>
 <ul class="simple">
 <li>For details about using the API, see the <a class="reference internal" href="index.html#developer-guide"><span>Developer Guide</span></a>.</li>
@@ -1072,16 +1072,16 @@ response examples.</p>
 </div>
 <span id="document-api-operations/index"></span><div class="toctree-wrapper compound">
 <span id="document-api-operations/cdn-base-operations"></span><div class="section" id="base-operations">
-<span id="cdn-base-operations"></span><h2>Base operations<a class="headerlink" href="#base-operations" title="Permalink to this headline">#</a></h2>
+<span id="id1"></span><h2>Base operations<a class="headerlink" href="#base-operations" title="Permalink to this headline">#</a></h2>
 <div class="contents local topic" id="contents">
 <ul class="simple">
-<li><a class="reference internal" href="#retrieve-the-home-document" id="id3">Retrieve the home document</a></li>
-<li><a class="reference internal" href="#ping-the-server" id="id4">Ping the server</a></li>
+<li><a class="reference internal" href="#retrieve-the-home-document" id="id4">Retrieve the home document</a></li>
+<li><a class="reference internal" href="#ping-the-server" id="id5">Ping the server</a></li>
 </ul>
 </div>
 <p>This section describes the base operations of the Rackspace CDN API.</p>
 <div class="section" id="retrieve-the-home-document">
-<span id="cdn-get-the-home-document"></span><h3><a class="toc-backref" href="#id3">Retrieve the home document</a><a class="headerlink" href="#retrieve-the-home-document" title="Permalink to this headline">#</a></h3>
+<span id="cdn-get-the-home-document"></span><h3><a class="toc-backref" href="#id4">Retrieve the home document</a><a class="headerlink" href="#retrieve-the-home-document" title="Permalink to this headline">#</a></h3>
 <div class="code highlight-python"><div class="highlight"><pre>GET /v1.0/{project_id}/
 </pre></div>
 </div>
@@ -1216,7 +1216,7 @@ Content-Type: application/json
 </div>
 </div>
 <div class="section" id="ping-the-server">
-<span id="cdn-ping-the-server"></span><h3><a class="toc-backref" href="#id4">Ping the server</a><a class="headerlink" href="#ping-the-server" title="Permalink to this headline">#</a></h3>
+<span id="cdn-ping-the-server"></span><h3><a class="toc-backref" href="#id5">Ping the server</a><a class="headerlink" href="#ping-the-server" title="Permalink to this headline">#</a></h3>
 <div class="code highlight-python"><div class="highlight"><pre>GET /v1.0/{project_id}/ping
 </pre></div>
 </div>
@@ -1274,8 +1274,8 @@ other errors.</td>
 </tr>
 </tbody>
 </table>
-<div class="section" id="id1">
-<h4>Request<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h4>
+<div class="section" id="id2">
+<h4>Request<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h4>
 <p>This table shows the URI parameters for the request:</p>
 <table border="1" class="docutils">
 <colgroup>
@@ -1307,8 +1307,8 @@ X-Auth-Token: 0f6e9f63600142f0a970911583522217
 </pre></div>
 </div>
 </div>
-<div class="section" id="id2">
-<h4>Response<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h4>
+<div class="section" id="id3">
+<h4>Response<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h4>
 <p>This operation does not return a response body.</p>
 <p><strong>Example Ping the server: JSON response</strong></p>
 <div class="code highlight-python"><div class="highlight"><pre>HTTP/1.1 204 No Content
@@ -1318,19 +1318,19 @@ X-Auth-Token: 0f6e9f63600142f0a970911583522217
 </div>
 </div>
 <span id="document-api-operations/cdn-services-operations"></span><div class="section" id="services-operations">
-<span id="cdn-services-operations"></span><h2>Services operations<a class="headerlink" href="#services-operations" title="Permalink to this headline">#</a></h2>
+<span id="id1"></span><h2>Services operations<a class="headerlink" href="#services-operations" title="Permalink to this headline">#</a></h2>
 <div class="contents local topic" id="contents">
 <ul class="simple">
-<li><a class="reference internal" href="#retrieve-all-services" id="id9">Retrieve all services</a></li>
-<li><a class="reference internal" href="#create-a-service" id="id10">Create a service</a></li>
-<li><a class="reference internal" href="#retrieve-a-service" id="id11">Retrieve a service</a></li>
-<li><a class="reference internal" href="#update-a-service" id="id12">Update a service</a></li>
-<li><a class="reference internal" href="#delete-a-service" id="id13">Delete a service</a></li>
+<li><a class="reference internal" href="#retrieve-all-services" id="id10">Retrieve all services</a></li>
+<li><a class="reference internal" href="#create-a-service" id="id11">Create a service</a></li>
+<li><a class="reference internal" href="#retrieve-a-service" id="id12">Retrieve a service</a></li>
+<li><a class="reference internal" href="#update-a-service" id="id13">Update a service</a></li>
+<li><a class="reference internal" href="#delete-a-service" id="id14">Delete a service</a></li>
 </ul>
 </div>
 <p>This section describes the services operations of the Rackspace CDN API.</p>
 <div class="section" id="retrieve-all-services">
-<span id="cdn-get-all-services"></span><h3><a class="toc-backref" href="#id9">Retrieve all services</a><a class="headerlink" href="#retrieve-all-services" title="Permalink to this headline">#</a></h3>
+<span id="cdn-get-all-services"></span><h3><a class="toc-backref" href="#id10">Retrieve all services</a><a class="headerlink" href="#retrieve-all-services" title="Permalink to this headline">#</a></h3>
 <div class="code highlight-python"><div class="highlight"><pre>GET /v1.0/{project_id}/services
 </pre></div>
 </div>
@@ -1790,7 +1790,7 @@ Content-Type: application/json
 </div>
 </div>
 <div class="section" id="create-a-service">
-<span id="cdn-create-a-service"></span><h3><a class="toc-backref" href="#id10">Create a service</a><a class="headerlink" href="#create-a-service" title="Permalink to this headline">#</a></h3>
+<span id="cdn-create-a-service"></span><h3><a class="toc-backref" href="#id11">Create a service</a><a class="headerlink" href="#create-a-service" title="Permalink to this headline">#</a></h3>
 <div class="code highlight-python"><div class="highlight"><pre>POST /v1.0/{project_id}/services
 </pre></div>
 </div>
@@ -1860,8 +1860,8 @@ or 443.</td>
 </tr>
 </tbody>
 </table>
-<div class="section" id="id1">
-<h4>Request<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h4>
+<div class="section" id="id2">
+<h4>Request<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h4>
 <p>This table shows the URI parameters for the request:</p>
 <table border="1" class="docutils">
 <colgroup>
@@ -2189,8 +2189,8 @@ Content-type: application/json
 </pre></div>
 </div>
 </div>
-<div class="section" id="id2">
-<h4>Response<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h4>
+<div class="section" id="id3">
+<h4>Response<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h4>
 <p>This operation does not return a response body.</p>
 <p><strong>Example Create a service: JSON response</strong></p>
 <div class="code highlight-python"><div class="highlight"><pre>HTTP/1.1 202 Accepted
@@ -2201,7 +2201,7 @@ Location: https://global.cdn.api.rackspacecloud.com/v1.0/services/96737ae3-cfc1-
 </div>
 </div>
 <div class="section" id="retrieve-a-service">
-<span id="cdn-get-a-service"></span><h3><a class="toc-backref" href="#id11">Retrieve a service</a><a class="headerlink" href="#retrieve-a-service" title="Permalink to this headline">#</a></h3>
+<span id="cdn-get-a-service"></span><h3><a class="toc-backref" href="#id12">Retrieve a service</a><a class="headerlink" href="#retrieve-a-service" title="Permalink to this headline">#</a></h3>
 <div class="code highlight-python"><div class="highlight"><pre>GET /v1.0/{project_id}/services/{service_id}
 </pre></div>
 </div>
@@ -2226,8 +2226,8 @@ Location: https://global.cdn.api.rackspacecloud.com/v1.0/services/96737ae3-cfc1-
 </tr>
 </tbody>
 </table>
-<div class="section" id="id3">
-<h4>Request<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h4>
+<div class="section" id="id4">
+<h4>Request<a class="headerlink" href="#id4" title="Permalink to this headline">#</a></h4>
 <p>This table shows the URI parameters for the request:</p>
 <table border="1" class="docutils">
 <colgroup>
@@ -2268,8 +2268,8 @@ Content-type: application/json
 </pre></div>
 </div>
 </div>
-<div class="section" id="id4">
-<h4>Response<a class="headerlink" href="#id4" title="Permalink to this headline">#</a></h4>
+<div class="section" id="id5">
+<h4>Response<a class="headerlink" href="#id5" title="Permalink to this headline">#</a></h4>
 <p>This table shows the body parameters for the response:</p>
 <table border="1" class="docutils">
 <colgroup>
@@ -2546,7 +2546,7 @@ Content-Type: application/json
 </div>
 </div>
 <div class="section" id="update-a-service">
-<span id="cdn-update-a-service"></span><h3><a class="toc-backref" href="#id12">Update a service</a><a class="headerlink" href="#update-a-service" title="Permalink to this headline">#</a></h3>
+<span id="cdn-update-a-service"></span><h3><a class="toc-backref" href="#id13">Update a service</a><a class="headerlink" href="#update-a-service" title="Permalink to this headline">#</a></h3>
 <div class="code highlight-python"><div class="highlight"><pre>PATCH /v1.0/{project_id}/services/{service_id}
 </pre></div>
 </div>
@@ -2583,8 +2583,8 @@ service not deployed.</td>
 </tr>
 </tbody>
 </table>
-<div class="section" id="id5">
-<h4>Request<a class="headerlink" href="#id5" title="Permalink to this headline">#</a></h4>
+<div class="section" id="id6">
+<h4>Request<a class="headerlink" href="#id6" title="Permalink to this headline">#</a></h4>
 <p>This table shows the URI parameters for the request:</p>
 <table border="1" class="docutils">
 <colgroup>
@@ -2817,8 +2817,8 @@ Content-type: application/json-patch+json
 </pre></div>
 </div>
 </div>
-<div class="section" id="id6">
-<h4>Response<a class="headerlink" href="#id6" title="Permalink to this headline">#</a></h4>
+<div class="section" id="id7">
+<h4>Response<a class="headerlink" href="#id7" title="Permalink to this headline">#</a></h4>
 <p>This operation does not return a response body.</p>
 <p><strong>Example Update a service: JSON response</strong></p>
 <div class="code highlight-python"><div class="highlight"><pre>HTTP/1.1 202 Accepted
@@ -2828,7 +2828,7 @@ Location: https://global.cdn.api.rackspacecloud.com/v1.0/services/96737ae3-cfc1-
 </div>
 </div>
 <div class="section" id="delete-a-service">
-<span id="cdn-delete-a-service"></span><h3><a class="toc-backref" href="#id13">Delete a service</a><a class="headerlink" href="#delete-a-service" title="Permalink to this headline">#</a></h3>
+<span id="cdn-delete-a-service"></span><h3><a class="toc-backref" href="#id14">Delete a service</a><a class="headerlink" href="#delete-a-service" title="Permalink to this headline">#</a></h3>
 <div class="code highlight-python"><div class="highlight"><pre>DELETE /v1.0/{project_id}/services/{service_id}
 </pre></div>
 </div>
@@ -2857,8 +2857,8 @@ is empty).</td>
 </tr>
 </tbody>
 </table>
-<div class="section" id="id7">
-<h4>Request<a class="headerlink" href="#id7" title="Permalink to this headline">#</a></h4>
+<div class="section" id="id8">
+<h4>Request<a class="headerlink" href="#id8" title="Permalink to this headline">#</a></h4>
 <p>This table shows the URI parameters for the request:</p>
 <table border="1" class="docutils">
 <colgroup>
@@ -2898,8 +2898,8 @@ Content-Type: application/json
 </pre></div>
 </div>
 </div>
-<div class="section" id="id8">
-<h4>Response<a class="headerlink" href="#id8" title="Permalink to this headline">#</a></h4>
+<div class="section" id="id9">
+<h4>Response<a class="headerlink" href="#id9" title="Permalink to this headline">#</a></h4>
 <p>This operation does not return a response body.</p>
 <p><strong>Example Delete a service: JSON response</strong></p>
 <div class="code highlight-python"><div class="highlight"><pre>HTTP/1.1 202 Accepted
@@ -2909,16 +2909,16 @@ Content-Type: application/json
 </div>
 </div>
 <span id="document-api-operations/cdn-service-assets-operations"></span><div class="section" id="service-assets-operations">
-<span id="cdn-service-assets-operations"></span><h2>Service assets operations<a class="headerlink" href="#service-assets-operations" title="Permalink to this headline">#</a></h2>
+<span id="id1"></span><h2>Service assets operations<a class="headerlink" href="#service-assets-operations" title="Permalink to this headline">#</a></h2>
 <div class="contents local topic" id="contents">
 <ul class="simple">
-<li><a class="reference internal" href="#purge-a-cached-asset" id="id1">Purge a cached asset</a></li>
+<li><a class="reference internal" href="#purge-a-cached-asset" id="id2">Purge a cached asset</a></li>
 </ul>
 </div>
 <p>A service distributes assets across the network. Service assets let you interrogate properties about these assets and perform certain actions on them.</p>
 <p>The section describes the service assets operation in the Rackspace CDN API.</p>
 <div class="section" id="purge-a-cached-asset">
-<span id="cdn-purge-a-cached-asset"></span><h3><a class="toc-backref" href="#id1">Purge a cached asset</a><a class="headerlink" href="#purge-a-cached-asset" title="Permalink to this headline">#</a></h3>
+<span id="cdn-purge-a-cached-asset"></span><h3><a class="toc-backref" href="#id2">Purge a cached asset</a><a class="headerlink" href="#purge-a-cached-asset" title="Permalink to this headline">#</a></h3>
 <div class="code highlight-python"><div class="highlight"><pre>DELETE /v1.0/{project_id}/services/{service_id}/assets
 </pre></div>
 </div>
@@ -3031,17 +3031,17 @@ Location: https://global.cdn.api.rackspacecloud.com/v1.0/services/96737ae3-cfc1-
 </div>
 </div>
 <span id="document-api-operations/cdn-flavors-operations"></span><div class="section" id="flavors-operations">
-<span id="cdn-flavors-operations"></span><h2>Flavors operations<a class="headerlink" href="#flavors-operations" title="Permalink to this headline">#</a></h2>
+<span id="id1"></span><h2>Flavors operations<a class="headerlink" href="#flavors-operations" title="Permalink to this headline">#</a></h2>
 <div class="contents local topic" id="contents">
 <ul class="simple">
-<li><a class="reference internal" href="#retrieve-flavors" id="id3">Retrieve flavors</a></li>
-<li><a class="reference internal" href="#retrieve-flavor-details" id="id4">Retrieve flavor details</a></li>
+<li><a class="reference internal" href="#retrieve-flavors" id="id4">Retrieve flavors</a></li>
+<li><a class="reference internal" href="#retrieve-flavor-details" id="id5">Retrieve flavor details</a></li>
 </ul>
 </div>
 <p>A flavor is a mapping configuration to a CDN provider.</p>
 <p>The section describes the flavors operations in the Rackspace CDN API.</p>
 <div class="section" id="retrieve-flavors">
-<span id="cdn-get-flavors"></span><h3><a class="toc-backref" href="#id3">Retrieve flavors</a><a class="headerlink" href="#retrieve-flavors" title="Permalink to this headline">#</a></h3>
+<span id="cdn-get-flavors"></span><h3><a class="toc-backref" href="#id4">Retrieve flavors</a><a class="headerlink" href="#retrieve-flavors" title="Permalink to this headline">#</a></h3>
 <div class="code highlight-python"><div class="highlight"><pre>GET /v1.0/{project_id}/flavors
 </pre></div>
 </div>
@@ -3202,7 +3202,7 @@ Content-Type: application/json
 </div>
 </div>
 <div class="section" id="retrieve-flavor-details">
-<span id="cdn-get-flavor-details"></span><h3><a class="toc-backref" href="#id4">Retrieve flavor details</a><a class="headerlink" href="#retrieve-flavor-details" title="Permalink to this headline">#</a></h3>
+<span id="cdn-get-flavor-details"></span><h3><a class="toc-backref" href="#id5">Retrieve flavor details</a><a class="headerlink" href="#retrieve-flavor-details" title="Permalink to this headline">#</a></h3>
 <div class="code highlight-python"><div class="highlight"><pre>GET /v1.0/{project_id}/flavors/{flavor_id}
 </pre></div>
 </div>
@@ -3227,8 +3227,8 @@ Content-Type: application/json
 </tr>
 </tbody>
 </table>
-<div class="section" id="id1">
-<h4>Request<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h4>
+<div class="section" id="id2">
+<h4>Request<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h4>
 <p>This table shows the URI parameters for the request:</p>
 <table border="1" class="docutils">
 <colgroup>
@@ -3267,8 +3267,8 @@ Content-type: application/json
 </pre></div>
 </div>
 </div>
-<div class="section" id="id2">
-<h4>Response<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h4>
+<div class="section" id="id3">
+<h4>Response<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h4>
 <p>This table shows the body parameters for the response:</p>
 <table border="1" class="docutils">
 <colgroup>

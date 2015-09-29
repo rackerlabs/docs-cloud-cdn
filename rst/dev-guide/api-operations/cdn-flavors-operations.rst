@@ -1,4 +1,4 @@
-.. _cdn-flavors-operations:
+.. _flavors-operations:
 
 Flavors operations
 ~~~~~~~~~~~~~~~~~~

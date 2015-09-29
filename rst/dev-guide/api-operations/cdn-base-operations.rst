@@ -1,4 +1,4 @@
-.. _cdn-base-operations:
+.. _base-operations:
 
 Base operations
 ~~~~~~~~~~~~~~~
