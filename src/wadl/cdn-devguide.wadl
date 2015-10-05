@@ -89,10 +89,10 @@
 					<method href="#getFlavorDetails"/>
 			    </resource>
 			</resource>
-				
+<!--				
 				<resource id="ssl_certificate" path="ssl_certificate">
 					<method href="#postSSLCertificate"/>												
-				</resource>
+				</resource> -->
 							
 			</resource>
 		</resource>
@@ -595,7 +595,7 @@
 				<param name="client_ip" style="plain" path="$.restrictions.rules.client_ip"
 					required="false">
 					<wadl:doc xmlns="http://docbook.org/ns/docbook"
-						xml:lang="EN">Specifies the client IP address to which the rule applies.</wadl:doc>
+						xml:lang="EN">Specifies the client IP address to which the rule applies. Note: Rackspace CDN does not currently support Classless Inter-Domain Routing (CIDR) for these restrictions.</wadl:doc>
 				</param>
 				
 <!--			<param name="http_host" style="plain" path="$.restrictions.rules.http_host"
@@ -1193,7 +1193,7 @@
 	<!--*******************************************************-->
 	<!--               Post SSL certificate                    -->
 	<!--*******************************************************-->
-	<method name="POST" id="postSSLCertificate">
+<!--	<method name="POST" id="postSSLCertificate">
 		<wadl:doc xml:lang="EN" title="Create an SSL certificate"
 			xmlns="http://docbook.org/ns/docbook">
 			<para role="shortdesc">Creates an SSL certificate.</para>
@@ -1233,7 +1233,7 @@
 				
 			</representation>
 		</response>
-	</method>	
+	</method>	-->
 	
 <!--*******************************************************-->
 <!--              Flavors methods                          -->
