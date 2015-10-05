@@ -40,7 +40,7 @@
             
   <div class="section" id="rackspace-cdn-api-1-0">
 <span id="index"></span><h1>Rackspace CDN API 1.0<a class="headerlink" href="#rackspace-cdn-api-1-0" title="Permalink to this headline">#</a></h1>
-<p><em>Last updated:</em> September 29, 2015</p>
+<p><em>Last updated:</em> October 05, 2015</p>
 <p>Learn how to use the Rackspace CDN service by using the REST API.</p>
 <ul class="simple">
 <li>For details about using the API, see the <a class="reference internal" href="index.html#developer-guide"><span>Developer Guide</span></a>.</li>
@@ -2094,7 +2094,9 @@ maximum length is 256.</td>
 <tr class="row-odd"><td>restrictions.rules.<strong>client_ip</strong></td>
 <td>String
 <em>(Optional)</em></td>
-<td>Specifies the client IP address to which the rule applies.</td>
+<td>Specifies the client IP address to which the rule applies. Note: Rackspace CDN
+does not currently support Classless Inter-Domain Routing (CIDR) for these
+restrictions.</td>
 </tr>
 <tr class="row-even"><td><strong>log_delivery</strong></td>
 <td>String
