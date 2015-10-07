@@ -22,10 +22,10 @@ When you create a service POST call to /v1.0/{project_id}/services you can defin
    restrictions to impose on the service. Rules can be combined
    together.
 
-   The ``retrictions.rules`` parameter supports ``name`` and
-   ``referrer`` parameters.
+   The ``retrictions.rules`` parameter supports ``name``,
+   ``referrer``, ``request_url``, ``geography``, and ``client_ip`` parameters.
 
-.. note:: Each of the parameters above are described in the API reference.
+.. note:: Each of the parameters above are described :ref:`Create a service <cdn-create-a-service>`.
 
 These rules are stored in a policy file at every edge server and are
 applied to your traffic when a request is issued that matches the path

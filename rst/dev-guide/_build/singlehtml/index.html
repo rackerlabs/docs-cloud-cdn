@@ -40,7 +40,7 @@
             
   <div class="section" id="rackspace-cdn-api-1-0">
 <span id="index"></span><h1>Rackspace CDN API 1.0<a class="headerlink" href="#rackspace-cdn-api-1-0" title="Permalink to this headline">#</a></h1>
-<p><em>Last updated:</em> October 05, 2015</p>
+<p><em>Last updated:</em> October 07, 2015</p>
 <p>Learn how to use the Rackspace CDN service by using the REST API.</p>
 <ul class="simple">
 <li>For details about using the API, see the <a class="reference internal" href="index.html#developer-guide"><span>Developer Guide</span></a>.</li>
@@ -1031,13 +1031,13 @@ TTL should be applied to an asset.</p>
 <li><p class="first"><code class="docutils literal"><span class="pre">restrictions</span></code>: Specifies a collection of rules that define the
 restrictions to impose on the service. Rules can be combined
 together.</p>
-<p>The <code class="docutils literal"><span class="pre">retrictions.rules</span></code> parameter supports <code class="docutils literal"><span class="pre">name</span></code> and
-<code class="docutils literal"><span class="pre">referrer</span></code> parameters.</p>
+<p>The <code class="docutils literal"><span class="pre">retrictions.rules</span></code> parameter supports <code class="docutils literal"><span class="pre">name</span></code>,
+<code class="docutils literal"><span class="pre">referrer</span></code>, <code class="docutils literal"><span class="pre">request_url</span></code>, <code class="docutils literal"><span class="pre">geography</span></code>, and <code class="docutils literal"><span class="pre">client_ip</span></code> parameters.</p>
 </li>
 </ul>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">Each of the parameters above are described in the API reference.</p>
+<p class="last">Each of the parameters above are described <a class="reference internal" href="index.html#cdn-create-a-service"><span>Create a service</span></a>.</p>
 </div>
 <p>These rules are stored in a policy file at every edge server and are
 applied to your traffic when a request is issued that matches the path
@@ -1796,7 +1796,7 @@ Content-Type: application/json
 </div>
 <p>This operation creates a service.</p>
 <p>To create a new service, provide a JSON body for the new service with the required attributes.</p>
-<p>For more information about rules ordering, caching rules, origin rules, and referrer rules, see <a class="reference external" href="http://www.rackspace.com/knowledge_center/article/rackspace-cdn-edge-rules">Rackspace CDN edge rules</a>.</p>
+<p>For more information about rules ordering, caching rules, origin rules, and restrictions rules, see <a class="reference external" href="http://www.rackspace.com/knowledge_center/article/rackspace-cdn-edge-rules">Rackspace CDN edge rules</a>.</p>
 <p>For origin rules, use the path /* to include all content for the site.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>

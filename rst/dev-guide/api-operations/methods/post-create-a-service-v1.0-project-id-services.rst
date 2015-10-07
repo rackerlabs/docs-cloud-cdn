@@ -14,7 +14,7 @@ This operation creates a service.
 
 To create a new service, provide a JSON body for the new service with the required attributes.
 
-For more information about rules ordering, caching rules, origin rules, and referrer rules, see `Rackspace CDN edge rules <http://www.rackspace.com/knowledge_center/article/rackspace-cdn-edge-rules>`__.
+For more information about rules ordering, caching rules, origin rules, and restrictions rules, see `Rackspace CDN edge rules <http://www.rackspace.com/knowledge_center/article/rackspace-cdn-edge-rules>`__.
 
 For origin rules, use the path /* to include all content for the site.
 
