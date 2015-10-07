@@ -414,7 +414,7 @@
 			<para role="shortdesc">Creates a service.</para>
 		
             <para>To create a new service, provide a JSON body for the new service with the required attributes.</para>
-			<para>For more information about rules ordering, caching rules, origin rules, and referrer rules, see <link
+			<para>For more information about rules ordering, caching rules, origin rules, and restrictions rules, see <link
 				xlink:href="http://docs.rackspace.com/cdn/api/v1.0/cdn-devguide/content/createRules-d101.html">Creating rules</link>.</para>
 			<para>For origin rules, use the path /* to include all content for the site.</para>
 			<note><para><code>service_id</code>, which is used in several of the services operations, is returned in the response to create a service. Take note this value. You can also retrieve <code>service_id</code> using <link

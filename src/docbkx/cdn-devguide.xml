@@ -1419,8 +1419,10 @@ Content-Type: application/json
         <listitem>
           <para><code>restrictions</code>: Specifies a collection of rules that define the
             restrictions to impose on the service. Rules can be combined together.  </para>
-          <para>The <code>retrictions.rules</code> parameter supports <code>name</code> and
-              <code>referrer</code> parameters. </para>
+          <para>The <code>retrictions.rules</code> parameter supports
+              <code>name</code>, <code>referrer</code>,
+              <code>request_url</code>, <code>geography</code>, and
+              <code>client_ip</code> parameters. </para>
         </listitem>
       </itemizedlist>
       <note>
