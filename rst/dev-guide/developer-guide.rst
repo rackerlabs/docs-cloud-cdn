@@ -7,8 +7,7 @@
 This guide is intended to assist software developers who want to develop applications by
 using the REST application programming interface (API) for the Rackspace CDN service. 
 
-To use the information provided here, you should have a general understanding of the
-`Rackspace CDN service`_ and have a `Rackspace Cloud account`_ with access to the Rackspace CDN service. You should also be familiar with the following technologies:
+To use the information provided here, you should have a general understanding of the and have a `Rackspace Cloud account`_ with access to the Rackspace CDN service. You should also be familiar with the following technologies:
 
 -  *RESTful* web services
 
@@ -16,5 +15,4 @@ To use the information provided here, you should have a general understanding of
 
 -  JSON data serialization format
 
-.. _Rackspace CDN service: https://www.rackspace.com/knowledge_center/article/rackspace-cdn-faq
 .. _Rackspace Cloud Account: https://cart.rackspace.com/cloud

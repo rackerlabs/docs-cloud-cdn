@@ -40,6 +40,18 @@
 					</resource>
 				</resource>
 				
+				            <resource  id="limits" path="limits">
+				            	<resource id="project_id" path="{project_id}">
+				            		<param name="project_id" style="template" type="xsd:string"> 
+				            			<wadl:doc 
+				            				xmlns="http://docbook.org/ns/docbook"
+				            				xml:lang="EN"><para>The unique identifier for the user.</para> </wadl:doc>
+				            		</param>
+				            		<method href="#putLimitsProjectID"/>
+				            		<method href="#getLimitsProjectID"/>
+				            	</resource>
+				            </resource>	
+				
 							<resource id="domains" path="domains">
 								<resource id="domain" path="{domain_name}">
 								<param name="domain_name" style="template" type="xsd:string"> 
@@ -93,17 +105,17 @@
 <!--*******************************************************-->
 
 <!--*******************************************************-->
-<!--              Admin methods                             -->
+<!--              Service action methods                   -->
 <!--*******************************************************-->
 	
 <!--*******************************************************-->
-<!--               Service Action                          -->
+<!--            Post service action                        -->
 <!--*******************************************************-->
 	<method name="POST" id="postServiceAction">
 		<wadl:doc xml:lang="EN" title="Post service action"
 			xmlns="http://docbook.org/ns/docbook">
 			<para role="shortdesc">Enables, diables, or deletes services for a user account.</para>
-			<para>To change the operator status of or delete services for a <code>project_id</code>, provide a JSON request body with <code>action</code> set to <code>enable</code> or <code>disable</code> along with the <code>project_id</code> of the user. </para>			
+			<para>To change the operator status of or delete services for a <code>project_id</code> or a domain, provide a JSON request body with <code>action</code> set to <code>enable</code>, <code>disable</code>, or <code>delete</code>, along with the <code>project_id</code> of the user. </para>			
 		</wadl:doc>
 		<request>
 			<representation mediaType="application/json" >
@@ -126,7 +138,73 @@
 	</method>
 
 	<!--*******************************************************-->
-	<!--               Domain                                  -->
+	<!--              Limits methods                           -->
+	<!--*******************************************************-->
+	
+	<!--*******************************************************-->
+	<!--      Set limits on services for a user account        -->
+	<!--*******************************************************-->
+	<method name="PUT" id="putLimitsProjectID">
+		<wadl:doc xml:lang="EN" title="Set limits on services for a user account"
+			xmlns="http://docbook.org/ns/docbook">
+			<para role="shortdesc">Sets limits on the number of services.</para>
+			<para>To set limits on the number of services for a particular <code>project_id</code>, provide a JSON request body with <code>limit</code> set to a positive integer. Provide the <code>project_id</code> associated with the user account in the endpoint URL.</para>			
+		</wadl:doc>
+		<request>
+			<representation mediaType="application/json" >
+				<doc>
+					<xsdxt:code href="../wadl/samples/cdn-putLimitsProjectID_request-json-http.txt"/>
+					<xsdxt:code href="../wadl/samples/cdn-putLimitsProjectID_request.json"/>	
+				</doc>
+			</representation>
+		</request>
+		<response status="201" xmlns="http://wadl.dev.java.net/2009/02">
+			<doc title="Created" xml:lang="EN">The request has been fulfilled.</doc>
+			<representation mediaType="application/json">
+				<wadl:doc xmlns="http://docbook.org/ns/docbook"
+					xml:lang="EN">
+					<xsdxt:code
+						href="../wadl/samples/cdn-putLimitsProjectID_response-json-http.txt"/> 	 	 			
+				</wadl:doc>
+			</representation>
+		</response>		
+	</method>
+	
+	<!--*******************************************************-->
+	<!--      Get limits on services for a user account        -->
+	<!--*******************************************************-->
+	<method name="GET" id="getLimitsProjectID">
+		<wadl:doc xml:lang="EN" title="Get limits on services for a user account"
+			xmlns="http://docbook.org/ns/docbook">
+			<para role="shortdesc">Get limits on the number of services.</para>
+			<para> To get limits on the number of services for a particular <code>project_id</code>, provide the <code>project_id</code> in the endpoint URL of the operation. No JSON request body is required. </para>			
+		</wadl:doc>
+		<request>
+			<representation mediaType="application/json" >
+				<doc>
+					<xsdxt:code href="../wadl/samples/cdn-getLimitsProjectID_request-json-http.txt"/> 
+				</doc>
+			</representation>
+		</request>
+		<response status="200" xmlns="http://wadl.dev.java.net/2009/02">
+			<doc title="OK" xml:lang="EN">Success..</doc>
+			<representation mediaType="application/json">
+				<wadl:doc xmlns="http://docbook.org/ns/docbook"
+					xml:lang="EN">
+					<xsdxt:code
+						href="../wadl/samples/cdn-getLimitsProjectID_response-json-http.txt"/>
+					<xsdxt:code href="../wadl/samples/cdn-getLimitsProjectID_response.json"/>	  
+				</wadl:doc>
+			</representation>
+		</response>		
+	</method>
+	
+	<!--*******************************************************-->
+	<!--              Domain methods                           -->
+	<!--*******************************************************-->
+
+	<!--*******************************************************-->
+	<!--         Retrieve a service by domain name             -->
 	<!--*******************************************************-->
 	<method name="GET" id="getServiceByDomain">
 		<wadl:doc xml:lang="EN" title="Retrieve a service by domain name"
@@ -155,7 +233,7 @@
 	</method>	
 	
 	<!--*******************************************************-->
-	<!--               Migrate SAN Domain                      -->
+	<!--               Migrate SAN domain                      -->
 	<!--*******************************************************-->
 	<method name="POST" id="postSANDomain">
 		<wadl:doc xml:lang="EN" title="Migrate SAN domain"

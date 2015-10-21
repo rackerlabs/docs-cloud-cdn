@@ -3,23 +3,18 @@
 Additional resources
 ~~~~~~~~~~~~~~~~~~~~
 
-We welcome feedback, comments, and bug reports. Visit the Rackspace customer portal 
-at https://feedback.rackspace.com/.
+We welcome feedback, comments, and bug reports. Visit the Rackspace `Product Feedback page`_.
 
 Use the links below to learn more about the Rackspace CDN service and API.
 
-- For general information about Rackspace CDN, see the `Rackspace CDN FAQ`_ 
+- For general information about Rackspace CDN, see the :kc-article:`Rackspace CDN FAQ<rackspace-cdn-faq>` 
   in the Rackspace Knowledge Center.
   
-- To learn about using Rackspace Cloud SDKs, see `Software Development Kits & Tools`_. 
+- To learn about using Rackspace Cloud SDKs, see :rax-dev:`SDKs and tools<sdks>`. 
     
-- To get information about other Rackspace Cloud services APIs, see the
-  `Rackspace API Documentation`_.
+- To get information about other Rackspace Cloud services APIs, see the :rax-devdocs:`Rackspace API Documentation<>`.
 
 - Email support questions to cdn@rackspace.com.
 
-
-.. _Rackspace CDN FAQ: https://www.rackspace.com/knowledge_center/article/rackspace-cdn-faq
-.. _Rackspace API Documentation: https://developer.rackspace.com/docs/
-.. _Software Development Kits & Tools: https://developer.rackspace.com/docs/#sdks
+.. _Product Feedback page: https://feedback.rackspace.com/forums/298161-storage/suggestions/7119053-rackspace-cdn
 

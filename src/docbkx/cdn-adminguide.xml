@@ -47,8 +47,8 @@
     </copyright>
     <releaseinfo>API v1.0</releaseinfo>
     <productname>Rackspace CDN</productname>
-    <pubdate xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:html="http://www.w3.org/1999/xhtml"
-      >2015-08-28</pubdate>
+    <pubdate xmlns:m="http://www.w3.org/1998/Math/MathML"
+      xmlns:html="http://www.w3.org/1999/xhtml">2015-10-16</pubdate>
     <legalnotice role="rs-api" xmlns:m="http://www.w3.org/1998/Math/MathML"
       xmlns:html="http://www.w3.org/1999/xhtml">
       <annotation>
@@ -63,12 +63,49 @@
     <!--Note that the <productname> text matches the first few words of the title. The build system splits the title into productname + rest of title on the pdf cover.-->
     <revhistory>
       <revision>
+        <date>2015-10-16</date>
+        <revdescription>
+          <itemizedlist>
+            <listitem>
+              <para>Separated Admin operations section into the
+                following sections:<itemizedlist>
+                  <listitem>
+                    <para><xref linkend="domainOperations"/></para>
+                  </listitem>
+                  <listitem>
+                    <para><xref linkend="limitsOperations"/></para>
+                  </listitem>
+                  <listitem>
+                    <para><xref linkend="serviceActionOperations"
+                      /></para>
+                  </listitem>
+                </itemizedlist></para>
+            </listitem>
+            <listitem>
+              <para>Added the <xref linkend="limitsOperations"/>,
+                which include the following operations:</para>
+              <itemizedlist>
+                <listitem>
+                  <para>Set limits on services for a user
+                    account</para>
+                </listitem>
+                <listitem>
+                  <para>Get limits on services for a user
+                    account</para>
+                </listitem>
+              </itemizedlist>
+            </listitem>
+          </itemizedlist>
+        </revdescription>
+      </revision>
+      <revision>
         <date>2015-08-28</date>
         <revdescription>
           <itemizedlist>
             <listitem>
-              <para>Added the <xref linkend="adminOperations"/>, which include the following
-                operations:</para>
+              <para>Added the <xref linkend="serviceActionOperations"
+                /> and <xref linkend="domainOperations"/>, which
+                include the following operations:</para>
               <itemizedlist>
                 <listitem>
                   <para>Post service action</para>
@@ -1090,6 +1127,8 @@ Content-Type: application/json
     <title>API operations</title>
     <para>This chapter describes each of the Rackspace CDN service management operations, which are
       summarized in the following table. </para>
+    <para>These operations enable an operator to perform sensitive
+      operations to which regular users should not have access.</para>
     <section xml:id="baseOperations">
       <title>Base operations</title>
       <para>The section describes base operations for Rackspace CDN, such the operations to get the
@@ -1103,23 +1142,48 @@ Content-Type: application/json
         </wadl:resource>
       </wadl:resources>
     </section>
-    <section xml:id="adminOperations">
-      <title>Admin operations</title>
-      <para>The section describes admin operations for Rackspace CDN. </para>
-      <para>The admin endpoints are a collection of endpoints that allow an operator to perform
-        sensitive operations to which regular users should not have access.</para>
-      <para>Access to these endpoints should be controlled via an RBAC system such as Repose.</para>
+    <section xml:id="serviceActionOperations">
+      <title>Service action operations</title>
+      <para>The section describes service action operations for
+        Rackspace CDN. </para>
+      <para>Access to this endpoint should be controlled via an RBAC
+        system such as Repose.</para>
       <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
         <wadl:resource href="../../src/wadl/cdn-adminguide.wadl#action">
           <wadl:method href="#postServiceAction"/>
         </wadl:resource>
-        <wadl:resource href="../../src/wadl/cdn-adminguide.wadl#domain">
+       
+      </wadl:resources>
+    </section>
+    <section xml:id="limitsOperations">
+      <title>Limits operations</title>
+      <para>The section describes the limits operations for Rackspace
+        CDN. </para>
+      <para>Access to these endpoints should be controlled via an RBAC
+        system such as Repose.</para>
+      <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
+        <wadl:resource
+          href="../../src/wadl/cdn-adminguide.wadl#project_id">
+          <wadl:method href="#putLimitsProjectID"/>
+          <wadl:method href="#getLimitsProjectID"/>
+        </wadl:resource>
+      </wadl:resources>
+    </section>
+    <section xml:id="domainOperations">
+      <title>Domain operations</title>
+      <para>The section describes the domain operations for Rackspace
+        CDN. </para>
+      <para>Access to these endpoints should be controlled via an RBAC
+        system such as Repose.</para>
+      <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
+        <wadl:resource
+          href="../../src/wadl/cdn-adminguide.wadl#domain">
           <wadl:method href="#getServiceByDomain"/>
         </wadl:resource>
-        <wadl:resource href="../../src/wadl/cdn-adminguide.wadl#service">
+        <wadl:resource
+          href="../../src/wadl/cdn-adminguide.wadl#service">
           <wadl:method href="#postSANDomain"/>
         </wadl:resource>
-       
       </wadl:resources>
     </section>
     <section xml:id="flavorsOperations">

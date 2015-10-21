@@ -91,7 +91,15 @@
 			</resource>
 <!--				
 				<resource id="ssl_certificate" path="ssl_certificate">
-					<method href="#postSSLCertificate"/>												
+					<method href="#postSSLCertificate"/>
+					     <resource id="domain_name" path="{domain_name}">
+					          <param name="domain_name" style="template" type="xsd:string" required="true">
+						          <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+						              <para>Specifies a string representing the type of the SSL certificate, such as <code>www.example.com</code>. </para> 
+							      </wadl:doc>
+					          </param>
+					              <method href="#getSSLCertificate"/>
+					      </resource>
 				</resource> -->
 							
 			</resource>
@@ -1187,13 +1195,13 @@
 		</response>
 	</method>
 
-	<!--*******************************************************-->
+    <!--*******************************************************-->
 	<!--              SSL certificate method                   -->
 	<!--*******************************************************-->	
 	<!--*******************************************************-->
 	<!--               Post SSL certificate                    -->
 	<!--*******************************************************-->
-<!--	<method name="POST" id="postSSLCertificate">
+	<!--	<method name="POST" id="postSSLCertificate">
 		<wadl:doc xml:lang="EN" title="Create an SSL certificate"
 			xmlns="http://docbook.org/ns/docbook">
 			<para role="shortdesc">Creates an SSL certificate.</para>
@@ -1234,6 +1242,83 @@
 			</representation>
 		</response>
 	</method>	-->
+	
+	<!--*******************************************************-->
+	<!--               Get SSL certificate                     -->
+	<!--*******************************************************-->
+<!--	<method name="GET" id="getSSLCertificate">
+		<wadl:doc xml:lang="EN" title="Retrieves an SSL certificate"
+			xmlns="http://docbook.org/ns/docbook">
+			<para role="shortdesc">Retrieves an SSL certificate.</para>
+			<para>This operation retrieves an SSL certificate. </para>						
+		</wadl:doc>
+		<request>			
+			<representation mediaType="application/json" >
+				<doc>
+					<xsdxt:code href="../wadl/samples/cdn-getSSLCertificate_request-json-http.txt"/>					
+				</doc>				
+			</representation>
+		</request>
+		<response status="200" xmlns="http://wadl.dev.java.net/2009/02">
+			<doc title="OK" xml:lang="EN">Success.</doc>
+			<representation mediaType="application/json">
+				<wadl:doc xmlns="http://docbook.org/ns/docbook"
+					xml:lang="EN">
+					<xsdxt:code
+						href="../wadl/samples/cdn-getSSLCertificate_response-json-http.txt"
+						href="../wadl/samples/cdn-getSSLCertificate_response.json"
+					/>
+				<param name="flavor_id" style="plain" path="$.flavor_id">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN">Specifies the CDN-provider flavor id USED. See <link
+							xlink:href="http://docs.rackspace.com/cdn/api/v1.0/cdn-devguide/content/flavorsOperations.html">Flavors</link>.</wadl:doc>
+				</param>
+				<param name="domain_name" style="plain" path="$.domain_name">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN">Specifies a string that represents the type of the SSL certificate, such as <code>www.example.com</code>.</wadl:doc>
+				</param>
+				<param name="cert_type" style="plain" path="$.cert_type">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN">Specifies a string representing the type of the SSL certificate.</wadl:doc>
+				</param>				
+				<param name="cert_details" style="plain" path="$.cert_details">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN">Provides information about the certificate.</wadl:doc>
+				</param>
+				<param name="provider" style="plain" path="$.cert_details.provider">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN">Specifies the provider of the certificate.</wadl:doc>
+				</param>
+				<param name="cert_domain" style="plain" path="$.cert_details.provider.cert_domain">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN">Specifies the certificate domain.</wadl:doc>
+				</param>
+				<param name="extra_info" style="plain" path="$.cert_details.provider.cert_domain.extra_info">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN">Provides additional information about the certificate.</wadl:doc>
+				</param>
+				<param name="status" style="plain" path="$.cert_details.provider.cert_domain.extra_info.status">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN">Provides the status the certificate.</wadl:doc>
+				</param>
+				<param name="san_cert" style="plain" path="$.cert_details.provider.cert_domain.extra_info.san_cert">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN">Provides SAN certification information.</wadl:doc>
+				</param>
+				<param name="action" style="plain" path="$.cert_details.provider.cert_domain.extra_info.action">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN">Provides information about any action for the certificate.</wadl:doc>
+				</param>
+				<param name="status" style="plain" path="$.status">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN">Provides status information for the certificate.</wadl:doc>
+				</param>
+				</wadl:doc>
+				
+			</representation>
+		</response>
+	</method>
+-->
 	
 <!--*******************************************************-->
 <!--              Flavors methods                          -->

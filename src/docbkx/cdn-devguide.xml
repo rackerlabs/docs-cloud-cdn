@@ -1627,6 +1627,9 @@ Content-Type: application/json
         <wadl:resource href="../../src/wadl/cdn-devguide.wadl#ssl_certificate">
           <wadl:method href="#postSSLCertificate"/>
         </wadl:resource>
+        <wadl:resource href="../../src/wadl/cdn-devguide.wadl#domain_name">
+          <wadl:method href="#getSSLCertificate"/>
+        </wadl:resource>
       </wadl:resources>
     </section>  -->
     <section xml:id="flavorsOperations">

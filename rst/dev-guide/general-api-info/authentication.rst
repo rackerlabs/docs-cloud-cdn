@@ -48,8 +48,7 @@ Rackspace Cloud Control Panel.
 
 To find your API key, perform the following steps:
 
-#. Log in to the Cloud Control Panel
-   (`<http://mycloud.rackspace.com>`__\ http://mycloud.rackspace.com).
+#. Log in to the Cloud Control Panel (https://mycloud.rackspace.com).
 
 #. On the upper-right side of the top navigation pane, click your
    username.
@@ -238,9 +237,6 @@ you use to access the service, as well as region, tenant ID, and version
 information.
 
 To access the Rackspace CDN service, use the endpoint for the ``rackCDN`` service.
-
-.. tip:: To help you decide which regionalized endpoint to use, read
-   `About regions <http://www.rackspace.com/knowledge_center/article/about-regions>`_ for choosing a data center.
 
 **Tenant ID**. Appears in the ``tenantId`` field in the ``endpoints``
 element. The tenant ID is also known as the account number or the project ID.

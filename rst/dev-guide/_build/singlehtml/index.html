@@ -40,7 +40,7 @@
             
   <div class="section" id="rackspace-cdn-api-1-0">
 <span id="index"></span><h1>Rackspace CDN API 1.0<a class="headerlink" href="#rackspace-cdn-api-1-0" title="Permalink to this headline">#</a></h1>
-<p><em>Last updated:</em> October 07, 2015</p>
+<p><em>Last updated:</em> October 21, 2015</p>
 <p>Learn how to use the Rackspace CDN service by using the REST API.</p>
 <ul class="simple">
 <li>For details about using the API, see the <a class="reference internal" href="index.html#developer-guide"><span>Developer Guide</span></a>.</li>
@@ -76,15 +76,13 @@ Started Guide</a>, which explains how to start using the API.</p>
 <div class="toctree-wrapper compound">
 <span id="document-overview/additional-resources"></span><div class="section" id="additional-resources">
 <span id="id1"></span><h3>Additional resources<a class="headerlink" href="#additional-resources" title="Permalink to this headline">#</a></h3>
-<p>We welcome feedback, comments, and bug reports. Visit the Rackspace customer portal
-at <a class="reference external" href="https://feedback.rackspace.com/">https://feedback.rackspace.com/</a>.</p>
+<p>We welcome feedback, comments, and bug reports. Visit the Rackspace <a class="reference external" href="https://feedback.rackspace.com/forums/298161-storage/suggestions/7119053-rackspace-cdn">Product Feedback page</a>.</p>
 <p>Use the links below to learn more about the Rackspace CDN service and API.</p>
 <ul class="simple">
-<li>For general information about Rackspace CDN, see the <a class="reference external" href="https://www.rackspace.com/knowledge_center/article/rackspace-cdn-faq">Rackspace CDN FAQ</a>
+<li>For general information about Rackspace CDN, see the <a class="reference external" href="http://www.rackspace.com/knowledge_center/article/rackspace-cdn-faq">Rackspace CDN FAQ</a>
 in the Rackspace Knowledge Center.</li>
-<li>To learn about using Rackspace Cloud SDKs, see <a class="reference external" href="https://developer.rackspace.com/docs/#sdks">Software Development Kits &amp; Tools</a>.</li>
-<li>To get information about other Rackspace Cloud services APIs, see the
-<a class="reference external" href="https://developer.rackspace.com/docs/">Rackspace API Documentation</a>.</li>
+<li>To learn about using Rackspace Cloud SDKs, see <a class="reference external" href="https://developer.rackspace.com/sdks">SDKs and tools</a>.</li>
+<li>To get information about other Rackspace Cloud services APIs, see the <a class="reference external" href="http://developer.rackspace.com/docs/">Rackspace API Documentation</a>.</li>
 <li>Email support questions to <a class="reference external" href="mailto:cdn&#37;&#52;&#48;rackspace&#46;com">cdn<span>&#64;</span>rackspace<span>&#46;</span>com</a>.</li>
 </ul>
 </div>
@@ -94,7 +92,7 @@ in the Rackspace Knowledge Center.</li>
 </div>
 <span id="document-overview/pricing-service-level"></span><div class="section" id="pricing-and-service-level">
 <span id="pricing-service-level"></span><h3>Pricing and service level<a class="headerlink" href="#pricing-and-service-level" title="Permalink to this headline">#</a></h3>
-<p>Your use of Rackspace CDN is billed according to the pricing schedule on the Rackspace CDN page at <a class="reference external" href="http://www.rackspace.com/cloud/cdn-content-delivery-network">www.rackspace.com</a>.</p>
+<p>Your use of Rackspace CDN is billed according to the <a class="reference external" href="http://www.rackspace.com/cloud/cdn-content-delivery-network">pricing schedule</a>.</p>
 <p>The Service Level Agreement (SLA) for Rackspace CDN is available at <a class="reference external" href="http://www.rackspace.com/information/legal/service-level-guarantee-rackspace-cdn">Rackspace CDN SLA</a>.</p>
 </div>
 </div>
@@ -103,8 +101,7 @@ in the Rackspace Knowledge Center.</li>
 <span id="id1"></span><h2><strong>Developer Guide</strong><a class="headerlink" href="#developer-guide" title="Permalink to this headline">#</a></h2>
 <p>This guide is intended to assist software developers who want to develop applications by
 using the REST application programming interface (API) for the Rackspace CDN service.</p>
-<p>To use the information provided here, you should have a general understanding of the
-<a class="reference external" href="https://www.rackspace.com/knowledge_center/article/rackspace-cdn-faq">Rackspace CDN service</a> and have a <a class="reference external" href="https://cart.rackspace.com/cloud">Rackspace Cloud account</a> with access to the Rackspace CDN service. You should also be familiar with the following technologies:</p>
+<p>To use the information provided here, you should have a general understanding of the and have a <a class="reference external" href="https://cart.rackspace.com/cloud">Rackspace Cloud account</a> with access to the Rackspace CDN service. You should also be familiar with the following technologies:</p>
 <ul class="simple">
 <li><em>RESTful</em> web services</li>
 <li><em>HTTP</em>/1.1</li>
@@ -248,8 +245,7 @@ on the Rackspace site.</p>
 </div>
 <p>To find your API key, perform the following steps:</p>
 <ol class="arabic simple">
-<li>Log in to the Cloud Control Panel
-(<a class="reference external" href="http://mycloud.rackspace.com">http://mycloud.rackspace.com</a><a class="reference external" href="http://mycloud.rackspace.com">http://mycloud.rackspace.com</a>).</li>
+<li>Log in to the Cloud Control Panel (<a class="reference external" href="https://mycloud.rackspace.com">https://mycloud.rackspace.com</a>).</li>
 <li>On the upper-right side of the top navigation pane, click your
 username.</li>
 <li>From the menu, select Account Settings.</li>
@@ -421,11 +417,6 @@ format:</p>
 you use to access the service, as well as region, tenant ID, and version
 information.</p>
 <p>To access the Rackspace CDN service, use the endpoint for the <code class="docutils literal"><span class="pre">rackCDN</span></code> service.</p>
-<div class="admonition tip">
-<p class="first admonition-title">Tip</p>
-<p class="last">To help you decide which regionalized endpoint to use, read
-<a class="reference external" href="http://www.rackspace.com/knowledge_center/article/about-regions">About regions</a> for choosing a data center.</p>
-</div>
 <p><strong>Tenant ID</strong>. Appears in the <code class="docutils literal"><span class="pre">tenantId</span></code> field in the <code class="docutils literal"><span class="pre">endpoints</span></code>
 element. The tenant ID is also known as the account number or the project ID.</p>
 <p>You include the tenant ID in the endpoint URL when you call a cloud
@@ -476,11 +467,12 @@ $ curl -s https://global.cdn.api.rackspacecloud.com/v1.0/yourAccountID/services 
 <div class="section" id="assigning-roles-to-account-users">
 <h4>Assigning roles to account users<a class="headerlink" href="#assigning-roles-to-account-users" title="Permalink to this headline">#</a></h4>
 <p>The account owner (identity:user-admin) can create account users on the account and then assign roles to those users. The roles grant the account users specific permissions for accessing the capabilities of the Rackspace CDN service. Each account has only one account owner, and that role is assigned by default to any Rackspace Cloud account when the account is created.</p>
-<p>See the <em>Cloud Identity Client Developer Guide</em> for information about how to perform the following tasks:</p>
+<p>See the <a class="reference external" href="http:/developer.rackspace.com/docs/cloud-identity/v2/developer-guide/">Cloud Identity Client Developer Guide</a> for
+information about how to perform these tasks:</p>
 <ul class="simple">
-<li><a class="reference external" href="http://docs.rackspace.com/auth/api/v2.0/auth-client-devguide/content/POST_addUser_v2.0_users_User_Calls.html">Create account users</a></li>
-<li><a class="reference external" href="http://docs.rackspace.com/auth/api/v2.0/auth-client-devguide/content/PUT_addUserRole__v2.0_users__userId__roles_OS-KSADM__roleid__Role_Calls.html">Assign roles to account users</a></li>
-<li><a class="reference external" href="http://docs.rackspace.com/auth/api/v2.0/auth-client-devguide/content/DELETE_deleteUserRole__v2.0_users__userId__roles_OS-KSADM__roleid__Role_Calls.html">Delete roles from account users</a></li>
+<li><a class="reference external" href="http://developer.rackspace.com/docs/cloud-identity/v2/developer-guide/#add-user">Add user</a></li>
+<li><a class="reference external" href="http://developer.rackspace.com/docs/cloud-identity/v2/developer-guide/#add-role-to-user">Add role to user</a></li>
+<li><a class="reference external" href="http://developer.rackspace.com/docs/cloud-identity/v2/developer-guide/#delete-global-role-from-user">Delete global role from user</a></li>
 </ul>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
@@ -596,7 +588,7 @@ ignored.</td>
 </div>
 <div class="section" id="rbac-permissions-cross-reference-to-rackspace-cdn-api-operations">
 <h4>RBAC permissions cross-reference to Rackspace CDN API operations<a class="headerlink" href="#rbac-permissions-cross-reference-to-rackspace-cdn-api-operations" title="Permalink to this headline">#</a></h4>
-<p>API operations for Rackspace CDN may or may not be available to all roles. To see which operations are permitted to invoke which calls, please review the <a class="reference external" href="http://www.rackspace.com/knowledge_center/article/permissions-matrix-for-role-based-access-control-rbac">Permissions Matrix for Role-Based Access Control</a>.</p>
+<p>API operations for Rackspace CDN may or may not be available to all roles. To see which operations are permitted to invoke which calls, review <a class="reference external" href="http://www.rackspace.com/knowledge_center/article/permissions-matrix-for-role-based-access-control-rbac">Permissions Matrix for Role Based Access Control</a>.</p>
 </div>
 </div>
 <span id="document-general-api-info/service-access-endpoints"></span><div class="section" id="service-access-endpoints">
@@ -1050,7 +1042,7 @@ granular as the file level.</p>
 example, with the <code class="docutils literal"><span class="pre">caching.rules</span></code>, you might set <code class="docutils literal"><span class="pre">ttl</span></code> equal to 3600
 seconds (1 hour) for a specific file by making the rule path
 <code class="docutils literal"><span class="pre">/videos/marketingspot/abccompany/welcomevideo.mp4</span></code>.</p>
-<p>For more information about rules, see <a class="reference external" href="https://www.rackspace.com/knowledge_center/article/rackspace-cdn-edge-rules">Rackspace CDN edge
+<p>For more information about rules, see <a class="reference external" href="http://www.rackspace.com/knowledge_center/article/ackspace-cdn-edge-rules">Rackspace CDN edge
 rules</a>.</p>
 </div>
 <span id="document-general-api-info/testing-the-cdn"></span><div class="section" id="testing-the-cdn">
