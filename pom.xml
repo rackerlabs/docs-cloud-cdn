@@ -27,7 +27,7 @@
       	<artifactId>rackspace-docs-maven-plugin</artifactId>
 
 	<executions>
-<!--		
+		
 		<execution>
 			<id>g1</id>          
 			<goals>
@@ -83,7 +83,7 @@
 				<canonicalUrlBase>http://docs.rackspace.com/cdn/api/v1.0/cdn-releasenotes/content</canonicalUrlBase>
 			</configuration>
 		</execution>
--->
+
 <!-- execution when all API docs were internal during initial doc development		
 	  <execution>
 	    <goals>
