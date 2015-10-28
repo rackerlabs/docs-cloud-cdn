@@ -603,7 +603,7 @@
 				<param name="client_ip" style="plain" path="$.restrictions.rules.client_ip"
 					required="false">
 					<wadl:doc xmlns="http://docbook.org/ns/docbook"
-						xml:lang="EN">Specifies the client IP address to which the rule applies. Note: Rackspace CDN does not currently support Classless Inter-Domain Routing (CIDR) for these restrictions.</wadl:doc>
+						xml:lang="EN">Specifies the client IP address to which the rule applies. Note: Rackspace CDN does now support Classless Inter-Domain Routing (CIDR), for both IPv4 and IPv6, for these restrictions.</wadl:doc>
 				</param>
 				
 <!--			<param name="http_host" style="plain" path="$.restrictions.rules.http_host"

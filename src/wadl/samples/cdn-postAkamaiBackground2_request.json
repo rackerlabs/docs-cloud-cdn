@@ -1,0 +1,7 @@
+{
+    "job_type": "akamai_check_and_update_cert_status",
+    "domain_name": "testabc.test_san.com",
+    "project_id": "000",
+    "cert_type": "san",
+    "flavor_id": "cdn"
+}

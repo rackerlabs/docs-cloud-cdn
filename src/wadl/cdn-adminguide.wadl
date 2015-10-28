@@ -65,9 +65,12 @@
 				
 								<resource id="provider" path="provider">
 									<resource id="akamai" path="akamai">
-										<resource id="service" path="service">
-					                      <method href="#postSANDomain"/>
+										<resource id="background_job" path="background_job">
+											<method href="#postAkamaiBackground"/>
 										</resource>
+										<resource id="service" path="service">
+					                      <method href="#postSANDomain"/>											
+										</resource>										
 									</resource>
 								</resource>
 			</resource>			
@@ -82,7 +85,21 @@
 					</param>
 				    <method href="#getHealthDetails"/>				                
 				</resource>	
-			</resource>						
+			</resource>	
+			
+				
+				<resource id="ssl_certificate" path="ssl_certificate">
+					<method href="#postSSLCertificate"/>
+					     <resource id="domain_name" path="{domain_name}">
+					          <param name="domain_name" style="template" type="xsd:string" required="true">
+						          <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+						              <para>Specifies a string representing the type of the SSL certificate, such as <code>www.example.com</code>. </para> 
+							      </wadl:doc>
+					          </param>
+					              <method href="#getSSLCertificate"/>
+					     	      <method href="#deleteSSLCertificate"/>
+					      </resource>
+				</resource> 
 				
 			<resource id="flavors" path="flavors">				
 				<method href="#postFlavors"/>
@@ -114,15 +131,41 @@
 	<method name="POST" id="postServiceAction">
 		<wadl:doc xml:lang="EN" title="Post service action"
 			xmlns="http://docbook.org/ns/docbook">
-			<para role="shortdesc">Enables, diables, or deletes services for a user account.</para>
-			<para>To change the operator status of or delete services for a <code>project_id</code> or a domain, provide a JSON request body with <code>action</code> set to <code>enable</code>, <code>disable</code>, or <code>delete</code>, along with the <code>project_id</code> of the user. </para>			
+			<para role="shortdesc">Changes the operator status of, or enables, diables, or deletes services for a <code>project_id</code> or a domain.</para>
+			<para>To change the operator status of or delete services for a <code>project_id</code> or a domain, provide a JSON request body with <code>action</code> set to <code>enable</code>, <code>disable</code>, or <code>delete</code>, along with the <code>project_id</code> of the user or the <code>domain</code>. </para>			
 		</wadl:doc>
 		<request>
 			<representation mediaType="application/json" >
 				<doc>
 					<xsdxt:code href="../wadl/samples/cdn-postServiceAction_request-json-http.txt"/>
-					<xsdxt:code href="../wadl/samples/cdn-postServiceAction_request.json"/>	
+					<xsdxt:code href="../wadl/samples/cdn-postServiceAction_request.json"/>
 				</doc>
+				
+				<param name="project_id" style="plain" required="true" path="$.project_id">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN">Specifies the associated identifier for the user account, such as, 12345.</wadl:doc>
+				</param>
+				
+				<param name="action" style="plain" required="true" path="$.action">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN">Specifies the action to perfrom, such as <code>enable</code>, <code>disable</code>, or <code>delete</code>. </wadl:doc>
+				</param>
+			</representation>
+			<representation mediaType="application/json" >
+				
+				<doc>
+					<xsdxt:code href="../wadl/samples/cdn-postServiceAction_request-json-http.txt"/>
+					<xsdxt:code href="../wadl/samples/cdn-postServiceActionWithDomain_request.json"/>
+				</doc>
+				
+				<param name="domain" style="plain" required="true" path="$.domain">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN">Specifies a string representing the domain, such as <code>www.example.com</code>.</wadl:doc>
+				</param>
+				<param name="action" style="plain" required="true" path="$.action">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN">Specifies the action to perfrom, such as <code>enable</code>, <code>disable</code>, or <code>delete</code>. </wadl:doc>
+				</param>
 			</representation>
 		</request>
 		<response status="202" xmlns="http://wadl.dev.java.net/2009/02">
@@ -156,6 +199,10 @@
 					<xsdxt:code href="../wadl/samples/cdn-putLimitsProjectID_request-json-http.txt"/>
 					<xsdxt:code href="../wadl/samples/cdn-putLimitsProjectID_request.json"/>	
 				</doc>
+				<param name="limit" style="plain" required="true" path="$.limit">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN">Specifies the limit on the number of services for the <code>project_id</code>.</wadl:doc>
+				</param>
 			</representation>
 		</request>
 		<response status="201" xmlns="http://wadl.dev.java.net/2009/02">
@@ -195,6 +242,10 @@
 						href="../wadl/samples/cdn-getLimitsProjectID_response-json-http.txt"/>
 					<xsdxt:code href="../wadl/samples/cdn-getLimitsProjectID_response.json"/>	  
 				</wadl:doc>
+				<param name="limit" style="plain" required="true" path="$.limit">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN">Specifies the limit on the number of services for the <code>project_id</code>.</wadl:doc>
+				</param>
 			</representation>
 		</response>		
 	</method>
@@ -228,6 +279,135 @@
 					<xsdxt:code href="../wadl/samples/cdn-getServiceByDomain_response-json-http.txt"/>
 					<xsdxt:code href="../wadl/samples/cdn-getServiceByDomain_response.json"/>					
 				</wadl:doc>
+				<param name="id" style="plain" path="$.id">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN">Specifies the service ID that represents distributed content. The value is a UUID, such as 96737ae3-cfc1-4c72-be88-5d0e7cc9a3f0, that is generated by the server. </wadl:doc>
+				</param>
+				<param name="project_id" style="plain" path="$.project_id">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN">Specifies the unique identifier for the user. (This is your actual account ID that is returned as part of the authentication service response.)  </wadl:doc>
+				</param>
+				<param name="name" style="plain" path="$.name">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN">Specifies the name of the service.</wadl:doc>
+				</param>
+				<param name="domains" style="plain" path="$.domains">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN">Specifies a list of domains used by users to access their website.</wadl:doc>
+				</param>
+				<param name="domain" style="plain" path="$.domains.domain">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN">Specifies the domain used to access the assets on their website, for which a CNAME is given to the CDN provider.</wadl:doc>
+				</param>				
+				
+				<param name="origins" style="plain" path="$.origins">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN">Specifies a list of origin domains or IP addresses where the original assets are stored.</wadl:doc>
+				</param>
+				<param name="origin" style="plain" path="$.origins.origin">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN">Specifies the URL or IP address to pull origin content from.</wadl:doc>
+				</param>
+				<param name="port" style="plain" path="$.origins.port">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN">Specifies the port used to access the origin. The default is port 80. Note: Rackspace CDN cannot be used with custom ports. Services are required to run on HTTP (80) and HTTPS (443) for the origin servers. </wadl:doc>
+				</param>
+				<param name="ssl" style="plain" path="$.origins.ssl">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN">Uses HTTPS to access the origin. The default is false.</wadl:doc>
+				</param>
+				<param name="hostheadertype" style="plain" path="$.origins.hostheadertype">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN">Specifies the type for the host header. The default value is <code>domain</code>. Other valid values are <code>origin</code> and <code>custom</code>.</wadl:doc>
+				</param>
+				<param name="hostheadervalue" style="plain" path="$.origins.hostheadervalue">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN">Specifies the value to be contained in the host header. The default value is <code>NULL</code>; this value is assigned only when <code>hostheadertype</code> is <code>domain</code>. You are required to specify <code>hostheadervalue</code> only when <code>hostheadertype</code> is specified as <code>custom</code>. If you specify <code>hostheadertype</code> as <code>origin</code>, <code>hostheadervalue</code> takes the value of the origin domain.</wadl:doc>
+				</param> 
+				
+				<param name="caching" style="plain" path="$.caching">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN">Specifies the TTL rules for the assets under this service. Supports wildcards for fine grained control.</wadl:doc>
+				</param>
+				<param name="name" style="plain" path="$.caching.name">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN">Specifies the name of this caching rule. Note: 'default' is a reserved name used for the default TTL setting.</wadl:doc>
+				</param>
+				<param name="ttl" style="plain" path="$.caching.ttl">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN">Specifies the TTL to apply.</wadl:doc>
+				</param>
+				<param name="rules" style="plain" path="$.caching.rules">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN">Specifies a collection of rules that determine if this TTL should be applied to an asset.</wadl:doc>
+				</param>
+				<param name="name" style="plain" path="$.caching.rules.name">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN">Specifies the name of this rule.</wadl:doc>
+				</param>
+				<param name="request_url" style="plain" path="$.caching.rules.request_url">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN">Specifies the request URL this rule should match for this TTL to be used. Regex is supported. Note: The regex is a Perl Compatible Regex (PCRE). For more information about PRCE, see <link
+							xlink:href="http://php.net/manual/en/book.pcre.php">Regular Expressions (Perl-Compatible)</link>.</wadl:doc>
+				</param>
+				
+				<param name="restrictions" style="plain" path="$.restrictions">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN">Specifies the restrictions that define who can access assets (content from the CDN cache).</wadl:doc>
+				</param>
+				<param name="name" style="plain" path="$.restrictions.name">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN">Specifies the name of this restriction.</wadl:doc>
+				</param>
+				<param name="rules" style="plain" path="$.restrictions.rules">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN">Specifies a collection of rules that determine if this TTL should be applied to an asset.</wadl:doc>
+				</param>
+				<param name="name" style="plain" path="$.restrictions.rules.name">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN">Specifies the name of this rule.</wadl:doc>
+				</param>
+				<param name="referrer" style="plain" path="$.restrictions.rules.referrer">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN">Specifies the http host that requests must come from.</wadl:doc>
+				</param>
+				
+				<param name="flavor_id" style="plain" path="$.flavor_id">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN">Specifies the CDN provider flavor ID to use. For a list of flavors, see the operation to list the available flavors.</wadl:doc>
+				</param>
+				<param name="log_delivery" style="plain" path="$.log_delivery">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN">Specifies whether log delivery to a Cloud Files container is enabled or disabled. For more information about logs, see the <code>log_delivery</code> parameter description in <link
+							xlink:href="https://developer.rackspace.com/docs/cdn/v1/developer-guide/#create-a-service">Create service</link>.</wadl:doc>
+				</param>
+				<param name="enabled" style="plain" path="$.log_delivery.enabled">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN">Specifies whether log delivery is enabled (<code>true</code>) or disabled (<code>false</code>). </wadl:doc>
+				</param>
+								
+				<param name="status" style="plain" path="$.status">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN">Specifies the current status of the service.</wadl:doc>
+				</param>
+				
+				<param name="errors" style="plain" path="$.errors">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN">Specifies the list of errors that occurred during the previous service action.</wadl:doc>
+				</param>
+				<param name="links" style="plain" path="$.links">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN">Specifies the self-navigating JSON document paths.</wadl:doc>
+				</param>
+				<param name="href" style="plain" path="$.links.href">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN">Specifies the location to access this resource. </wadl:doc>
+				</param>
+				<param name="rel" style="plain" path="$.links.rel">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN">Specifies how the href link provided is related to this resource_url.</wadl:doc>
+				</param>
+				
 			</representation>
 		</response>		
 	</method>	
@@ -248,6 +428,26 @@
 					<xsdxt:code href="../wadl/samples/cdn-postSANDomain_request-json-http.txt"/>
 					<xsdxt:code href="../wadl/samples/cdn-postSANDomain_request.json"/>
 				</doc>
+				<param name="project_id" style="plain" required="true" path="$.project_id">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN">Specifies the associated identifier for the user account, such as, 12345.</wadl:doc>
+				</param>
+				<param name="service_id" style="plain" required="true" path="$.service_id">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN">Specifies the id of the service, such as <code>96737ae3-cfc1-4c72-be88-5d0e7cc9a3f0</code>.</wadl:doc>
+				</param>
+				<param name="domain_name" style="plain" required="true" path="$.domain_name">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN">Specifies a string representing the domain, such as <code>www.example.com</code>.</wadl:doc>
+				</param>
+				<param name="new_cert" style="plain" required="true" path="$.new_cert">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN">Specifies the new certificate, such as <code>scdn1.secure6.raxcdn.com.edgekey.net</code>. </wadl:doc>
+				</param>
+				<param name="cert_status" style="plain" required="true" path="$.cert_status">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN">Specifies the status of the certificate. The default value is <code>deployed</code>. The other possible value is <code>create_in_progress</code>. </wadl:doc>
+				</param>
 			</representation>
 		</request>
 		<response status="200" xmlns="http://wadl.dev.java.net/2009/02">
@@ -257,6 +457,81 @@
 					xml:lang="EN">
 					<xsdxt:code href="../wadl/samples/cdn-postSANDomain_response-json-http.txt"/>
 										
+				</wadl:doc>
+			</representation>
+		</response>		
+	</method>	
+	
+	<!--*******************************************************-->
+	<!--               Akamai Background                       -->
+	<!--*******************************************************-->
+	<method name="POST" id="postAkamaiBackground">
+		<wadl:doc xml:lang="EN" title="Run Akamai-related background job"
+			xmlns="http://docbook.org/ns/docbook">
+			<para role="shortdesc">Runs Akamai-related background job.</para>
+			<para>This operation runs an Akamai-related background job.</para>
+			<note><para>The following types of jobs are supported:
+				<itemizedlist>
+					<listitem><para>akamai_update_papi_property_for_mod_san</para></listitem>
+					<listitem><para>akamai_check_and_update_cert_status</para></listitem>
+				</itemizedlist>
+				</para></note>
+		</wadl:doc>
+		<request>
+			<representation mediaType="application/json" >
+				<doc>
+					<xsdxt:code href="../wadl/samples/cdn-postAkamaiBackground_request-json-http.txt"/> 
+					<xsdxt:code href="../wadl/samples/cdn-postAkamaiBackground_request.json"/>
+				</doc>
+				<param name="job_type" style="plain" required="true" path="$.job_type">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN">Specifies the type of job, such as <code>akamai_update_papi_property_for_mod_san</code>.</wadl:doc>
+				</param>
+			
+				<param name="domain_name" style="plain" required="true" path="$.domain_name">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN">Specifies a string representing the domain, such as <code>testabc.cnamecdn.com</code>.</wadl:doc>
+				</param>
+				<param name="san_cert_name" style="plain" required="true" path="$.san_cert_name">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN">Specifies the SAN certificate name, such as <code>secure1.san1.altcdn.com</code>. </wadl:doc>
+				</param>		
+			</representation>
+			<representation mediaType="application/json" >
+				<doc>
+					<xsdxt:code href="../wadl/samples/cdn-postAkamaiBackground2_request-json-http.txt"/>  
+					<xsdxt:code href="../wadl/samples/cdn-postAkamaiBackground2_request.json"/>
+				</doc>
+				<param name="job_type" style="plain" required="true" path="$.job_type">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN">Specifies the type of job, such as <code>akamai_update_papi_property_for_mod_san</code>.</wadl:doc>
+				</param>
+				
+				<param name="domain_name" style="plain" required="true" path="$.domain_name">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN">Specifies a string representing the domain, such as <code>testabc.cnamecdn.com</code>.</wadl:doc>
+				</param>
+				<param name="project_id" style="plain" required="true" path="$.project_id">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN">Specifies the <code>prodject_id</code> for the user. </wadl:doc>
+				</param>
+				<param name="cert_type" style="plain" required="true" path="$.cert_type">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN">Specifies the type of certificate. </wadl:doc>
+				</param>	
+				<param name="flavor_id" style="plain" required="true" path="$.flavor_id">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN">Specifies the the flavor ID. </wadl:doc>
+				</param>	
+			</representation>
+		</request>
+		<response status="202" xmlns="http://wadl.dev.java.net/2009/02">
+			<doc title="Accepted" xml:lang="EN">The request has been accepted for processing.</doc>
+			<representation mediaType="application/json">
+				<wadl:doc xmlns="http://docbook.org/ns/docbook"
+					xml:lang="EN">
+					<xsdxt:code href="../wadl/samples/cdn-postAkamaiBackground_response-json-http.txt"/>
+					
 				</wadl:doc>
 			</representation>
 		</response>		
@@ -351,6 +626,171 @@
 				platform maintenance). Try again later.</doc>			
 		</response>
 	</method>
+	
+	
+	<!--*******************************************************-->
+	<!--              SSL certificate method                   -->
+	<!--*******************************************************-->	
+	<!--*******************************************************-->
+	<!--               Post SSL certificate                    -->
+	<!--*******************************************************-->
+	<method name="POST" id="postSSLCertificate">
+		<wadl:doc xml:lang="EN" title="Create an SSL certificate"
+			xmlns="http://docbook.org/ns/docbook">
+			<para role="shortdesc">Creates an SSL certificate.</para>
+			<para>This operation creates an SSL certificate. </para>						
+		</wadl:doc>
+		<request>			
+			<representation mediaType="application/json" >
+				<doc>
+					<xsdxt:code href="../wadl/samples/cdn-createSSLCertificate_request-json-http.txt"/>
+					<xsdxt:code href="../wadl/samples/cdn-createSSLCerticate_request.json"/>
+				
+				</doc>
+				<param name="cert_type" style="plain" required="true" path="$.cert_type">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN">Specifies a string representing the type of the SSL certificate.</wadl:doc>
+				</param>
+				<param name="domain_name" style="plain" required="true" path="$.domain_name">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN">Specifies a string representing the type of the SSL certificate, such as <code>www.example.com</code>.</wadl:doc>
+				</param>
+				<param name="flavor_id" style="plain" required="true" path="$.flavor_id">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN">Specifies the CDN-provider flavor id to use. See <link
+							xlink:href="https://developer.rackspace.com/docs/cdn/v1/developer-guide/#document-api-operations/cdn-flavors-operations">Flavors operations</link>.</wadl:doc>
+				</param>
+				<param name="project_id" style="plain" required="true" path="$.project_id">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN">Specifies the associated identifier for the user account, such as, 12345.</wadl:doc>
+				</param>	
+			</representation>
+		</request>
+		<response status="202" xmlns="http://wadl.dev.java.net/2009/02">
+			<doc title="Accepted" xml:lang="EN">The request has been accepted for processing.</doc>
+			<representation mediaType="application/json">
+				<wadl:doc xmlns="http://docbook.org/ns/docbook"
+					xml:lang="EN">
+					<xsdxt:code
+						href="../wadl/samples/cdn-createSSLCertificate_response-json-http.txt"
+					/>
+				</wadl:doc>
+				
+			</representation>
+		</response>
+	</method>	
+	
+	<!--*******************************************************-->
+	<!--               Get SSL certificate                     -->
+	<!--*******************************************************-->
+	<method name="GET" id="getSSLCertificate">
+		<wadl:doc xml:lang="EN" title="Retrieves an SSL certificate"
+			xmlns="http://docbook.org/ns/docbook">
+			<para role="shortdesc">Retrieves an SSL certificate.</para>
+			<para>This operation retrieves an SSL certificate. </para>						
+		</wadl:doc>
+		<request>			
+			<representation mediaType="application/json" >
+				<doc>
+					<xsdxt:code href="../wadl/samples/cdn-getSSLCertificate_request-json-http.txt"/>					
+				</doc>				
+			</representation>
+		</request>
+		<response status="200" xmlns="http://wadl.dev.java.net/2009/02">
+			<doc title="OK" xml:lang="EN">Success.</doc>
+			<representation mediaType="application/json">
+				<wadl:doc xmlns="http://docbook.org/ns/docbook"
+					xml:lang="EN">													
+					<xsdxt:code
+						href="../wadl/samples/cdn-getSSLCertificate_response-json-http.txt" />
+					<xsdxt:code
+						href="../wadl/samples/cdn-getSSLCertificate_response.json"/>
+					
+				
+				</wadl:doc>
+				<param name="flavor_id" style="plain" path="$.flavor_id">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN">Specifies the CDN-provider flavor id USED. See <link
+							xlink:href="http://docs.rackspace.com/cdn/api/v1.0/cdn-devguide/content/flavorsOperations.html">Flavors</link>.</wadl:doc>
+				</param>
+				<param name="domain_name" style="plain" path="$.domain_name">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN">Specifies a string that represents the type of the SSL certificate, such as <code>www.example.com</code>.</wadl:doc>
+				</param>
+				<param name="cert_type" style="plain" path="$.cert_type">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN">Specifies a string representing the type of the SSL certificate.</wadl:doc>
+				</param>				
+				<param name="cert_details" style="plain" path="$.cert_details">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN">Provides information about the certificate.</wadl:doc>
+				</param>
+				<param name="provider" style="plain" path="$.cert_details.provider">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN">Specifies the provider of the certificate.</wadl:doc>
+				</param>
+				<param name="cert_domain" style="plain" path="$.cert_details.provider.cert_domain">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN">Specifies the certificate domain.</wadl:doc>
+				</param>
+				<param name="extra_info" style="plain" path="$.cert_details.provider.cert_domain.extra_info">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN">Provides additional information about the certificate.</wadl:doc>
+				</param>
+				<param name="status" style="plain" path="$.cert_details.provider.cert_domain.extra_info.status">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN">Provides the status the certificate.</wadl:doc>
+				</param>
+				<param name="san_cert" style="plain" path="$.cert_details.provider.cert_domain.extra_info.san_cert">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN">Provides SAN certification information.</wadl:doc>
+				</param>
+				<param name="action" style="plain" path="$.cert_details.provider.cert_domain.extra_info.action">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN">Provides information about any action for the certificate.</wadl:doc>
+				</param>
+				<param name="status" style="plain" path="$.status">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN">Provides status information for the certificate.</wadl:doc>
+				</param>
+			</representation>
+		</response>
+	</method>
+
+	<!--*******************************************************-->
+	<!--               Delete SSL certificate                  -->
+	<!--*******************************************************-->
+	<method name="DELETE" id="deleteSSLCertificate">
+		<wadl:doc xml:lang="EN" title="Deletes an SSL certificate"
+			xmlns="http://docbook.org/ns/docbook">
+			<para role="shortdesc">Deletes an SSL certificate.</para>
+			<para>This operation deletes an SSL certificate. </para>						
+		</wadl:doc>
+		<request>			
+			<representation mediaType="application/json" >
+				<doc>
+					<xsdxt:code href="../wadl/samples/cdn-deleteSSLCertificate_request-json-http.txt"/>	 				
+				</doc>
+				<wadl:doc xml:lang="EN" title="Deletes an SSL certificate"
+					xmlns="http://docbook.org/ns/docbook">
+                <para>This operation does not require a request body.</para>
+				</wadl:doc>	
+			</representation>
+		</request>
+		<response status="202" xmlns="http://wadl.dev.java.net/2009/02">
+			<doc title="Accepted" xml:lang="EN">The request has been accepted for processing.</doc>
+			<representation mediaType="application/json">
+				<wadl:doc xmlns="http://docbook.org/ns/docbook"
+					xml:lang="EN">
+					<xsdxt:code
+						href="../wadl/samples/cdn-deleteSSLCertificate_response-json-http.txt"
+					/>
+				</wadl:doc>
+				
+			</representation>
+		</response>
+	</method>	
+	
 
 <!--*******************************************************-->
 <!--              Flavors methods                          -->
@@ -377,7 +817,7 @@
 					required="true">
 					<wadl:doc xmlns="http://docbook.org/ns/docbook"
 						xml:lang="EN">Specifies the name of the flavor. The name must not exceed 64 bytes in length and is limited to unicode, digits, underscores, and hyphens.</wadl:doc>
-				</param>
+				</param> 
 				<!--
 				<param name="limits" style="plain" path="$.limits"
 					required="true">
@@ -507,5 +947,5 @@
 			</representation>
 		</response>
 	</method>
-
+	
 </application>

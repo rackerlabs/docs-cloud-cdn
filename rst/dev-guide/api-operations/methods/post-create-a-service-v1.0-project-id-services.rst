@@ -198,8 +198,8 @@ This table shows the body parameters for the request:
 |**geography**          |*(Optional)* |                                                                              |
 +-----------------------+-------------+------------------------------------------------------------------------------+
 |restrictions.rules.\   |String       |Specifies the client IP address to which the rule applies. Note: Rackspace CDN|
-|**client_ip**          |*(Optional)* |does not currently support Classless Inter-Domain Routing (CIDR) for these    |
-|                       |             |restrictions.                                                                 |
+|**client_ip**          |*(Optional)* |supports Classless Inter-Domain Routing (CIDR) for both IPv4 and IPv6 for     |
+|                       |             |these restrictions.                                                           |
 +-----------------------+-------------+------------------------------------------------------------------------------+
 |\ **log_delivery**     |String       |Specifies whether to enable log delivery to a Cloud Files container. You can  |
 |                       |*(Required)* |use access log delivery to analyze the number of requests for each object,    |

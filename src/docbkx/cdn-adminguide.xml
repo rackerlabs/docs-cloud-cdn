@@ -48,7 +48,7 @@
     <releaseinfo>API v1.0</releaseinfo>
     <productname>Rackspace CDN</productname>
     <pubdate xmlns:m="http://www.w3.org/1998/Math/MathML"
-      xmlns:html="http://www.w3.org/1999/xhtml">2015-10-16</pubdate>
+      xmlns:html="http://www.w3.org/1999/xhtml">2015-10-27</pubdate>
     <legalnotice role="rs-api" xmlns:m="http://www.w3.org/1998/Math/MathML"
       xmlns:html="http://www.w3.org/1999/xhtml">
       <annotation>
@@ -63,27 +63,35 @@
     <!--Note that the <productname> text matches the first few words of the title. The build system splits the title into productname + rest of title on the pdf cover.-->
     <revhistory>
       <revision>
-        <date>2015-10-16</date>
+        <date>2015-10-27</date>
         <revdescription>
           <itemizedlist>
             <listitem>
               <para>Separated Admin operations section into the
                 following sections:<itemizedlist>
                   <listitem>
-                    <para><xref linkend="domainOperations"/></para>
+                    <para><xref linkend="serviceActionOperations"
+                      /></para>
                   </listitem>
                   <listitem>
                     <para><xref linkend="limitsOperations"/></para>
                   </listitem>
                   <listitem>
-                    <para><xref linkend="serviceActionOperations"
+                    <para><xref linkend="domainOperations"/></para>
+                  </listitem>
+                  <listitem>
+                    <para><xref linkend="migrateSANDomainOperation"
+                      /></para>
+                  </listitem>
+                  <listitem>
+                    <para><xref linkend="AkamaiBackgroudJobOperation"
                       /></para>
                   </listitem>
                 </itemizedlist></para>
             </listitem>
             <listitem>
-              <para>Added the <xref linkend="limitsOperations"/>,
-                which include the following operations:</para>
+              <para>Added the following operations to <xref
+                  linkend="limitsOperations"/>:</para>
               <itemizedlist>
                 <listitem>
                   <para>Set limits on services for a user
@@ -95,6 +103,30 @@
                 </listitem>
               </itemizedlist>
             </listitem>
+            <listitem>
+              <para>Added the <xref linkend="SSLCertificateOperations"
+                />, which include the following operations:</para>
+              <itemizedlist>
+                <listitem>
+                  <para>Create an SSL certificate</para>
+                </listitem>
+                <listitem>
+                  <para>Get an SSL certificate</para>
+                </listitem>
+                <listitem>
+                  <para>Delete an SSL certificate</para>
+                </listitem>
+              </itemizedlist>
+            </listitem>
+            <listitem>
+              <para>Added the following operation to <xref
+                  linkend="AkamaiBackgroudJobOperation"/>:</para>
+              <itemizedlist>
+                <listitem>
+                  <para>Run Akamai background job</para>
+                </listitem>
+              </itemizedlist>
+            </listitem>
           </itemizedlist>
         </revdescription>
       </revision>
@@ -103,9 +135,7 @@
         <revdescription>
           <itemizedlist>
             <listitem>
-              <para>Added the <xref linkend="serviceActionOperations"
-                /> and <xref linkend="domainOperations"/>, which
-                include the following operations:</para>
+              <para>Added the following operations:</para>
               <itemizedlist>
                 <listitem>
                   <para>Post service action</para>
@@ -1170,7 +1200,7 @@ Content-Type: application/json
       </wadl:resources>
     </section>
     <section xml:id="domainOperations">
-      <title>Domain operations</title>
+      <title>Domain operation</title>
       <para>The section describes the domain operations for Rackspace
         CDN. </para>
       <para>Access to these endpoints should be controlled via an RBAC
@@ -1180,12 +1210,55 @@ Content-Type: application/json
           href="../../src/wadl/cdn-adminguide.wadl#domain">
           <wadl:method href="#getServiceByDomain"/>
         </wadl:resource>
+      </wadl:resources>
+    </section>
+    <section xml:id="migrateSANDomainOperation">
+      <title>Migrate SAN domain operation</title>
+      <para>The section describes the operation to migrate a SAN
+        domain using Rackspace CDN. </para>
+      <para>Access to these endpoints should be controlled via an RBAC
+        system such as Repose.</para>
+      <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
         <wadl:resource
           href="../../src/wadl/cdn-adminguide.wadl#service">
           <wadl:method href="#postSANDomain"/>
         </wadl:resource>
       </wadl:resources>
     </section>
+    <section xml:id="AkamaiBackgroudJobOperation">
+      <title>Akamai-related background job operation</title>
+      <para>The section describes the operation to run an
+        Akamai-related background job for Rackspace CDN. </para>
+      <para>Access to these endpoints should be controlled via an RBAC
+        system such as Repose.</para>
+      <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
+        <wadl:resource
+          href="../../src/wadl/cdn-adminguide.wadl#background_job">
+          <wadl:method href="#postAkamaiBackground"/>
+        </wadl:resource>
+      </wadl:resources>
+    </section>
+    
+    <section xml:id="SSLCertificateOperations">
+      <title>SSL certificate</title>
+      <para>SSL uses certificates between a server and a client, such
+        as a Web server and an Internet browser, to secure and protect
+        the transmitted data.</para>
+      <para>The section describes the following operations for SSL
+        certificates. The SSL certificate-related resources of the
+          <emphasis role="bold">SSL Certificate API</emphasis> were
+        used.</para>
+      <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
+        <wadl:resource href="../../src/wadl/cdn-adminguide.wadl#ssl_certificate">
+          <wadl:method href="#postSSLCertificate"/>
+        </wadl:resource>
+        <wadl:resource href="../../src/wadl/cdn-adminguide.wadl#domain_name">
+          <wadl:method href="#getSSLCertificate"/>
+          <wadl:method href="#deleteSSLCertificate"/>
+        </wadl:resource>
+      </wadl:resources>
+    </section>  
+    
     <section xml:id="flavorsOperations">
       <title>Flavor operations</title>
       <para>A flavor is a mapping configuration to a CDN provider. Each flavor may contain a list of
