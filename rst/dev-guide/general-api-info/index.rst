@@ -21,6 +21,7 @@ The Rackspace CDN API is implemented using a RESTful web service interface. Like
    date-and-time-format
    pagination
    response-codes
+   log-delivery
    creating-rules
    testing-the-cdn  
       
