@@ -32,6 +32,8 @@ The Rackspace CDN architecture includes the following components:
 In addition to this guide, see the `Rackspace CDN Getting
 Started Guide`_, which explains how to start using the API.
 
+This document describes the features available with API |contract version|.
+
 .. _Rackspace CDN Getting Started Guide: http://docs.rackspace.com/cdn/api/v1.0/cdn-gettingstarted/content/Overview.html
 
 
@@ -41,3 +43,4 @@ Started Guide`_, which explains how to start using the API.
    additional-resources
    api-contract-changes
    pricing-service-level
+   api-service-updates

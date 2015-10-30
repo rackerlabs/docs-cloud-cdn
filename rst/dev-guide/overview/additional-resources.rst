@@ -16,5 +16,7 @@ Use the links below to learn more about the Rackspace CDN service and API.
 
 - Email support questions to cdn@rackspace.com.
 
+- For product updates and announcement through Twitter, see http://twitter.com/rackspace.
+
 .. _Product Feedback page: https://feedback.rackspace.com/forums/298161-storage/suggestions/7119053-rackspace-cdn
 

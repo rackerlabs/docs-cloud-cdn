@@ -1,0 +1,20 @@
+API |contract version| updates,  October 05, 2015
+--------------------------------------------------
+
+What's new
+~~~~~~~~~~
+
+-  Updated the :ref:`Purge a cached asset <cdn-purge-a-cached-asset>`
+   operation default value for the ``hard`` query
+   parameter to ``true``, which indicates a purge.
+
+Resolved issues
+~~~~~~~~~~~~~~~
+
+|no changes|
+
+Known issues
+~~~~~~~~~~~~
+
+-  The :ref:`Create a service <cdn-create-a-service>` operation does not currently 
+   support Classless Inter-Domain Routing (CIDR) for IP restrictions.

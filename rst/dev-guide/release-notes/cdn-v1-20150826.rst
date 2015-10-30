@@ -1,0 +1,40 @@
+API |contract version| updates, August 26, 2015
+-----------------------------------------------
+
+What's new
+~~~~~~~~~~
+
+-  Added cache invalidation to the :ref:`Purge a cached
+   asset <cdn-purge-a-cached-asset>` operation by adding the 
+   ``hard`` query parameter. The default value for 
+   ``hard`` is set to ``false``, which does cache invalidation,
+   while setting ``hard`` to ``true`` does an actual purge.
+
+-  Added ``access`` with valid values of ``whitelist`` and ``blacklist``
+   to ``restrictions`` for the :ref:`Create a service <cdn-create-a-service>`
+   operation to allow or block access.
+
+-  Added ``request_url`` and ``client_ip`` to ``rules`` for the 
+   :ref:`Create a service <cdn-create-a-service>` operation to 
+   enable restriction rules for URLs and IP addresses.
+
+-  Made a change so that new services are now created with a default TTL
+   for ``/*``. You see this default TTL in the ``rules`` section of the
+   service.
+
+
+Resolved issues
+~~~~~~~~~~~~~~~
+
+-  Fixed an issue to now disallow entering a root domain for the domain
+   field in a service.
+
+-  Fixed an issue where now a TTL of 0 seconds is treated as “no-cache”
+   with Akamai.
+
+Known issues
+~~~~~~~~~~~~
+
+|no changes|
+
+
