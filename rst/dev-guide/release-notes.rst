@@ -7,14 +7,16 @@
 This section describes, for each release, the new features, changes to existing features, 
 and any known issues.
 
+.. note:: For information about using the API, see the :ref:`documentation overview <index>`.
+
 .. toctree::
    :maxdepth: 2  
       
-   release-notes/cdn-v1-20151027
-   release-notes/cdn-v1-20151002
-   release-notes/cdn-v1-20150911
-   release-notes/cdn-v1-20150826
-   release-notes/cdn-v1-20150712 
-   release-notes/cdn-v1-20150610
-   release-notes/cdn-v1-20150415
-   release-notes/cdn-v1-20150107
+   October 27, 2015 <release-notes/cdn-v1-20151027>
+   October 5, 2015 <release-notes/cdn-v1-20151002>
+   September 11, 2015 <release-notes/cdn-v1-20150911>
+   August 26, 2015 <release-notes/cdn-v1-20150826>
+   July 14, 2015 <release-notes/cdn-v1-20150712> 
+   June 10, 2015 <release-notes/cdn-v1-20150610>
+   April 27, 2015 <release-notes/cdn-v1-20150415>
+   January 7, 2015 <release-notes/cdn-v1-20150107>
