@@ -127,7 +127,8 @@ extlinks = {
 rst_epilog = """
 .. |apiservice| replace:: Rackspace CDN API
 .. |no changes| replace:: None for this release.
-.. |contract version| replace:: v1
+.. |contract version| replace:: 1.0
+.. |product name| replace:: Rackspace CDN
 """
 
 
