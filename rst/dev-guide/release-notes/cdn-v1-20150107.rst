@@ -1,10 +1,10 @@
-API |contract version| updates, January 07, 2015
-------------------------------------------------
+API |contract version| EA release, January 07, 2015
+---------------------------------------------------
 
 What's new
 ~~~~~~~~~~
 
-Early Access (EA) release of the Rackspace CDN API.
+This is the Early Access (EA) release of the Rackspace CDN API.
 
 Resolved issues
 ~~~~~~~~~~~~~~~
