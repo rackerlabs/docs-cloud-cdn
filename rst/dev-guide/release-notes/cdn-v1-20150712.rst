@@ -5,9 +5,9 @@ API |contract version| updates, July 14, 2015
 What's new
 ~~~~~~~~~~
 
--  Rackspace CDN has been updated to include host header information by
-   adding the ``hostheadertype`` and ``hostheadervalue`` parameters to
-   the :ref:`Create a service <cdn-create-a-service>` request.
+Rackspace CDN has been updated to include host header information by
+adding the ``hostheadertype`` and ``hostheadervalue`` parameters to
+the :ref:`create a service <cdn-create-a-service>` request.
 
 Resolved issues
 ~~~~~~~~~~~~~~~
