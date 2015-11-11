@@ -16,6 +16,8 @@ Learn how to use the Rackspace CDN service by using the REST API.
 .. toctree:: :hidden:
    :maxdepth: 2
 
+   Rackspace CDN 1.0 <self>
+   API Status <http://www.rackspacestatus.com/>
    About the API <overview/index>
    developer-guide   
    concepts
