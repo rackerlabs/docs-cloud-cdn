@@ -19,6 +19,10 @@ When you specify a purge, this operation purges the current version of the asset
 
 Following are some characteristics and considerations related to a purge of a cached asset:
 
+-  You specify a purge by setting ``hard = true`` in the URL as a query parameter.
+
+-  If you do not specify a setting for ``hard``, ``hard = true`` is the default.
+
 -  A purge takes more time than a cache invalidation (roughly 10 minutes per file after the API request returns a 202 (Success) response code.
 
 -  A purge deletes content from the CDN edge nodes’ hard drives.
@@ -28,6 +32,8 @@ Following are some characteristics and considerations related to a purge of a ca
 -  A purge enable the removal of a single file at a time.
 
 Following are some characteristics and considerations related to a cache invalidation:
+
+-  You specify a cache invalidation by setting ``hard = false`` in the URL as a query parameter.
 
 -  A cache invalidation takes less time than a purge (roughly 60 seconds per request after the API request returns a 202 (Success) response code.
 
