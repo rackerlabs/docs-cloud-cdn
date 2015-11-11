@@ -12,14 +12,45 @@ Purge a cached asset
 
 This operation purges a cached asset or invalidates the cache.
 
-This operation purges the current version of the asset that has been cached at the edge node. Currently in Rackspace CDN, purges require the URL of the file to purge. Use of wildcards is not in effect.
+When you specify a purge, this operation purges the current version of the asset that has been cached at the edge node. Currently in Rackspace CDN, purges require the URL of the file to purge. Use of wildcards is not in effect.
 
 .. note::
    By default, the ``hard`` query parameter is set to ``true`` to purge the assets. You can set ``hard`` to ``false`` to invalidate the cache, which might be faster than purging. 
-   
-   
 
-Akamai's SLA for cache invalidation, which is the time when the policy change takes effect until the actual invalidation, is approximately 60 seconds. For Rackspace CDN, additional time must be added to that SLA to account for the time taken to deploy the service.
+Following are some characteristics and considerations related to a purge of a cached asset:
+
+-  A purge takes more time than a cache invalidation (roughly 10 minutes per file after the API request returns a 202 (Success) response code.
+
+-  A purge deletes content from the CDN edge nodes’ hard drives.
+
+-  A purge should be used with sensitive material only.
+
+-  A purge enable the removal of a single file at a time.
+
+Following are some characteristics and considerations related to a cache invalidation:
+
+-  A cache invalidation takes less time than a purge (roughly 60 seconds per request after the API request returns a 202 (Success) response code.
+
+-  A cache invalidation forces content expiration on the CDN edge nodes’ hard drives.
+
+-  A cache invalidation allows the basic wildcard ‘*’ and subdirectories so you can execute against multiple files at one time.
+
+-  When re-querying the origin for content, a cache invalidation sends the ``If-Modified_Sinced`` header withe the request.
+
+-  How the CDN responds is based on the origin’s response as follows:
+
+   -  When the origin responds with a 200, the Akamai server updates its cache and time stamp, and the new object is served to the client.
+
+   -  When the origin responds with a 304, the Akamai server updates its time stamp, and the stale object is served to the client.
+
+   -  When the origin responds with a 404, the Akamai server updates its cache (with the error response) and time stamp (404’s are cached for 10s by default), and the 404 is served to the client.
+
+   -  When the origin responds with 5xx, the Akamai server updates its time stamp, and the stale object is served to the client.
+
+   -  When the origin cannot be reached, the Akamai server updates its time stamp, and the stale object is served to the client.
+   
+.. note::
+   Akamai's SLA for cache invalidation, which is the time when the policy change takes effect until the actual invalidation, is approximately 60 seconds. For Rackspace CDN, additional time must be added to that SLA to account for the time taken to deploy the service.
 
 
 
@@ -68,8 +99,8 @@ This table shows the query parameters for the request:
 |hard                      |Boolean *(Optional)*     |Specifies a purge when   |
 |                          |                         |set to ``true`` or a     |
 |                          |                         |cache invalidation when  |
-|                          |                         |set to ``false``. The    |
-|                          |                         |default is ``true``.     |
+|                          |                         |set to ``false``.        |
+|                          |                         |Default: ``true``        |
 +--------------------------+-------------------------+-------------------------+
 
 
