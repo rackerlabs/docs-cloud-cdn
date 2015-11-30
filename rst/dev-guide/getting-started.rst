@@ -4,34 +4,14 @@
 **Getting Started Guide**
 =========================
 
-This guide provides step-by-step instructions for entering the necessary URLs or commands 
-to use some of the basic operations of the Rackspace CDN API. For additional details
+Use this Getting Started Guide to start creating and managing your CDN service by using the Rackspace CDN API. You'll learn how to authenticate, send API requests, 
+and complete basic operations for using the Rackspace CDN API by using cURL.
+
+For additional details
 about all of the API operations, see the :ref:`API reference <api-reference>`.
 
+.. note:: 
+		You can also access |apiservice| features from the `Rackspace Cloud Control Panel`_.
 
-.. toctree::
-   :maxdepth: 2  
-      
-   getting-started/overview
-   getting-started/prerequesites
-   getting-started/pricing-SLA
-   getting-started/general-API-info
-   getting-started/service-access-endpoints
-   getting-started/request-response-type
-   getting-started/common-headers
-   getting-started/response-codes
-   getting-started/create-rules
-   getting-started/test-CDN
-   getting-started/send-request-to-API
-   getting-started/using-curl
-   getting-started/copy-paste-curl         
-   getting-started/gen-auth-token
-   getting-started/using-Rackspace-CDN   
-   getting-started/create-service
-   getting-started/list-service
-   getting-started/update-DNS
-   getting-started/access-website
-   getting-started/purge-asset
-   getting-started/list-flavors
-   getting-started/delete-service
-   getting-started/additional-resources
+.. _Rackspace Cloud Control Panel: https://mycloud.rackspace.com  
+
