@@ -1,12 +1,14 @@
 .. _gsg-using-Rackspace-CDN:
 
-Using the API directly by using cURL
+Create and manage a service
 -----------------------------------------------
 
-The main purpose of this guide is to get you started quickly with Rackspace CDN. To help you 
-accomplish this goal, this section contains simple examples for some basic Rackspace CDN
-requests that you will commonly use. Example requests are provided in
+You can use the simple examples in the following sections for basic Rackspace CDN 
+requests that you will commonly use to create and manage a service by using 
+Rackspace CDN API operations. Example requests are provided in
 cURL, followed by the response.
+
+Before running the examples, review the :ref:`Rackspace CDN concepts<concepts>`.
 
 For more information about all Rackspace CDN operations, see the
 :ref:`API reference <api-reference>`.
