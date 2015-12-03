@@ -8,16 +8,16 @@ to purge the current version of an asset that has been cached at the
 edge node.
 
  
-**Example: Purge a cached asset: Request**
+**cURL purge a cached asset request**
 
 .. code::  
 
-   curl -i -X DELETE https://global.cdn.api.rackspacecloud.com/v1.0/yourAccountID/services/yourServiceID/assets?url=relativeURLofAssettoDelete \
-   -H "X-Auth-Token: yourAuthToken" \
+   curl -i -X DELETE $API_ENDPOINT/v1.0/$TENANT_ID/services/yourServiceID/assets?url=relativeURLofAssettoDelete \
+   -H "X-Auth-Token: $AUTH_TOKEN" \
    -H "Content-type: application/json"
 
  
-**Example: Purge a cached asset: Response**
+**Purge a cached asset response**
 
 .. code::  
 
