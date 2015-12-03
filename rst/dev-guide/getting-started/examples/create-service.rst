@@ -15,13 +15,13 @@ the origin from which to pull content.
 Following are examples of a create service request and response.
 
  
-**Example: Create a service: Request**
+**cURL create a service request**
 
-.. code::  
+.. code:: bash 
 
-   curl -i -X POST https://global.cdn.api.rackspacecloud.com/v1.0/yourAccountID/services \
+   curl -i -X POST $API_ENDPOINT/v1.0/$TENANT_ID/services \
    -H "Accept: application/json" \
-   -H "X-Auth-Token: yourAuthToken" \
+   -H "X-Auth-Token: $AUTH_TOKEN" \
    -H "Content-Type: application/json" -d \
     '{
         "name": "mywebsite.com",
@@ -82,7 +82,7 @@ When the service is created, you see an HTTP 202 response with the
 ``Location`` header returned.
 
  
-**Example: Create a service: Response**
+**Create a service response**
 
 .. code::  
 

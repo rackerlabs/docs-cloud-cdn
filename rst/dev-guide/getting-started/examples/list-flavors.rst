@@ -7,16 +7,16 @@ A flavor is a mapping configuration to the Akamai CDN provider. This
 operation retrieves a list of all available flavors.
 
  
-**Example: Retrieve flavors: Request**
+**cURL retrieve flavors request**
 
-.. code::  
+.. code:: bash
 
-   curl -i -X GET https://global.cdn.api.rackspacecloud.com/v1.0/yourAccountID/flavors \
-   -H "X-Auth-Token: yourAuthToken" \
+   curl -i -X GET $API_ENDPOINT/v1.0/$TENANT_ID/flavors \
+   -H "X-Auth-Token: $AUTH_TOKEN" \
    -H "Content-type: application/json" 
 
  
-**Example: Retrieve flavors: Response**
+**Retrieve flavors response**
 
 .. code::  
 
