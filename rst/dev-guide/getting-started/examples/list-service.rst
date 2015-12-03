@@ -6,18 +6,18 @@ Retrieve a created service
 Perform a **GET** request on the ``Location`` header that was returned
 in :ref:`Create a service <gsg-create-service>`.
  
-**Example: Retrieve a service: Request**
+**cURL retrieve a service request**
 
 .. code::  
 
-   curl -i -X GET https://global.cdn.api.rackspacecloud.com/v1.0/yourAccountID/services/yourServiceID \
-   -H "X-Auth-Token: yourAuthToken" \
+   curl -i -X GET $API_ENDPOINT/v1.0/$TENANT_ID/services/yourServiceID \
+   -H "X-Auth-Token: $AUTH_TOKEN" \
    -H "Content-type: application/json" 
 
 You see a response body similar to the one in the following example.
 
  
-**Example: Retrieve a service: Response**
+**Retrieve a service response**
 
 .. code::  
 

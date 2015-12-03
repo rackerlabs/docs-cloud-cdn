@@ -3,6 +3,9 @@
 Prerequisites
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+To run the examples in this guide, you must have the following
+prerequisites:
+
 - Rackspace Cloud account  
 - Username and password to access the account
 - API key to access Rackspace Cloud services
