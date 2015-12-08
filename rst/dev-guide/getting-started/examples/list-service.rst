@@ -1,7 +1,7 @@
 .. _gsg-list-service:
 
-Retrieve a created service
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+Retrieving a created service
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Perform a **GET** request on the ``Location`` header that was returned
 in :ref:`Create a service <gsg-create-service>`.

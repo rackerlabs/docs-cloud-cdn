@@ -1,7 +1,7 @@
 .. _gsg-purge-asset
 
-Purge a cached asset
-~~~~~~~~~~~~~~~~~~~~
+Purging a cached asset
+~~~~~~~~~~~~~~~~~~~~~~~
 
 After working with the service you created, you might find that you want
 to purge the current version of an asset that has been cached at the
