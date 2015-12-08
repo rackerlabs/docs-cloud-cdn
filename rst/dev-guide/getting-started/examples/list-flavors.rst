@@ -1,10 +1,14 @@
 .. _gsg-list-flavors
 
-Retrieve flavors
-~~~~~~~~~~~~~~~~
+Retrieving flavors
+~~~~~~~~~~~~~~~~~~~
 
 A flavor is a mapping configuration to the Akamai CDN provider. This
 operation retrieves a list of all available flavors.
+
+.. note::
+   
+   Currently, the only flavor available is ``cdn``.
 
  
 **cURL retrieve flavors request**

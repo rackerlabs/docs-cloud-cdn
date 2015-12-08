@@ -1,5 +1,5 @@
-Update your Domain Name System 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Updating your Domain Name System 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Look for the ``access_url`` in the ``links[]`` section in the response
 in :ref:`Retrieve a created service <gsg-list-service>` for the service that you created. Make sure that the ``status`` is ``deployed``.
