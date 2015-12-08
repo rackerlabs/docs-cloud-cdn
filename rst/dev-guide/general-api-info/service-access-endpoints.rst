@@ -11,7 +11,7 @@ centers. The global endpoint is as follows:
     https://global.cdn.api.rackspacecloud.com/v1.0/123456
 
 Replace the example account ID number, ``123456``, with your actual
-account ID returned as part of the authentication service response.
+account ID returned as part of the :ref:`authentication service response<review-auth-resp>`.
 Your account ID is located after the final slash (/) in the
 ``publicURL`` field returned by the authentication response. 
 

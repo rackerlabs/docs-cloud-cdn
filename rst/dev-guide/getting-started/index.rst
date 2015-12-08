@@ -7,7 +7,7 @@
 .. toctree:: 
    :maxdepth: 2
 
-   prerequisites-for-using-api
-   send-request-ovw
+   Prerequisites-for-using-api
+   Send API request<send-request-ovw>
    Authenticate <authenticate>
    using-Rackspace-CDN   
