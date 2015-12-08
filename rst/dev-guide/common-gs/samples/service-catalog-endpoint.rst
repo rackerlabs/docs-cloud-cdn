@@ -1,5 +1,4 @@
  .. code-block:: json
-    :emphasize-lines: 8, 13
 
             {
             "endpoints":[

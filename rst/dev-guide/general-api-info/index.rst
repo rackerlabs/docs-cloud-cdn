@@ -12,8 +12,8 @@ The Rackspace CDN API is implemented using a RESTful web service interface. Like
    :maxdepth: 2
    
    authentication
-   role-based-access-control
    service-access-endpoints
+   role-based-access-control
    contract-version
    request-and-response-types
    absolute-limits
