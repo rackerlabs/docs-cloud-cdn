@@ -1,8 +1,7 @@
 .. _gsg-delete-service:
 
-Delete a service
-~~~~~~~~~~~~~~~~
-
+Deleting a service
+~~~~~~~~~~~~~~~~~~~~
 This operation deletes a service. 
  
 **cURL delete a service request**

@@ -1,7 +1,7 @@
 .. _gsg-create-service:
 
-Create a service 
-~~~~~~~~~~~~~~~~
+Creating a service 
+~~~~~~~~~~~~~~~~~~~~
 
 A service represents an application that has its content cached to the
 edge nodes, such as a website. To create a service, issue a **POST**
