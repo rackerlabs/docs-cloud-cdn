@@ -12,6 +12,7 @@ details about |apiservice| |contract version| service updates.
 .. toctree::
    :maxdepth: 2  
       
+   January 13, 2016 <release-notes/cdn-v1-20160113>
    December10, 2015 <release-notes/cdn-v1-20151210>
    October 27, 2015 <release-notes/cdn-v1-20151027>
    October 5, 2015 <release-notes/cdn-v1-20151002>

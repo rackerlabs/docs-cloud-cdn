@@ -180,7 +180,8 @@ This table shows the body parameters for the request:
 +-----------------------+-------------+------------------------------------------------------------------------------+
 |restrictions.\         |String       |Specifies the type of this restriction. Valid values are ``whitelist``, which |
 |**access**             |*(Optional)* |is the default value and allows access, or ``blacklist``, which does not      |
-|                       |             |allow access.                                                                 |
+|                       |             |allow access. Note that ``blacklist`` and ``whitelist`` must use different    |
+|                       |             |paths.                                                                        |      
 +-----------------------+-------------+------------------------------------------------------------------------------+
 |restrictions.\         |String       |Specifies a collection of rules that determine if this restriction should be  |
 |**rules**              |*(Optional)* |applied to an asset.                                                          |
