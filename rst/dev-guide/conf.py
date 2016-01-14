@@ -54,7 +54,7 @@ builder = 'deconst-single'
 
 # General information about the project.
 project = 'Rackspace Developer Documentation'
-copyright = '2015, Rackspace'
+copyright = '2016, Rackspace'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
