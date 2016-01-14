@@ -42,13 +42,13 @@
   <titleabbrev>Rackspace CDN Developer Guide for Service Management</titleabbrev>
   <info>
     <copyright>
-      <year>2015</year>
+      <year>2015-2016</year>
       <holder>Rackspace US, Inc.</holder>
     </copyright>
     <releaseinfo>API v1.0</releaseinfo>
     <productname>Rackspace CDN</productname>
     <pubdate xmlns:m="http://www.w3.org/1998/Math/MathML"
-      xmlns:html="http://www.w3.org/1999/xhtml">2015-10-27</pubdate>
+      xmlns:html="http://www.w3.org/1999/xhtml">2016-01-14</pubdate>
     <legalnotice role="rs-api" xmlns:m="http://www.w3.org/1998/Math/MathML"
       xmlns:html="http://www.w3.org/1999/xhtml">
       <annotation>
@@ -62,6 +62,18 @@
     </abstract>
     <!--Note that the <productname> text matches the first few words of the title. The build system splits the title into productname + rest of title on the pdf cover.-->
     <revhistory>
+      <revision>
+        <date>2015-01-14</date>
+        <revdescription>
+          <itemizedlist>
+            <listitem>
+              <para>Removed the operation to delete an SSL certificate
+                from this guide and moved it to the external Developer
+                Guide.</para>
+            </listitem>
+          </itemizedlist>
+        </revdescription>
+      </revision>
       <revision>
         <date>2015-10-27</date>
         <revdescription>
@@ -130,7 +142,7 @@
           </itemizedlist>
         </revdescription>
       </revision>
-      <revision>
+      <revision xml:id="revision_rbx_3p1_r5">
         <date>2015-08-28</date>
         <revdescription>
           <itemizedlist>
@@ -1254,7 +1266,6 @@ Content-Type: application/json
         </wadl:resource>
         <wadl:resource href="../../src/wadl/cdn-adminguide.wadl#domain_name">
           <wadl:method href="#getSSLCertificate"/>
-          <wadl:method href="#deleteSSLCertificate"/>
         </wadl:resource>
       </wadl:resources>
     </section>  

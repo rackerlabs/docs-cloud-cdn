@@ -96,8 +96,7 @@
 						              <para>Specifies a string representing the type of the SSL certificate, such as <code>www.example.com</code>. </para> 
 							      </wadl:doc>
 					          </param>
-					              <method href="#getSSLCertificate"/>
-					     	      <method href="#deleteSSLCertificate"/>
+					              <method href="#getSSLCertificate"/>					     	
 					      </resource>
 				</resource> 
 				
@@ -759,8 +758,9 @@
 
 	<!--*******************************************************-->
 	<!--               Delete SSL certificate                  -->
+	<!--  Moved to Dev Guide (rst format) and published 1/13/2016 -->
 	<!--*******************************************************-->
-	<method name="DELETE" id="deleteSSLCertificate">
+<!--	<method name="DELETE" id="deleteSSLCertificate">
 		<wadl:doc xml:lang="EN" title="Deletes an SSL certificate"
 			xmlns="http://docbook.org/ns/docbook">
 			<para role="shortdesc">Deletes an SSL certificate.</para>
@@ -790,7 +790,7 @@
 			</representation>
 		</response>
 	</method>	
-	
+-->	
 
 <!--*******************************************************-->
 <!--              Flavors methods                          -->
