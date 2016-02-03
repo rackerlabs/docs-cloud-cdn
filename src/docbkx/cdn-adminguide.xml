@@ -48,7 +48,7 @@
     <releaseinfo>API v1.0</releaseinfo>
     <productname>Rackspace CDN</productname>
     <pubdate xmlns:m="http://www.w3.org/1998/Math/MathML"
-      xmlns:html="http://www.w3.org/1999/xhtml">2016-01-14</pubdate>
+      xmlns:html="http://www.w3.org/1999/xhtml">2016-02-08</pubdate>
     <legalnotice role="rs-api" xmlns:m="http://www.w3.org/1998/Math/MathML"
       xmlns:html="http://www.w3.org/1999/xhtml">
       <annotation>
@@ -62,6 +62,37 @@
     </abstract>
     <!--Note that the <productname> text matches the first few words of the title. The build system splits the title into productname + rest of title on the pdf cover.-->
     <revhistory>
+      <revision>
+        <date>2015-02-08</date>
+        <revdescription>
+          <itemizedlist>
+            <listitem>
+              <para>Added the following operations for the SAN retry
+                list (<xref linkend="SANOperations"/>):</para>
+              <para>
+                <itemizedlist>
+                  <listitem>
+                    <para>List SAN requests in retry list queue</para>
+                  </listitem>
+                  <listitem>
+                    <para>Put a SAN request list into the retry list
+                      queue</para>
+                  </listitem>
+                  <listitem>
+                    <para>Rerun all the SAN requests in the retry list
+                      queue</para>
+                  </listitem>
+                </itemizedlist>
+              </para>
+            </listitem>
+            <listitem>
+              <para>Removed the operation to create an SSL certificate
+                from this guide and moved it to the external Developer
+                Guide.</para>
+            </listitem>
+          </itemizedlist>
+        </revdescription>
+      </revision>
       <revision>
         <date>2015-01-14</date>
         <revdescription>
@@ -116,8 +147,9 @@
               </itemizedlist>
             </listitem>
             <listitem>
-              <para>Added the <xref linkend="SSLCertificateOperations"
-                />, which include the following operations:</para>
+              <para>Added the SSL certification operations section
+                  (<xref linkend="SSLCertificateOperations"/>), which
+                includes the following operations:</para>
               <itemizedlist>
                 <listitem>
                   <para>Create an SSL certificate</para>
@@ -1251,19 +1283,31 @@ Content-Type: application/json
       </wadl:resources>
     </section>
     
+    <section xml:id="SANOperations">
+      <title>SAN retry list operations</title>
+      <para>The section describes the SAN retry list operations in Rackspace CDN. </para>
+      <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
+        <wadl:resource
+          href="../../src/wadl/cdn-adminguide.wadl#retry_list">
+          <wadl:method href="#getSANRetryList"/>
+          <wadl:method href="#putSANRetryList"/>
+          <wadl:method href="#postSANRetryList"/>
+        </wadl:resource>
+      </wadl:resources>
+    </section>
+   
+
     <section xml:id="SSLCertificateOperations">
       <title>SSL certificate</title>
       <para>SSL uses certificates between a server and a client, such
         as a Web server and an Internet browser, to secure and protect
         the transmitted data.</para>
-      <para>The section describes the following operations for SSL
+      <para>The section describes the following operation for SSL
         certificates. The SSL certificate-related resources of the
           <emphasis role="bold">SSL Certificate API</emphasis> were
         used.</para>
       <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
-        <wadl:resource href="../../src/wadl/cdn-adminguide.wadl#ssl_certificate">
-          <wadl:method href="#postSSLCertificate"/>
-        </wadl:resource>
+ 
         <wadl:resource href="../../src/wadl/cdn-adminguide.wadl#domain_name">
           <wadl:method href="#getSSLCertificate"/>
         </wadl:resource>
