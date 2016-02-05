@@ -34,11 +34,12 @@
 -->
 			
 			<resource id="admin" path="admin">
-				<resource id="services" path="services">
-					<resource id= "action" path="action">
-						<method href="#postServiceAction"/>
-					</resource>
-				</resource>
+				
+				           <resource id="services" path="services">
+					           <resource id= "action" path="action">
+						           <method href="#postServiceAction"/>
+					           </resource>
+				            </resource>
 				
 				            <resource  id="limits" path="limits">
 				            	<resource id="project_id" path="{project_id}">
@@ -70,7 +71,15 @@
 										</resource>
 										<resource id="service" path="service">
 					                      <method href="#postSANDomain"/>											
-										</resource>										
+										</resource>
+										<resource id="SANcertificate" path="ssl_certificate">
+											<resource id="retry_list" path="retry_list">
+											    <method href="#getSANRetryList"/>
+												<method href="#putSANRetryList"/>
+												<method href="#postSANRetryList"/>
+											</resource>
+										</resource>	
+
 									</resource>
 								</resource>
 			</resource>			
@@ -87,7 +96,7 @@
 				</resource>	
 			</resource>	
 			
-				
+			
 				<resource id="ssl_certificate" path="ssl_certificate">
 					<method href="#postSSLCertificate"/>
 					     <resource id="domain_name" path="{domain_name}">
@@ -99,7 +108,7 @@
 					              <method href="#getSSLCertificate"/>					     	
 					      </resource>
 				</resource> 
-				
+			
 			<resource id="flavors" path="flavors">				
 				<method href="#postFlavors"/>
 				<resource id="flavor_id" path="{flavor_id}">
@@ -459,7 +468,160 @@
 				</wadl:doc>
 			</representation>
 		</response>		
-	</method>	
+	</method>
+
+	
+	
+
+		
+<!--*******************************************************-->
+<!--               SAN retry-list methods                  -->
+<!--*******************************************************-->
+		
+
+	
+	<method name="GET" id="getSANRetryList">
+		<wadl:doc xml:lang="EN" title="List SAN requests in retry list queue"
+			xmlns="http://docbook.org/ns/docbook">
+			<para role="shortdesc">Lists all the SAN requests in the SAN retry list queue.</para>
+			<para>This operation lists all the SAN requests in the SAN retry list queue.</para>
+			<note><para>This endpoint is accessible only by users with the <code>support</code> role in their Cloud Identity service catalog.</para></note>
+		</wadl:doc>
+	
+
+			<request>
+				<representation mediaType="application/json" >
+					<doc>
+						<xsdxt:code href="../wadl/samples/cdn-getSANRetryList_request-json-http.txt"/> 
+					</doc>					
+				</representation>
+			</request>
+			<response status="202" xmlns="http://wadl.dev.java.net/2009/02">
+				<doc title="Accepted" xml:lang="EN">The request has been accepted for processing.</doc>
+				<representation mediaType="application/json">
+					
+					
+						
+						<wadl:doc xmlns="http://docbook.org/ns/docbook"
+							xml:lang="EN">
+							<xsdxt:code href="../wadl/samples/cdn-getSANRetryList_response-json-http.txt"/>
+							<xsdxt:code href="../wadl/samples/cdn-getSANRetryList_response.json"/>					
+						</wadl:doc>
+						
+						
+						
+					<param name="project_id" style="plain" path="$.project_id">
+						<wadl:doc xmlns="http://docbook.org/ns/docbook"
+							xml:lang="EN">Specifies the associated identifier for the user account, such as, 12345.</wadl:doc>
+					</param>
+					<param name="domain_name" style="plain" path="$.domain_name">
+						<wadl:doc xmlns="http://docbook.org/ns/docbook"
+							xml:lang="EN">Specifies a string representing the domain, such as <code>test_san1.cnamecdn.com</code>.</wadl:doc>
+					</param>
+					<param name="flavor_id" style="plain" path="$.flavor_id">
+						<wadl:doc xmlns="http://docbook.org/ns/docbook"
+							xml:lang="EN">Specifies the CDN-provider flavor id that is used.</wadl:doc>
+					</param>				
+					<param name="validate_service" style="plain" path="$.validate_service">
+						<wadl:doc xmlns="http://docbook.org/ns/docbook"
+							xml:lang="EN">Indicates whether the domain is validated as belonging to an existing service. Valid values are <code>true</code> and <code>false</code>.</wadl:doc>
+					</param>
+				</representation>
+			</response>		
+		</method>
+		
+<!--Put a new SAN request onto the SAN retry list queue        -->
+		
+	<method name="PUT" id="putSANRetryList">
+			<wadl:doc xml:lang="EN" title="Put a SAN request list into the retry list queue"
+				xmlns="http://docbook.org/ns/docbook">
+				<para role="shortdesc">Puts a new SAN request list into the SAN retry list queue.</para>
+				<para>This operation puts a new SAN request list into the SAN retry list queue.</para>
+				<note><para>This endpoint is accessible only by users with the <code>support</code> role in their Cloud Identity service catalog.</para></note>
+			</wadl:doc>
+			<request>
+				<representation mediaType="application/json" >
+					<doc>
+						<xsdxt:code href="../wadl/samples/cdn-putSANRetryList_request-json-http.txt"/>
+						<xsdxt:code href="../wadl/samples/cdn-putSANRetryList_request.json"/>  
+					</doc>
+					<param name="project_id" style="plain" path="$.project_id">
+						<wadl:doc xmlns="http://docbook.org/ns/docbook"
+							xml:lang="EN">Specifies the associated identifier for the user account, such as, 12345.</wadl:doc>
+					</param>
+					<param name="domain_name" style="plain" path="$.domain_name">
+						<wadl:doc xmlns="http://docbook.org/ns/docbook"
+							xml:lang="EN">Specifies a string representing the domain, such as <code>test_san1.cnamecdn.com</code>.</wadl:doc>
+					</param>
+					<param name="flavor_id" style="plain" path="$.flavor_id">
+						<wadl:doc xmlns="http://docbook.org/ns/docbook"
+							xml:lang="EN">Specifies the CDN-provider flavor id that is used.</wadl:doc>
+					</param>				
+					<param name="validate_service" style="plain" path="$.validate_service">
+						<wadl:doc xmlns="http://docbook.org/ns/docbook"
+							xml:lang="EN">Indicates whether the domain is validated as belonging to an existing service. Valid values are <code>true</code> and <code>false</code>.</wadl:doc>
+					</param>
+				</representation>
+			</request>
+			<response status="202" xmlns="http://wadl.dev.java.net/2009/02">
+				<doc title="Accepted" xml:lang="EN">The request has been accepted for processing.</doc>
+				<representation mediaType="application/json">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN">
+						<xsdxt:code href="../wadl/samples/cdn-putSANRetryList_response-json-http.txt"/> 
+						<xsdxt:code href="../wadl/samples/cdn-putSANRetryList_response.json"/> 
+					</wadl:doc>	
+						<param name="queue" style="plain" path="$.queue">
+							<wadl:doc xmlns="http://docbook.org/ns/docbook"
+								xml:lang="EN">Indicates the retry list queue.</wadl:doc>
+						</param>
+						<param name="project_id" style="plain" path="$.queue.project_id">
+							<wadl:doc xmlns="http://docbook.org/ns/docbook"
+								xml:lang="EN">Specifies the associated identifier for the user account, such as, 12345.</wadl:doc>
+						</param>
+						<param name="domain_name" style="plain" path="$.queue.domain_name">
+							<wadl:doc xmlns="http://docbook.org/ns/docbook"
+								xml:lang="EN">Specifies a string representing the domain, such as <code>test_san1.cnamecdn.com</code>.</wadl:doc>
+						</param>
+						<param name="flavor_id" style="plain" path="$.queue.flavor_id">
+							<wadl:doc xmlns="http://docbook.org/ns/docbook"
+								xml:lang="EN">Specifies the CDN-provider flavor id that is used.</wadl:doc>
+						</param>				
+						<param name="deleted" style="plain" path="$.deleted">
+							<wadl:doc xmlns="http://docbook.org/ns/docbook"
+								xml:lang="EN">Specifies any requests that are deleted from the queue.</wadl:doc>
+						</param>
+					
+				</representation>
+			</response>		
+		</method>
+		
+<!--Rerun all the SAN request on the SAN retry list queue        -->
+		
+	<method name="POST" id="postSANRetryList">
+			<wadl:doc xml:lang="EN" title="Rerun all the SAN requests in the retry list queue"
+				xmlns="http://docbook.org/ns/docbook">
+				<para role="shortdesc">Reruns all of the SAN requests in the SAN retry list queue.</para>
+				<para>This operation reruns all of the SAN requests in the SAN retry list queue.</para>
+				<note><para>This endpoint is accessible only by users with the <code>support</code> role in their Cloud Identity service catalog.</para></note>
+			</wadl:doc>
+			<request>
+				<representation mediaType="application/json" >
+					<doc>
+						<xsdxt:code href="../wadl/samples/cdn-postSANRetryList_request-json-http.txt"/> 
+					</doc>					
+				</representation>
+			</request>
+			<response status="202" xmlns="http://wadl.dev.java.net/2009/02">
+				<doc title="Accepted" xml:lang="EN">The request has been accepted for processing..</doc>
+				<representation mediaType="application/json">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN">
+						<xsdxt:code href="../wadl/samples/cdn-postSANRetryList_response-json-http.txt"/>	 					
+					</wadl:doc>
+				</representation>
+			</response>		
+		</method>
 	
 	<!--*******************************************************-->
 	<!--               Akamai Background                       -->
@@ -633,6 +795,7 @@
 	<!--*******************************************************-->
 	<!--               Post SSL certificate                    -->
 	<!--*******************************************************-->
+	<!-- Removed from Admin Guide and moved to external Dev Guide on 2/3 as requested by Tony Tan. -->
 	<method name="POST" id="postSSLCertificate">
 		<wadl:doc xml:lang="EN" title="Create an SSL certificate"
 			xmlns="http://docbook.org/ns/docbook">
@@ -677,13 +840,13 @@
 				
 			</representation>
 		</response>
-	</method>	
+	</method> 	
 	
 	<!--*******************************************************-->
 	<!--               Get SSL certificate                     -->
 	<!--*******************************************************-->
 	<method name="GET" id="getSSLCertificate">
-		<wadl:doc xml:lang="EN" title="Retrieves an SSL certificate"
+		<wadl:doc xml:lang="EN" title="Retrieve an SSL certificate"
 			xmlns="http://docbook.org/ns/docbook">
 			<para role="shortdesc">Retrieves an SSL certificate.</para>
 			<para>This operation retrieves an SSL certificate. </para>						

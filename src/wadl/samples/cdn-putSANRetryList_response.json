@@ -1,0 +1,15 @@
+{
+  "queue": [
+    {
+      "project_id": "002",
+      "domain_name": "test_san1.cnamecdn.com",
+      "flavor_id": "premium"
+    },
+    {
+      "project_id": "000",
+      "domain_name": "test_san2.cnamecdn.com",
+      "flavor_id": "premium"
+    }
+  ],
+  "deleted": []
+}
