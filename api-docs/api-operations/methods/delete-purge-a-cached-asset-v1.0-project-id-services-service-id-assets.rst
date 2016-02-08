@@ -1,6 +1,4 @@
 
-.. THIS OUTPUT IS GENERATED FROM THE WADL. DO NOT EDIT.
-
 .. _cdn-purge-a-cached-asset:
 
 Purge a cached asset
