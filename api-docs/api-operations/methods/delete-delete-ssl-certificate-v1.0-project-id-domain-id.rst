@@ -1,6 +1,4 @@
 
-
-
 .. _cdn-delete-ssl-certificate:
 
 Delete an SSL certificate

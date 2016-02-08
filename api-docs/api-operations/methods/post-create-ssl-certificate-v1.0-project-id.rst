@@ -1,6 +1,4 @@
 
-
-
 .. _cdn-create-ssl-certificate:
 
 Create an SSL certificate
