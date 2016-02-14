@@ -39,7 +39,7 @@ Following are some characteristics and considerations related to a cache invalid
 
 -  A cache invalidation allows the basic wildcard ‘*’ and subdirectories so you can execute against multiple files at one time.
 
--  When re-querying the origin for content, a cache invalidation sends the ``If-Modified_Sinced`` header withe the request.
+-  When re-querying the origin for content, a cache invalidation sends the ``If-Modified-Sinced`` header with the request.
 
 -  How the CDN responds is based on the origin’s response as follows:
 
