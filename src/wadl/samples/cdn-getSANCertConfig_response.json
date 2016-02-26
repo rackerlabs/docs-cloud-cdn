@@ -1,0 +1,9 @@
+{
+  "ipVersion": "ipv4",
+  "slot-deployment.class": "esslType",
+  "createType": "modSan",
+  "jobId": "5123",
+  "cnameHostname": "secure2.san1.testcdn.com",
+  "spsId": 1234,
+  "issuer": "symantec"
+}
