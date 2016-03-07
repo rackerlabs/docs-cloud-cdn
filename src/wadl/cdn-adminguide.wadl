@@ -36,7 +36,11 @@
 			<resource id="admin" path="admin">
 				
 				           <resource id="services" path="services">
-					           <resource id= "action" path="action">
+				           	   <method href="#getServiceProjectIDsByStatus"/>
+				           	   <resource id= "status" path="status">
+				           		<method href="#postServiceStatus"/>
+				           	   </resource>
+				           	   <resource id= "action" path="action">
 						           <method href="#postServiceAction"/>
 					           </resource>
 				            </resource>
@@ -54,6 +58,7 @@
 				            </resource>	
 				
 							<resource id="domains" path="domains">
+								<method href="#getDomainsByProviderURL"/>
 								<resource id="domain" path="{domain_name}">
 								<param name="domain_name" style="template" type="xsd:string"> 
 								<wadl:doc 
@@ -78,7 +83,18 @@
 												<method href="#putSANRetryList"/>
 												<method href="#postSANRetryList"/>
 											</resource>
-										</resource>	
+											
+											<resource id="config" path="config">
+												<resource id="san_cert_name" path="{san_cert_name}">
+													<param name="san_cert_name" style="template" type="xsd:string"> 
+														<wadl:doc 
+															xmlns="http://docbook.org/ns/docbook"
+															xml:lang="EN"><para>The name of the SAN certificate, such as secure1.san1.altcdn.com.</para> </wadl:doc>
+													</param>
+												    <method href="#getSANCertConfig"/>
+												    <method href="#postSANCertConfig"/>
+											    </resource>
+										    </resource>	 
 
 									</resource>
 								</resource>
@@ -96,18 +112,24 @@
 				</resource>	
 			</resource>	
 			
+			<resource id="certificates" path="certificates">
+				<method href="#getCertificateByStatus"/>								     	
+			</resource> 
 			
-				<resource id="ssl_certificate" path="ssl_certificate">
-					<method href="#postSSLCertificate"/>
-					     <resource id="domain_name" path="{domain_name}">
-					          <param name="domain_name" style="template" type="xsd:string" required="true">
-						          <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+			<resource id="ssl_certificate" path="ssl_certificate">				
+					    <resource id="domain_name" path="{domain_name}">
+					         <param name="domain_name" style="template" type="xsd:string" required="true">
+						         <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
 						              <para>Specifies a string representing the type of the SSL certificate, such as <code>www.example.com</code>. </para> 
-							      </wadl:doc>
+							     </wadl:doc>
 					          </param>
-					              <method href="#getSSLCertificate"/>					     	
-					      </resource>
-				</resource> 
+					          <method href="#getSSLCertificate"/>					     	
+					     </resource>
+			 </resource>
+			</resource>
+			
+			
+				
 			
 			<resource id="flavors" path="flavors">				
 				<method href="#postFlavors"/>
@@ -128,6 +150,121 @@
 <!--*******************************************************-->
 <!--               All methods                             -->
 <!--*******************************************************-->
+
+<!--*******************************************************-->
+<!--              Service status methods                   -->
+<!--*******************************************************-->
+	
+<!--*******************************************************-->
+<!--   Query services and project IDs by service status    -->
+<!--*******************************************************-->
+	<method name="GET" id="getServiceProjectIDsByStatus">
+		<wadl:doc xml:lang="EN" title="Get service IDs and project IDs by status "
+			xmlns="http://docbook.org/ns/docbook">
+			<para role="shortdesc">Get services and project IDs by <code>status</code>.</para>
+			<para> To get services and project IDs by <code>status</code>, provide <code>status</code> as a query parameter in the endpoint URL of the operation. 
+				Valid values for <code>status</code> are <code>deployed</code>,  <code>failed</code>, 
+				<code>update_in_progress</code>, <code>deploy_in_progress</code>, and <code>delete_in_progress</code>. No JSON request body is required. </para>			
+		</wadl:doc>
+		<request>
+			<param name="status" style="query" type="xsd:string"
+				required="true">
+				<wadl:doc xmlns="http://docbook.org/ns/docbook"
+					xml:lang="EN">Specifies the status for which you want to list services and 
+					project IDs. Valid values for <code>status</code> are <code>deployed</code>,  <code>failed</code>,  
+					<code>update_in_progress</code>, <code>deploy_in_progress</code>, and <code>delete_in_progress</code>.</wadl:doc>
+			</param>
+			<representation mediaType="application/json" >
+				<doc>
+					<xsdxt:code href="../wadl/samples/cdn-getServiceProjectIDs_request-json-http.txt"/>  
+				</doc>
+			</representation>
+		</request>
+		<response status="200" xmlns="http://wadl.dev.java.net/2009/02">
+			<doc title="OK" xml:lang="EN">Success.</doc>
+			<representation mediaType="application/json">
+				<wadl:doc xmlns="http://docbook.org/ns/docbook"
+					xml:lang="EN">
+					<xsdxt:code
+						href="../wadl/samples/cdn-getServiceProjectIDs_response-json-http.txt"/> 
+					<xsdxt:code 
+						href="../wadl/samples/cdn-getServiceProjectIDs_response.json"/>	  
+				</wadl:doc>
+				<param name="project_id" style="plain" path="$.project_id">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN">Specifies the project ID for the service.</wadl:doc>
+				</param>
+				<param name="service_id" style="plain" path="$.service_id">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN">Specifies the servic ID for the service.</wadl:doc>
+				</param>
+			</representation>
+		</response>		
+	</method>	
+	
+	
+<!--*******************************************************-->
+<!--            Post service status                        -->
+<!--*******************************************************-->
+	<method name="POST" id="postServiceStatus">
+		<wadl:doc xml:lang="EN" title="Set the status of a service"
+			xmlns="http://docbook.org/ns/docbook">
+			<para role="shortdesc">Changes the status of a service.</para>
+			<para>To change the status of a service for a given <code>service_id</code> and <code>project_id</code>, provide a JSON request body with <code>project_id</code> set to the project ID of the service, <code>serice_id</code> set to the corresponding <code>service_id</code>, and <code>status</code> set to <code>deployed</code> or <code>failed</code>. </para>			
+		</wadl:doc>
+		<request>
+			<representation mediaType="application/json" >
+				<doc title="Post service deployed status: JSON request">
+					<xsdxt:code href="../wadl/samples/cdn-postServiceStatus_request-json-http.txt"/> 
+					<xsdxt:code href="../wadl/samples/cdn-postServiceStatusDeployed_request.json"/>
+				</doc>
+				
+				<param name="project_id" style="plain" required="true" path="$.project_id">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN">Specifies the associated identifier for the user account, such as, 12345.</wadl:doc>
+				</param>
+				<param name="serivce_id" style="plain" required="true" path="$.service_id">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN">Specifies the ID for the service.  </wadl:doc>
+				</param>
+				<param name="status" style="plain" required="true" path="$.status">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN">Specifies the status for the service. Valid values are <code>deployed</code> or <code>failed</code>. </wadl:doc>
+				</param>
+			</representation>
+			<representation mediaType="application/json" >
+				
+				<doc title="Post service failed status: JSON request">
+					<xsdxt:code href="../wadl/samples/cdn-postServiceStatus_request-json-http.txt"/>
+					<xsdxt:code href="../wadl/samples/cdn-postServiceStatusFailed_request.json"/> 
+				</doc>
+<!--				
+				<param name="project_id" style="plain" required="true" path="$.project_id">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN">Specifies the associated identifier for the user account, such as, 12345.</wadl:doc>
+				</param>
+				<param name="serivce_id" style="plain" required="true" path="$.service_id">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN">Specifies the ID for the service.  </wadl:doc>
+				</param>
+				<param name="status" style="plain" required="true" path="$.status">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN">Specifies the status for the service. Valid values are <code>deployed</code> or <code>failed</code>. </wadl:doc>
+				</param> -->
+			</representation>
+		</request>
+		<response status="201" xmlns="http://wadl.dev.java.net/2009/02">
+			<doc title="Created" xml:lang="EN">Following a POST command, this status indicates success. The request has been fulfilled.</doc>
+			<representation mediaType="application/json">
+				<wadl:doc xmlns="http://docbook.org/ns/docbook"
+					xml:lang="EN">
+					<xsdxt:code
+						href="../wadl/samples/cdn-postServiceStatus_response-json-http.txt"/>	 	  			
+				</wadl:doc>
+			</representation>
+		</response>		
+	</method>
+
 
 <!--*******************************************************-->
 <!--              Service action methods                   -->
@@ -242,7 +379,7 @@
 			</representation>
 		</request>
 		<response status="200" xmlns="http://wadl.dev.java.net/2009/02">
-			<doc title="OK" xml:lang="EN">Success..</doc>
+			<doc title="OK" xml:lang="EN">Success.</doc>
 			<representation mediaType="application/json">
 				<wadl:doc xmlns="http://docbook.org/ns/docbook"
 					xml:lang="EN">
@@ -261,6 +398,48 @@
 	<!--*******************************************************-->
 	<!--              Domain methods                           -->
 	<!--*******************************************************-->
+
+	<!--*******************************************************-->
+	<!--            Retrieve domains by provider URL           -->
+	<!--*******************************************************-->
+	<method name="GET" id="getDomainsByProviderURL">
+		<wadl:doc xml:lang="EN" title="Get domains by provider URL "
+			xmlns="http://docbook.org/ns/docbook">
+			<para role="shortdesc">Get the domains by provider URL.</para>
+			<para> To retrieve the domains by provider URL, provide <code>provider_url</code> as a query parameter in the endpoint URL of the operation. 
+				No JSON request body is required. </para>			
+		</wadl:doc>
+		<request>
+			<param name="provider_url" style="query" type="xsd:string"
+				required="true">
+				<wadl:doc xmlns="http://docbook.org/ns/docbook"
+					xml:lang="EN">Specifies the provider URL for which you want to retrieve domains. The provider URL is the domain to which
+				    the CNAME is set for the Rackspace operator_url per domain. 
+				</wadl:doc>
+			</param>
+			<representation mediaType="application/json" >
+				<doc>
+					<xsdxt:code href="../wadl/samples/cdn-getDomainsByProviderURL_request-json-http.txt"/>   
+				</doc>
+			</representation>
+		</request>
+		<response status="200" xmlns="http://wadl.dev.java.net/2009/02">
+			<doc title="OK" xml:lang="EN">Success.</doc>
+			<representation mediaType="application/json">
+				<wadl:doc xmlns="http://docbook.org/ns/docbook"
+					xml:lang="EN">
+					<xsdxt:code
+						href="../wadl/samples/cdn-getDomainsByProviderURL_response-json-http.txt"/> 
+					<xsdxt:code 
+						href="../wadl/samples/cdn-getDomainsByProviderURL_response.json"/>	  
+				</wadl:doc>
+				<param name="domain_name" style="plain" path="$.domain_name">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN">Specifies the domain name or names found for the specified provider URL.</wadl:doc>
+				</param>
+			</representation>
+		</response>		
+	</method>	
 
 	<!--*******************************************************-->
 	<!--         Retrieve a service by domain name             -->
@@ -623,6 +802,137 @@
 			</response>		
 		</method>
 	
+	
+<!--*******************************************************-->
+<!--         SAN Certificate Config Methods                -->
+<!--*******************************************************-->
+	
+<!--Get SAN Cert Config Info method -->
+	
+	<method name="GET" id="getSANCertConfig">
+		<wadl:doc xml:lang="EN" title="List the SAN certificate configuration information"
+			xmlns="http://docbook.org/ns/docbook">
+			<para role="shortdesc">Lists the SAN certificate configuration information.</para>
+			<para>This operation lists the SAN certificate configuration information.</para>
+			<note><para>This endpoint is accessible only by users with the <code>support</code> role in their Cloud Identity service catalog.</para></note>
+		</wadl:doc>
+		
+		
+		<request>
+			<representation mediaType="application/json" >
+				<doc>
+					<xsdxt:code href="../wadl/samples/cdn-getSANCertConfig_request-json-http.txt"/> 
+				</doc>					
+			</representation>
+		</request>
+		<response status="200" xmlns="http://wadl.dev.java.net/2009/02">
+			<doc title="OK" xml:lang="EN">Success.</doc>
+			<representation mediaType="application/json">
+				
+				
+				
+				<wadl:doc xmlns="http://docbook.org/ns/docbook"
+					xml:lang="EN">
+					<xsdxt:code href="../wadl/samples/cdn-getSANCertConfig_response-json-http.txt"/>
+					<xsdxt:code href="../wadl/samples/cdn-getSANCertConfig_response.json"/>					
+				</wadl:doc>
+				
+				
+				
+				<param name="ipVersion" style="plain" path="$.ipVersion">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN">Specifies the the version of the IP you are using, such as <code>ipv4</code>.</wadl:doc>
+				</param>
+				<param name="slot-deployment.class" style="plain" path="$.slot-deploymentclass ">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN">Specifies the slot deployment class.</wadl:doc>
+				</param>
+				<param name="createType" style="plain" path="$.createType">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN">Specifies the creating type for the certificate.</wadl:doc>
+				</param>				
+				<param name="jobId" style="plain" path="$.jobId">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN">Specifies the job ID.</wadl:doc>
+				</param>
+				<param name="createHostname" style="plain" path="$.createHostname">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN">Specifies the creation host name.</wadl:doc>
+				</param>
+				<param name="spsId" style="plain" path="$.spsId">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN">Specifies the SPS ID.</wadl:doc>
+				</param>
+				<param name="issuer" style="plain" path="$.issuer">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN">Specifies who issued the certificate.</wadl:doc>
+				</param>
+			</representation>
+		</response>		
+	</method>
+	
+<!--Update SAN Cert Config Info method -->
+	
+	<method name="POST" id="postSANCertConfig">
+		<wadl:doc xml:lang="EN" title="Update the SAN certificate SPS ID"
+			xmlns="http://docbook.org/ns/docbook">
+			<para role="shortdesc">Updates the SAN certificate SPS ID.</para>
+			<para>This operation updates the SAN certificate SPS ID.</para>
+			<note><para>This endpoint is accessible only by users with the <code>support</code> role in their Cloud Identity service catalog.</para></note>
+		</wadl:doc>
+		<request>
+			<representation mediaType="application/json" >
+				<doc>
+					<xsdxt:code href="../wadl/samples/cdn-postSANCertConfig_request-json-http.txt"/>
+					<xsdxt:code href="../wadl/samples/cdn-postSANCertConfig_request.json"/> 
+				</doc>
+				<param name="spsId" style="plain" path="$.spsId">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN">Specifies the SPS ID to update.</wadl:doc>
+				</param>
+			</representation>
+		</request>
+		<response status="200" xmlns="http://wadl.dev.java.net/2009/02">
+			<doc title="OK" xml:lang="EN">Success.</doc>
+			<representation mediaType="application/json">
+				<wadl:doc xmlns="http://docbook.org/ns/docbook"
+					xml:lang="EN">
+					<xsdxt:code href="../wadl/samples/cdn-postSANCertConfig_response-json-http.txt"/>
+					<xsdxt:code href="../wadl/samples/cdn-postSANCertConfig_response.json"/> 	 					
+				</wadl:doc>
+				<param name="ipVersion" style="plain" path="$.ipVersion">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN">Specifies the the version of the IP you are using, such as <code>ipv4</code>.</wadl:doc>
+				</param>
+				<param name="slot-deployment.class" style="plain" path="$.slot-deploymentclass">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN">Specifies the slot deployment class.</wadl:doc>
+				</param>
+				<param name="createType" style="plain" path="$.createType">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN">Specifies the creating type for the certificate.</wadl:doc>
+				</param>				
+				<param name="jobId" style="plain" path="$.jobId">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN">Specifies the job ID.</wadl:doc>
+				</param>
+				<param name="createHostname" style="plain" path="$.createHostname">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN">Specifies the creation host name.</wadl:doc>
+				</param>
+				<param name="spsId" style="plain" path="$.spsId">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN">Specifies the SPS ID.</wadl:doc>
+				</param>
+				<param name="issuer" style="plain" path="$.issuer">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN">Specifies who issued the certificate.</wadl:doc>
+				</param>
+			</representation>
+		</response>		
+	</method>	
+
+	
 	<!--*******************************************************-->
 	<!--               Akamai Background                       -->
 	<!--*******************************************************-->
@@ -674,7 +984,7 @@
 				</param>
 				<param name="project_id" style="plain" required="true" path="$.project_id">
 					<wadl:doc xmlns="http://docbook.org/ns/docbook"
-						xml:lang="EN">Specifies the <code>prodject_id</code> for the user. </wadl:doc>
+						xml:lang="EN">Specifies the project ID for the user. </wadl:doc>
 				</param>
 				<param name="cert_type" style="plain" required="true" path="$.cert_type">
 					<wadl:doc xmlns="http://docbook.org/ns/docbook"
@@ -790,8 +1100,52 @@
 	
 	
 	<!--*******************************************************-->
-	<!--              SSL certificate method                   -->
-	<!--*******************************************************-->	
+	<!--              Certificate methods                      -->
+	<!--*******************************************************-->
+
+	<!--*******************************************************-->
+	<!--       Query certificates by certificate status        -->
+	<!--*******************************************************-->
+	<method name="GET" id="getCertificateByStatus">
+		<wadl:doc xml:lang="EN" title="Get certificates by certificate status "
+			xmlns="http://docbook.org/ns/docbook">
+			<para role="shortdesc">Get certificates by certificate <code>status</code>.</para>
+			<para> To get certificate information by certificate <code>status</code>, provide <code>status</code> as a query parameter in the endpoint URL of the operation. 
+				Valid values for <code>status</code> are <code>deployed</code>,  <code>failed</code>,
+				<code>create_in_progress</code>, and <code>cancelled</code>. No JSON request body is required. </para>			
+		</wadl:doc>
+		<request>
+			<param name="status" style="query" type="xsd:string"
+				required="true">
+				<wadl:doc xmlns="http://docbook.org/ns/docbook"
+					xml:lang="EN">Specifies the status for which you want to list certificates. Valid values for <code>status</code> are <code>deployed</code>,  <code>failed</code>,  
+					<code>create_in_progress</code>, and <code>cancelled</code>.</wadl:doc>
+			</param>
+			<representation mediaType="application/json" >
+				<doc>
+					<xsdxt:code href="../wadl/samples/cdn-getCertificateByStatus_request-json-http.txt"/>   
+				</doc>
+			</representation>
+		</request>
+		<response status="200" xmlns="http://wadl.dev.java.net/2009/02">
+			<doc title="OK" xml:lang="EN">Success.</doc>
+			<representation mediaType="application/json">
+				<wadl:doc xmlns="http://docbook.org/ns/docbook"
+					xml:lang="EN">
+					<xsdxt:code
+						href="../wadl/samples/cdn-getCertificateByStatus_response-json-http.txt"/> 
+					<xsdxt:code 
+						href="../wadl/samples/cdn-getCertificateByStatus_response.json"/>	  
+				</wadl:doc>
+				<param name="domain_name" style="plain" path="$.domain_name">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN">Specifies the domain name for the certificate.</wadl:doc>
+				</param>
+				
+			</representation>
+		</response>		
+	</method>	
+
 	<!--*******************************************************-->
 	<!--               Post SSL certificate                    -->
 	<!--*******************************************************-->
@@ -1015,7 +1369,7 @@
 				<param name="links" style="plain" path="$.providers.links"
 					required="true">
 					<wadl:doc xmlns="http://docbook.org/ns/docbook"
-						xml:lang="EN">Specifices a list with a <code>href</code> where <code>rel</code> is <code>provider_url</code>. Rackspace CDN ignores all entries in the list except the <code>provider_url</code>.</wadl:doc>
+						xml:lang="EN">Specifices a list with a <code>href</code> where <code>rel</code> is <code>provider_url</code>. Rackspace CDN ignores all entries in the list except <code>provider_url</code>.</wadl:doc>
 				</param>
 				
 			</representation>
@@ -1046,7 +1400,7 @@
 				</param>
 				<param name="links" style="plain" path="$.providers.links">
 					<wadl:doc xmlns="http://docbook.org/ns/docbook"
-						xml:lang="EN">Specifices a list with a <code>href</code> where <code>rel</code> is <code>provider_url</code>. Rackspace CDN ignores all entries in the list except the <code>provider_url</code>.</wadl:doc>
+						xml:lang="EN">Specifices a list with a <code>href</code> where <code>rel</code> is <code>provider_url</code>. Rackspace CDN ignores all entries in the list except <code>provider_url</code>.</wadl:doc>
 				</param>
 			</representation>
 		</response>
