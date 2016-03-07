@@ -45,7 +45,8 @@
     </copyright>
     <releaseinfo>API v1.0</releaseinfo>
     <productname>Rackspace CDN</productname>
-    <pubdate xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:html="http://www.w3.org/1999/xhtml">2016-02-26</pubdate>
+    <pubdate xmlns:m="http://www.w3.org/1998/Math/MathML"
+      xmlns:html="http://www.w3.org/1999/xhtml">2016-03-07</pubdate>
     <legalnotice role="rs-api" xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:html="http://www.w3.org/1999/xhtml">
       <annotation>
         <remark>Copyright details are filled in by the doc build process.</remark>
@@ -59,45 +60,45 @@
     <!--Note that the <productname> text matches the first few words of the title. The build system splits the title into productname + rest of title on the pdf cover.-->
     <revhistory>
       <revision>
-        <date>2016-02-26</date>
+        <date>2016-03-07</date>
         <revdescription>
           <itemizedlist>
             <listitem>
-              <para>Added the following operations for service status
-                  (<xref linkend="serviceStatusOperations"/>): </para>
-              <itemizedlist>
+              <para>Added the operation to set the status of a service
+                to <xref linkend="serviceStatusOperations"/>. </para>
+              <!--             <itemizedlist>
                 <listitem>
                   <para>Get services and project IDs by
                       <code>status</code>.</para>
-                </listitem>
+                </listitem> 
                 <listitem>
                   <para>Set the status of a service.</para>
                 </listitem>
-              </itemizedlist>
+              </itemizedlist> -->
             </listitem>
             <listitem>
               <para>Added the operation to get domains by the provider
                 URL to <xref linkend="domainOperations"/>. </para>
             </listitem>
-            <listitem>
+ <!--           <listitem>
               <para>Added the operation to get certificates by the
                 certificate status to <xref
                   linkend="certStatusOperation"/>. </para>
-            </listitem>
+            </listitem>  -->
             <listitem>
-              <para>Added the following operations for SAN certificate
-                configuration information (<xref
-                  linkend="SANCertInfoOperations"/>): </para>
-              <itemizedlist>
-                <listitem>
+              <para>Added the operation to get the SAN certificate
+                configuration information to <xref
+                  linkend="SANCertInfoOperations"/>: </para>
+              <!--             <itemizedlist>
+            <listitem>
                   <para>Get SAN certifcate configuration
                     information.</para>
                 </listitem>
                 <listitem>
                   <para>Update the SAN certificate configuration
                     Secure Provisioning Service (SPS) ID.</para>
-                </listitem>
-              </itemizedlist>
+                </listitem>  
+              </itemizedlist>   -->
             </listitem>
           </itemizedlist>
         </revdescription>
@@ -1198,9 +1199,9 @@ Content-Type: application/json
       <para>Access to this endpoint should be controlled via an RBAC
         system such as Repose.</para>
       <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
-        <wadl:resource href="../../src/wadl/cdn-adminguide.wadl#services">
+      <!--  <wadl:resource href="../../src/wadl/cdn-adminguide.wadl#services">
           <wadl:method href="#getServiceProjectIDsByStatus"/>
-        </wadl:resource>
+        </wadl:resource>  -->
         <wadl:resource href="../../src/wadl/cdn-adminguide.wadl#status">
           <wadl:method href="#postServiceStatus"/>
         </wadl:resource>
@@ -1293,14 +1294,14 @@ Content-Type: application/json
       <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
         <wadl:resource href="../../src/wadl/cdn-adminguide.wadl#san_cert_name">
           <wadl:method href="#getSANCertConfig"/>
-          <wadl:method href="#postSANCertConfig"/>
+  <!--        <wadl:method href="#postSANCertConfig"/>   -->
         </wadl:resource>
       </wadl:resources>
     </section>
 
     
 
-    <section xml:id="certStatusOperation">
+ <!--   <section xml:id="certStatusOperation">
       <title>Certificate status operations</title>
       <para>The section describes the certificate status operation in Rackspace CDN. </para>
       <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
@@ -1309,7 +1310,7 @@ Content-Type: application/json
         </wadl:resource>
 
       </wadl:resources>
-    </section>
+    </section>  -->
    
 
     <section xml:id="SSLCertificateOperations">
