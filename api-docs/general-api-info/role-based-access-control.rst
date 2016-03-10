@@ -91,5 +91,5 @@ The following table shows two examples of how potential conflicts between user r
 RBAC permissions cross-reference to Rackspace CDN API operations
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-API operations for Rackspace CDN may or may not be available to all roles. To see which operations are permitted to invoke which calls, review :kc-article:`Permissions Matrix for Role Based Access Control<permissions-matrix-for-role-based-access-control-rbac>`.
+API operations for Rackspace CDN may or may not be available to all roles. To see which operations are permitted to invoke which calls, review :how-to:`Permissions Matrix for Role Based Access Control<permissions-matrix-for-role-based-access-control-rbac>`.
 

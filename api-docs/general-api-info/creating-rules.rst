@@ -40,5 +40,5 @@ example, with the ``caching.rules``, you might set ``ttl`` equal to 3600
 seconds (1 hour) for a specific file by making the rule path
 ``/videos/marketingspot/abccompany/welcomevideo.mp4``.
 
-For more information about rules, see :kc-article:`Rackspace CDN edge
+For more information about rules, see :how-to:`Rackspace CDN edge
 rules<rackspace-cdn-edge-rules>`.

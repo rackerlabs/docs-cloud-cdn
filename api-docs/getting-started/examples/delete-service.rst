@@ -5,7 +5,7 @@ Deleting a service
 
 This operation deletes a service. 
  
-**cURL delete a service request**
+**Example: cURL delete a service request**
 
 .. code:: bash 
 
@@ -15,7 +15,7 @@ This operation deletes a service.
    -H "Accept: application/json" 
 
  
-**Delete a service response**
+**Example: Delete a service response**
 
 .. code::  
 

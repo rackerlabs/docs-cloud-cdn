@@ -8,7 +8,7 @@ to purge the current version of an asset that has been cached at the
 edge node.
 
  
-**cURL purge a cached asset request**
+**Example: cURL purge a cached asset request**
 
 .. code::  
 
@@ -17,7 +17,7 @@ edge node.
    -H "Content-type: application/json"
 
  
-**Purge a cached asset response**
+**Example: Purge a cached asset response**
 
 .. code::  
 

@@ -7,8 +7,7 @@ We welcome feedback, comments, and bug reports. Visit the Rackspace `Product Fee
 
 Use the links below to learn more about the Rackspace CDN service and API.
 
-- For general information about Rackspace CDN, see the :kc-article:`Rackspace CDN FAQ<rackspace-cdn-faq>` 
-  in the Rackspace Knowledge Center.
+- For general information about Rackspace CDN, see the :how-to:`Rackspace CDN FAQ<rackspace-cdn-faq>`.
   
 - To learn about using Rackspace Cloud SDKs, see :rax-dev:`SDKs and tools<sdks>`. 
     

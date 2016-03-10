@@ -12,7 +12,7 @@ This operation creates a service.
 
 To create a new service, provide a JSON body for the new service with the required attributes.
 
-For more information about rules ordering, caching rules, origin rules, and restrictions rules, see :kc-article:`Rackspace CDN edge rules<rackspace-cdn-edge-rules>`.
+For more information about rules ordering, caching rules, origin rules, and restrictions rules, see :how-to:`Rackspace CDN edge rules<rackspace-cdn-edge-rules>`.
 
 For origin rules, use the path /* to include all content for the site.
 
@@ -101,10 +101,9 @@ This table shows the body parameters for the request:
 |                       |             |``shared``, ``san``, or ``custom``. For all 3 types of security certificates, |
 |                       |             |make sure that your origin (or origins) are SSL-enabled. Your SSL certificate |
 |                       |             |needs to come from a trusted certificate authority (CA). For more information |
-|                       |             |about security certificates and Rackspace CDN, see `Rackspace CDN secure      |
-|                       |             |delivery options                                                              |
-|                       |             |<https://www.rackspace.com/knowledge_center/article/rackspace-cdn-secure-     |
-|                       |             |delivery-options>`__.                                                         |
+|                       |             |about security certificates and Rackspace CDN, see                            |
+|                       |             |:how-to:`Rackspace CDN secure delivery options                                |
+|                       |             |<rackspace-cdn-secure-delivery-options>`.                                     |
 +-----------------------+-------------+------------------------------------------------------------------------------+
 |domains.certificate.\  |String       |Uses a shared https operator domain. The ``domain`` parameter must be a       |
 |**shared**             |*(Optional)* |single word that is not dot separated.                                        |
@@ -237,7 +236,7 @@ This table shows the body parameters for the request:
 
 
 
-**Example Create a service: JSON request**
+**Example: Create a service HTTP and JSON request**
 
 
 .. code::
@@ -311,7 +310,7 @@ This operation does not return a response body.
 
 
 
-**Example Create a service: JSON response**
+**Example: Create a service HTTP response**
 
 
 .. code::

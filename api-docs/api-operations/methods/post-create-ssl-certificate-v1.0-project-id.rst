@@ -67,7 +67,7 @@ This table shows the body parameters for the request:
 
 
 
-**Example Create an SSL certificate: JSON request**
+**Example: Create an SSL certificate HTTP and JSON request**
 
 
 .. code::
@@ -101,7 +101,7 @@ Response
 
 This operation does not return a response body.
 
-**Example Create an SSL certificate: JSON response**
+**Example: Create an SSL certificate HTTP response**
 
 
 .. code::
