@@ -6,7 +6,7 @@ Retrieving a created service
 Perform a **GET** request on the ``Location`` header that was returned
 in :ref:`Create a service <gsg-create-service>`.
  
-**cURL retrieve a service request**
+**Example: cURL retrieve a service request**
 
 .. code::  
 
@@ -17,7 +17,7 @@ in :ref:`Create a service <gsg-create-service>`.
 You see a response body similar to the one in the following example.
 
  
-**Retrieve a service response**
+**Example: Retrieve a service response**
 
 .. code::  
 

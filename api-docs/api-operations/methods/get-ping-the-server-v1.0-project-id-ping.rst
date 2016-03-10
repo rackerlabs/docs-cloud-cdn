@@ -76,7 +76,7 @@ This operation does not accept a request body.
 
 
 
-**Example Ping the server: JSON request**
+**Example: Ping the server HTTP request**
 
 
 .. code::
@@ -101,7 +101,7 @@ This operation does not return a response body.
 
 
 
-**Example Ping the server: JSON response**
+**Example: Ping the server HTTP response**
 
 
 .. code::

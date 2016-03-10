@@ -15,7 +15,7 @@ the origin from which to pull content.
 Following are examples of a create service request and response.
 
  
-**cURL create a service request**
+**Example: cURL create a service request**
 
 .. code:: bash 
 
@@ -82,7 +82,7 @@ When the service is created, you see an HTTP 202 response with the
 ``Location`` header returned.
 
  
-**Create a service response**
+**Example: Create a service response**
 
 .. code::  
 

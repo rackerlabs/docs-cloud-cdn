@@ -13,5 +13,5 @@ internet. Once this has happened (based on the TTL you have set with
 your DNS provider), you will be able to access your website via the CDN
 Edge.
 
-For more information, see `Change DNS to enable Rackspace
-CDN <https://www.rackspace.com/knowledge_center/article/change-dns-to-enable-rackspace-cdn>`__.
+For more information, see :how-to:`Change DNS to enable Rackspace
+CDN <change-dns-to-enable-rackspace-cdn>`.

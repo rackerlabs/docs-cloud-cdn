@@ -115,7 +115,7 @@ This operation does not accept a request body.
 
 
 
-**Example Purge a cached asset: JSON request**
+**Example: Purge a cached asset HTTP request**
 
 
 .. code::
@@ -141,7 +141,7 @@ Response
 
 This operation does not return a response body.
 
-**Example Purge a cached asset: JSON response**
+**Example: Purge a cached asset HTTP response**
 
 
 .. code::

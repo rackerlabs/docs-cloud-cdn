@@ -10,9 +10,12 @@ Retrieve the home document
 
 This operation retrieves the home document.
 
-The entire API is discoverable from a single 				starting point, the home document. To explore the 				entire API, you need to know only this one URI. 
+The entire API is discoverable from a single 	starting point, the home document. 
+To explore the 	entire API, you need to know only this one URI. 
 
-The home document schema is currently not ratified in OpenStack and might change. For more information about home documents, see `Home Documents for HTTP APIs <http://tools.ietf.org/html/draft-nottingham-json-home-03>`__ on the IEFT website.
+The home document schema is currently not ratified in OpenStack and might change. 
+For more information about home documents, see `Home Documents for HTTP APIs <http://tools.ietf.org/html/draft-nottingham-json-home-03>`__ 
+on the IEFT website.
 
 
 
@@ -52,7 +55,7 @@ This operation does not accept a request body.
 
 
 
-**Example Retrieve the home document: JSON request**
+**Example: Retrieve the home document HTTP request**
 
 
 .. code::
@@ -80,7 +83,7 @@ Response
 
 
 
-**Example Retrieve the home document: JSON response**
+**Example: Retrieve the home document HTTP and JSON response**
 
 
 .. code::

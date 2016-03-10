@@ -56,7 +56,7 @@ This operation does not accept a request body.
 
 
 
-**Example Delete an SSL certificate: JSON request**
+**Example: Delete an SSL certificate HTTP request**
 
 
 .. code::
@@ -83,7 +83,7 @@ Response
 
 This operation does not return a response body.
 
-**Example Delete an SSL certificate: JSON response**
+**Example: Delete an SSL certificate HTTP response**
 
 
 .. code::

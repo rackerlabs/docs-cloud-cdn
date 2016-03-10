@@ -86,7 +86,7 @@ This table shows the body parameters for the request:
 
 
 
-**Example Update a service: JSON request**
+**Example: Update a service HTTP and JSON request**
 
 
 .. code::
@@ -266,7 +266,7 @@ Response
 
 This operation does not return a response body.
 
-**Example Update a service: JSON response**
+**Example: Update a service HTTP response**
 
 
 .. code::

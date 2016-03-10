@@ -11,7 +11,7 @@ operation retrieves a list of all available flavors.
    Currently, the only flavor available is ``cdn``.
 
  
-**cURL retrieve flavors request**
+**Example: cURL retrieve flavors request**
 
 .. code:: bash
 
@@ -20,7 +20,7 @@ operation retrieves a list of all available flavors.
    -H "Content-type: application/json" 
 
  
-**Retrieve flavors response**
+**Example: Retrieve flavors response**
 
 .. code::  
 

@@ -77,7 +77,7 @@ This operation does not accept a request body.
 
 
 
-**Example Retrieve all services: JSON request**
+**Example: Retrieve all services HTTP request**
 
 
 .. code::
@@ -248,7 +248,7 @@ This table shows the body parameters for the response:
 
 
 
-**Example Retrieve all services: JSON response**
+**Example: Retrieve all services HTTP and JSON response**
 
 
 .. code::
