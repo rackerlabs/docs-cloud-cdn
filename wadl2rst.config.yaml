@@ -1,4 +1,4 @@
-src/wadl/cdn-devguide.wadl:
-    title: Rackspace CDN Developer Guide
-    output_directory: rst/dev-guide/api-operations
+src/wadl/cdn-adminguide.wadl:
+    title: Rackspace CDN Developer Guide for Service Management
+    output_directory: internal-api-docs/api-operations
    
