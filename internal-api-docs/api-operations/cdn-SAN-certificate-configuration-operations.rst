@@ -1,4 +1,4 @@
-.. _SAN-certification-configuration-operations:
+.. _SAN-cert-config-operations:
 
 SAN certificate configuration information operations
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

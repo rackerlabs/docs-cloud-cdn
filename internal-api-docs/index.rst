@@ -26,4 +26,5 @@ using the |apiservice|.
    general-api-info/index
    admin-api-reference
    api-operations/index
+   doc-change-history
    copyright
