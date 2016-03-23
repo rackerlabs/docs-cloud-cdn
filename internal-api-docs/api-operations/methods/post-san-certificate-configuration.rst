@@ -1,15 +1,16 @@
-.. _get-san-certificate-configuration:
+.. _post-san-certificate-configuration:
 
-List the SAN certificate configuration information
+Update the SAN certificate
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code::
 
-    GET /admin/provider/akamai/ssl_certificate/config/{san_cert_name}
+    POST /admin/provider/akamai/ssl_certificate/config/{san_cert_name}
 
-This operation lists the SAN certificate configuration information.
+This operation updates the SAN certificate configuration information.
 
 .. note::
+
    This endpoint is accessible only by users with the ``support`` role in their Cloud Identity service catalog.
    
    
@@ -46,22 +47,38 @@ This table shows the URI parameters for the request:
 
 
 
-This operation does not accept a request body.
+
+This table shows the body parameters for the request:
+
++--------------------------+-------------------------+-------------------------+
+|Name                      |Type                     |Description              |
++==========================+=========================+=========================+
+|\ **spsId**               |String                   |Specifies the SPS ID.    |
++--------------------------+-------------------------+-------------------------+
+|\ **enabled**             |Boolean                  |Enables or disables the  |
+|                          |                         |SAN certificate. Valid   |
+|                          |                         |values are ``true`` and  |
+|                          |                         |``false``.               |
++--------------------------+-------------------------+-------------------------+
 
 
 
-
-**Example: List the SAN certificate configuration information HTTP request**
+**Example: Update the SAN certificate configuration information HTTP request**
 
 
 .. code::
 
-   GET /v1.0/110011/admin/provider/akamai/ssl_certificate/config/{san_cert_name} HTTP/1.1
+   POST /v1.0/110011/admin/provider/akamai/ssl_certificate/config/{san_cert_name} HTTP/1.1
    Host: global.cdn.api.rackspacecloud.com
    X-Auth-Token: 0f6e9f63600142f0a970911583522217
    Accept: application/json
    Content-type: application/json
-   
+
+
+.. code::
+
+    {        "spsId": 1234,        "enabled": false    }
+
 
 
 
@@ -112,7 +129,7 @@ This table shows the body parameters for the response:
 
 
 
-**Example: List the SAN certificate configuration information JSON response**
+**Example: Update the SAN certificate configuration information JSON response**
 
 
 .. code::
@@ -129,7 +146,7 @@ This table shows the body parameters for the response:
      "jobId": "5123",
      "cnameHostname": "secure2.san1.testcdn.com",
      "spsId": 1234,
-     "enabled": true,
+     "enabled": false,
      "issuer": "symantec"
    }
 

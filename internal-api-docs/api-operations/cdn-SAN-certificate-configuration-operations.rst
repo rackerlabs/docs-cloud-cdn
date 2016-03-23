@@ -15,4 +15,4 @@ Access to these endpoints should be controlled via an RBAC system such as Repose
        
 .. include:: methods/get-san-certificate-configuration.rst
 
-  
+.. include:: methods/post-san-certificate-configuration.rst  

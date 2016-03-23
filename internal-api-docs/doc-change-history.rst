@@ -10,6 +10,46 @@ The following table describes the most recent changes.
 +--------------------------+--------------------------------------------------+
 | Revision date            | Summary of changes                               |
 +--------------------------+--------------------------------------------------+
+| March 23, 2016           | -  Added the operation to update the SAN         |
+|                          |    certificate configuration information to      |
+|                          |    :ref:`SAN certificate configuration           |
+|                          |    information operations                        |
+|                          |    <SAN-cert-config-operations>`, which includes |
+|                          |    the following request body parameters:        |
+|                          |                                                  |
+|                          |    -  The ``spsid`` parameter to configure the   |
+|                          |       Secure Provisioning Service (SPS) ID.      |
+|                          |                                                  |
+|                          |    -  The ``enabled`` parameter to indicate if   |
+|                          |       the SAN certificate is enabled and         |
+|                          |       disabled.                                  |                                                 
+|                          |                                                  |
+|                          | -  Updated the operation to get the SAN          |
+|                          |    certificate configuration information in      |
+|                          |    :ref:`SAN certificate configuration           |
+|                          |    information operations                        |
+|                          |    <SAN-cert-config-operations>` to include the  |
+|                          |    ``enabled`` parameter to indicate if the SAN  |
+|                          |    certificate is enabled and disabled.          |
+|                          |                                                  |
+|                          | -  Updated the operation to run an Akamai        |
+|                          |    background job in :ref:`Akamai-related        |
+|                          |    background job operations                     |
+|                          |    <akamai—background-job-operations>` to include|
+|                          |    an information map for the SAN certificate in |
+|                          |    the request body.                             |
+|                          |                                                  |
+|                          | -  Added the following operations operation to   |
+|                          |    :ref:`Akamai-related                          |
+|                          |    background job operations                     |
+|                          |    <akamai—background-job-operations>`:          |
+|                          |                                                  |
+|                          |    -  GET a SAN-mapping list for a related       |
+|                          |       background job to update the papi property.|
+|                          |                                                  |
+|                          |    -  PUT a SAN-mapping list for a related       |
+|                          |       background job to update the papi property.|       
++--------------------------+--------------------------------------------------+
 | March 7, 2016            | -  Added the operation to set the status of a    |
 |                          |    service to :ref:`Service status operations    |
 |                          |    <service-status-operations>`.                 |                                                  

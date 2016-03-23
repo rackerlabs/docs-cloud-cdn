@@ -1,4 +1,4 @@
-.. _gsg-list-flavors
+.. _gsg-list-flavors:
 
 Retrieving flavors
 ~~~~~~~~~~~~~~~~~~~
