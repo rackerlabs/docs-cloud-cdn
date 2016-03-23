@@ -1,5 +1,14 @@
 {
-      "job_type": "akamai_update_papi_property_for_mod_san",
-      "domain_name": "testabc.cnamecdn.com",
-      "san_cert_name": "secure1.san1.altcdn.com"
- }
+  "job_type": "akamai_update_papi_property_for_mod_san",
+  "update_cname_host_mapping_info": [
+    {
+      "domain_name": "testabc.testsan.com",
+      "san_cert_name": "secure1.san1.testcdn.com"
+    },
+    {
+      "domain_name": "testabc2.testsan.com",
+      "san_cert_name": "secure2.san1.testcdn.com"
+    }
+  ],
+  "action": "add"
+}

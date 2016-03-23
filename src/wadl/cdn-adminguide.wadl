@@ -73,6 +73,10 @@
 									<resource id="akamai" path="akamai">
 										<resource id="background_job" path="background_job">
 											<method href="#postAkamaiBackground"/>
+											<resource id="san_mapping" path="san_mapping">
+												<method href="#getSANMap"/>
+												<method href="#putSANMap"/>	
+											</resource>
 										</resource>
 										<resource id="service" path="service">
 					                      <method href="#postSANDomain"/>											
@@ -863,6 +867,10 @@
 					<wadl:doc xmlns="http://docbook.org/ns/docbook"
 						xml:lang="EN">Specifies the SPS ID.</wadl:doc>
 				</param>
+				<param name="enabled" style="plain" path="$.enabled">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN">Enables or disables the SAN certificate. Valid values are <code>true</code> and <code>false</code>.</wadl:doc>
+				</param>
 				<param name="issuer" style="plain" path="$.issuer">
 					<wadl:doc xmlns="http://docbook.org/ns/docbook"
 						xml:lang="EN">Specifies who issued the certificate.</wadl:doc>
@@ -924,6 +932,10 @@
 					<wadl:doc xmlns="http://docbook.org/ns/docbook"
 						xml:lang="EN">Specifies the SPS ID.</wadl:doc>
 				</param>
+				<param name="enabled" style="plain" path="$.enabled">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN">Enables or disables the SAN certificate. Valid values are <code>true</code> and <code>false</code>.</wadl:doc>
+				</param>
 				<param name="issuer" style="plain" path="$.issuer">
 					<wadl:doc xmlns="http://docbook.org/ns/docbook"
 						xml:lang="EN">Specifies who issued the certificate.</wadl:doc>
@@ -956,17 +968,36 @@
 				</doc>
 				<param name="job_type" style="plain" required="true" path="$.job_type">
 					<wadl:doc xmlns="http://docbook.org/ns/docbook"
-						xml:lang="EN">Specifies the type of job, such as <code>akamai_update_papi_property_for_mod_san</code>.</wadl:doc>
+						xml:lang="EN">Specifies the type of background job. The following types of jobs are supported: <code>akamai_update_papi_property_for_mod_san</code> and <code>akamai_check_and_update_cert_status</code>.</wadl:doc>
 				</param>
-			
-				<param name="domain_name" style="plain" required="true" path="$.domain_name">
+				<param name="updated_cname_host_mapping_info" style="plain" required="true" path="$.updated_cname_host_mapping_info">
 					<wadl:doc xmlns="http://docbook.org/ns/docbook"
-						xml:lang="EN">Specifies a string representing the domain, such as <code>testabc.cnamecdn.com</code>.</wadl:doc>
+						xml:lang="EN">When <code>job_type</code> is <code>akamai_update_papi_property_for_mod_san</code>, the list is required and specifies the domain-to-SAN-certificate CNAME mapping.</wadl:doc>
 				</param>
-				<param name="san_cert_name" style="plain" required="true" path="$.san_cert_name">
+				<param name="domain_name" style="plain" required="true" path="$.updated_cname_host_mapping_info.domain_name">
 					<wadl:doc xmlns="http://docbook.org/ns/docbook"
-						xml:lang="EN">Specifies the SAN certificate name, such as <code>secure1.san1.altcdn.com</code>. </wadl:doc>
-				</param>		
+						xml:lang="EN">Specifies a string representing the customer's domain name, such as <code>testabc.cnamecdn.com</code>.</wadl:doc>
+				</param>
+				<param name="san_cert_name" style="plain" required="true" path="$.updated_cname_host_mapping_info.san_cert_name">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN">Specifies the SAN certificate CNAME domain to which the customer is mapping, for example, <code>secure1.san1.altcdn.com</code>. </wadl:doc>
+				</param>
+				<param name="project_id" style="plain" required="true" path="$.updated_cname_host_mapping_info.project_id">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN">When <code>job_type</code> is <code>akamai_check_and_update_cert_status</code>, specifies the customer's project ID. </wadl:doc>
+				</param>
+				<param name="cert_type" style="plain" required="true" path="$.updated_cname_host_mapping_info.cert_type">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN">When <code>job_type</code> is <code>akamai_check_and_update_cert_status</code>, specifies the customer's certificate type. Currently, the only valid value is <code>san</code>. </wadl:doc>
+				</param>
+				<param name="flavor_id" style="plain" required="true" path="$.updated_cname_host_mapping_info.flavor_id">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN">When <code>job_type</code> is <code>akamai_check_and_update_cert_status</code>, specifies the customer's service flavor. </wadl:doc>
+				</param>
+				<param name="action" style="plain" required="false" path=".action">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN">When the <code>job_type</code> is <code>akamai_update_papi_property_for_mod_san</code>, valid values for <code>action</code> are <code>add</code> or <code>remove</code>. </wadl:doc>
+				</param>
 			</representation>
 			<representation mediaType="application/json" >
 				<doc>
@@ -1006,7 +1037,110 @@
 				</wadl:doc>
 			</representation>
 		</response>		
+	</method>
+
+
+
+	<method name="GET" id="getSANMap">
+		<wadl:doc xml:lang="EN" title="Retrieve the SAN-mapping list for the Akamai-related background job"
+			xmlns="http://docbook.org/ns/docbook">
+			<para role="shortdesc">Retrieves the SAN-mapping Akamai-related background job.</para>
+			<para>This operation retrieves the SAN-mapping for an Akamai-related background job.</para>
+			
+		</wadl:doc>
+		<request>
+			<representation mediaType="application/json" >
+				<doc>
+					<xsdxt:code href="../wadl/samples/cdn-getSANMap_request-json-http.txt"/> 
+				</doc>		
+			</representation>			
+		</request>
+		<response status="200" xmlns="http://wadl.dev.java.net/2009/02">
+			<doc title="OK" xml:lang="EN">Success.</doc>
+			<representation mediaType="application/json">
+				<wadl:doc xmlns="http://docbook.org/ns/docbook"
+					xml:lang="EN">
+					<xsdxt:code href="../wadl/samples/cdn-getSANMap_response-json-http.txt"/>
+					<xsdxt:code href="../wadl/samples/cdn-getSANMap_response.json"/>
+				</wadl:doc>	
+					<param name="domain_name" style="plain" required="true" path="$.domain_name">
+					     <wadl:doc xmlns="http://docbook.org/ns/docbook"
+							xml:lang="EN">Specifies a string representing the customer's domain name, such as <code>testabc.cnamecdn.com</code>.</wadl:doc>
+					</param>
+					<param name="san_cert_name" style="plain" required="true" path="$.san_cert_name">
+						<wadl:doc xmlns="http://docbook.org/ns/docbook"
+							xml:lang="EN">Specifies the SAN certificate CNAME domain to which the customer is mapping, for example, <code>secure1.san1.altcdn.com</code>. </wadl:doc>
+					</param>
+				
+			</representation>
+		</response>		
 	</method>	
+	
+	
+	<method name="PUT" id="putSANMap">
+		<wadl:doc xml:lang="EN" title="Update the SAN-mapping list for the Akamai-related background job"
+			xmlns="http://docbook.org/ns/docbook">
+			<para role="shortdesc">Updates the SAN-mapping Akamai-related background job.</para>
+			<para>This operation updates the SAN-mapping for an Akamai-related background job.</para>
+			
+		</wadl:doc>
+		<request>
+			<representation mediaType="application/json" >
+				<doc>
+					<xsdxt:code href="../wadl/samples/cdn-putSANMap_request-json-http.txt"/>
+					<xsdxt:code href="../wadl/samples/cdn-putSANMap_request.json"/> 
+				</doc>
+				
+				<param name="domain_name" style="plain" required="true" path="$.domain_name">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN">Specifies a string representing the customer's domain name, such as <code>testabc.cnamecdn.com</code>.</wadl:doc>
+				</param>
+				<param name="san_cert_name" style="plain" required="true" path="$.san_cert_name">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN">Specifies the SAN certificate CNAME domain to which the customer is mapping, for example, <code>secure1.san1.altcdn.com</code>. </wadl:doc>
+				</param>
+				
+				
+			</representation>
+			
+		</request>
+		<response status="202" xmlns="http://wadl.dev.java.net/2009/02">
+			<doc title="Accepted" xml:lang="EN">The request has been accepted for processing.</doc>
+			<representation mediaType="application/json">
+				<wadl:doc xmlns="http://docbook.org/ns/docbook"
+					xml:lang="EN">
+					<xsdxt:code href="../wadl/samples/cdn-putSANMap_response-json-http.txt"/> 
+					<xsdxt:code href="../wadl/samples/cdn-putSANMap_response.json"/> 
+				</wadl:doc>
+				
+				<param name="queue" style="plain" required="true" path="$.queue">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN">Specifies a list that includes the domain name and SAN certificate name to update.</wadl:doc>
+				</param>
+				<param name="domain_name" style="plain" required="true" path="$.queue.domain_name">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN">Specifies a string representing the customer's domain name, such as <code>testabc.cnamecdn.com</code>.</wadl:doc>
+				</param>
+				<param name="san_cert_name" style="plain" required="true" path="$.queue.san_cert_name">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN">Specifies the SAN certificate CNAME domain to which the customer is mapping, for example, <code>secure1.san1.altcdn.com</code>. </wadl:doc>
+				</param>
+				
+				<param name="deleted" style="plain" required="true" path="$.deleted">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN">Specifies a list that includes the domain name and SAN certificate name to delete.</wadl:doc>
+				</param>
+				<param name="domain_name" style="plain" required="true" path="$.deleted.domain_name">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN">Specifies a string representing the customer's domain name, such as <code>testabc.cnamecdn.com</code>.</wadl:doc>
+				</param>
+				<param name="san_cert_name" style="plain" required="true" path="$.deleted.san_cert_name">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN">Specifies the SAN certificate CNAME domain to which the customer is mapping, for example, <code>secure1.san1.altcdn.com</code>. </wadl:doc>
+				</param>
+			</representation>
+		</response>		
+	</method>
 	
 
 <!--*******************************************************-->

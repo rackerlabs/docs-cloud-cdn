@@ -1,0 +1,10 @@
+[
+  {
+    "domain_name": "test-san1.cnamecdn.com",
+    "san_cert_name": "san1.sample.com"
+  },
+  {
+    "domain_name": "test-san2.cnamecdn.com",
+    "san_cert_name": "san2.sample.com"
+  }
+]

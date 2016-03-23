@@ -7,7 +7,7 @@ Rackspace CDN Administration API |contract version|
 *Last updated:* |today|
 
 Use the following links to jump directly to user and reference information for
-using the |apiservice|.
+using the Administration API for |apiservice|.
 
 
 * :ref:`Administration Guide<admin-guide>`
