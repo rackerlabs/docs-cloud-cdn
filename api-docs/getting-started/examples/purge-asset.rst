@@ -1,4 +1,4 @@
-.. _gsg-purge-asset
+.. _gsg-purge-asset:
 
 Purging a cached asset
 ~~~~~~~~~~~~~~~~~~~~~~~

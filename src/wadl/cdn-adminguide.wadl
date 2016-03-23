@@ -898,6 +898,10 @@
 					<wadl:doc xmlns="http://docbook.org/ns/docbook"
 						xml:lang="EN">Specifies the SPS ID to update.</wadl:doc>
 				</param>
+				<param name="enabled" style="plain" path="$.enabled">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN">Enables or disables the SAN certificate. Valid values are <code>true</code> and <code>false</code>.</wadl:doc>
+				</param>
 			</representation>
 		</request>
 		<response status="200" xmlns="http://wadl.dev.java.net/2009/02">
@@ -982,15 +986,15 @@
 					<wadl:doc xmlns="http://docbook.org/ns/docbook"
 						xml:lang="EN">Specifies the SAN certificate CNAME domain to which the customer is mapping, for example, <code>secure1.san1.altcdn.com</code>. </wadl:doc>
 				</param>
-				<param name="project_id" style="plain" required="true" path="$.updated_cname_host_mapping_info.project_id">
+				<param name="project_id" style="plain" required="false" path="$.updated_cname_host_mapping_info.project_id">
 					<wadl:doc xmlns="http://docbook.org/ns/docbook"
 						xml:lang="EN">When <code>job_type</code> is <code>akamai_check_and_update_cert_status</code>, specifies the customer's project ID. </wadl:doc>
 				</param>
-				<param name="cert_type" style="plain" required="true" path="$.updated_cname_host_mapping_info.cert_type">
+				<param name="cert_type" style="plain" required="false" path="$.updated_cname_host_mapping_info.cert_type">
 					<wadl:doc xmlns="http://docbook.org/ns/docbook"
 						xml:lang="EN">When <code>job_type</code> is <code>akamai_check_and_update_cert_status</code>, specifies the customer's certificate type. Currently, the only valid value is <code>san</code>. </wadl:doc>
 				</param>
-				<param name="flavor_id" style="plain" required="true" path="$.updated_cname_host_mapping_info.flavor_id">
+				<param name="flavor_id" style="plain" required="false" path="$.updated_cname_host_mapping_info.flavor_id">
 					<wadl:doc xmlns="http://docbook.org/ns/docbook"
 						xml:lang="EN">When <code>job_type</code> is <code>akamai_check_and_update_cert_status</code>, specifies the customer's service flavor. </wadl:doc>
 				</param>
@@ -999,33 +1003,7 @@
 						xml:lang="EN">When the <code>job_type</code> is <code>akamai_update_papi_property_for_mod_san</code>, valid values for <code>action</code> are <code>add</code> or <code>remove</code>. </wadl:doc>
 				</param>
 			</representation>
-			<representation mediaType="application/json" >
-				<doc>
-					<xsdxt:code href="../wadl/samples/cdn-postAkamaiBackground2_request-json-http.txt"/>  
-					<xsdxt:code href="../wadl/samples/cdn-postAkamaiBackground2_request.json"/>
-				</doc>
-				<param name="job_type" style="plain" required="true" path="$.job_type">
-					<wadl:doc xmlns="http://docbook.org/ns/docbook"
-						xml:lang="EN">Specifies the type of job, such as <code>akamai_update_papi_property_for_mod_san</code>.</wadl:doc>
-				</param>
-				
-				<param name="domain_name" style="plain" required="true" path="$.domain_name">
-					<wadl:doc xmlns="http://docbook.org/ns/docbook"
-						xml:lang="EN">Specifies a string representing the domain, such as <code>testabc.cnamecdn.com</code>.</wadl:doc>
-				</param>
-				<param name="project_id" style="plain" required="true" path="$.project_id">
-					<wadl:doc xmlns="http://docbook.org/ns/docbook"
-						xml:lang="EN">Specifies the project ID for the user. </wadl:doc>
-				</param>
-				<param name="cert_type" style="plain" required="true" path="$.cert_type">
-					<wadl:doc xmlns="http://docbook.org/ns/docbook"
-						xml:lang="EN">Specifies the type of certificate. </wadl:doc>
-				</param>	
-				<param name="flavor_id" style="plain" required="true" path="$.flavor_id">
-					<wadl:doc xmlns="http://docbook.org/ns/docbook"
-						xml:lang="EN">Specifies the the flavor ID. </wadl:doc>
-				</param>	
-			</representation>
+			
 		</request>
 		<response status="202" xmlns="http://wadl.dev.java.net/2009/02">
 			<doc title="Accepted" xml:lang="EN">The request has been accepted for processing.</doc>
