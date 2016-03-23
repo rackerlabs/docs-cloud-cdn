@@ -46,7 +46,7 @@
     <releaseinfo>API v1.0</releaseinfo>
     <productname>Rackspace CDN</productname>
     <pubdate xmlns:m="http://www.w3.org/1998/Math/MathML"
-      xmlns:html="http://www.w3.org/1999/xhtml">2016-03-07</pubdate>
+      xmlns:html="http://www.w3.org/1999/xhtml">2016-03-23</pubdate>
     <legalnotice role="rs-api" xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:html="http://www.w3.org/1999/xhtml">
       <annotation>
         <remark>Copyright details are filled in by the doc build process.</remark>
@@ -60,21 +60,70 @@
     <!--Note that the <productname> text matches the first few words of the title. The build system splits the title into productname + rest of title on the pdf cover.-->
     <revhistory>
       <revision>
+        <date>2016-03-23</date>
+        <revdescription>
+          <itemizedlist>
+            <listitem>
+              <para>Added the operation to update the SAN certificate
+                configuration information in to  <xref
+                  linkend="SANCertInfoOperations"/> which includes
+                the following request body parameters:  </para>
+              <para>
+                <itemizedlist>
+                  <listitem>
+                    <para>The <code>spsid</code> parameter to
+                      configure the Secure Provisioning Service (SPS)
+                      ID.</para>
+                  </listitem>
+                  <listitem>
+                    <para>The <code>enabled</code> parameter to
+                      indicate if the SAN certificate is enabled and
+                      disabled.</para>
+                  </listitem>
+                </itemizedlist>
+              </para>
+            </listitem>
+            <listitem>
+              <para>Updated the operation to get the SAN certificate
+                configuration information in <xref
+                  linkend="SANCertInfoOperations"/> to include the
+                  <code>enabled</code> parameter to indicate if the
+                SAN certificate is enabled and disabled.  </para>
+            </listitem>
+            <listitem>
+              <para>Updated the operation to run an Akamai background
+                job in  <xref linkend="AkamaiBackgroudJobOperation"/>
+                to include an information map for the SAN certificate
+                in the request body. </para>
+            </listitem>
+            <listitem>
+              <para>Added the following operations operation to  <xref
+                  linkend="AkamaiBackgroudJobOperation"/>:  </para>
+              <para>
+                <itemizedlist>
+                  <listitem>
+                    <para>GET a SAN-mapping list for a related
+                      background job to update the papi
+                      property.</para>
+                  </listitem>
+                  <listitem>
+                    <para>PUT a SAN-mapping list for a related
+                      background job to update the papi
+                      property.</para>
+                  </listitem>
+                </itemizedlist>
+              </para>
+            </listitem>
+          </itemizedlist>
+        </revdescription>
+      </revision>
+      <revision>
         <date>2016-03-07</date>
         <revdescription>
           <itemizedlist>
             <listitem>
               <para>Added the operation to set the status of a service
                 to <xref linkend="serviceStatusOperations"/>. </para>
-              <!--             <itemizedlist>
-                <listitem>
-                  <para>Get services and project IDs by
-                      <code>status</code>.</para>
-                </listitem> 
-                <listitem>
-                  <para>Set the status of a service.</para>
-                </listitem>
-              </itemizedlist> -->
             </listitem>
             <listitem>
               <para>Added the operation to get domains by the provider
@@ -88,17 +137,7 @@
             <listitem>
               <para>Added the operation to get the SAN certificate
                 configuration information to <xref
-                  linkend="SANCertInfoOperations"/>: </para>
-              <!--             <itemizedlist>
-            <listitem>
-                  <para>Get SAN certifcate configuration
-                    information.</para>
-                </listitem>
-                <listitem>
-                  <para>Update the SAN certificate configuration
-                    Secure Provisioning Service (SPS) ID.</para>
-                </listitem>  
-              </itemizedlist>   -->
+                  linkend="SANCertInfoOperations"/>. </para>
             </listitem>
           </itemizedlist>
         </revdescription>
@@ -1272,6 +1311,10 @@ Content-Type: application/json
         <wadl:resource href="../../src/wadl/cdn-adminguide.wadl#background_job">
           <wadl:method href="#postAkamaiBackground"/>
         </wadl:resource>
+        <wadl:resource href="../../src/wadl/cdn-adminguide.wadl#san_mapping">
+          <wadl:method href="#getSANMap"/>
+          <wadl:method href="#putSANMap"/>
+        </wadl:resource>
       </wadl:resources>
     </section>
     
@@ -1294,7 +1337,7 @@ Content-Type: application/json
       <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
         <wadl:resource href="../../src/wadl/cdn-adminguide.wadl#san_cert_name">
           <wadl:method href="#getSANCertConfig"/>
-  <!--        <wadl:method href="#postSANCertConfig"/>   -->
+          <wadl:method href="#postSANCertConfig"/> 
         </wadl:resource>
       </wadl:resources>
     </section>

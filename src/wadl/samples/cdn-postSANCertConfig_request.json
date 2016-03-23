@@ -1,3 +1,4 @@
 {
-    "spsId": 1234
+    "spsId": 1234,
+    "enabled": false
 }

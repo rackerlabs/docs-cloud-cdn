@@ -5,5 +5,6 @@
   "jobId": "5123",
   "cnameHostname": "secure2.san1.testcdn.com",
   "spsId": 1234,
+  "enabled": true,
   "issuer": "symantec"
 }
