@@ -1,18 +1,13 @@
-
-.. THIS OUTPUT IS GENERATED FROM THE WADL. DO NOT EDIT.
-
-.. _get-get-certificates-by-certificate-status-admin-certificates:
+.. _get-certificates-by-status:
 
 Get certificates by certificate status 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code::
 
-    GET //admin/certificates
+    GET /admin/certificates
 
-Get certificates by certificate ``status``.
-
-To get certificate information by certificate ``status``, provide ``status`` as a query parameter in the endpoint URL of the operation. 				Valid values for ``status`` are ``deployed``, ``failed``, ``create_in_progress``, and ``cancelled``. No JSON request body is required. 
+To get certificate information by certificate ``status``, provide ``status`` as a query parameter in the endpoint URL of the operation. Valid values for ``status`` are ``deployed``, ``failed``, ``create_in_progress``, or ``cancelled``. No JSON request body is required. 
 
 
 
@@ -44,9 +39,9 @@ This table shows the query parameters for the request:
 |                          |                         |certificates. Valid      |
 |                          |                         |values for ``status``    |
 |                          |                         |are ``deployed``,        |
-|                          |                         |``failed``,              |
+|                          |                         |``failed``, or           |
 |                          |                         |``create_in_progress``,  |
-|                          |                         |and ``cancelled``.       |
+|                          |                         |``cancelled``.           |
 +--------------------------+-------------------------+-------------------------+
 
 
@@ -57,7 +52,7 @@ This operation does not accept a request body.
 
 
 
-**Example Get certificates by certificate status : JSON request**
+**Example: Get certificates by certificate status HTTP request**
 
 
 .. code::
@@ -95,7 +90,7 @@ This table shows the body parameters for the response:
 
 
 
-**Example Get certificates by certificate status : JSON response**
+**Example: Get certificates by certificate status JSON response**
 
 
 .. code::

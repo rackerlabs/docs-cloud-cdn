@@ -167,8 +167,8 @@
 			xmlns="http://docbook.org/ns/docbook">
 			<para role="shortdesc">Get services and project IDs by <code>status</code>.</para>
 			<para> To get services and project IDs by <code>status</code>, provide <code>status</code> as a query parameter in the endpoint URL of the operation. 
-				Valid values for <code>status</code> are <code>deployed</code>,  <code>failed</code>, 
-				<code>update_in_progress</code>, <code>deploy_in_progress</code>, and <code>delete_in_progress</code>. No JSON request body is required. </para>			
+				Valid values for <code>status</code> are <code>deployed</code>,  <code>failed</code>, or 
+				<code>update_in_progress</code>. No JSON request body is required. </para>			
 		</wadl:doc>
 		<request>
 			<param name="status" style="query" type="xsd:string"
@@ -1223,7 +1223,7 @@
 			xmlns="http://docbook.org/ns/docbook">
 			<para role="shortdesc">Get certificates by certificate <code>status</code>.</para>
 			<para> To get certificate information by certificate <code>status</code>, provide <code>status</code> as a query parameter in the endpoint URL of the operation. 
-				Valid values for <code>status</code> are <code>deployed</code>,  <code>failed</code>,
+				Valid values for <code>status</code> are <code>deployed</code>,  <code>failed</code>, or
 				<code>create_in_progress</code>, and <code>cancelled</code>. No JSON request body is required. </para>			
 		</wadl:doc>
 		<request>

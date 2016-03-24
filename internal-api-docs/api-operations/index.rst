@@ -16,6 +16,7 @@
    cdn-Akamai-backgroun-job-operations
    cdn-SAN-retry-list-operations
    cdn-SAN-certificate-configuration-operations
+   cdn-certificate-status-operations
    cdn-SSL-certificate-operations
    cdn-flavors-operations
 

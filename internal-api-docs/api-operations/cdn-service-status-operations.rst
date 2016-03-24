@@ -11,4 +11,6 @@ The section describes service status operations in the Rackspace CDN Administrat
 
 Access to this endpoint should be controlled via an RBAC system such as Repose.
 
+
+.. include:: methods/get-service-and-project-ids-by-status.rst
 .. include:: methods/post-set-status-service.rst    
