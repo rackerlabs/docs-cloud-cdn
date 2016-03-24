@@ -46,7 +46,7 @@
     <releaseinfo>API v1.0</releaseinfo>
     <productname>Rackspace CDN</productname>
     <pubdate xmlns:m="http://www.w3.org/1998/Math/MathML"
-      xmlns:html="http://www.w3.org/1999/xhtml">2016-03-23</pubdate>
+      xmlns:html="http://www.w3.org/1999/xhtml">2016-03-28</pubdate>
     <legalnotice role="rs-api" xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:html="http://www.w3.org/1999/xhtml">
       <annotation>
         <remark>Copyright details are filled in by the doc build process.</remark>
@@ -60,14 +60,14 @@
     <!--Note that the <productname> text matches the first few words of the title. The build system splits the title into productname + rest of title on the pdf cover.-->
     <revhistory>
       <revision>
-        <date>2016-03-23</date>
+        <date>2016-03-28</date>
         <revdescription>
           <itemizedlist>
             <listitem>
               <para>Added the operation to update the SAN certificate
-                configuration information in to  <xref
-                  linkend="SANCertInfoOperations"/> which includes
-                the following request body parameters:  </para>
+                configuration information in to <xref
+                  linkend="SANCertInfoOperations"/> which includes the
+                following request body parameters: </para>
               <para>
                 <itemizedlist>
                   <listitem>
@@ -88,17 +88,17 @@
                 configuration information in <xref
                   linkend="SANCertInfoOperations"/> to include the
                   <code>enabled</code> parameter to indicate if the
-                SAN certificate is enabled and disabled.  </para>
+                SAN certificate is enabled and disabled. </para>
             </listitem>
             <listitem>
               <para>Updated the operation to run an Akamai background
-                job in  <xref linkend="AkamaiBackgroudJobOperation"/>
+                job in <xref linkend="AkamaiBackgroudJobOperation"/>
                 to include an information map for the SAN certificate
                 in the request body. </para>
             </listitem>
             <listitem>
-              <para>Added the following operations operation to  <xref
-                  linkend="AkamaiBackgroudJobOperation"/>:  </para>
+              <para>Added the following operations to <xref
+                  linkend="AkamaiBackgroudJobOperation"/>: </para>
               <para>
                 <itemizedlist>
                   <listitem>
@@ -113,6 +113,16 @@
                   </listitem>
                 </itemizedlist>
               </para>
+            </listitem>
+            <listitem>
+              <para>Added the operation to get services and project
+                IDs by status to  <xref
+                  linkend="serviceStatusOperations"/>. </para>
+            </listitem>
+            <listitem>
+              <para>Added the operation to get certificates by the
+                certificate status to  <xref
+                  linkend="certStatusOperation"/>. </para>
             </listitem>
           </itemizedlist>
         </revdescription>
@@ -1238,9 +1248,9 @@ Content-Type: application/json
       <para>Access to this endpoint should be controlled via an RBAC
         system such as Repose.</para>
       <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
-      <!--  <wadl:resource href="../../src/wadl/cdn-adminguide.wadl#services">
+       <wadl:resource href="../../src/wadl/cdn-adminguide.wadl#services">
           <wadl:method href="#getServiceProjectIDsByStatus"/>
-        </wadl:resource>  -->
+        </wadl:resource>  
         <wadl:resource href="../../src/wadl/cdn-adminguide.wadl#status">
           <wadl:method href="#postServiceStatus"/>
         </wadl:resource>
@@ -1344,7 +1354,7 @@ Content-Type: application/json
 
     
 
- <!--   <section xml:id="certStatusOperation">
+    <section xml:id="certStatusOperation">
       <title>Certificate status operations</title>
       <para>The section describes the certificate status operation in Rackspace CDN. </para>
       <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
@@ -1353,7 +1363,7 @@ Content-Type: application/json
         </wadl:resource>
 
       </wadl:resources>
-    </section>  -->
+    </section>  
    
 
     <section xml:id="SSLCertificateOperations">
