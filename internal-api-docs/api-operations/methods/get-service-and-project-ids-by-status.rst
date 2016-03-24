@@ -1,18 +1,14 @@
-
-.. THIS OUTPUT IS GENERATED FROM THE WADL. DO NOT EDIT.
-
-.. _get-get-service-ids-and-project-ids-by-status-admin-services:
+.. _get-service-and-project-ids-by-status:
 
 Get service IDs and project IDs by status 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code::
 
-    GET //admin/services
+    GET /admin/services
 
-Get services and project IDs by ``status``.
 
-To get services and project IDs by ``status``, provide ``status`` as a query parameter in the endpoint URL of the operation. 				Valid values for ``status`` are ``deployed``, ``failed``, ``update_in_progress``, ``deploy_in_progress``, and ``delete_in_progress``. No JSON request body is required. 
+To get services and project IDs by ``status``, provide ``status`` as a query parameter in the endpoint URL of the operation. Valid values for ``status`` are ``deployed``, ``failed``, or ``update_in_progress``. No JSON request body is required. 
 
 
 
@@ -45,11 +41,8 @@ This table shows the query parameters for the request:
 |                          |                         |IDs. Valid values for    |
 |                          |                         |``status`` are           |
 |                          |                         |``deployed``,            |
-|                          |                         |``failed``,              |
-|                          |                         |``update_in_progress``,  |
-|                          |                         |``deploy_in_progress``,  |
-|                          |                         |and                      |
-|                          |                         |``delete_in_progress``.  |
+|                          |                         |``failed``, or           |
+|                          |                         |``update_in_progress``.  |
 +--------------------------+-------------------------+-------------------------+
 
 
@@ -60,7 +53,7 @@ This operation does not accept a request body.
 
 
 
-**Example Get service IDs and project IDs by status : JSON request**
+**Example: Get service IDs and project IDs by status HTTP request**
 
 
 .. code::
@@ -91,7 +84,7 @@ This table shows the body parameters for the response:
 |\ **project_id**          |String                   |Specifies the project ID |
 |                          |                         |for the service.         |
 +--------------------------+-------------------------+-------------------------+
-|\ **service_id**          |String                   |Specifies the servic ID  |
+|\ **service_id**          |String                   |Specifies the service ID |
 |                          |                         |for the service.         |
 +--------------------------+-------------------------+-------------------------+
 
@@ -101,7 +94,7 @@ This table shows the body parameters for the response:
 
 
 
-**Example Get service IDs and project IDs by status : JSON response**
+**Example: Get service IDs and project IDs by status JSON response**
 
 
 .. code::
