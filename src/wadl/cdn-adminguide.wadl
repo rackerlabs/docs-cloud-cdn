@@ -882,10 +882,10 @@
 <!--Update SAN Cert Config Info method -->
 	
 	<method name="POST" id="postSANCertConfig">
-		<wadl:doc xml:lang="EN" title="Update the SAN certificate SPS ID"
+		<wadl:doc xml:lang="EN" title="Update the SAN certificate configuration"
 			xmlns="http://docbook.org/ns/docbook">
-			<para role="shortdesc">Updates the SAN certificate SPS ID.</para>
-			<para>This operation updates the SAN certificate SPS ID.</para>
+			<para role="shortdesc">Updates the SAN certificate configuration.</para>
+			<para>This operation updates the SAN certificate configuration.</para>
 			<note><para>This endpoint is accessible only by users with the <code>support</code> role in their Cloud Identity service catalog.</para></note>
 		</wadl:doc>
 		<request>
