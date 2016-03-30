@@ -1,6 +1,6 @@
 .. _post-san-certificate-configuration:
 
-Update the SAN certificate
+Update the SAN certificate configuration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code::
