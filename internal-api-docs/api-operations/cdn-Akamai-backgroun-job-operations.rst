@@ -1,7 +1,7 @@
 .. _akamai—background-job-operations:
 
 Akamai-related background job operations
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+--------------------------------------------------------
 
 .. contents::
    :depth: 1

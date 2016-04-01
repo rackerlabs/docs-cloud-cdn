@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# Rackspace Developer Documentation documentation build configuration file, created by
+# Rackspace Internal Developer Documentation documentation build configuration file, created by
 # sphinx-quickstart on Thu Mar  6 14:14:55 2014.
 #
 # This file is execfile()d with the current directory set to its
@@ -53,7 +53,7 @@ master_doc = 'index'
 builder = 'deconst-single'
 
 # General information about the project.
-project = 'Rackspace Developer Documentation'
+project = 'Rackspace Internal Developer Documentation'
 copyright = '2016, Rackspace'
 
 # The version info for the project you're documenting, acts as replacement for
@@ -143,7 +143,7 @@ release='v1.'
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
-#html_theme = 'classic'
+html_theme = 'sphinx_rtd_theme'
 
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
@@ -155,7 +155,7 @@ release='v1.'
 
 # The name for this set of Sphinx documents.  If None, it defaults to
 # "<project> v<release> documentation".
-html_title = 'Rackspace CDN Version 1.0 API Admin Guide'
+#html_title = 'Rackspace CDN Version 1.0 API Admin Guide'
 
 # A shorter title for the navigation bar.  Default is the same as html_title.
 html_short_title = 'Rackspace CDN'

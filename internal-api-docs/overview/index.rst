@@ -51,4 +51,3 @@ and in the following external guides that are available on :rax-devdocs:`Rackspa
    additional-resources
    api-contract-changes
    api-service-updates
-   pricing-service-level

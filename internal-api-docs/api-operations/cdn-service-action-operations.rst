@@ -1,7 +1,7 @@
 .. _service-action-operations:
 
 Service action operations
-~~~~~~~~~~~~~~~~~~~~~~~~~
+-------------------------
 
 .. contents::
    :depth: 1

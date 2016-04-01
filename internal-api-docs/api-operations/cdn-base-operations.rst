@@ -1,7 +1,7 @@
 .. _base-operations:
 
 Base operations
-~~~~~~~~~~~~~~~
+---------------
 
 .. contents::
    :depth: 1

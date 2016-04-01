@@ -2,7 +2,7 @@
 .. _put-san-mapping:
 
 Update the SAN-mapping list for the Akamai-related background job
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code::
 
@@ -41,7 +41,8 @@ This table shows the body parameters for the request:
 
 +------------------+-------------+---------------------------------------------+
 |\ **domain_name** |String       |Specifies a string representing the          |
-|                  |*(Required)* |customer's domain name, such as              ||                  |             |``testabc.cnamecdn.com``.                    |
+|                  |*(Required)* |customer's domain name, such as              |
+|                  |             |``testabc.cnamecdn.com``.                    |
 +------------------+-------------+---------------------------------------------+
 |\ **san_cert**    |String       |Specifies the SAN certificate CNAME, to which|
 |                  |*(Required)* |the customer is mapping, for example,        |
@@ -70,7 +71,12 @@ This table shows the body parameters for the request:
    [
       {
         "domain_name": "test-san1.cnamecdn.com",
-        "san_cert_name": "san1.sample.com"      },      {        "domain_name": "test-san2.cnamecdn.com",        "san_cert_name": "san2.sample.com"      }
+        "san_cert_name": "san1.sample.com"
+      },
+      {
+        "domain_name": "test-san2.cnamecdn.com",
+        "san_cert_name": "san2.sample.com"
+      }
    ]
 
 
@@ -90,18 +96,22 @@ This table shows the body parameters for the response:
 
 +------------------+-------------+---------------------------------------------+
 |\ **queued**      |String       |Specifies a list that includes the domain    |
-|                  |             |name and the SAN certificate name to update. |+------------------+-------------+---------------------------------------------+
+|                  |             |name and the SAN certificate name to update. |
++------------------+-------------+---------------------------------------------+
 |queued.           |String       |Specifies a string representing the          |
-|\ **domain_name** |             |customer's domain name, such as              ||                  |             |``testabc.cnamecdn.com``.                    |
+|\ **domain_name** |             |customer's domain name, such as              |
+|                  |             |``testabc.cnamecdn.com``.                    |
 +------------------+-------------+---------------------------------------------+
 |queued.           |String       |Specifies the SAN certificate CNAME, to which|
 |\ **san_cert**    |             |the customer is mapping, for example,        |
 |                  |             |``secure1.san1.altcdn.com``.                 |
 +------------------+-------------+---------------------------------------------+
 |\ **deleted**     |String       |Specifies a list that includes the domain    |
-|                  |             |name and the SAN certificate name to delete. |+------------------+-------------+---------------------------------------------+
+|                  |             |name and the SAN certificate name to delete. |
++------------------+-------------+---------------------------------------------+
 |deleted.          |String       |Specifies a string representing the          |
-|\ **domain_name** |             |customer's domain name, such as              ||                  |             |``testabc.cnamecdn.com``.                    |
+|\ **domain_name** |             |customer's domain name, such as              |
+|                  |             |``testabc.cnamecdn.com``.                    |
 +------------------+-------------+---------------------------------------------+
 |deleted.          |String       |Specifies the SAN certificate CNAME, to which|
 |\ **san_cert**    |             |the customer is mapping, for example,        |
@@ -124,6 +134,21 @@ This table shows the body parameters for the response:
 
 .. code::
 
-   {     "queue": [       {         "domain_name": "test-san1.cnamecdn.com",         "san_cert_name": "san1.sample.com"       },
-       {         "domain_name": "test-san2.cnamecdn.com",         "san_cert_name": "san2.sample.com"       }     ],     "deleted": [       {         "domain_name": "test-san0.cnamecdn.com",         "san_cert_name": "san1.sample.com"       }
-     ]   }
+   {
+     "queue": [
+       {
+         "domain_name": "test-san1.cnamecdn.com",
+         "san_cert_name": "san1.sample.com"
+       },
+       {
+         "domain_name": "test-san2.cnamecdn.com",
+         "san_cert_name": "san2.sample.com"
+       }
+     ],
+     "deleted": [
+       {
+         "domain_name": "test-san0.cnamecdn.com",
+         "san_cert_name": "san1.sample.com"
+       }
+     ]
+   }

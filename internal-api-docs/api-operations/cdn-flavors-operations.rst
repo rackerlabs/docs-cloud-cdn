@@ -1,7 +1,7 @@
 .. _flavors-operations:
 
 Flavors operations
-~~~~~~~~~~~~~~~~~~
+------------------
 
 .. contents::
    :depth: 1

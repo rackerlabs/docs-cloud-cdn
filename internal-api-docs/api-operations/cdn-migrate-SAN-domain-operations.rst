@@ -1,7 +1,7 @@
 .. _migrate—SAN-domain-operations:
 
 Migrate SAN domain operations
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-------------------------------------
 
 .. contents::
    :depth: 1
