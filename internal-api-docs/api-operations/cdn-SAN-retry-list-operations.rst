@@ -1,7 +1,7 @@
 .. _SAN—retry-list-operations:
 
 SAN retry list operations
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+------------------------------------
 
 .. contents::
    :depth: 1

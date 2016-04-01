@@ -1,7 +1,7 @@
 .. _domains-operations:
 
 Domains operations
-~~~~~~~~~~~~~~~~~~~~~~
+----------------------
 
 .. contents::
    :depth: 1

@@ -2,7 +2,7 @@
 .. _post-run-akamai-related-background-job:
 
 Run Akamai-related background job
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code::
 
@@ -62,7 +62,8 @@ This table shows the body parameters for the request:
 |                  |             |domain-to-SAN-certificate CNAME mapping.     |
 +------------------+-------------+---------------------------------------------+
 |updated_cname_host|String       |Specifies a string representing the          |
-|host_mapping_info.|*(Required)* |customer's domain name, such as              ||\ **domain_name** |             |``testabc.cnamecdn.com``.                    |
+|host_mapping_info.|*(Required)* |customer's domain name, such as              |
+|\ **domain_name** |             |``testabc.cnamecdn.com``.                    |
 +------------------+-------------+---------------------------------------------+
 |updated_cname_host|String       |Specifies the SAN certificate CNAME, to which|
 |host_mapping_info.|*(Required)* |the customer is mapping, for example,        |    
@@ -105,8 +106,20 @@ This table shows the body parameters for the request:
 
 .. code::
     
-    {      "job_type": "akamai_update_papi_property_for_mod_san",      "update_cname_host_mapping_info": [        {          "domain_name": "testabc.testsan.com",          "san_cert_name": "secure1.san1.testcdn.com"        }, 
-        {          "domain_name": "testabc2.testsan.com",          "san_cert_name": "secure2.san1.testcdn.com"        }      ],      "action": "add"    }    
+    {
+      "job_type": "akamai_update_papi_property_for_mod_san",
+      "update_cname_host_mapping_info": [
+        {
+          "domain_name": "testabc.testsan.com",
+          "san_cert_name": "secure1.san1.testcdn.com"
+        }, 
+        {
+          "domain_name": "testabc2.testsan.com",
+          "san_cert_name": "secure2.san1.testcdn.com"
+        }
+      ],
+      "action": "add"
+    }    
    
 
 

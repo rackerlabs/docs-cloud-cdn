@@ -2,7 +2,7 @@
 .. _get-san-mapping:
 
 Retrieve the SAN-mapping list for the Akamai-related background job
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code::
 
@@ -71,7 +71,8 @@ This table shows the body parameters for the response:
 
 +------------------+-------------+---------------------------------------------+
 |\ **domain_name** |String       |Specifies a string representing the          |
-|                  |*(Required)* |customer's domain name, such as              ||                  |             |``testabc.cnamecdn.com``.                    |
+|                  |*(Required)* |customer's domain name, such as              |
+|                  |             |``testabc.cnamecdn.com``.                    |
 +------------------+-------------+---------------------------------------------+
 |\ **san_cert**    |String       |Specifies the SAN certificate CNAME, to which|
 |                  |*(Required)* |the customer is mapping, for example,        |    
@@ -97,7 +98,12 @@ This table shows the body parameters for the response:
    [ 
       {
         "domain_name": "test-san1.cnamecdn.com",
-        "san_cert_name": "san1.sample.com"      },      {        "domain_name": "test-san2.cnamecdn.com",        "san_cert_name": "san2.sample.com"      }
+        "san_cert_name": "san1.sample.com"
+      },
+      {
+        "domain_name": "test-san2.cnamecdn.com",
+        "san_cert_name": "san2.sample.com"
+      }
    ]
 
 

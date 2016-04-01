@@ -1,7 +1,7 @@
 .. _limits-operations:
 
 Limits operations
-~~~~~~~~~~~~~~~~~~~~~~
+----------------------
 
 .. contents::
    :depth: 1

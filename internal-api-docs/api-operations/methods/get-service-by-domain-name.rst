@@ -2,7 +2,7 @@
 .. _get-service-by-domain-name:
 
 Retrieve a service by domain name
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code::
 
@@ -226,7 +226,7 @@ This table shows the body parameters for the response:
                "rules": [
                    {
                        "name": "videos",
-                       "request_url": "^/videos/*.m3u"
+                       "request_url": "~/videos/*.m3u"
                    }
                ],
                "hostheadertype": "domain",

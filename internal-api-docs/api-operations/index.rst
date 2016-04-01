@@ -3,6 +3,16 @@
 .. meta::
    :description: Rackspace CDN API Reference
    :keywords: Rackspace, Rackspace CDN ReST API, API resources, API methods
+   
+.. _admin-api-reference:
+
+==================================
+**Administration API Reference**
+==================================
+
+Learn about the available Rackspace CDN resources and methods for the Administration API
+and see request and response examples.
+
        
 .. toctree:: 
    :maxdepth: 2

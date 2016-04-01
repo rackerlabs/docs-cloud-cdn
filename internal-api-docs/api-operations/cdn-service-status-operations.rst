@@ -1,7 +1,7 @@
 .. _service-status-operations:
 
 Service assets operations
-~~~~~~~~~~~~~~~~~~~~~~~~~
+-------------------------
 
 .. contents::
    :depth: 1

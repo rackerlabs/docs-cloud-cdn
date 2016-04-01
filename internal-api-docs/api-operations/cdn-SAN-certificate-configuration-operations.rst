@@ -1,7 +1,7 @@
 .. _SAN-cert-config-operations:
 
 SAN certificate configuration information operations
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+------------------------------------------------------------------
 
 .. contents::
    :depth: 1

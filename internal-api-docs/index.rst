@@ -18,13 +18,10 @@ using the Administration API for |apiservice|.
 .. toctree:: :hidden:
    :maxdepth: 2
 
-   Rackspace CDN 1.0 <self>
+   self
    API Status <https://status.rackspace.com>
    About the API <overview/index>
-   admin-guide
-   concepts
-   general-api-info/index
-   admin-api-reference
+   admin-guide/index
    api-operations/index
    doc-change-history
    copyright

@@ -1,7 +1,7 @@
 .. _cdn-certificate-status-operations:
 
 Certificate status operations
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+----------------------------------
 
 .. contents::
    :depth: 1

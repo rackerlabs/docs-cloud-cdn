@@ -1,7 +1,7 @@
 .. _post-san-certificate-configuration:
 
 Update the SAN certificate configuration
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code::
 
@@ -77,7 +77,10 @@ This table shows the body parameters for the request:
 
 .. code::
 
-    {        "spsId": 1234,        "enabled": false    }
+    {
+        "spsId": 1234,
+        "enabled": false
+    }
 
 
 

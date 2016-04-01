@@ -1,7 +1,7 @@
 .. _ssl—certificate-operations:
 
 SSL certificate operations
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+--------------------------
 
 .. contents::
    :depth: 1
