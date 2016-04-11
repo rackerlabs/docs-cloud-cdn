@@ -57,12 +57,12 @@ This table shows the query parameters for the request:
 +--------------------------+-------------------------+-------------------------+
 |Name                      |Type                     |Description              |
 +==========================+=========================+=========================+
-|marker                    |String *(Optional)*      |Specifies the            |
+|marker                    |String                   |Specifies the            |
 |                          |                         |``service_id`` that      |
 |                          |                         |represents the last      |
 |                          |                         |service listed.          |
 +--------------------------+-------------------------+-------------------------+
-|limit                     |Integer *(Optional)*     |Specifies the number of  |
+|limit                     |Integer                  |Specifies the number of  |
 |                          |                         |resources to list. The   |
 |                          |                         |maximum value that you   |
 |                          |                         |can specify for          |

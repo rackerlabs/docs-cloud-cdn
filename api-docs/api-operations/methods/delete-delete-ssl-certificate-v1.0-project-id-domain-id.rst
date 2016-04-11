@@ -44,7 +44,7 @@ This table shows the URI parameters for the request:
 |             |             |https://global.cdn.api.rackspacecloud.com/v1.0/{project_id}`` |
 +-------------+-------------+--------------------------------------------------------------+
 |{domain_name}|String       |Specifies a string representing the type of the SSL           |
-|             |*(Required)* |certificate, such as ``www.example.com.``                     |
+|             |             |certificate, such as ``www.example.com.``                     |
 +-------------+-------------+--------------------------------------------------------------+
 
 
