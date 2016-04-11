@@ -94,10 +94,10 @@ This table shows the body parameters for the request:
 |                       |             |maximum length is 253.                                                        |
 +-----------------------+-------------+------------------------------------------------------------------------------+
 |domains.\ **protocol** |String       |Specifies the protocol used to access the assets on this domain. Only         |
-|                       |*(Optional)* |``http`` or ``https`` are allowed. The default ``protocol`` is ``http``.      |
+|                       |             |``http`` or ``https`` are allowed. The default ``protocol`` is ``http``.      |
 +-----------------------+-------------+------------------------------------------------------------------------------+
 |domains.\              |String       |Specifies the type of security certificate. For the ``certificate`` parameter |
-|**certificate**        |*(Optional)* |to apply, the ``protocol`` parameter must be set to ``https``. Use            |
+|**certificate**        |             |to apply, the ``protocol`` parameter must be set to ``https``. Use            |
 |                       |             |``shared``, ``san``, or ``custom``. For all 3 types of security certificates, |
 |                       |             |make sure that your origin (or origins) are SSL-enabled. Your SSL certificate |
 |                       |             |needs to come from a trusted certificate authority (CA). For more information |
@@ -106,7 +106,7 @@ This table shows the body parameters for the request:
 |                       |             |<rackspace-cdn-secure-delivery-options>`.                                     |
 +-----------------------+-------------+------------------------------------------------------------------------------+
 |domains.certificate.\  |String       |Uses a shared https operator domain. The ``domain`` parameter must be a       |
-|**shared**             |*(Optional)* |single word that is not dot separated.                                        |
+|**shared**             |             |single word that is not dot separated.                                        |
 +-----------------------+-------------+------------------------------------------------------------------------------+
 |\ **origins**          |String       |Specifies a list of origin domains or IP addresses where the original assets  |
 |                       |*(Required)* |are stored.                                                                   |
@@ -115,14 +115,14 @@ This table shows the body parameters for the request:
 |**origin**             |*(Required)* |minimum length for ``origin`` is 3. The maximum length is 253.                |
 +-----------------------+-------------+------------------------------------------------------------------------------+
 |origins.\ **port**     |String       |Specifies the port used to access the origin. The default is port 80. Note:   |
-|                       |*(Optional)* |Rackspace CDN cannot be used with custom ports. Services are required to run  |
+|                       |             |Rackspace CDN cannot be used with custom ports. Services are required to run  |
 |                       |             |on HTTP (80) and HTTPS (443) for the origin servers. All origins in the       |
 |                       |             |origin specification must define the port so that it that corresponds to the  |
 |                       |             |domain's protocol. If the domain's protocol is http, the port should be 80;   |
 |                       |             |if the domain's protocol is https, the port should be 443.                    |
 +-----------------------+-------------+------------------------------------------------------------------------------+
 |origins.\ **ssl**      |String       |Uses HTTPS to access the origin. The default is false.                        |
-|                       |*(Optional)* |                                                                              |
+|                       |             |                                                                              |
 +-----------------------+-------------+------------------------------------------------------------------------------+
 |origins.\ **rules**    |String       |Specifies a collection of rules that define the conditions when this origin   |
 |                       |*(Required)* |should be accessed. If there is more than one origin, the ``rules`` parameter |
@@ -138,16 +138,16 @@ This table shows the body parameters for the request:
 |                       |             |<http://php.net/manual/en/book.pcre.php>`__.                                  |
 +-----------------------+-------------+------------------------------------------------------------------------------+
 |origins.\              |String       |Specifies the type for the host header. The default value is ``domain``.      |
-|**hostheadertype**     |*(Optional)* |Other valid values are ``origin`` and ``custom``.                             |
+|**hostheadertype**     |             |Other valid values are ``origin`` and ``custom``.                             |
 +-----------------------+-------------+------------------------------------------------------------------------------+
 |origins.\              |String       |Specifies the value to be contained in the host header. The default value is  |
-|**hostheadervalue**    |*(Optional)* |``NULL``; this value is assigned only when ``hostheadertype`` is ``domain``.  |
+|**hostheadervalue**    |             |``NULL``; this value is assigned only when ``hostheadertype`` is ``domain``.  |
 |                       |             |You are required to specify ``hostheadervalue`` only when ``hostheadertype``  |
 |                       |             |is specified as ``custom``. If you specify ``hostheadertype`` as ``origin``,  |
 |                       |             |``hostheadervalue`` takes the value of the origin domain.                     |
 +-----------------------+-------------+------------------------------------------------------------------------------+
 |\ **caching**          |String       |Specifies the TTL rules for the assets under this service. Supports wildcards |
-|                       |*(Optional)* |for fine-grained control.                                                     |
+|                       |             |for fine-grained control.                                                     |
 +-----------------------+-------------+------------------------------------------------------------------------------+
 |caching.\ **name**     |String       |Specifies the name of this caching rule. The minimum length for ``name`` is   |
 |                       |*(Required)* |1. The maximum length is 256. Note: ``default`` is a reserved name used for   |
@@ -157,7 +157,7 @@ This table shows the body parameters for the request:
 |                       |*(Required)* |equal to 0. The maximum value that you can specify is 365 days.               |
 +-----------------------+-------------+------------------------------------------------------------------------------+
 |caching.\ **rules**    |String       |Specifies a collection of rules that determine if this TTL should be applied  |
-|                       |*(Optional)* |to an asset. Note: This is a required property if more than one entry is      |
+|                       |             |to an asset. Note: This is a required property if more than one entry is      |
 |                       |             |present for caching.                                                          |
 +-----------------------+-------------+------------------------------------------------------------------------------+
 |caching.rules.\        |String       |Specifies the name of this rule. The minimum length for ``name`` is 1. The    |
@@ -170,33 +170,33 @@ This table shows the body parameters for the request:
 |                       |             |<http://php.net/manual/en/book.pcre.php>`__.                                  |
 +-----------------------+-------------+------------------------------------------------------------------------------+
 |\ **restrictions**     |String       |Specifies the restrictions that define who can access assets (content from    |
-|                       |*(Optional)* |the CDN cache).                                                               |
+|                       |             |the CDN cache).                                                               |
 +-----------------------+-------------+------------------------------------------------------------------------------+
 |restrictions.\ **name**|String       |Specifies the name of this restriction. The minimum length for ``name`` is 1. |
 |                       |*(Required)* |The maximum length is 256.                                                    |
 +-----------------------+-------------+------------------------------------------------------------------------------+
 |restrictions.\         |String       |Specifies the type of this restriction. Valid values are ``whitelist``, which |
-|**access**             |*(Optional)* |is the default value and allows access, or ``blacklist``, which does not      |
+|**access**             |             |is the default value and allows access, or ``blacklist``, which does not      |
 |                       |             |allow access. Note that ``blacklist`` and ``whitelist`` must use different    |
 |                       |             |paths.                                                                        |      
 +-----------------------+-------------+------------------------------------------------------------------------------+
 |restrictions.\         |String       |Specifies a collection of rules that determine if this restriction should be  |
-|**rules**              |*(Optional)* |applied to an asset.                                                          |
+|**rules**              |             |applied to an asset.                                                          |
 +-----------------------+-------------+------------------------------------------------------------------------------+
 |restrictions.rules.\   |String       |Specifies the name of this rule. The minimum length for ``name`` is 1. The    |
 |**name**               |*(Required)* |maximum length is 256.                                                        |
 +-----------------------+-------------+------------------------------------------------------------------------------+
 |restrictions.rules.\   |String       |Specifies the HTTP host that requests must come from. The minimum length for  |
-|**referrer**           |*(Optional)* |``referrer`` is 3. The maximum length is 1024.                                |
+|**referrer**           |             |``referrer`` is 3. The maximum length is 1024.                                |
 +-----------------------+-------------+------------------------------------------------------------------------------+
 |restrictions.rules.\   |String       |Specifies the request URL to which the rule applies. The default value is     |
-|**request_url**        |*(Optional)* |``/*``, which indicates all content at the request URL.                       |
+|**request_url**        |             |``/*``, which indicates all content at the request URL.                       |
 +-----------------------+-------------+------------------------------------------------------------------------------+
 |restrictions.rules.\   |String       |Specifies the geography from which to restrict requests.                      |
-|**geography**          |*(Optional)* |                                                                              |
+|**geography**          |             |                                                                              |
 +-----------------------+-------------+------------------------------------------------------------------------------+
 |restrictions.rules.\   |String       |Specifies the client IP address to which the rule applies. Note: Rackspace CDN|
-|**client_ip**          |*(Optional)* |supports Classless Inter-Domain Routing (CIDR) for both IPv4 and IPv6 for     |
+|**client_ip**          |             |supports Classless Inter-Domain Routing (CIDR) for both IPv4 and IPv6 for     |
 |                       |             |these restrictions.                                                           |
 +-----------------------+-------------+------------------------------------------------------------------------------+
 |\ **log_delivery**     |String       |Specifies whether to enable log delivery to a Cloud Files container. You can  |
