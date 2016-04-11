@@ -39,7 +39,7 @@ This table shows the URI parameters for the request:
 |             |             |https://global.cdn.api.rackspacecloud.com/v1.0/{project_id}`` |
 +-------------+-------------+--------------------------------------------------------------+
 |{flavor_id}  |String       |Specifies the flavor ID. For example: cdn                     |
-|             |*(Required)* |                                                              |
+|             |             |                                                              |
 +-------------+-------------+--------------------------------------------------------------+
 
 
