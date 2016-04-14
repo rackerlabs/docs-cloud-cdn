@@ -10,6 +10,10 @@ Purge a cached asset
 
 This operation purges a cached asset or invalidates the cache.
 
+.. note::
+   The rate limit for this operation is 20 requests per minute. 
+
+
 When you specify a purge, this operation purges the current version of the asset that has been cached at the edge node. Currently in Rackspace CDN, purges require the URL of the file to purge. Use of wildcards is not in effect.
 
 .. note::
