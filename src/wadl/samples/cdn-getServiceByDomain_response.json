@@ -65,7 +65,7 @@
             ]
         }
     ],
-    "flavor_id" : "europe",
+    "flavor_id" : "cdn",
     "log_delivery" : {
         "enabled": true
     },
@@ -81,7 +81,7 @@
             "rel": "access_url"
         },
         {
-            "href": "https://www.poppycdn.io/v1.0/flavors/europe",
+            "href": "https://www.poppycdn.io/v1.0/flavors/cdn",
             "rel": "flavor"
         },
         {
