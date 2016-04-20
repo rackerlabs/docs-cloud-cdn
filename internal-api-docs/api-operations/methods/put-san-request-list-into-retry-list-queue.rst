@@ -13,8 +13,8 @@ This operation puts a new SAN request list into the SAN retry list queue.
 
 .. note::
    This endpoint is accessible only by users with the ``support`` role in their Cloud Identity service catalog.
-   
-   
+
+
 
 
 
@@ -85,13 +85,13 @@ This table shows the body parameters for the request:
      {
        "project_id": "002",
        "domain_name": "test_san1.cnamecdn.com",
-       "flavor_id": "premium",
+       "flavor_id": "cdn",
        "validate_service": true
      },
      {
        "project_id": "000",
        "domain_name": "test_san2.cnamecdn.com",
-       "flavor_id": "premium",
+       "flavor_id": "cdn",
        "validate_service": true
      }
    ]
@@ -152,17 +152,13 @@ This table shows the body parameters for the response:
        {
          "project_id": "002",
          "domain_name": "test_san1.cnamecdn.com",
-         "flavor_id": "premium"
+         "flavor_id": "cdn"
        },
        {
          "project_id": "000",
          "domain_name": "test_san2.cnamecdn.com",
-         "flavor_id": "premium"
+         "flavor_id": "cdn"
        }
      ],
      "deleted": []
    }
-
-
-
-

@@ -8,7 +8,7 @@ Retrieve an SSL certificate
 
     GET /admin/ssl_certificate/{domain_name}
 
-This operation retrieves an SSL certificate. 
+This operation retrieves an SSL certificate.
 
 
 
@@ -59,7 +59,7 @@ This operation does not accept a request body.
    X-Auth-Token: 0f6e9f63600142f0a970911583522217
    Accept: application/json
    Content-type: application/json
-   
+
 
 
 
@@ -127,7 +127,7 @@ This table shows the body parameters for the response:
 
            [
              {
-               "flavor_id": "myflavor",
+               "flavor_id": "cdn",
                "domain_name": "www.mydomain.com",
                "cert_type": "san",
                "cert_details": {
@@ -143,7 +143,3 @@ This table shows the body parameters for the response:
                "status": "create_in_progress"
              }
            ]
-
-
-
-

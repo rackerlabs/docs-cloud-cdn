@@ -9,12 +9,12 @@ Retrieve a service by domain name
     GET /admin/domains/{domain_name}
 
 
-This operation retrieves a service by domain name. 
+This operation retrieves a service by domain name.
 
 .. note::
    This endpoint is accessible only by users with the ``support`` role in their Cloud Identity service catalog.
-   
-   
+
+
 
 
 
@@ -63,7 +63,7 @@ This operation does not accept a request body.
    X-Auth-Token: 0f6e9f63600142f0a970911583522217
    Accept: application/json
    Content-type: application/json
-   
+
 
 
 
@@ -270,7 +270,7 @@ This table shows the body parameters for the response:
                ]
            }
        ],
-       "flavor_id" : "europe",
+       "flavor_id" : "cdn",
        "log_delivery" : {
            "enabled": true
        },
@@ -286,7 +286,7 @@ This table shows the body parameters for the response:
                "rel": "access_url"
            },
            {
-               "href": "https://www.poppycdn.io/v1.0/flavors/europe",
+               "href": "https://www.poppycdn.io/v1.0/flavors/cdn",
                "rel": "flavor"
            },
            {
@@ -295,7 +295,3 @@ This table shows the body parameters for the response:
            }
        ]
    }
-
-
-
-

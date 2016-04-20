@@ -15,8 +15,8 @@ This operation lists all the SAN requests in the SAN retry list queue.
 
 .. note::
    This endpoint is accessible only by users with the ``support`` role in their Cloud Identity service catalog.
-   
-   
+
+
 
 
 
@@ -56,7 +56,7 @@ This operation does not accept a request body.
    X-Auth-Token: 0f6e9f63600142f0a970911583522217
    Accept: application/json
    Content-type: application/json
-   
+
 
 
 
@@ -113,17 +113,13 @@ This table shows the body parameters for the response:
      {
        "project_id": "002",
        "domain_name": "test_san1.cnamecdn.com",
-       "flavor_id": "premium",
+       "flavor_id": "cdn",
        "validate_service": true
      },
      {
        "project_id": "000",
        "domain_name": "test_san2.cnamecdn.com",
-       "flavor_id": "premium",
+       "flavor_id": "cdn",
        "validate_service": true
      }
    ]
-
-
-
-
