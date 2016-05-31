@@ -12,7 +12,7 @@ This operation retrieves an SSL certificate.
 
 
 
-This table shows the possible response codes for this operation:
+The following table shows the successful response code for this operation.
 
 
 +--------------------------+-------------------------+-------------------------+
@@ -107,8 +107,8 @@ This table shows the body parameters for the response:
 |\ **status**                                    |String |Provides status information for the          |
 |                                                |       |certificate.                                 |
 +------------------------------------------------+-------+---------------------------------------------+
-
-
+|\ **project_id**                                |String |Provides the project ID for the certificate. |
++------------------------------------------------+-------+---------------------------------------------+
 
 
 
@@ -140,6 +140,6 @@ This table shows the body parameters for the response:
                    }
                  }
                },
-               "status": "create_in_progress"
-             }
-           ]
+               "status": "create_in_progress",
+               "project_id": "110011"           
+          ]

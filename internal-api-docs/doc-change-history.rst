@@ -10,6 +10,14 @@ The following table describes the most recent changes.
 +--------------------------+--------------------------------------------------+
 | Revision date            | Summary of changes                               |
 +--------------------------+--------------------------------------------------+
+| May 31, 2016             | -  Added the ``project_id`` parameter to the     |
+|                          |    response for the :ref:`Retrieve an SSL        |
+|                          |    certificate <get-an-ssl-certificate>`         | 
+|                          |    operation.                                    |                                                 
++--------------------------+--------------------------------------------------+
+| April 20, 2016           | -  Changed all of the values for ``flavor_id`` in|                                                  
+|                          |    the operation descriptions to ``cdn``.        |
++--------------------------+--------------------------------------------------+
 | March 23, 2016           | -  Added the operation to update the SAN         |
 |                          |    certificate configuration information to      |
 |                          |    :ref:`SAN certificate configuration           |

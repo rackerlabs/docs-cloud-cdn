@@ -12,5 +12,6 @@
    cdn-service-assets-operations
    cdn-flavors-operations
    cdn-ssl-operations
+   cdn-analytics-operations
 
    
