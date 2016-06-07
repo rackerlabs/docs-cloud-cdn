@@ -1,5 +1,0 @@
-GET /v1.0/110011/admin/certificates?status=deployed HTTP/1.1
-Host: global.cdn.api.rackspacecloud.com
-X-Auth-Token: 0f6e9f63600142f0a970911583522217
-Accept: application/json
-Content-type: application/json

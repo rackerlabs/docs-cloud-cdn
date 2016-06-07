@@ -1,6 +1,0 @@
-{
-    "cert_type": "san",
-    "domain_name": "www.example.com",
-    "flavor_id": "cdn",
-    "project_id": "12345"
-}

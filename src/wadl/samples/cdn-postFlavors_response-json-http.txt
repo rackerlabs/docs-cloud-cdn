@@ -1,2 +1,0 @@
-HTP/1.1 201 (Created)
-Location: https://global.cdn.api.rackspacecloud.com/v1.0/flavors/cdn
