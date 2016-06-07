@@ -1,7 +1,0 @@
-{
-    "project_id": "12345",
-    "service_id": "abcdef",
-    "domain_name": "www.mywebsite.com",
-    "new_cert": "scdn1.secure6.raxcdn.com.edgekey.net",
-    "cert_status": "deployed"
-}
