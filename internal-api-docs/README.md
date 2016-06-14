@@ -29,6 +29,10 @@ After you push your changes, the [internal build job](https://docs-staging.racks
 kicks off to publish the new content on the gh-pages branch. You can review the updates at the following URL: 
 https://pages.github.rackspace.com/IX/internal-docs-cloud-cdn-admin/latest/
 
+**Note:** 
+      If the build does not run automatically, log in to the [Jenkins server](https://docs-staging.rackspace.com/jenkins) with your SSO credentials. Then, click **Build Now** to run the [internal cdn admin  guide](https://docs-staging.rackspace.com/jenkins/job/internal-doc-cdn-admin-guide) build manually.
+
+
 You can also access the CDN Administrator Guide and other internal documentation from the following URL.
 https://pages.github.rackspace.com/IX/internal-docs-landing-page. 
 
