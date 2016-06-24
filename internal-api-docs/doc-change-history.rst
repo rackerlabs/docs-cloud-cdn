@@ -10,6 +10,24 @@ The following table describes the most recent changes.
 +--------------------------+--------------------------------------------------+
 | Revision date            | Summary of changes                               |
 +--------------------------+--------------------------------------------------+
+| June 24, 2016            | -  Updated the request and response examples     |
+|                          |    as well as the parameter description tables   |
+|                          |    for the :ref:`Run Akamai-related background   |
+|                          |    job <post-run-akamai-related-background-job>` | 
+|                          |    operation.                                    |
+|                          |                                                  |
+|                          | -  Updated the request and response examples     |
+|                          |    as well as the parameter description tables   |
+|                          |    for the :ref:`Update the SAN-mapping list for |
+|                          |    the Akamai-related background job             |
+|                          |    <put-san-mapping>` operation.                 | 
+|                          |                                                  |
+|                          | -  Updated the request and response examples     |
+|                          |    as well as the parameter description tables   |
+|                          |    for the :ref:`Retrieve the SAN-mapping list   |
+|                          |    for the Akamai-related background job         |
+|                          |    <get-san-mapping>` operation.                 |                                                                                         
++--------------------------+--------------------------------------------------+
 | May 31, 2016             | -  Added the ``project_id`` parameter to the     |
 |                          |    response for the :ref:`Retrieve an SSL        |
 |                          |    certificate <get-an-ssl-certificate>`         | 
