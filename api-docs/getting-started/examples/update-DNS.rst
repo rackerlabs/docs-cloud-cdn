@@ -1,8 +1,9 @@
 Updating your Domain Name System 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Look for the ``access_url`` in the ``links[]`` section in the response
-in :ref:`Retrieve a created service <gsg-list-service>` for the service that you created. Make sure that the ``status`` is ``deployed``.
+in :ref:`Retrieve a created service <gsg-list-service>` for the service that
+you created. Make sure that the ``status`` is ``deployed``.
 
 Go to your DNS (Domain Name System) provider, and create a CNAME record
 from your domain (``www.mywebsite.com``) to the ``access_url`` returned

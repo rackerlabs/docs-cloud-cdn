@@ -3,7 +3,8 @@
 Creating rules
 ~~~~~~~~~~~~~~
 
-When you create a service POST call to /v1.0/{project_id}/services you can define rules for the service for the following parameters within the request:
+When you create a service POST call to /v1.0/{project_id}/services you can
+define rules for the service for the following parameters within the request:
 
 -  ``origins``: Specifies a collection of rules that define the
    conditions when the origin should be accessed. If there is more than
@@ -25,7 +26,8 @@ When you create a service POST call to /v1.0/{project_id}/services you can defin
    The ``retrictions.rules`` parameter supports ``name``,
    ``referrer``, ``request_url``, ``geography``, and ``client_ip`` parameters.
 
-.. note:: Each of the parameters above are described in :ref:`Create a service <cdn-create-a-service>`.
+.. note:: Each of the parameters above are described in
+   :ref:`Create a service <cdn-create-a-service>`.
 
 These rules are stored in a policy file at every edge server and are
 applied to your traffic when a request is issued that matches the path

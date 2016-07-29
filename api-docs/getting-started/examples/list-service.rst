@@ -1,36 +1,35 @@
 .. _gsg-list-service:
 
 Retrieving a created service
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Perform a **GET** request on the ``Location`` header that was returned
 in :ref:`Create a service <gsg-create-service>`.
  
 **Example: cURL retrieve a service request**
 
-.. code::  
+.. code::
 
    curl -i -X GET $API_ENDPOINT/v1.0/$TENANT_ID/services/yourServiceID \
    -H "X-Auth-Token: $AUTH_TOKEN" \
-   -H "Content-type: application/json" 
+   -H "Content-type: application/json"
 
 You see a response body similar to the one in the following example.
 
- 
 **Example: Retrieve a service response**
 
-.. code::  
+.. code::
 
    HTTP/1.1 200 OK
-   Content-Type: application/json 
-       
+   Content-Type: application/json
+
     {
-        "id": "yourServiceID",  
+        "id": "yourServiceID",
         "name": "mywebsite.com",
         "domains": [
             {
                 "domain": "www.mywebsite.com",
-                "protocol": "https"                 
+                "protocol": "https"
             }
         ],
         "origins": [
@@ -38,7 +37,7 @@ You see a response body similar to the one in the following example.
                 "origin": "mywebsite.com",
                 "port": 443,
                 "ssl": false,
-                 "rules": []                 
+                 "rules": []
             }
         ],
         "caching": [
@@ -80,7 +79,7 @@ You see a response body similar to the one in the following example.
         ],
         "flavor_id": "cdn",
         "status": "deployed",
-        "errors": [],                 
+        "errors": [],
         "links": [
             {
                 "href": "https://global.cdn.api.rackspacecloud.com/v1.0/yourAccountID/services/yourServiceID",
@@ -88,7 +87,7 @@ You see a response body similar to the one in the following example.
             },
             {   "href": "https://global.cdn.api.rackspacecloud.com/v1.0/yourAccountID/flavors/cdn",
                 "rel": "flavor"
-            },                                  
+            },
             {
                 "href": "www.mywebsite.com.cdn1.raxcdn.com",
                 "rel": "access_url"

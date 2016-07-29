@@ -1,8 +1,7 @@
-
 .. _cdn-create-a-service:
 
 Create a service
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^
 
 .. code::
 
@@ -18,13 +17,8 @@ For origin rules, use the path /* to include all content for the site.
 
 .. note::
    ``service_id``, which is used in several of the services operations, is returned in the response to create a service. Take note this value. You can also retrieve ``service_id`` using :ref:`Retrieve a service <cdn-get-a-service>`.
-   
-   
 
-
-
-This table shows the possible response codes for this operation:
-
+The following table shows the possible response codes for this operation.
 
 +--------------------------+-------------------------+-------------------------+
 |Response Code             |Name                     |Description              |
@@ -56,14 +50,10 @@ This table shows the possible response codes for this operation:
 |                          |                         |or 443.                  |
 +--------------------------+-------------------------+-------------------------+
 
-
 Request
-""""""""""""""""
+"""""""
 
-
-
-
-This table shows the URI parameters for the request:
+The following table shows the URI parameters for the request.
 
 +-------------+-------+--------------------------------------------------------------+
 |Name         |Type   |Description                                                   |
@@ -74,11 +64,7 @@ This table shows the URI parameters for the request:
 |             |       |https://global.cdn.api.rackspacecloud.com/v1.0/{project_id}`` |
 +-------------+-------+--------------------------------------------------------------+
 
-
-
-
-
-This table shows the body parameters for the request:
+The following table shows the body parameters for the request.
 
 +-----------------------+-------------+------------------------------------------------------------------------------+
 |Name                   |Type         |Description                                                                   |
@@ -178,7 +164,7 @@ This table shows the body parameters for the request:
 |restrictions.\         |String       |Specifies the type of this restriction. Valid values are ``whitelist``, which |
 |**access**             |             |is the default value and allows access, or ``blacklist``, which does not      |
 |                       |             |allow access. Note that ``blacklist`` and ``whitelist`` must use different    |
-|                       |             |paths.                                                                        |      
+|                       |             |paths.                                                                        |
 +-----------------------+-------------+------------------------------------------------------------------------------+
 |restrictions.\         |String       |Specifies a collection of rules that determine if this restriction should be  |
 |**rules**              |             |applied to an asset.                                                          |
@@ -232,12 +218,7 @@ This table shows the body parameters for the request:
 |                       |             |is 3. The maximum length is 256.                                              |
 +-----------------------+-------------+------------------------------------------------------------------------------+
 
-
-
-
-
 **Example: Create a service HTTP and JSON request**
-
 
 .. code::
 
@@ -246,8 +227,6 @@ This table shows the body parameters for the request:
    X-Auth-Token: 0f6e9f63600142f0a970911583522217
    Accept: application/json
    Content-type: application/json
-   
-
 
 .. code::
 
@@ -290,35 +269,19 @@ This table shows the body parameters for the request:
        ],
        "log_delivery": {
            "enabled": true
-       },   
+       },
        "flavor_id": "cdn"
       }
 
-
-
-
-
 Response
-""""""""""""""""
-
-
-
+""""""""
 
 This operation does not return a response body.
 
-
-
-
-
 **Example: Create a service HTTP response**
-
 
 .. code::
 
    HTTP/1.1 202 Accepted
    Content-Type: application/json
    Location: https://global.cdn.api.rackspacecloud.com/v1.0/services/96737ae3-cfc1-4c72-be88-5d0e7cc9a3f0
-
-
-
-

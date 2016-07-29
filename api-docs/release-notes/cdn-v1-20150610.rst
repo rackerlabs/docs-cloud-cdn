@@ -1,13 +1,13 @@
 API |contract version| updates, June 10, 2015
------------------------------------------------
+---------------------------------------------
 
 What's new
 ~~~~~~~~~~
 
 Rackspace CDN has been updated to allow HTTP traffic on an SSL
-domain. Consequently, the description of the ``protocol`` parameter for 
-the request in the :ref:`create a service <cdn-create-a-service>` operation 
-has been changed. The statement that indicated that domains must use the same 
+domain. Consequently, the description of the ``protocol`` parameter for
+the request in the :ref:`create a service <cdn-create-a-service>` operation
+has been changed. The statement that indicated that domains must use the same
 protocol has been deleted.
 
 Resolved issues
@@ -19,4 +19,3 @@ Known issues
 ~~~~~~~~~~~~
 
 |no changes|
-

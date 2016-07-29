@@ -1,33 +1,26 @@
 .. _cdn-get-analytics:
 
 Retrieve analytics data
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code::
 
     GET /v1.0/{project_id}/services/{service_id}/analytics?{query parameters}
 
-
 This operation retrieves analytics data using the `Rackspace Metrics API`_.
 
+The following table shows the successful response code for this operation.
 
-This table shows the successful response code for this operation:
-
-
-+--------------------------+-------------------------+-------------------------+
-|Response Code             |Name                     |Description              |
-+==========================+=========================+=========================+
-|200                       |OK                       |Success.                 |
-+--------------------------+-------------------------+-------------------------+
-
++--------------------------+-------------------------+------------------------+
+|Response Code             |Name                     |Description             |
++==========================+=========================+========================+
+|200                       |OK                       |Success.                |
++--------------------------+-------------------------+------------------------+
 
 Request
-""""""""""""""""
+"""""""
 
-
-
-
-This table shows the URI parameters for the request:
+The following table shows the URI parameters for the request.
 
 +-------------+-------------+--------------------------------------------------------------+
 |Name         |Type         |Description                                                   |
@@ -67,15 +60,9 @@ This table shows the query parameters for the request:
 |             |             |received.                                                     |
 +-------------+-------------+--------------------------------------------------------------+
 
-
-
 This operation does not accept a request body.
 
-
-
-
 **Example: Retrieve analytics data, HTTP request**
-
 
 .. code::
 
@@ -85,18 +72,10 @@ This operation does not accept a request body.
    Accept: application/json
    Content-type: application/json
 
-
-
-
-
 Response
-""""""""""""""""
+""""""""
 
-
-
-
-
-This table shows the body parameters for the response:
+The following table shows the body parameters for the response.
 
 +----------------------+-------+--------------------------------------------------------------------------------------------+
 |Name                  |Type   |Description                                                                                 |
@@ -120,20 +99,12 @@ This table shows the body parameters for the response:
 |                      |       |                                                                                            |
 +----------------------+-------+--------------------------------------------------------------------------------------------+
 
-
-
-
-
-
-
 **Example: Retrieve analytics data, HTTP and JSON response**
-
 
 .. code::
 
    HTTP/1.1 200 OK
    Content-Type: application/json
-
 
 .. code::
 
@@ -222,6 +193,5 @@ This table shows the body parameters for the response:
    	"flavor": "cdn",
    	"provider": "akamai"
    }
-
 
 .. _Rackspace Metrics API: https://developer.rackspace.com/docs/metrics/v2/developer-guide/#document-index

@@ -1,45 +1,37 @@
-
 .. _cdn-get-all-services:
 
 Retrieve all services
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^
 
 .. code::
 
     GET /v1.0/{project_id}/services
 
-This operation retrieves a list of all available services. 
+This operation retrieves a list of all available services.
 
+The following table shows the possible response codes for this operation.
 
-
-This table shows the possible response codes for this operation:
-
-
-+--------------------------+-------------------------+-------------------------+
-|Response Code             |Name                     |Description              |
-+==========================+=========================+=========================+
-|200                       |OK                       |Success or no services   |
-|                          |                         |to return when there is  |
-|                          |                         |an empty list of         |
-|                          |                         |services.                |
-+--------------------------+-------------------------+-------------------------+
-|400                       |Bad Request              |Invalid limit value      |
-|                          |                         |(string, less than or    |
-|                          |                         |equal to 0, 1000000000), |
-|                          |                         |or the limit value is    |
-|                          |                         |greater than the maximum |
-|                          |                         |allowed (which defaults  |
-|                          |                         |to 20).                  |
-+--------------------------+-------------------------+-------------------------+
-
++--------------------------+-------------------------+------------------------+
+|Response Code             |Name                     |Description             |
++==========================+=========================+========================+
+|200                       |OK                       |Success or no services  |
+|                          |                         |to return when there is |
+|                          |                         |an empty list of        |
+|                          |                         |services.               |
++--------------------------+-------------------------+------------------------+
+|400                       |Bad Request              |Invalid limit value     |
+|                          |                         |(string, less than or   |
+|                          |                         |equal to 0, 1000000000),|
+|                          |                         |or the limit value is   |
+|                          |                         |greater than the maximum|
+|                          |                         |allowed (which defaults |
+|                          |                         |to 20).                 |
++--------------------------+-------------------------+------------------------+
 
 Request
-""""""""""""""""
+"""""""
 
-
-
-
-This table shows the URI parameters for the request:
+The following table shows the URI parameters for the request.
 
 +-------------+-------+--------------------------------------------------------------+
 |Name         |Type   |Description                                                   |
@@ -50,9 +42,7 @@ This table shows the URI parameters for the request:
 |             |       |https://global.cdn.api.rackspacecloud.com/v1.0/{project_id}`` |
 +-------------+-------+--------------------------------------------------------------+
 
-
-
-This table shows the query parameters for the request:
+The following table shows the query parameters for the request.
 
 +--------------------------+-------------------------+-------------------------+
 |Name                      |Type                     |Description              |
@@ -69,16 +59,9 @@ This table shows the query parameters for the request:
 |                          |                         |``limit`` is 20.         |
 +--------------------------+-------------------------+-------------------------+
 
-
-
-
 This operation does not accept a request body.
 
-
-
-
 **Example: Retrieve all services HTTP request**
-
 
 .. code::
 
@@ -87,20 +70,11 @@ This operation does not accept a request body.
    X-Auth-Token: 0f6e9f63600142f0a970911583522217
    Accept: application/json
    Content-type: application/json
-   
-
-
-
-
 
 Response
-""""""""""""""""
+""""""""
 
-
-
-
-
-This table shows the body parameters for the response:
+The following table shows the body parameters for the response.
 
 +----------------------+---------+---------------------------------------------+
 |Name                  |Type     |Description                                  |
@@ -242,20 +216,12 @@ This table shows the body parameters for the response:
 |                      |         |related to this resource_url.                |
 +----------------------+---------+---------------------------------------------+
 
-
-
-
-
-
-
 **Example: Retrieve all services HTTP and JSON response**
-
 
 .. code::
 
    HTTP/1.1 200 OK
    Content-Type: application/json
-
 
 .. code::
 
@@ -385,7 +351,3 @@ This table shows the body parameters for the response:
            }
        ]
    }
-
-
-
-
