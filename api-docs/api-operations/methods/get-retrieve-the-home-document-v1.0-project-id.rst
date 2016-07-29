@@ -1,8 +1,7 @@
-
 .. _cdn-get-the-home-document:
 
 Retrieve the home document
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code::
 
@@ -10,32 +9,25 @@ Retrieve the home document
 
 This operation retrieves the home document.
 
-The entire API is discoverable from a single 	starting point, the home document. 
-To explore the 	entire API, you need to know only this one URI. 
+The entire API is discoverable from a single 	starting point, the home document.
+To explore the 	entire API, you need to know only this one URI.
 
-The home document schema is currently not ratified in OpenStack and might change. 
-For more information about home documents, see `Home Documents for HTTP APIs <http://tools.ietf.org/html/draft-nottingham-json-home-03>`__ 
+The home document schema is currently not ratified in OpenStack and might change.
+For more information about home documents, see `Home Documents for HTTP APIs <http://tools.ietf.org/html/draft-nottingham-json-home-03>`__
 on the IEFT website.
 
+The following table shows the possible response codes for this operation.
 
-
-This table shows the possible response codes for this operation:
-
-
-+--------------------------+-------------------------+-------------------------+
-|Response Code             |Name                     |Description              |
-+==========================+=========================+=========================+
-|200                       |OK                       |Success.                 |
-+--------------------------+-------------------------+-------------------------+
-
++--------------------------+-------------------------+------------------------+
+|Response Code             |Name                     |Description             |
++==========================+=========================+========================+
+|200                       |OK                       |Success.                |
++--------------------------+-------------------------+------------------------+
 
 Request
-""""""""""""""""
+"""""""
 
-
-
-
-This table shows the URI parameters for the request:
+The following table shows the URI parameters for the request.
 
 +-------------+-------+--------------------------------------------------------------+
 |Name         |Type   |Description                                                   |
@@ -46,17 +38,9 @@ This table shows the URI parameters for the request:
 |             |       |https://global.cdn.api.rackspacecloud.com/v1.0/{project_id}`` |
 +-------------+-------+--------------------------------------------------------------+
 
-
-
-
-
 This operation does not accept a request body.
 
-
-
-
 **Example: Retrieve the home document HTTP request**
-
 
 .. code::
 
@@ -65,32 +49,16 @@ This operation does not accept a request body.
    X-Auth-Token: 0f6e9f63600142f0a970911583522217
    Accept: application/json
    Content-type: application/json
-   
-
-
-
-
 
 Response
-""""""""""""""""
-
-
-
-
-
-
-
-
-
+""""""""
 
 **Example: Retrieve the home document HTTP and JSON response**
-
 
 .. code::
 
    HTTP/1.1 200 OK
    Content-Type: application/json
-
 
 .. code::
 
@@ -155,7 +123,3 @@ Response
        }
      }
    }
-
-
-
-

@@ -17,10 +17,11 @@ set. Pagination has two key concepts: *limit* and *marker*.
 
 Pagination applies only to operations listed in the following operation:
 
-+---------+---------------------------------------------+--------------------------------------------+
-|  Verb   |                     URI                     |                Description                 |
-+=========+=============================================+============================================+
-| **GET** | /v1.0/services                              | Retrieves a list of all services.          |
-+---------+---------------------------------------------+--------------------------------------------+
++---------+------------------------------+------------------------------------+
+| Verb    | URI                          | Description                        |
++=========+==============================+====================================+
+| **GET** | /v1.0/services               | Retrieves a list of all services.  |
++---------+------------------------------+------------------------------------+
 
-For an example, see the "Retrieve all services" operation description in the API operations section.
+For an example, see the "Retrieve all services" operation description in the
+API operations section.

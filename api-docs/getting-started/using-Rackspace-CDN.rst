@@ -1,18 +1,22 @@
 .. _gsg-using-Rackspace-CDN:
 
 Create and manage a service
------------------------------------------------
+---------------------------
 
-You can use the simple examples in the following sections for basic Rackspace CDN requests that you will commonly use to create and manage a service by using Rackspace CDN API operations. Example requests are provided in cURL, followed by the response.
+You can use the simple examples in the following sections for basic Rackspace
+CDN requests that you will commonly use to create and manage a service by using
+Rackspace CDN API operations. Example requests are provided in cURL, followed
+by the response.
 
 Before running the examples, review the :ref:`Rackspace CDN concepts<concepts>`.
 
-.. note:: 
-     These examples use the ``$API_ENDPOINT``, ``$AUTH_TOKEN``, and ``$TENANT_ID`` environment 
-     variables to specify the API endpoint, authentication token, and account ID values 
-     for accessing the service. Make sure you 
-     :ref:`configure these variables<configure-environment-variables>` before running the 
-     code samples. 
+.. note::
+     These examples use the ``$API_ENDPOINT``, ``$AUTH_TOKEN``, and
+     ``$TENANT_ID`` environment variables to specify the API endpoint,
+     authentication token, and account ID values for accessing the service.
+     Make sure you
+     :ref:`configure these variables<configure-environment-variables>` before
+     running the code samples. 
 
 Before running the examples, review the :ref:`Rackspace CDN concepts<concepts>`.
 

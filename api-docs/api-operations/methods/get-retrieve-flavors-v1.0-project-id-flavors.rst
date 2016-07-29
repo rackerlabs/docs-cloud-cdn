@@ -1,8 +1,7 @@
-
 .. _cdn-get-flavors:
 
 Retrieve flavors
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^
 
 .. code::
 
@@ -10,25 +9,18 @@ Retrieve flavors
 
 This operation retrieves a list of all available flavors.
 
+The following table shows the possible response codes for this operation.
 
-
-This table shows the possible response codes for this operation:
-
-
-+--------------------------+-------------------------+-------------------------+
-|Response Code             |Name                     |Description              |
-+==========================+=========================+=========================+
-|200                       |OK                       |Success.                 |
-+--------------------------+-------------------------+-------------------------+
-
++--------------------------+-------------------------+------------------------+
+|Response Code             |Name                     |Description             |
++==========================+=========================+========================+
+|200                       |OK                       |Success.                |
++--------------------------+-------------------------+------------------------+
 
 Request
-""""""""""""""""
+"""""""
 
-
-
-
-This table shows the URI parameters for the request:
+The following table shows the URI parameters for the request.
 
 +-------------+-------+--------------------------------------------------------------+
 |Name         |Type   |Description                                                   |
@@ -39,17 +31,9 @@ This table shows the URI parameters for the request:
 |             |       |https://global.cdn.api.rackspacecloud.com/v1.0/{project_id}`` |
 +-------------+-------+--------------------------------------------------------------+
 
-
-
-
-
 This operation does not accept a request body.
 
-
-
-
 **Example: Retrieve flavors HTTP request**
-
 
 .. code::
 
@@ -58,20 +42,11 @@ This operation does not accept a request body.
    X-Auth-Token: 0f6e9f63600142f0a970911583522217
    Accept: application/json
    Content-type: application/json
-   
-
-
-
-
 
 Response
-""""""""""""""""
+""""""""
 
-
-
-
-
-This table shows the body parameters for the response:
+The following table shows the body parameters for the response.
 
 +--------------------------+-------------------------+-------------------------+
 |Name                      |Type                     |Description              |
@@ -112,20 +87,12 @@ This table shows the body parameters for the response:
 |                          |                         |resource_url.            |
 +--------------------------+-------------------------+-------------------------+
 
-
-
-
-
-
-
 **Example: Retrieve flavors HTTP and JSON response**
-
 
 .. code::
 
    HTTP/1.1 200 OK
    Content-Type: application/json
-
 
 .. code::
 
@@ -154,7 +121,3 @@ This table shows the body parameters for the response:
        ]
    }
    
-
-
-
-

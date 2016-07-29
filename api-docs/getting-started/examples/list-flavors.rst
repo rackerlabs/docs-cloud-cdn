@@ -1,13 +1,13 @@
 .. _gsg-list-flavors:
 
 Retrieving flavors
-~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~
 
 A flavor is a mapping configuration to the Akamai CDN provider. This
 operation retrieves a list of all available flavors.
 
 .. note::
-   
+
    Currently, the only flavor available is ``cdn``.
 
  
@@ -17,18 +17,17 @@ operation retrieves a list of all available flavors.
 
    curl -i -X GET $API_ENDPOINT/v1.0/$TENANT_ID/flavors \
    -H "X-Auth-Token: $AUTH_TOKEN" \
-   -H "Content-type: application/json" 
+   -H "Content-type: application/json"
 
- 
 **Example: Retrieve flavors response**
 
-.. code::  
+.. code::
 
    HTTP/1.1 200 OK
-   Content-Type: application/json 
+   Content-Type: application/json
 
-    {     
-      "flavors": [                 
+    {
+      "flavors": [
         {
             "id": "cdn",
             "providers": [

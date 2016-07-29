@@ -1,18 +1,18 @@
 .. _release-notes:
 
-======================
+=================
 **Release Notes**
-======================
+=================
 
-Learn about new features, enhancements, known issues, resolved issues, and other important 
-details about |apiservice| |contract version| service updates.
+Learn about new features, enhancements, known issues, resolved issues, and
+other important details about |apiservice| |contract version| service updates.
 
-.. note:: For information about using the API, see the :ref:`documentation overview <index>`.
+.. note:: For information about using the API, see the
+   :ref:`documentation overview <index>`.
 
 .. toctree::
-   :maxdepth: 2  
+   :maxdepth: 2
       
-
    June 7, 2016 <release-notes/cdn-v1-20160607>
    April 14, 2016 <release-notes/cdn-v1-20160414>
    March 7, 2016 <release-notes/cdn-v1-20160307>
@@ -23,7 +23,7 @@ details about |apiservice| |contract version| service updates.
    October 5, 2015 <release-notes/cdn-v1-20151002>
    September 11, 2015 <release-notes/cdn-v1-20150911>
    August 26, 2015 <release-notes/cdn-v1-20150826>
-   July 14, 2015 <release-notes/cdn-v1-20150712> 
+   July 14, 2015 <release-notes/cdn-v1-20150712>
    June 10, 2015 <release-notes/cdn-v1-20150610>
    April 27, 2015 <release-notes/cdn-v1-20150415>
    January 7, 2015 <release-notes/cdn-v1-20150107>

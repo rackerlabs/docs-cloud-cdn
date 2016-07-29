@@ -1,7 +1,7 @@
 .. _analytics-operations:
 
 Analytics operations
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~
 
 .. contents::
    :depth: 1

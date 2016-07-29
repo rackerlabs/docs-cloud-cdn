@@ -36,10 +36,9 @@ This document describes the features available with API |contract version|.
 
 .. _Rackspace CDN Getting Started Guide: http://docs.rackspace.com/cdn/api/v1.0/cdn-gettingstarted/content/Overview.html
 
-
 .. toctree:: :hidden:
    :maxdepth: 3
-   
+
    additional-resources
    api-contract-changes
    api-service-updates

@@ -3,14 +3,18 @@
 General API Information
 -----------------------
 
-The Rackspace CDN API is implemented using a RESTful web service interface. Like other Rackspace services, Rackspace CDN shares a common token-based authentication system that allows seamless access between Rackspace products and services.
+The Rackspace CDN API is implemented using a RESTful web service interface.
+Like other Rackspace services, Rackspace CDN shares a common token-based
+authentication system that allows seamless access between Rackspace products
+and services.
 
 .. note::
-    All requests to authenticate against and operate the service are performed using SSL over HTTP (HTTPS) on TCP port 443.
+    All requests to authenticate against and operate the service are performed
+    using SSL over HTTP (HTTPS) on TCP port 443.
 
 .. toctree:: :hidden:
    :maxdepth: 2
-   
+
    authentication
    service-access-endpoints
    role-based-access-control
@@ -23,6 +27,4 @@ The Rackspace CDN API is implemented using a RESTful web service interface. Like
    response-codes
    log-delivery
    creating-rules
-   testing-the-cdn  
-      
-
+   testing-the-cdn

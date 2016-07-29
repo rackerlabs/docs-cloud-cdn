@@ -1,8 +1,7 @@
-
 .. _cdn-create-ssl-certificate:
 
 Create an SSL certificate
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code::
 
@@ -10,29 +9,22 @@ Create an SSL certificate
 
 This operation creates an SSL certificate.
 
+The following table shows the possible response codes for this operation.
 
-
-This table shows the possible response codes for this operation:
-
-
-+--------------------------+-------------------------+-------------------------+
-|Response Code             |Name                     |Description              |
-+==========================+=========================+=========================+
-|202                       |Accepted                 |The request has been     |
-|                          |                         |fulfilled, but does not  |
-|                          |                         |return a representation  |
-|                          |                         |(that is, the response   |
-|                          |                         |is empty).               |
-+--------------------------+-------------------------+-------------------------+
-
++--------------------------+-------------------------+------------------------+
+|Response Code             |Name                     |Description             |
++==========================+=========================+========================+
+|202                       |Accepted                 |The request has been    |
+|                          |                         |fulfilled, but does not |
+|                          |                         |return a representation |
+|                          |                         |(that is, the response  |
+|                          |                         |is empty).              |
++--------------------------+-------------------------+------------------------+
 
 Request
-""""""""""""""""
+"""""""
 
-
-
-
-This table shows the URI parameters for the request:
+The following table shows the URI parameters for the request.
 
 +-------------+-------------+--------------------------------------------------------------+
 |Name         |Type         |Description                                                   |
@@ -43,10 +35,7 @@ This table shows the URI parameters for the request:
 |             |             |https://global.cdn.api.rackspacecloud.com/v1.0/{project_id}`` |
 +-------------+-------------+--------------------------------------------------------------+
 
-
-
-
-This table shows the body parameters for the request:
+The following table shows the body parameters for the request.
 
 +-----------------------+-------------+------------------------------------------------------------------------------+
 |Name                   |Type         |Description                                                                   |
@@ -65,10 +54,7 @@ This table shows the body parameters for the request:
 |                       |*(Required)* |                                                                              |
 +-----------------------+-------------+------------------------------------------------------------------------------+
 
-
-
 **Example: Create an SSL certificate HTTP and JSON request**
-
 
 .. code::
 
@@ -87,17 +73,8 @@ This table shows the body parameters for the request:
        "project_id": "12345"
    }
 
-
-
 Response
-""""""""""""""""
-
-
-
-
-
-
-
+""""""""
 
 This operation does not return a response body.
 
@@ -108,5 +85,3 @@ This operation does not return a response body.
 
    HTTP/1.1 202 Accepted
    Content-Type: application/json
-
-

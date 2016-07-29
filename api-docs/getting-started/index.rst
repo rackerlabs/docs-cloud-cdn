@@ -4,10 +4,10 @@
    :local:
    :depth: 2
 
-.. toctree:: 
+.. toctree::
    :maxdepth: 2
 
    Prerequisites<prerequisites-for-using-api>
    Send API requests<send-request-ovw>
    Authenticate <authenticate>
-   using-Rackspace-CDN   
+   using-Rackspace-CDN

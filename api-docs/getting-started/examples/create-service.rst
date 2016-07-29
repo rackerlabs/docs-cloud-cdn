@@ -1,7 +1,7 @@
 .. _gsg-create-service:
 
 Creating a service 
-~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~
 
 A service represents an application that has its content cached to the
 edge nodes, such as a website. To create a service, issue a **POST**
@@ -14,10 +14,9 @@ the origin from which to pull content.
 
 Following are examples of a create service request and response.
 
- 
 **Example: cURL create a service request**
 
-.. code:: bash 
+.. code:: bash
 
    curl -i -X POST $API_ENDPOINT/v1.0/$TENANT_ID/services \
    -H "Accept: application/json" \
@@ -27,7 +26,7 @@ Following are examples of a create service request and response.
         "name": "mywebsite.com",
         "domains": [
             {"domain": "www.mywebsite.com", "protocol": "https"},
-            {"domain": "blog.mywebsite.com", "protocol": "https"}    
+            {"domain": "blog.mywebsite.com", "protocol": "https"}
         ],
         "origins": [
             {
@@ -74,18 +73,17 @@ Following are examples of a create service request and response.
                     }
                 ]
             }
-        ],    
+        ],
         "flavor_id": "cdn"
-    }'   
+    }'
 
 When the service is created, you see an HTTP 202 response with the
 ``Location`` header returned.
 
- 
 **Example: Create a service response**
 
-.. code::  
+.. code::
 
    HTTP/1.1 202 Accepted
    Content-TYpe: application/json
-   Location:  https://global.cdn.api.rackspacecloud.com/v1.0/services/yourServiceID 
+   Location:  https://global.cdn.api.rackspacecloud.com/v1.0/services/yourServiceID

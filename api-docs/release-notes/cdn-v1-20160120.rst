@@ -1,5 +1,5 @@
 API |contract version| updates, January 20, 2016
----------------------------------------------------
+------------------------------------------------
 
 What's new
 ~~~~~~~~~~
@@ -9,13 +9,19 @@ What's new
 Resolved issues
 ~~~~~~~~~~~~~~~
 
-- For the API, fixed Guyana’s country code. This issue was causing geographical restrictions to fail in some cases.
+- For the API, fixed Guyana’s country code. This issue was causing geographical
+  restrictions to fail in some cases.
 
-- For the API, added a better validation message for blacklisting and whitelisting geographies.
+- For the API, added a better validation message for blacklisting and
+  whitelisting geographies.
 
-- In the Cloud Control Panel for Rackspace CDN, fixed an issue where the text that describes the time to deploy a SAN certificate needed more clarification when users are requesting a SAN certificate.
+- In the Cloud Control Panel for Rackspace CDN, fixed an issue where the text
+  that describes the time to deploy a SAN certificate needed more clarification
+  when users are requesting a SAN certificate.
 
-- In the Cloud Control Panel for Rackspace CDN, fixed an issue where the example domain in the text box was not a subdomain, which caused confusion to users.
+- In the Cloud Control Panel for Rackspace CDN, fixed an issue where the
+  example domain in the text box was not a subdomain, which caused confusion
+  to users.
 
 Known issues
 ~~~~~~~~~~~~
