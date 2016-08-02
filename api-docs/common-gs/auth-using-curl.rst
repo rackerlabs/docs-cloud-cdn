@@ -72,7 +72,7 @@ tenant ID
 endpoint
     The API endpoint provides the URL that you use to access the API service.
     For guidance on choosing an endpoint, see
-    :ref:`Service access <service-access-endpoints>`.
+    :ref:`Service access <service-access>`.
 
 If the request failed, review the response message and
 the following error message descriptions to determine next steps.
@@ -96,8 +96,7 @@ the following error message descriptions to determine next steps.
 
 ..  note::
        For additional information about authentication errors, see the
-       :rax-devdocs:`Identity API Reference documentation <cloud-identity/v2/
-       developer-guide/#document-api-operations/token-operations>`.
+       :rax-devdocs:`Authentication token operations <cloud-identity/v2/developer-guide/#document-api-operations/token-operations>`.
 
 .. _configure-environment-variables:
 

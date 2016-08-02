@@ -1,0 +1,18 @@
+API |contract version| updates, April 14, 2016
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+What's new
+----------
+
+Added a rate limit of 20 requests per minute to the :ref:`Purge a cached asset
+operation <cdn-purge-a-cached-asset>`.
+
+Resolved issues
+---------------
+
+|no changes|
+
+Known issues
+------------
+
+|no changes|

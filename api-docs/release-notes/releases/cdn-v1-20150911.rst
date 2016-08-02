@@ -1,0 +1,23 @@
+
+API |contract version| updates, September 11, 2015
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+What's new
+----------
+
+-  The ``geography`` parameter has been added to ``restrictions`` for the
+   :ref:`create a service <cdn-create-a-service>` operation. You can use
+   this parameter to specify a country from which you want to restrict   requests.-  The ``project_id`` parameter has been added to the response for the
+   :ref:`retrieve a service <cdn-get-a-service>` and
+   :ref:`retrieve all services <cdn-get-all-services>` operations.-  IP restrictions now support IPv6 addresses for the
+   :ref:`create a service <cdn-create-a-service>` operation.
+
+Resolved issues
+---------------
+
+|no changes|
+
+Known issues
+------------
+
+|no changes|

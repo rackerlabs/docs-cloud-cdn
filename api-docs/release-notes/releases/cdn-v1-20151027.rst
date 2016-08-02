@@ -1,0 +1,19 @@
+API |contract version| updates,  October 27, 2015
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+What's new
+----------
+
+Rackspace CDN now supports Classless Inter-Domain Routing (CIDR) for
+both IPv4 and IPv6. See the
+:ref:`create service operation <cdn-create-a-service>`.
+
+Resolved issues
+---------------
+
+Added CIDR support in the create service operation for IP address restrictions.
+
+Known issues
+------------
+
+|no changes|

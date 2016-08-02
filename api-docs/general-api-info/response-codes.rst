@@ -1,7 +1,8 @@
 .. _response-codes:
 
+==============
 Response codes
-~~~~~~~~~~~~~~
+==============
 
 Rackspace CDN returns an HTTP code that denotes the type of response.
 

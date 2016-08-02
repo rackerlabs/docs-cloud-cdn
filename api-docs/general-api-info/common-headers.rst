@@ -1,7 +1,8 @@
 .. _common-headers:
 
+==============
 Common headers
-~~~~~~~~~~~~~~
+==============
 
 The following table describes the common headers used by the API.
 

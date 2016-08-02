@@ -1,0 +1,21 @@
+API |contract version| updates, January 13, 2016
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+What's new
+----------
+
+The :ref:`delete an SSL certificate <cdn-delete-ssl-certificate>` operation has
+been added.
+
+**WARNING**: If you delete a working SSL certificate, you will break your CDN
+service.
+
+Resolved issues
+---------------
+
+|no changes|
+
+Known issues
+------------
+
+|no changes|
