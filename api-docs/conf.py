@@ -66,7 +66,7 @@ builder = 'deconst-serial'
 # builder = 'deconst-single'
 
 # General information about the project.
-project = 'Rackspace Developer Documentation'
+project = 'Rackspace CDN'
 copyright = '2016, Rackspace'
 author = 'Rackspace'
 
