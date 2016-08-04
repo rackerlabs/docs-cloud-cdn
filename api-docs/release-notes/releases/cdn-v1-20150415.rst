@@ -1,0 +1,17 @@
+API |contract version| UA release, April 27, 2015
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+What's new
+----------
+
+This is the initial Unlimited Access (UA) release of the Rackspace CDN API.
+
+Resolved issues
+---------------
+
+|no changes|
+
+Known issues
+------------
+
+|no changes|

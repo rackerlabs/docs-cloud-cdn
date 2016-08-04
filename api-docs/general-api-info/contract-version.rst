@@ -1,7 +1,8 @@
 .. _contract-version:
 
+==============================
 Rackspace CDN contract version
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+==============================
 
 The Rackspace CDN version defines the contract and build information for the
 API.

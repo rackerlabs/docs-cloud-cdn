@@ -1,0 +1,25 @@
+API |contract version| updates,  December 10, 2015
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+What's new
+----------
+
+-  In the Control Panel, customers can now create and edit CDN services using
+   domains with SAN certificates without going through Rackspace Support.
+
+-  In the Control Panel, the layout of the Service Details page has been
+   changed to better display domains and associated Transport Layer Security
+   (TLS) certificates.
+
+-  For the API, the certificate status is now returned in the JSON of HTTPS
+   domains.
+
+Resolved issues
+---------------
+
+For the API, fixed an issue where new domains appeared to be already taken.
+
+Known issues
+------------
+
+|no changes|

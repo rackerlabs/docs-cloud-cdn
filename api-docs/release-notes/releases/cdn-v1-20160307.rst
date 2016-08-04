@@ -1,0 +1,19 @@
+API |contract version| updates, March 7, 2016
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+What's new
+----------
+
+The access URL now appears when a service with SAN is created instead of
+waiting until after the SAN cert is deployed.
+
+Resolved issues
+---------------
+
+Fixed an issue to submit the Akamai product information when requesting a SAN
+certificate, which resolves a problem where SAN certificate requests have been failing.
+
+Known issues
+------------
+
+|no changes|
