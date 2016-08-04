@@ -11,6 +11,18 @@ resource at Rackspace. It provides a simple API and Control Panel
 experience for you to manage your CDN-enabled domains and the origins
 and assets associated with those domains. 
 
+The Rackspace CDN architecture includes the following components:
+
+-  A RESTful API
+
+-  The ability to cache publicly accessible resources hosted on a Cloud
+   Server instance, or a public Cloud Files container
+
+-  A single global endpoint to access the API
+
+-  Use of the Akamai Technologies content delivery network, which is one
+   of the world's largest distributed computing platforms
+
 A content delivery network (CDN) is designed to improve the performance
 of publicly distributed assets.  Assets can be anything from website
 content, to web application components, to media like videos, ads, and
@@ -31,18 +43,6 @@ familiar with the following technologies:
 *  RESTful web services
 *  HTTP/1.1
 *  JSON data serialization format
-
-The Rackspace CDN architecture includes the following components:
-
--  A RESTful API
-
--  The ability to cache publicly accessible resources hosted on a Cloud
-   Server instance, or a public Cloud Files container
-
--  A single global endpoint to access the API
-
--  Use of the Akamai Technologies content delivery network, which is one
-   of the world's largest distributed computing platforms
 
 Use the following links to go directly to user and reference information for
 using the |apiservice|:
