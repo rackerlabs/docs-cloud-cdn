@@ -2,50 +2,32 @@
 .. _post-rerun-all-the-san-requests-in-retry-list-queue:
 
 Rerun all the SAN requests in the retry list queue
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code::
 
     POST /admin/provider/akamai/ssl_certificate/retry_list
-
 
 This operation reruns all of the SAN requests in the SAN retry list queue.
 
 .. note::
    This endpoint is accessible only by users with the ``support`` role in their Cloud Identity service catalog.
    
-   
-
-
-
 This table shows the possible response codes for this operation:
-
 
 +--------------------------+-------------------------+-------------------------+
 |Response Code             |Name                     |Description              |
 +==========================+=========================+=========================+
 |202                       |Accepted                 |The request has been     |
-|                          |                         |accepted for processing..|
+|                          |                         |accepted for processing. |
 +--------------------------+-------------------------+-------------------------+
 
-
 Request
-""""""""""""""""
-
-
-
-
-
-
-
+"""""""
 
 This operation does not accept a request body.
 
-
-
-
 **Example: Rerun all the SAN requests in the retry list queue HTTP request**
-
 
 .. code::
 
@@ -56,28 +38,31 @@ This operation does not accept a request body.
    Content-type: application/json
 
 
-
-
-
 Response
-""""""""""""""""
-
-
-
-
-
-
-
-
-
+""""""""
 
 **Example: Rerun all the SAN requests in the retry list queue HTTP response**
 
+.. code::
+
+   HTTP/1.1 202 (Accepted)
+
+**Example: Rerun all the SAN requests in the retry list queue JSON response**
 
 .. code::
 
-   HTP/1.1 202 (Accepted)
-
-
-
-
+   {
+      "processing": [
+        {
+          "project_id": "002",
+          "domain_name": "test_san1.cnamecdn.com",
+          "flavor_id": "premium"
+        },
+        {
+          "project_id": "000",
+          "domain_name": "test_san2.cnamecdn.com",
+          "flavor_id": "premium"
+        }
+      ],
+      "failed_validation": []
+    }

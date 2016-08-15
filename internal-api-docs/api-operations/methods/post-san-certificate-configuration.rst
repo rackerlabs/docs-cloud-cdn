@@ -1,7 +1,7 @@
 .. _post-san-certificate-configuration:
 
 Update the SAN certificate configuration
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code::
 
@@ -13,9 +13,6 @@ This operation updates the SAN certificate configuration information.
 
    This endpoint is accessible only by users with the ``support`` role in their Cloud Identity service catalog.
    
-   
-
-
 
 This table shows the possible response codes for this operation:
 
@@ -28,10 +25,7 @@ This table shows the possible response codes for this operation:
 
 
 Request
-""""""""""""""""
-
-
-
+"""""""
 
 This table shows the URI parameters for the request:
 
@@ -42,11 +36,6 @@ This table shows the URI parameters for the request:
 |                          |                         |certificate, such as     |
 |                          |                         |secure1.san1.altcdn.com. |
 +--------------------------+-------------------------+-------------------------+
-
-
-
-
-
 
 This table shows the body parameters for the request:
 
@@ -60,8 +49,6 @@ This table shows the body parameters for the request:
 |                          |                         |values are ``true`` and  |
 |                          |                         |``false``.               |
 +--------------------------+-------------------------+-------------------------+
-
-
 
 **Example: Update the SAN certificate configuration information HTTP request**
 
@@ -82,17 +69,8 @@ This table shows the body parameters for the request:
         "enabled": false
     }
 
-
-
-
-
-
 Response
-""""""""""""""""
-
-
-
-
+""""""""
 
 This table shows the body parameters for the response:
 
@@ -126,19 +104,12 @@ This table shows the body parameters for the response:
 |                          |                         |certificate.             |
 +--------------------------+-------------------------+-------------------------+
 
-
-
-
-
-
-
 **Example: Update the SAN certificate configuration information JSON response**
 
 
 .. code::
 
    HTTP/1.1 200 OK
-
 
 .. code::
 
