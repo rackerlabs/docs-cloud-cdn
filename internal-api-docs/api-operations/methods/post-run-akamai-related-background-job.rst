@@ -1,31 +1,22 @@
-
 .. _post-run-akamai-related-background-job:
 
 Run Akamai-related background job
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code::
 
     POST /admin/provider/akamai/background_job
-
-
 
 This operation runs an Akamai-related background job.
 
 .. note::
    Currently, the following types of jobs are supported: 
    
-   * akamai_update_papi_property_for_mod_san (does not consume the queue)
-   * akamai_check_and_update_cert_status (consumes the queue)
+   * ``akamai_update_papi_property_for_mod_san`` (does not consume the queue)
+   * ``akamai_check_and_update_cert_status`` (consumes the queue)
 
    You provide these values in the ``job_type`` parameters in the request.
    
-   
-   
-   
-   
-
-
 
 This table shows the possible response codes for this operation:
 
@@ -39,14 +30,7 @@ This table shows the possible response codes for this operation:
 
 
 Request
-""""""""""""""""
-
-
-
-
-
-
-
+"""""""
 
 This table shows the body parameters for the request:
 
@@ -76,16 +60,13 @@ This table shows the body parameters for the request:
 |                    |             |``akamai_https_san_config_numbers``.         |
 +--------------------+-------------+---------------------------------------------+
 |\ **project_id**    |String       |When ``job_type`` is                         |
-|                    |*(Required)* |``akamai_check_and_update_cert_status``,     |
+|                    |*(Optional)* |``akamai_check_and_update_cert_status``,     |
 |                    |             |the valid value is the customers's project   |
 |                    |             |ID.                                          |
 +--------------------+-------------+---------------------------------------------+
 
 
-
-
-**Example: Run Akamai-related background job JSON request**
-
+**Example: Run Akamai-related background job HTTP request**
 
 .. code::
 
@@ -94,9 +75,9 @@ This table shows the body parameters for the request:
    X-Auth-Token: 0f6e9f63600142f0a970911583522217
    Accept: application/json
    Content-type: application/json
+
+**Example: Run Akamai-related background job JSON request**
    
-
-
 .. code::
     
     {
@@ -104,7 +85,7 @@ This table shows the body parameters for the request:
     }   
 
 
-or
+**Example: Run Akamai-related background job HTTP request**
 
 .. code::
 
@@ -113,9 +94,9 @@ or
    X-Auth-Token: 0f6e9f63600142f0a970911583522217
    Accept: application/json
    Content-type: application/json
+
+**Example: Run Akamai-related background job JSON request**
    
-
-
 .. code::
     
     {
@@ -124,24 +105,49 @@ or
     } 
 
 
-
-
 Response
-""""""""""""""""
-
-
-
-
-
+""""""""
 
 **Example: Run Akamai-related background job HTTP response**
-
 
 .. code::
 
    HTP/1.1 202 (Accepted)
-   
 
+**Example: Run Akamai-related background job JSON response**
 
-
-
+.. code::
+ 
+   {
+      "sent": [
+        {
+          "domain_name": "test-san1.cnamecdn.com",
+          "flavor_id": "flavor_id",
+          "project_id": "project_id",
+          "cert_type": "san",
+          "cert_details": {
+            "Akamai": {
+              "extra_info": {
+                "san cert": "san1.example.com",
+                "akamai_spsId": 1
+              }
+            }
+          }
+        },
+        {
+          "domain_name": "test-san2.cnamecdn.com",
+          "flavor_id": "flavor_id",
+          "project_id": "project_id",
+          "cert_type": "san",
+          "cert_details": {
+            "Akamai": {
+              "extra_info": {
+                "san cert": "san2.example.com",
+                "akamai_spsId": 2
+              }
+            }
+          }
+        }
+      ],
+      "ignored": []
+    }
