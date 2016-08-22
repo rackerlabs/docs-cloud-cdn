@@ -1,6 +1,6 @@
 .. _service-status-operations:
 
-Service assets operations
+Service status operations
 -------------------------
 
 .. contents::
