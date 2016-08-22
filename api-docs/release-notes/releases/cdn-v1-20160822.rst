@@ -1,0 +1,17 @@
+API |contract version| updates, August 22, 2016
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+What's new
+----------
+
+|no changes|
+
+Resolved issues
+---------------
+
+Fixed the duplicate mapping of the country code for Costa Rica in the geographical restrictions.
+
+Known issues
+------------
+
+|no changes|
