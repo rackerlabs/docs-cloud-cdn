@@ -4,10 +4,10 @@
 
 This repository contains the source files for the following Rackspace CDN API documentation:
 
-* [Rackspace CDN Getting Started Guide](https://developer.rackspace.com/docs/cdn/v1/developer-guide/#getting-started)
-* [Rackspace CDN Developer Guide](https://developer.rackspace.com/docs/cdn/v1/developer-guide/#developer-guide)
-* [Rackspace CDN API Reference](https://developer.rackspace.com/docs/cdn/v1/developer-guide/#api-reference)
-* [Rackspace CDN Release Notes](https://developer.rackspace.com/docs/cdn/v1/developer-guide/#api-reference)
+* [Getting started](https://developer.rackspace.com/docs/cdn/v1/getting-started/)
+* [General API information](https://developer.rackspace.com/docs/cdn/v1/general-api-info/)
+* [API reference](https://developer.rackspace.com/docs/cdn/v1/api-reference/)
+* [Release notes](https://developer.rackspace.com/docs/cdn/v1/release-notes/)
 
 When you commit changes to the master branch of this repository, the 
 [Strider CI/CD build job](https://build.developer.rackspace.com/rackerlabs/docs-cloud-cdn/) 
