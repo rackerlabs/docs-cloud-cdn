@@ -24,16 +24,12 @@ Following are the key files that define project and content architecture:
 Content | File
 --- | ---
 |Index page for the main content structure| [index.rst](https://github.com/rackerlabs/docs-cloud-cdn/blob/master/api-docs/index.rst)
-|About the API index| [overview/index.rst](https://github.com/rackerlabs/docs-cloud-cdn/blob/master/api-docs/overview/index.rst)
-|Getting Started introduction| [getting-started.rst](https://github.com/rackerlabs/docs-cloud-cdn/blob/master/api-docs/getting-started.rst)
-|Getting Started index|[getting-started/index.rst](https://github.com/rackerlabs/docs-cloud-cdn/blob/master/api-docs/getting-started/index.rst)
-|Developer Guide introduction|[developer-guide.rst](https://github.com/rackerlabs/docs-cloud-cdn/blob/master/api-docs/developer-guide.rst)
-|Concepts section| [concepts.rst](https://github.com/rackerlabs/docs-cloud-cdn/blob/master/api-docs/concepts.rst)
-|General API information index|[general-api-info/index.rst](https://github.com/rackerlabs/docs-cloud-cdn/blob/master/api-docs/general-api-info/index.rst)
-|API Reference introduction|[api-reference.rst](https://github.com/rackerlabs/docs-cloud-cdn/blob/master/api-docs/api-reference.rst)
-|API Reference index|[api-operations/index.rst](https://github.com/rackerlabs/docs-cloud-cdn/blob/master/api-docs/api-operations/index.rst)
-|API operations methods, including code samples|[api-operations/methods](https://github.com/rackerlabs/docs-cloud-cdn/tree/master/api-docs/api-operations/methods) 
-|Release notes|[release-notes.rst](https://github.com/rackerlabs/docs-cloud-cdn/blob/master/api-docs/release-notes.rst)
+|Getting started| [getting-started folder](https://github.com/rackerlabs/docs-cloud-cdn/tree/master/api-docs/getting-started)
+|General API information|[general-api-info folder](https://github.com/rackerlabs/docs-cloud-cdn/tree/master/api-docs/general-api-info)
+|API reference|[api-reference folder](https://github.com/rackerlabs/docs-cloud-cdn/tree/master/api-docs/api-reference)
+|API reference methods|[api-reference/methods folder](https://github.com/rackerlabs/docs-cloud-cdn/tree/master/api-docs/api-reference/methods)
+|API operations methods, including code 
+|Release notes|[release-notes folder](https://github.com/rackerlabs/docs-cloud-cdn/tree/master/api-docs/release-notes)
 |Sphinx documentation configuration file| [conf.py](https://github.com/rackerlabs/docs-cloud-cdn/blob/master/api-docs/conf.py) (Typically, this file does not require changes.)
 |Linux and OS X build script|``Makefile``|
 |Windows build script|``make.bat``|
