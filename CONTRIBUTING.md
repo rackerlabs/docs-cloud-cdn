@@ -28,7 +28,6 @@ Content | File
 |General API information|[general-api-info folder](https://github.com/rackerlabs/docs-cloud-cdn/tree/master/api-docs/general-api-info)
 |API reference|[api-reference folder](https://github.com/rackerlabs/docs-cloud-cdn/tree/master/api-docs/api-reference)
 |API reference methods|[api-reference/methods folder](https://github.com/rackerlabs/docs-cloud-cdn/tree/master/api-docs/api-reference/methods)
-|API operations methods, including code 
 |Release notes|[release-notes folder](https://github.com/rackerlabs/docs-cloud-cdn/tree/master/api-docs/release-notes)
 |Sphinx documentation configuration file| [conf.py](https://github.com/rackerlabs/docs-cloud-cdn/blob/master/api-docs/conf.py) (Typically, this file does not require changes.)
 |Linux and OS X build script|``Makefile``|
