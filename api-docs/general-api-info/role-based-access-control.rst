@@ -29,13 +29,13 @@ created.
 See the Cloud Identity API guide for information about how to
 perform the following tasks:
 
-* :rax-devdocs:`Add account users <cloud-identity/v2/developer-guide/#add-user>`
+* :rax-devdocs:`Add account users <cloud-identity/v2/api-reference/users-operations/#add-user>`
 
 * :rax-devdocs:`Add role to user \
-  <cloud-identity/v2/developer-guide/#add-role-to-user>`
+  <cloud-identity/v2/api-reference/role-operations/#add-role-to-user>`
 
 * :rax-devdocs:`Delete global role from user \
-  <cloud-identity/v2/developer-guide/#delete-global-role-from-user>`
+  <cloud-identity/v2/api-reference/role-operations/#delete-global-role-from-user>`
 
 .. note::
 
@@ -59,12 +59,12 @@ The following table describes the roles that can be used to access the
      - Role permissions
    * - cdn:admin
      - This role provides Create, Read, Update, and Delete permissions
-       in Rackspace CDN, where access is granted.
+       in |product name|, where access is granted.
    * - cdn:creator
      - This role provides Create, Read, and Update permissions in
-       Rackspace CDN, where access is granted.
+       |product name|, where access is granted.
    * - cdn:observer
-     - This role provides Read permission in Rackspace CDN, where access
+     - This role provides Read permission in |product name|, where access
        is granted.
 
 .. _rbac-available-multi-roles:
