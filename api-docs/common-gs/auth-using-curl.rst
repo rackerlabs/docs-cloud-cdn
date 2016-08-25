@@ -23,7 +23,7 @@ as shown in the following example.
 .. _review-auth-resp:
 
 Review the authentication response
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 If your credentials are valid, the Identity service returns an authentication
 response that includes the following information:
@@ -36,8 +36,7 @@ response that includes the following information:
 
    For detailed information about the authentication response, see the
    :rax-devdocs:`Annotated authentication request and response
-   <cloud-identity/v2/developer-guide/#document-authentication-info/
-   sample-auth-req-response>`
+   <cloud-identity/v2/general-api-info/authentication-info/sample-auth-req-response/#annotated-auth-req-resp>`
    in the Rackspace Cloud API documentation.
 
 In the following example, the ellipsis (...)  represents other service
@@ -60,8 +59,7 @@ token ID
     The ``expires`` attribute indicates the date and time that the token will
     expire, unless it is revoked before the expiration. To get a new token,
     submit another authentication request. For more information, see
-    :rax-devdocs:`Manage authentication tokens
-    <cloud-identity/v2/developer-guide/#manage-authentication-tokens>`.
+    :rax-devdocs:`Manage authentication tokens and token expiration <cloud-identity/v2/getting-started/manage-auth-tokens//#manage-authentication-tokens>`.
 
 tenant ID
     The tenant ID provides your account number. For most Rackspace Cloud
@@ -96,7 +94,8 @@ the following error message descriptions to determine next steps.
 
 ..  note::
        For additional information about authentication errors, see the
-       :rax-devdocs:`Authentication token operations <cloud-identity/v2/developer-guide/#document-api-operations/token-operations>`.
+       :rax-devdocs:`Identity API reference documentation
+       <cloud-identity/v2/general-api-info/http-status-codes/>`.
 
 .. _configure-environment-variables:
 
