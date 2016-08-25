@@ -25,10 +25,10 @@ Rackspace CDN API.
    * - TTL when creating a service
      - Maximum TTL value.
      - 365 days
-   * - Limit on the number of domains that can be listed when retrieving
+   * - Limit on the number of services that can be listed when retrieving
        all services
-     - Maximum number of domains that can be listed.
-     - 20 domains
+     - Maximum number of services that can be listed.
+     - 20 services
    * - Rate limit on the :ref:`Purge a cached asset operation \
        <cdn-purge-a-cached-asset>`
      - Number of requests per minute.
