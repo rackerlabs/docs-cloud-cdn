@@ -29,6 +29,9 @@ Rackspace CDN API.
        all services
      - Maximum number of services that can be listed, per page.
      - 20 services
+   * - Limit on the number of domains per service
+     - Maximum domains per service.
+     - 10 domains
    * - Rate limit on the :ref:`Purge a cached asset operation \
        <cdn-purge-a-cached-asset>`
      - Number of requests per minute.
