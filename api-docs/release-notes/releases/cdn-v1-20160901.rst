@@ -1,0 +1,19 @@
+API |contract version| updates, September 1, 2016
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+What's new
+----------
+
+|no changes|
+
+Resolved issues
+---------------
+
+- Fixed the ordering of caching rules in terms of restrictiveness, causing some rules to not apply.
+
+- Fixed an issue where adding a second domain to your service caused log delivery to be disabled.
+
+Known issues
+------------
+
+|no changes|
