@@ -39,7 +39,7 @@ extensions and build tools.
 
 ## Structure
 
-See the [Contributor guide](https://github.com/rackerlabs/docs-cloud-cdn/blob/master/CONTRIBUTING.md) 
+See the Project description section in the [Contributor guide](https://github.com/rackerlabs/docs-cloud-cdn/blob/master/CONTRIBUTING.md) for links to the content structure. 
 
 ### Support and feedback
 
