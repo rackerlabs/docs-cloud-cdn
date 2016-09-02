@@ -7,7 +7,7 @@
 
 This GitHub repository contains the source files for the following Rackspace CDN API documentation:
 
-* [CDN Developer Guide](https://developer.rackspace.com/docs/cloud-cdn/v1/developer-guide/)
+* [Rackspace CDN API 1.0](https://developer.rackspace.com/docs/cdn/v1/)
 
 ## Contributing
 
@@ -39,25 +39,7 @@ extensions and build tools.
 
 ## Structure
 
-Source files for the Sphinx documentation project are in the ``rst/dev-guide`` directory. Here are the key files that define 
-the Sphinx project and content architecture for the documentation: 
-
-Content | File
---- | ---
-|Sphinx documentation configuration file| [conf.py](https://github.com/rackerlabs/docs-cloud-cdn/blob/master/rst/dev-guide/conf.py) (Typically, this file does not require changes.)
-|Index page for the main content structure| [index.rst](https://github.com/rackerlabs/docs-cloud-cdn/blob/master/rst/dev-guide/index.rst)
-|About the API index| [overview/index.rst](https://github.com/rackerlabs/docs-cloud-cdn/blob/master/rst/dev-guide/overview/index.rst)
-|Getting Started introduction| [getting-started.rst](https://github.com/rackerlabs/docs-cloud-cdn/blob/master/rst/dev-guide/getting-started.rst)
-|Getting Started index|[getting-started/index.rst](https://github.com/rackerlabs/docs-cloud-cdn/blob/master/rst/dev-guide/getting-started/index.rst)
-|Developer Guide introduction|[developer-guide.rst](https://github.com/rackerlabs/docs-cloud-cdn/blob/master/rst/dev-guide/developer-guide.rst)
-|Concepts section| [concepts.rst](https://github.com/rackerlabs/docs-cloud-cdn/blob/master/rst/dev-guide/concepts.rst)
-|General API information index|[general-api-info/index.rst](https://github.com/rackerlabs/docs-cloud-cdn/blob/master/rst/dev-guide/general-api-info/index.rst)
-|API Reference introduction|[api-reference.rst](https://github.com/rackerlabs/docs-cloud-cdn/blob/master/rst/dev-guide/api-reference.rst)
-|API Reference index|[api-operations/index.rst](https://github.com/rackerlabs/docs-cloud-cdn/blob/master/rst/dev-guide/api-operations/index.rst)
-|API operations methods, including code samples|[api-operations/methods](https://github.com/rackerlabs/docs-cloud-cdn/tree/master/rst/dev-guide/api-operations/methods) 
-|Release notes|[release-notes.rst](https://github.com/rackerlabs/docs-cloud-cdn/blob/master/rst/dev-guide/release-notes.rst)
-|**make.bat**|Windows build script
-|**Makefile**| Linux and OS X build
+See the [Contributor guide](https://github.com/rackerlabs/docs-cloud-cdn/blob/master/CONTRIBUTING.md) 
 
 ### Support and feedback
 
