@@ -1,0 +1,19 @@
+API |contract version| updates, September 22, 2016
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+What's new
+----------
+
+|no changes|
+
+Resolved issues
+---------------
+
+- Validation added to Top Level Domains during Secure Certificate requests
+
+- Retries a different DNS shard if the shard is at capacity.
+
+Known issues
+------------
+
+|no changes|
