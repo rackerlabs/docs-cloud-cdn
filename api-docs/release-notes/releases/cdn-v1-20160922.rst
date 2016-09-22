@@ -9,7 +9,7 @@ What's new
 Resolved issues
 ---------------
 
-- Validation added to Top Level Domains during Secure Certificate requests
+- Validation added to top level domains during secure certificate requests
 
 - Retries a different DNS shard if the shard is at capacity.
 
