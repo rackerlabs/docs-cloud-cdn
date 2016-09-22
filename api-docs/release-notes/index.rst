@@ -15,6 +15,7 @@ following release note information.
 .. note:: For information about using the API, see the
    :ref:`documentation overview <index>`.
 
+.. include:: releases/cdn-v1-20160922.rst
 .. include:: releases/cdn-v1-20160901.rst
 .. include:: releases/cdn-v1-20160822.rst
 .. include:: releases/cdn-v1-20160607.rst
