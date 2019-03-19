@@ -21,8 +21,5 @@ API.
   Control Panel, see
   :how-to:`Create a Rackspace CDN service <create-a-rackspace-cdn-service>`.
 
-- To learn about using Rackspace Cloud SDKs, see
-  :rax-devdocs:`Software Development Kits & Tools <#sdks>`.
-
 - To get information about other Rackspace Cloud services APIs, see the
   :rax-devdocs:`API documentation home <>`.
