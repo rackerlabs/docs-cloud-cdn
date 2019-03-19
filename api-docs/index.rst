@@ -52,11 +52,6 @@ using the |apiservice|:
 - :ref:`API reference <api-reference>`
 - :ref:`Release notes <release-notes-collection>`
 
-.. note::
-
-   You can also use |product name| by using one of the language-specific
-   :rax-devdocs:`software development kits or the rack CLI <#sdks>`.
-
 
 .. toctree::
    :hidden:
